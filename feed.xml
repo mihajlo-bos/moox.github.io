@@ -20,14 +20,14 @@ La précédente technique que j’avais utilisé était basé sur MacPorts, j’
 &lt;p&gt;Maintenant que &lt;em&gt;OS X Lion&lt;/em&gt; vient de sortir, les versions des logiciels qu’ils embarquent sont assez récente. &lt;strong&gt;Apache 2&lt;/strong&gt; est juste à activer dans les préférences du système dans la partie qui concerne le &lt;em&gt;Partage&lt;/em&gt; (&lt;em&gt;Sharing&lt;/em&gt; si votre OS est en anglais)&lt;/p&gt;
 
 &lt;figure class=&quot;flex-media--unknown&quot;&gt;
-    &lt;a href=&quot;/2011/07/OS-X-Lion-System-Preferences-Sharing.png&quot;&gt;
-        &lt;img src=&quot;/2011/07/OS-X-Lion-System-Preferences-Sharing.png&quot; alt=&quot;&quot; title=&quot;OS-X-Lion--System-Preferences--Sharing&quot; class=&quot;flex-media__item&quot; /&gt;
+    &lt;a href=&quot;/media/2011/07/OS-X-Lion-System-Preferences-Sharing.png&quot;&gt;
+        &lt;img src=&quot;/media/2011/07/OS-X-Lion-System-Preferences-Sharing.png&quot; alt=&quot;&quot; title=&quot;OS-X-Lion--System-Preferences--Sharing&quot; class=&quot;flex-media__item&quot; /&gt;
     &lt;/a&gt;
 &lt;/figure&gt;
 
 &lt;figure class=&quot;flex-media--unknown&quot;&gt;
-    &lt;a href=&quot;/2011/07/OS-X-Lion-System-Preferences-Sharing-Web-Sharing.png&quot;&gt;&lt;/a&gt;
-        &lt;img src=&quot;/2011/07/OS-X-Lion-System-Preferences-Sharing-Web-Sharing.png&quot; alt=&quot;&quot; title=&quot;OS-X-Lion--System-Preferences--Sharing--Web-Sharing&quot; class=&quot;flex-media__item&quot; /&gt;
+    &lt;a href=&quot;/media/2011/07/OS-X-Lion-System-Preferences-Sharing-Web-Sharing.png&quot;&gt;&lt;/a&gt;
+        &lt;img src=&quot;/media/2011/07/OS-X-Lion-System-Preferences-Sharing-Web-Sharing.png&quot; alt=&quot;&quot; title=&quot;OS-X-Lion--System-Preferences--Sharing--Web-Sharing&quot; class=&quot;flex-media__item&quot; /&gt;
     &lt;/a&gt;
 &lt;/figure&gt;
 
@@ -88,8 +88,8 @@ Ajouter dans votre php.ini (cf configuration de php ci-dessus)  &lt;/p&gt;
 &lt;p&gt;So, in your « user folder » (~/), there will be a Library folder, hidden in OS X Lion, so to see it, open the Finder, in the « Go » menu, hold &lt;kbd&gt;⌥&lt;/kbd&gt;.&lt;/p&gt;
 
 &lt;figure class=&quot;flex-media--unknown&quot;&gt;
-  &lt;a href=&quot;/2011/10/Open-Library-folder-wtih-Finder.png&quot;&gt;
-    &lt;img class=&quot;flex-media__item&quot; title=&quot;Open Library folder with Finder&quot; src=&quot;/2011/10/Open-Library-folder-wtih-Finder.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;/media/2011/10/Open-Library-folder-wtih-Finder.png&quot;&gt;
+    &lt;img class=&quot;flex-media__item&quot; title=&quot;Open Library folder with Finder&quot; src=&quot;/media/2011/10/Open-Library-folder-wtih-Finder.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Inside that Library folder, there is a folder called VirtualBox, which contains a Machines folder. In each VM folder, open the *.vbox file using a text-editor. It’s a XML file.&lt;/p&gt;
@@ -106,8 +106,8 @@ Ajouter dans votre php.ini (cf configuration de php ci-dessus)  &lt;/p&gt;
 &lt;p&gt;Exit Virtual Box, change this « true » to « false » and Save. Restart Virtual Box and (or open it if you had it closed) and the hardware virtualization extensions will be disabled.&lt;/p&gt;
 
 &lt;figure class=&quot;flex-media--unknown&quot;&gt;
-  &lt;a href=&quot;/2011/10/Edit-Virtualbox-xml-file.png&quot;&gt;
-    &lt;img class=&quot;flex-media__item&quot; title=&quot;Edit Virtualbox xml file&quot; src=&quot;/2011/10/Edit-Virtualbox-xml-file.png&quot; alt=&quot;&quot; /&gt;
+  &lt;a href=&quot;/media/2011/10/Edit-Virtualbox-xml-file.png&quot;&gt;
+    &lt;img class=&quot;flex-media__item&quot; title=&quot;Edit Virtualbox xml file&quot; src=&quot;/media/2011/10/Edit-Virtualbox-xml-file.png&quot; alt=&quot;&quot; /&gt;
   &lt;/a&gt;
 &lt;/figure&gt;
 
@@ -129,16 +129,16 @@ Ajouter dans votre php.ini (cf configuration de php ci-dessus)  &lt;/p&gt;
 &lt;p&gt;Go into the &lt;code&gt;/Applications/Netbeans&lt;/code&gt; folder, and open the Netbeans package.&lt;/p&gt;
 
 &lt;figure class=&quot;flex-media--unknown&quot;&gt;
-    &lt;a href=&quot;/2011/10/open-netbeans-package.png&quot;&gt;
-        &lt;img class=&quot;flex-media__item&quot; src=&quot;/2011/10/open-netbeans-package.png&quot; alt=&quot;&quot; title=&quot;Open Netbeans.app package&quot; /&gt;
+    &lt;a href=&quot;/media/2011/10/open-netbeans-package.png&quot;&gt;
+        &lt;img class=&quot;flex-media__item&quot; src=&quot;/media/2011/10/open-netbeans-package.png&quot; alt=&quot;&quot; title=&quot;Open Netbeans.app package&quot; /&gt;
     &lt;/a&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Then open &lt;code&gt;etc/netbeans.conf&lt;/code&gt;&lt;/p&gt;
 
 &lt;figure class=&quot;flex-media--unknown&quot;&gt;
-    &lt;a href=&quot;/2011/10/open-netbeans-conf.png&quot;&gt;
-        &lt;img class=&quot;flex-media__item&quot; src=&quot;/2011/10/open-netbeans-conf.png&quot; alt=&quot;&quot; title=&quot;Edit netbeans.conf&quot; /&gt;
+    &lt;a href=&quot;/media/2011/10/open-netbeans-conf.png&quot;&gt;
+        &lt;img class=&quot;flex-media__item&quot; src=&quot;/media/2011/10/open-netbeans-conf.png&quot; alt=&quot;&quot; title=&quot;Edit netbeans.conf&quot; /&gt;
     &lt;/a&gt;
 &lt;/figure&gt;
 
@@ -167,7 +167,7 @@ In your terminal do&lt;/p&gt;
 
 &lt;p&gt;You should have « Property List Editor » app to do this.&lt;/p&gt;
 
-&lt;figure class=&quot;flex-media--unknown&quot;&gt;&lt;a href=&quot;/2011/06/Remove-deleted-folder-osx-finder-sidebar.png&quot;&gt;&lt;img class=&quot;flex-media__item&quot; title=&quot;Remove-deleted-folder-osx-finder-sidebar&quot; src=&quot;/2011/06/Remove-deleted-folder-osx-finder-sidebar.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/figure&gt;
+&lt;figure class=&quot;flex-media--unknown&quot;&gt;&lt;a href=&quot;/media/2011/06/Remove-deleted-folder-osx-finder-sidebar.png&quot;&gt;&lt;img class=&quot;flex-media__item&quot; title=&quot;Remove-deleted-folder-osx-finder-sidebar&quot; src=&quot;/media/2011/06/Remove-deleted-folder-osx-finder-sidebar.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/figure&gt;
 
 &lt;p&gt;Open each entries to find what you want under Root » useritems » CustomListItems. Try to open each item and check the name of the folder. When you found the correct entry, delete the « Item x » and save the file.&lt;/p&gt;
 
@@ -176,7 +176,7 @@ In your terminal do&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Or just make option+click on Finder’s icon in your dock, then Relaunch.&lt;/p&gt;
 
-&lt;figure class=&quot;flex-media--unknown&quot;&gt;&lt;a href=&quot;/2011/06/relaunch-finder.png&quot;&gt;&lt;img class=&quot;flex-media__item&quot; title=&quot;relaunch-finder&quot; src=&quot;/2011/06/relaunch-finder.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/figure&gt;
+&lt;figure class=&quot;flex-media--unknown&quot;&gt;&lt;a href=&quot;/media/2011/06/relaunch-finder.png&quot;&gt;&lt;img class=&quot;flex-media__item&quot; title=&quot;relaunch-finder&quot; src=&quot;/media/2011/06/relaunch-finder.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/figure&gt;
 
 &lt;p&gt;It’s that simple :)&lt;/p&gt;
 </description>
@@ -196,24 +196,24 @@ For Mac OS X, you can use &lt;a href=&quot;http://www.macupdate.com/app/mac/2514
 Download the the software and install it. When installation is finished, you need to restart the computer to be able to use KeyRemap4MacBook.&lt;br&gt;
 After reboot, you will notice a new empty icon which look like a key in your menu bar.&lt;/p&gt;
 
-&lt;figure class=&quot;flex-media--unknown&quot;&gt;&lt;a class=&quot;zoom&quot; href=&quot;/2011/06/KeyRemap4MacBook-menu-bar-icon.png&quot;&gt;&lt;img class=&quot;flex-media__item&quot; title=&quot;KeyRemap4MacBook-menu-bar-icon&quot; src=&quot;/2011/06/KeyRemap4MacBook-menu-bar-icon.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/figure&gt;
+&lt;figure class=&quot;flex-media--unknown&quot;&gt;&lt;a class=&quot;zoom&quot; href=&quot;/media/2011/06/KeyRemap4MacBook-menu-bar-icon.png&quot;&gt;&lt;img class=&quot;flex-media__item&quot; title=&quot;KeyRemap4MacBook-menu-bar-icon&quot; src=&quot;/media/2011/06/KeyRemap4MacBook-menu-bar-icon.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/figure&gt;
 
 &lt;p&gt;You can open KeyRemap4MacBook from this icon or find the dedicated Preference Pane under « System Preferences ».&lt;br&gt;
 On the « Change Key » tab, look at « Change Control_L Key (Left Control) » and select « Control_L to Fn ».&lt;/p&gt;
 
-&lt;figure class=&quot;flex-media--unknown&quot;&gt;&lt;a class=&quot;zoom&quot; href=&quot;/2011/06/KeyRemap4MacBook-Control_L-to-Fn.png&quot;&gt;&lt;img class=&quot;flex-media__item&quot; title=&quot;KeyRemap4MacBook-Control_L-to-Fn&quot; src=&quot;/2011/06/KeyRemap4MacBook-Control_L-to-Fn.png&quot; alt=&quot;&quot;/&gt;&lt;/a&gt;&lt;/figure&gt;
+&lt;figure class=&quot;flex-media--unknown&quot;&gt;&lt;a class=&quot;zoom&quot; href=&quot;/media/2011/06/KeyRemap4MacBook-Control_L-to-Fn.png&quot;&gt;&lt;img class=&quot;flex-media__item&quot; title=&quot;KeyRemap4MacBook-Control_L-to-Fn&quot; src=&quot;/media/2011/06/KeyRemap4MacBook-Control_L-to-Fn.png&quot; alt=&quot;&quot;/&gt;&lt;/a&gt;&lt;/figure&gt;
 
 &lt;p&gt;After that your need to change &lt;kbd&gt;fn&lt;/kbd&gt; behavior too. So look at « Change Control_L Key (Left Control) » and select « Control_L to Fn ».&lt;/p&gt;
 
-&lt;figure class=&quot;flex-media--unknown&quot;&gt;&lt;a class=&quot;zoom&quot; href=&quot;/2011/06/KeyRemap4MacBook-Fn-to-Control_L.png&quot;&gt;&lt;img class=&quot;flex-media__item&quot; title=&quot;KeyRemap4MacBook-Fn-to-Control_L&quot; src=&quot;/2011/06/KeyRemap4MacBook-Fn-to-Control_L.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/figure&gt;
+&lt;figure class=&quot;flex-media--unknown&quot;&gt;&lt;a class=&quot;zoom&quot; href=&quot;/media/2011/06/KeyRemap4MacBook-Fn-to-Control_L.png&quot;&gt;&lt;img class=&quot;flex-media__item&quot; title=&quot;KeyRemap4MacBook-Fn-to-Control_L&quot; src=&quot;/media/2011/06/KeyRemap4MacBook-Fn-to-Control_L.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/figure&gt;
 
 &lt;p&gt;Eventually you can remove the menu bar icon under the « MenuBar » tab. Just unselect the « Show icon in menu bar » option.&lt;/p&gt;
 
-&lt;figure class=&quot;flex-media--unknown&quot;&gt;&lt;a class=&quot;zoom&quot; href=&quot;/2011/06/KeyRemap4MacBook-Remove-from-menu-bar.png&quot;&gt;&lt;img class=&quot;flex-media__item&quot; title=&quot;KeyRemap4MacBook-Remove-from-menu-bar&quot; src=&quot;/2011/06/KeyRemap4MacBook-Remove-from-menu-bar.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/figure&gt;
+&lt;figure class=&quot;flex-media--unknown&quot;&gt;&lt;a class=&quot;zoom&quot; href=&quot;/media/2011/06/KeyRemap4MacBook-Remove-from-menu-bar.png&quot;&gt;&lt;img class=&quot;flex-media__item&quot; title=&quot;KeyRemap4MacBook-Remove-from-menu-bar&quot; src=&quot;/media/2011/06/KeyRemap4MacBook-Remove-from-menu-bar.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/figure&gt;
 
 &lt;h2&gt;Switch &lt;kbd&gt;ctrl&lt;/kbd&gt; and &lt;kbd&gt;fn&lt;/kbd&gt; on the Macbook (Pro/Air) Keyboard&lt;/h2&gt;
 
-&lt;figure class=&quot;flex-media--unknown&quot;&gt;&lt;a href=&quot;/2011/06/Macbook-Pro-Keyboard-Switch-Ctrl-and-Fn-Remove-keys.jpg&quot;&gt;&lt;img class=&quot;flex-media__item&quot; title=&quot;Macbook Pro Keyboard - Switch Ctrl and Fn - Remove keys&quot; src=&quot;/2011/06/Macbook-Pro-Keyboard-Switch-Ctrl-and-Fn-Remove-keys.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/figure&gt;
+&lt;figure class=&quot;flex-media--unknown&quot;&gt;&lt;a href=&quot;/media/2011/06/Macbook-Pro-Keyboard-Switch-Ctrl-and-Fn-Remove-keys.jpg&quot;&gt;&lt;img class=&quot;flex-media__item&quot; title=&quot;Macbook Pro Keyboard - Switch Ctrl and Fn - Remove keys&quot; src=&quot;/media/2011/06/Macbook-Pro-Keyboard-Switch-Ctrl-and-Fn-Remove-keys.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/figure&gt;
 
 &lt;p&gt;Now &lt;kbd&gt;ctrl&lt;/kbd&gt; and &lt;kbd&gt;fn&lt;/kbd&gt; are switched on your OS, you need to switch the real keys ! This part is quite easy, it just require some delicacy.&lt;br&gt;
 Checkout the following video to see how to switch the keys on your Macbook Keyboard.&lt;/p&gt;
@@ -230,7 +230,7 @@ Checkout the following video to see how to switch the keys on your Macbook Keybo
         
             <item>
                 <title>Compass.app, une application qu&#8217;elle est bien pour compiler ses CSS avec Sass / Compass</title>
-                <description>&lt;figure class=&quot;flex-media--3-1&quot;&gt;&lt;a href=&quot;http://compass-style.org/&quot;&gt;&lt;img class=&quot;flex-media__item&quot; src=&quot;/2011/05/compass.app_.jpg&quot; alt=&quot;compass app&quot; /&gt;&lt;/a&gt;&lt;/figure&gt;
+                <description>&lt;figure class=&quot;flex-media--3-1&quot;&gt;&lt;a href=&quot;http://compass-style.org/&quot;&gt;&lt;img class=&quot;flex-media__item&quot; src=&quot;/media/2011/05/compass.app_.jpg&quot; alt=&quot;compass app&quot; /&gt;&lt;/a&gt;&lt;/figure&gt;
 
 &lt;p&gt;Suite à mes précédents articles sur &lt;a href=&quot;/blog/utiliser-des-variables-fonctions-css&quot;&gt;les pré-processeurs CSS qui permettent d’utiliser des variables et fonctions&lt;/a&gt;, et &lt;a href=&quot;/blog/fonctions-variables-css-generer-ses-css-avec-sass-compass/&quot;&gt;un petit tutoriel sur l’installation et utilisation du combo Sass/Compass&lt;/a&gt;, voici la présentation d’un petite application, qui permet de s’affranchir des toujours utiliser des lignes de commandes pour lancer Compass.  &lt;/p&gt;
 
@@ -292,7 +292,7 @@ git pull
         
             <item>
                 <title>Fonctions et variables CSS avec Sass et Compass</title>
-                <description>&lt;figure class=&quot;flex-media--3-1&quot;&gt;&lt;a href=&quot;http://sass-lang.com/&quot;&gt;&lt;img class=&quot;flex-media__item&quot; src=&quot;/2011/05/sass.jpg&quot; alt=&quot;sass&quot; /&gt;&lt;/a&gt;&lt;/figure&gt;
+                <description>&lt;figure class=&quot;flex-media--3-1&quot;&gt;&lt;a href=&quot;http://sass-lang.com/&quot;&gt;&lt;img class=&quot;flex-media__item&quot; src=&quot;/media/2011/05/sass.jpg&quot; alt=&quot;sass&quot; /&gt;&lt;/a&gt;&lt;/figure&gt;
 
 &lt;p&gt;Comme je l’ai expliqué dans mon précédent article, aujourd’hui il est possible de passer la vitesse supérieure avec ses CSS, afin d’avoir à sa disposition &lt;a href=&quot;/blog/utiliser-des-variables-fonctions-css&quot; title=&quot;Utiliser des variables et fonctions CSS, c’est possible !&quot;&gt;variables et fonctions CSS&lt;/a&gt;. Voici donc un petit mémo concernant la solution que j’ai choisi &lt;a href=&quot;http://sass-lang.com/&quot;&gt;Sass&lt;/a&gt; avec la librairie Compass.  &lt;/p&gt;
 
@@ -378,7 +378,7 @@ style.scss
 
 &lt;h2&gt;La librairie Compass&lt;figure&gt;&lt;/h2&gt;
 
-&lt;figure class=&quot;flex-media--3-1&quot;&gt;&lt;a href=&quot;http://compass-style.org/&quot;&gt;&lt;img class=&quot;flex-media__item&quot; src=&quot;/2011/05/compass.jpg&quot; alt=&quot;compass&quot; /&gt;&lt;/a&gt;&lt;/figure&gt;
+&lt;figure class=&quot;flex-media--3-1&quot;&gt;&lt;a href=&quot;http://compass-style.org/&quot;&gt;&lt;img class=&quot;flex-media__item&quot; src=&quot;/media/2011/05/compass.jpg&quot; alt=&quot;compass&quot; /&gt;&lt;/a&gt;&lt;/figure&gt;
 
 &lt;p&gt;Maintenant que vous êtes équipé de la boite à outils CSS, il faut bien commencer à la remplir !&lt;br&gt;
 Pour ce faire je vous propose d’installer la super &lt;a href=&quot;http://compass-style.org/&quot;&gt;librairie Compass&lt;/a&gt; qui comporte moult fonctionnalités utile pour &lt;a href=&quot;http://compass-style.org/reference/compass/css3/&quot;&gt;utiliser du CSS 3 sans les préfixes dans tous les sens&lt;/a&gt; ou &lt;a href=&quot;http://compass-style.org/reference/compass/utilities/sprites/&quot;&gt;générer des sprites CSS sans prises de têtes&lt;/a&gt;. Rien que ça, ça vaut le détour !&lt;br&gt;

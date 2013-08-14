@@ -6,12 +6,12 @@
 	https://github.com/MoOx/moox.io.git
 -->
 <html lang="en" class="no-js no-touch grid-title--quotes">
+<head>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <script>(function(docEl) {
 	docEl.className = docEl.className.replace(/\bno-js\b/, 'js');
 	if ('ontouchstart' in docEl) { docEl.className = docEl.className.replace(/\bno-touch\b/, 'touch'); }
 })(document.documentElement);</script>
-<head>
 
 <meta charset="utf-8">
 <title>Coder en Javascript dans une console</title>
@@ -20,7 +20,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="feed.xml" rel="alternate" type="application/rss+xml">
 
-<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/style.css?20130814162412">
+
 
 
 </head>
@@ -185,16 +186,19 @@ Avec jQuery, ça devient aussi simple que ça pour contourner le problème :</p>
 </div>
 
 </div>
-<script src="/assets/js/ieshim.js"></script>
-<script src="/assets/js/vanilla.js"></script>
+<script src="/assets/js/ieshim.js?20130814162412"></script>
+<script src="/assets/js/vanilla.js?20130814162412"></script>
 
 
-<script>var _gaq=[['_setAccount','UA-1716762-6'],['_trackPageview']];
-
-(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-s.parentNode.insertBefore(g,s)}(document,'script'));
+<script>
+	(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+	function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+	e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+	e.src='//www.google-analytics.com/analytics.js';
+	r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+	ga('create','UA-1716762-6');ga('send','pageview');
 </script>
+
 
 
 
@@ -203,18 +207,18 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
 var disqus_shortname = 'moox',
 
 
-	
-	disqus_identifier = '/blog/coder-en-javascript-dans-une-console/',
-	disqus_url = '/blog/coder-en-javascript-dans-une-console/',
-	disqus_script = 'embed.js';
+
+disqus_identifier = 'http://moox.io/blog/coder-en-javascript-dans-une-console/',
+disqus_url = 'http://moox.io/blog/coder-en-javascript-dans-une-console/',
+disqus_script = 'embed.js';
 
 
-(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-g.src='http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-s.parentNode.insertBefore(g,s)}(document,'script'));
-
+(function(d,s) {
+s = d.createElement('script');s.async=1;s.src = '//' + disqus_shortname + '.disqus.com/'+disqus_script;
+(d.getElementsByTagName('head')[0]).appendChild(s);
+})(document);
 </script>
 
-
+ 
 </body>
 </html>

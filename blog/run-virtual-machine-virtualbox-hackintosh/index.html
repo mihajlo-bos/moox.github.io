@@ -6,12 +6,12 @@
 	https://github.com/MoOx/moox.io.git
 -->
 <html lang="en" class="no-js no-touch grid-title--quotes">
+<head>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <script>(function(docEl) {
 	docEl.className = docEl.className.replace(/\bno-js\b/, 'js');
 	if ('ontouchstart' in docEl) { docEl.className = docEl.className.replace(/\bno-touch\b/, 'touch'); }
 })(document.documentElement);</script>
-<head>
 
 <meta charset="utf-8">
 <title>Run a Virtual Machine with VirtualBox on a Hackintosh</title>
@@ -20,7 +20,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="feed.xml" rel="alternate" type="application/rss+xml">
 
-<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/style.css?20130814162412">
+
 
 
 </head>
@@ -90,8 +91,8 @@
 <p>So, in your « user folder » (~/), there will be a Library folder, hidden in OS X Lion, so to see it, open the Finder, in the « Go » menu, hold <kbd>⌥</kbd>.</p>
 
 <figure class="flex-media--unknown">
-  <a href="/2011/10/Open-Library-folder-wtih-Finder.png">
-    <img class="flex-media__item" title="Open Library folder with Finder" src="/2011/10/Open-Library-folder-wtih-Finder.png" alt="" /></a>
+  <a href="/media/2011/10/Open-Library-folder-wtih-Finder.png">
+    <img class="flex-media__item" title="Open Library folder with Finder" src="/media/2011/10/Open-Library-folder-wtih-Finder.png" alt="" /></a>
 </figure>
 
 <p>Inside that Library folder, there is a folder called VirtualBox, which contains a Machines folder. In each VM folder, open the *.vbox file using a text-editor. It’s a XML file.</p>
@@ -108,8 +109,8 @@
 <p>Exit Virtual Box, change this « true » to « false » and Save. Restart Virtual Box and (or open it if you had it closed) and the hardware virtualization extensions will be disabled.</p>
 
 <figure class="flex-media--unknown">
-  <a href="/2011/10/Edit-Virtualbox-xml-file.png">
-    <img class="flex-media__item" title="Edit Virtualbox xml file" src="/2011/10/Edit-Virtualbox-xml-file.png" alt="" />
+  <a href="/media/2011/10/Edit-Virtualbox-xml-file.png">
+    <img class="flex-media__item" title="Edit Virtualbox xml file" src="/media/2011/10/Edit-Virtualbox-xml-file.png" alt="" />
   </a>
 </figure>
 
@@ -162,16 +163,19 @@
 </div>
 
 </div>
-<script src="/assets/js/ieshim.js"></script>
-<script src="/assets/js/vanilla.js"></script>
+<script src="/assets/js/ieshim.js?20130814162412"></script>
+<script src="/assets/js/vanilla.js?20130814162412"></script>
 
 
-<script>var _gaq=[['_setAccount','UA-1716762-6'],['_trackPageview']];
-
-(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-s.parentNode.insertBefore(g,s)}(document,'script'));
+<script>
+	(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+	function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+	e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+	e.src='//www.google-analytics.com/analytics.js';
+	r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+	ga('create','UA-1716762-6');ga('send','pageview');
 </script>
+
 
 
 
@@ -180,18 +184,18 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
 var disqus_shortname = 'moox',
 
 
-	
-	disqus_identifier = '/blog/run-virtual-machine-virtualbox-hackintosh/',
-	disqus_url = '/blog/run-virtual-machine-virtualbox-hackintosh/',
-	disqus_script = 'embed.js';
+
+disqus_identifier = 'http://moox.io/blog/run-virtual-machine-virtualbox-hackintosh/',
+disqus_url = 'http://moox.io/blog/run-virtual-machine-virtualbox-hackintosh/',
+disqus_script = 'embed.js';
 
 
-(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-g.src='http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-s.parentNode.insertBefore(g,s)}(document,'script'));
-
+(function(d,s) {
+s = d.createElement('script');s.async=1;s.src = '//' + disqus_shortname + '.disqus.com/'+disqus_script;
+(d.getElementsByTagName('head')[0]).appendChild(s);
+})(document);
 </script>
 
-
+ 
 </body>
 </html>
