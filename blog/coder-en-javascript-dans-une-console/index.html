@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<!--
+	HEY YOU, STOP LOOKING AT MY SOURCE CODE
+	Just check it out directly on Github :
+	
+	https://github.com/MoOx/moox.io.git
+-->
+<html lang="en" class="no-js no-touch grid-title--quotes">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<script>(function(docEl) {
+	docEl.className = docEl.className.replace(/\bno-js\b/, 'js');
+	if ('ontouchstart' in docEl) { docEl.className = docEl.className.replace(/\bno-touch\b/, 'touch'); }
+})(document.documentElement);</script>
+<head>
+
+<meta charset="utf-8">
+<title>Coder en Javascript dans une console</title>
+<meta name="description" content="">
+<base href="/" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="feed.xml" rel="alternate" type="application/rss+xml">
+
+<link rel="stylesheet" href="/assets/css/style.css">
+
+
+</head>
+<body>
+
+
+
+<a class="source-code" href="https://github.com/MoOx/moox.io.git">source code</a>
+
+<div class="body-wrapper">
+<nav class="Navbar Navbar--top js-togglable">
+	<a class="SiteLogo Navbar__section Navbar__section--left hint hint--bottom title" href="/" data-hint="Home">
+		<span class="SiteLogo-title">MoOx</span>
+		<br />
+		<span class="SiteLogo-description">Front-end web developer</span>
+	</a>
+	<button class="Navbar__toggler js-togglable__toggler">☰</button>
+
+	<ul class="Navbar__section Navbar__section--right js-togglable__item js-togglable__item--hide">
+		<li class="Navbar-separator--after"><a class=""  href="profile/"><i class="icon icon_user"></i> Profile</a>
+		</li><li class="Navbar-separator--after"><a class=""  href="#not-ready"><i class="icon icon_gears"></i> Portfolio</a>
+		</li><li class="Navbar-separator--after"><a class=""  href="#not-ready"><i class="icon icon_gears"></i> Code</a>
+		</li><li class="Navbar-separator--after"><a class="active"  href="blog/"><i class="icon icon_pencil"></i> Blog</a>
+		</li><li class="Navbar-separator--after"><a class=""  href="about/"><i class="icon icon_help"></i> About</a>
+		</li><li class="Navbar-separator--after"><a class=""  href="contact/"><i class="icon icon_speech-bubble"></i> Contact</a></li>
+	</ul>
+</nav>
+
+<div class="grid grid--center grid--title">
+	<hgroup class="grid__cell unit-8-12--medium title--light">
+		<h1>MoOx' hut</h1>
+		<h2>... where he talks about web &amp; dev.</h2>
+	</hgroup>
+</div>
+
+<div class="grid grid--blabla">
+	<div class="grid__cell Box">
+		<article class="Box-module" lang="fr">
+			<header>
+				<h1><span class="text-less-visible">[fr]</span> Coder en Javascript dans une console</h1>
+				<time class="text-less-visible" pubdate datetime="2011-04-18">Apr 18 2011</time>
+			</header>
+			<!-- 
+			<div class="category">
+				<ul>
+					
+						<li><a href="#">console</a></li>
+					
+						<li><a href="#">dom</a></li>
+					
+						<li><a href="#">gecko</a></li>
+					
+						<li><a href="#">javascript</a></li>
+					
+						<li><a href="#">jquery</a></li>
+					
+						<li><a href="#">webkit</a></li>
+					
+				</ul>
+			</div>
+			 -->
+			<div class="content">
+				<p>Depuis l’apparition des consoles Javascript, on peut debugger plus facilement des erreurs de scripts, qui à l’époque d’IE6 &amp; co se faisait à coup de alert().<br>
+Un chose que je ne trouve pas très répandu, c’est d’utiliser ces consoles pour coder directement, de petit morceaux de code, sans se (re)taper d’ajouter du script inline, ou un fichier juste pour avoir bonne conscience. Avec une console avancée, on peut même éditer des scripts en cours d’exécution !  </p>
+
+<h2>A quoi ça sert de coder du Javascript dans une console ?</h2>
+
+<p>Un exemple très simple sera plus parlant : vous voyez un paragraphe de texte et vous vous demandez combien il comporte de caractères. Et là vous commencez à compter… 1, 2, 3… Sttoooppp ! On peut faire ça en javascript ! Sans perdre du temps !<br>
+En admettant que vous ayez une console javascript digne de ce nom (la console Webkit en fait partie – Chrome, Safari…), vous avez un shortcut vraiment énorme. C’est le <strong>$0</strong>.</p>
+
+<h3>$0 ?</h3>
+
+<p>$0 est très simple d’utilisation, et peut être très utile. Choisissez un élément sur une page web, faites une inspection de l’élément (sous Webkit et Gecko, un simple clic droit dessus et « Inspect Element » / « Inspecter l’élément » fait l’affaire). Allez dans votre console Javascript, et tapez $0 (puis Enter). Et là magie, cette variable contient une référence du noeud DOM en question ! C’est assez énorme je trouve.</p>
+
+<h3>Utilisation : compter le texte d’un paragraphe</h3>
+
+<p>Admettons que vous cherchez à compter le nombre de caractères dans une <code>&lt;div&gt;</code>, inspectez là, puis dans votre console entrez-y la ligne suivante:  </p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="nx">$0</span><span class="p">.</span><span class="nx">innerHTML</span><span class="p">.</span><span class="nx">length</span>
+</code></pre></div>
+<p>Et voilà vous avez votre résultat !</p>
+
+<p>Bien entendu il est bien évidement possible d’avoir des utilisations bien plus poussé de cette technique, comme par exemple récupérer tous les liens d’une page pour avoir leur href ou pour les entourer en rouge.</p>
+
+<h3>Coder plus d’un ligne</h3>
+
+<p>Voici quelques trucs utile à savoir pour avoir une utilisation correcte des consoles javascript :</p>
+
+<ul>
+<li>  Utiliser les flèches du clavier Haut et Bas pour naviguer dans les précédentes commandes effectués, comme dans un terminal;</li>
+<li>  Penser à Shift+Enter pour faire des retours à la ligne sans exécuter le code;</li>
+<li>  La touche TABulation vous permet d’avoir une autocomplétion. Appuyez dessus plusieurs fois vous présentera les différentes options à votre disposition.</li>
+</ul>
+
+<h2>Ajouter jQuery dans n’importe quel page depuis une console Javascript</h2>
+
+<p>Lorsque l’on fait vite mumuse avec cette technique, il peut s’avérer judicieux d’utiliser jQuery ou une librairie quelconque de votre choix pour gagner encore en rapidité, et jQuery n’est pas encore sur toutes les pages web (<a href="https://twitter.com/mathias/status/59692133157842946" title="Statistique jQuery/Flash sur les pages web">même si ça s’en reproche</a>)<br>
+Alors voilà une petite technique de sioux afin d’ajouter jQuery (ou autre) dans la page en cours.  </p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">jQuery</span> <span class="o">==</span> <span class="s1">&#39;undefined&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">myScript</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">);</span>
+    <span class="nx">myScript</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">,</span> <span class="s2">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js&quot;</span><span class="p">);</span> <span class="c1">// you can change this filename</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&quot;head&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">myScript</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>N.B. : Si justement vous n’avez pas jQuery déjà inclus, il se peut que l’ajouter provoque des soucis si la variable $ est utile à la page (ce qui peut être le cas si une librairie tel que ProtoypeJs est inclus). Il faut donc utiliser la méthode de jQuery pour palier à ce problème : </p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="nx">jQuery</span><span class="p">.</span><span class="nx">noConflict</span><span class="p">();</span> <span class="c1">// if you think there will be a problem with &quot;$&quot;</span>
+</code></pre></div>
+<p>Ce qui impliquer d’utiliser par la suite jQuery avec son vrai nom plutôt que $ (ex: jQuery(‘.selector’).plugin() ).</p>
+
+<p>Ainsi on pourra faire des choses plus avancés facilement.<br>
+Si on reprends mon exemple de tout à l’heure où j’ai compté les caractères d’une div, vous avez peut être remarqué le soucis que cette technique peut avoir : si vous avez de l’HTML dedans, le nombre de caractère est faussé puisque cela va compter les caractères réservés à l’HTML.<br>
+Avec jQuery, ça devient aussi simple que ça pour contourner le problème :</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">jQuery($0).text().length
+</code></pre></div>
+<p>And voilà… Vous prendrez vite goût à cette technique qui peut devenir très utile. D’ailleurs si vous avez des petits snippets sympathiques, n’hésitez pas à les poster dans les commentaires, je pourrais très bien ajouter une liste de commandes utiles en dessous de cette article !</p>
+
+<p>Ajout du 17 mai 2011 : Je vous invite à <a href="http://paulirish.com/2011/a-re-introduction-to-the-chrome-developer-tools/">redécouvrir l’outil de dév. de Chrome, via une vidéo du dernier Google I/O présenté par Paul Irish</a></p>
+
+			</div>
+			<br /><br />
+			----
+			<br /><br />
+			<footer>
+				<div class="report">
+					See something wrong here ? Please tell me <a href="https://github.com/MoOx/moox.io/issues">with an issue on Github</a>, 
+					or just some words on twitter at <a href="https://twitter.com/MoOx/">@MoOx</a>.
+				</div>
+			</footer>
+		</article>
+		
+		
+			<section class="Box-module about-author">
+	<img class="obj-start" src="//gravatar.com/avatar/d2a1c95e2af59538301c3ee6d2907f6f?s=128" alt="">
+	<h1 class="h3 margin-vn">À propos de l'auteur</h1>
+	<p>
+		<strong>Maxime Thirouin</strong>, alias <em>MoOx</em> sur le web, est un développeur front-end freelance vivant à Toulouse, en France. Lorsqu'il ne fait pas le geek derrière son écran, il adore bricoler dans sa maison en bois ou profiter de la vie avec sa merveilleuse femme. Vous pouvez consulter le code qu'il publie sur <a href="https://github.com/MoOx">Github</a> ou juste jeter un coup d'oeil à ce qu'il partage via <a href="https://twitter.com/MoOx">Twitter</a>.
+	</p>
+</section>
+
+
+
+		
+		
+		
+		<section class="Box-module">
+			<h1>Comments</h1>
+			<div id="disqus_thread" aria-live="polite">
+				<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+			</div>
+		</section>
+		
+		<footer class="Box-module">
+			<h3>This is a temporary footer</h3>
+			<div class="icons--big">
+				<a href="https://twitter.com/MoOx"><i class="icon icon_twitter"></i><span class="text">Twitter</span></a>
+				<a href="https://github.com/MoOx"><i class="icon icon_github"></i><span class="text">Github</span></a>
+				<a href="http://www.linkedin.com/in/maxthirouin"><i class="icon icon_linkedin"></i><span class="text">LinkedIn</span></a>
+				<a href="skype:maxime.thirouin?add"><i class="icon icon_skype"></i><span class="text">Skype</span></a>
+				<a href="contact/"><i class="icon icon_email"></i><span class="text">Contact</span></a>
+			</div>
+		</footer>
+	</div>
+</div>
+
+</div>
+<script src="/assets/js/ieshim.js"></script>
+<script src="/assets/js/vanilla.js"></script>
+
+
+<script>var _gaq=[['_setAccount','UA-1716762-6'],['_trackPageview']];
+
+(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+
+
+<script>
+var disqus_shortname = 'moox',
+
+
+	
+	disqus_identifier = '/blog/coder-en-javascript-dans-une-console/',
+	disqus_url = '/blog/coder-en-javascript-dans-une-console/',
+	disqus_script = 'embed.js';
+
+
+(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+g.src='http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+s.parentNode.insertBefore(g,s)}(document,'script'));
+
+</script>
+
+
+</body>
+</html>

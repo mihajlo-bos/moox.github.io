@@ -1,0 +1,791 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title></title>
+        <description></description>
+        <link></link>
+        <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+        
+            <item>
+                <title>Configurer un Serveur Web Apache PHP MySQL sur OS X Lion</title>
+                <description>&lt;p&gt;Ayant mis à jour récemment mon système d’exploitation (OS X 10.6 &lt;em&gt;Snow Leopard&lt;/em&gt; à &lt;strong&gt;OS X 10.7 *Lion&lt;/strong&gt;*), j’ai du réinstaller mon serveur web dessus.&lt;br&gt;
+La précédente technique que j’avais utilisé était basé sur MacPorts, j’avais donc écris un article à ce sujet: &lt;a href=&quot;/blog/installer-serveur-web-apache-php-mysql-mac-os-x-macports/&quot;&gt;Installer Apache PHP MySQL sous Mac OS X&lt;/a&gt;. Comme je l’expliquais dans cette article, cette solution est pour moi la plus intéressante lorsque l’on cherche un serveur web AMP complet.&lt;/p&gt;
+
+&lt;p&gt;Mais aujourd’hui, j’utilise lorsque j’ai besoin d’un vrai serveur digne de ce nom, j’utilise la virtualisation avec Vagrant et VirtualBox (cela fera peut être l’objet d’un autre billet) afin d’avoir un environnement proche de celui que j’ai en production.&lt;/p&gt;
+
+&lt;p&gt;Du coup, nativement sur mon Mac OS, je n’ai besoin que d’un simple *&lt;em&gt;serveur web Apache/PHP/MySQL *&lt;/em&gt;. Rien qui casse la baraque, juste de quoi faire tourner quelques petits scripts (voir un WordPress) sans allumer une VM. Si vous cherchez une solution complète, ej vous invite à vous rendre sur mon lien ci-dessus.&lt;/p&gt;
+
+&lt;h2&gt;Activer Apache/PHP en quelques secondes sur OS X Lion&lt;/h2&gt;
+
+&lt;p&gt;Maintenant que &lt;em&gt;OS X Lion&lt;/em&gt; vient de sortir, les versions des logiciels qu’ils embarquent sont assez récente. &lt;strong&gt;Apache 2&lt;/strong&gt; est juste à activer dans les préférences du système dans la partie qui concerne le &lt;em&gt;Partage&lt;/em&gt; (&lt;em&gt;Sharing&lt;/em&gt; si votre OS est en anglais)&lt;/p&gt;
+
+&lt;figure class=&quot;flex-media--unknown&quot;&gt;
+    &lt;a href=&quot;/2011/07/OS-X-Lion-System-Preferences-Sharing.png&quot;&gt;
+        &lt;img src=&quot;/2011/07/OS-X-Lion-System-Preferences-Sharing.png&quot; alt=&quot;&quot; title=&quot;OS-X-Lion--System-Preferences--Sharing&quot; class=&quot;flex-media__item&quot; /&gt;
+    &lt;/a&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&quot;flex-media--unknown&quot;&gt;
+    &lt;a href=&quot;/2011/07/OS-X-Lion-System-Preferences-Sharing-Web-Sharing.png&quot;&gt;&lt;/a&gt;
+        &lt;img src=&quot;/2011/07/OS-X-Lion-System-Preferences-Sharing-Web-Sharing.png&quot; alt=&quot;&quot; title=&quot;OS-X-Lion--System-Preferences--Sharing--Web-Sharing&quot; class=&quot;flex-media__item&quot; /&gt;
+    &lt;/a&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Vous pouvez vérifier en cliquant sur un des liens que Apache fonctionne bien. Vous devriez voir une page avec « It works ! ».&lt;/p&gt;
+
+&lt;p&gt;Ensuite il faut activer sur Apache le module PHP 5 (5.3.6). Rien de complexe.&lt;br&gt;
+Avec Terminal.app (&lt;code&gt;/Application/Utilitaires/Terminal.app&lt;/code&gt;), un coup de &lt;code&gt;sudo pico /etc/apache2/httpd.conf&lt;/code&gt; devrait vous ouvrir le fichier de configuration d’Apache dans la console.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Remarque: pour toutes les commandes qui commencent par &lt;code&gt;sudo&lt;/code&gt; (Super Utilisateur DO), il vous est demandé un mot de passe. Utilisez celui de votre session (et ne vous inquiétez pas si vous ne voyez aucun caratère s’afficher lorsque vous tapez, c’est normal – sécurité des systèmes &amp;amp; co).&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Sinon avec le Finder &lt;kbd&gt;⇧&lt;/kbd&gt;+&lt;kbd&gt;⌘&lt;/kbd&gt;+&lt;kbd&gt;G&lt;/kbd&gt; (Go to the folder). Entrez &lt;code&gt;/private/etc/apache2/httpd.conf&lt;/code&gt; puis ouvrez &lt;code&gt;httpd.conf&lt;/code&gt; (mais là vous devrez avoir les droits sur le fichiers pour le modifier – préférez donc la méthode du Terminal).&lt;br&gt;
+Cherchez et décommentez dans le premier quart du fichier la ligne &lt;code&gt;LoadModule php5_module libexec/apache2/libphp5.so&lt;/code&gt;. Il suffit d’enlever le &lt;strong&gt;#&lt;/strong&gt; présent au début de la ligne.&lt;/p&gt;
+
+&lt;h2&gt;Installer MySQL sur OS X Lion&lt;/h2&gt;
+
+&lt;p&gt;Pour installer MySQL simplement, il suffit d’utiliser les packages du site officiel: &lt;a href=&quot;http://dev.mysql.com/downloads/mysql/&quot;&gt;http://dev.mysql.com/downloads/mysql/&lt;/a&gt;. 
+Installez MySQL, puis le panneau de préférence afin de pouvoir activer/désactiver MySQL à souhait, ainsi que si vous en avez besoin, le paquet pour avoir MySQL avec qui démarre avec le système.&lt;br&gt;
+Une fois les paquets installés, il reste à « brancher » PHP et MySQL ensemble.&lt;/p&gt;
+
+&lt;p&gt;Un petit tour dans la configuration de PHP pour ajuster le lien entre MySQL et PHP:&lt;br&gt;
+Allez dans &lt;code&gt;/private/etc/&lt;/code&gt; et copier &lt;code&gt;php.ini.default&lt;/code&gt; en &lt;code&gt;php.ini&lt;/code&gt;, ceci afin de pouvoir adapter la configuration. Modifier directement le &lt;code&gt;php.ini.default&lt;/code&gt; ne servirait à rien.&lt;/p&gt;
+
+&lt;p&gt;Avec Terminal.app , rien de plus simple il vous suffit d’exécuter les lignes suivantes:  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# copie du fichier&lt;/span&gt;
+sudo cp /private/etc/php.ini.default /private/etc/php.ini
+&lt;span class=&quot;c&quot;&gt;# ouverture pour édition&lt;/span&gt;
+sudo open -a TextEdit /private/etc/php.ini
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Modifiez dedans (en plus de vos ajustements personnels) les valeurs des sockets pour MySQL : remplacez &lt;code&gt;/var/mysql&lt;/code&gt; en &lt;code&gt;/tmp&lt;/code&gt; aux différents endroits (pour l’extension [MySQL], [MySQLi] et [Pdo_mysql]) afin d’avoir un socket qui pointe sur &lt;code&gt;/tmp/mysql.sock&lt;/code&gt; (valeur par défaut du package MySQL pour Mac OS X)&lt;/p&gt;
+
+&lt;h2&gt;Petite touche en plus : xDebug&lt;/h2&gt;
+
+&lt;p&gt;xDebug est déjà présent sur le système dans &lt;code&gt;/usr/lib/php/extensions&lt;/code&gt;, il suffit de l’activer.&lt;br&gt;
+Ajouter dans votre php.ini (cf configuration de php ci-dessus)  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ini language-ini&quot; data-lang=&quot;ini&quot;&gt;&lt;span class=&quot;k&quot;&gt;[xdebug]&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;zend_extension&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/usr/lib/php/extensions/no-debug-non-zts-20090626/xdebug.so&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;; more option ?&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Toutes les &lt;a href=&quot;http://xdebug.org/docs/all_settings&quot;&gt;options de xdebug&lt;/a&gt; sont disponibles accessible sur le site officiel.&lt;/p&gt;
+
+&lt;p&gt;Et voilà le tour est joué ! Vous voilà avec &lt;strong&gt;Apache 2, PHP 5.3.6 et MySQL 5.5 et xDebug sur MAC OS X Lion 10.7 !&lt;/strong&gt;&lt;/p&gt;
+</description>
+                <pubDate>Tue, 15 Nov 2011 00:00:00 +0100</pubDate>
+                <link>/blog/configurer-serveur-web-apache-php-mysql-sur-os-lion/</link>
+                <guid isPermaLink="true">/blog/configurer-serveur-web-apache-php-mysql-sur-os-lion/</guid>
+            </item>
+        
+            <item>
+                <title>Run a Virtual Machine with VirtualBox on a Hackintosh</title>
+                <description>&lt;p&gt;You are running on a OS X à la Hackintosh ? You have a « &lt;strong&gt;VT-x is not available. VERR_VMX_NO_VMX&lt;/strong&gt; » when you start a virtual machine ? Do not panic !&lt;/p&gt;
+
+&lt;p&gt;Under the &lt;code&gt;~/Library/VirtualBox/Machines&lt;/code&gt; directory you will find a folder for each virtual machine you have created. Within this directly you will find an XML file with the machine settings.  &lt;/p&gt;
+
+&lt;ins datetime=&quot;2012-02-22T16:58:23+00:00&quot;&gt;Update: You can now just type in your terminal: `VBoxManage modifyvm &amp;lt;VMname&amp;gt; --hwvirtex off` (change `&amp;lt;VMname&amp;gt;` with your VM name)&lt;/ins&gt;
+
+&lt;h2&gt;Edit XML VBox file&lt;/h2&gt;
+
+&lt;p&gt;So, in your « user folder » (~/), there will be a Library folder, hidden in OS X Lion, so to see it, open the Finder, in the « Go » menu, hold &lt;kbd&gt;⌥&lt;/kbd&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;flex-media--unknown&quot;&gt;
+  &lt;a href=&quot;/2011/10/Open-Library-folder-wtih-Finder.png&quot;&gt;
+    &lt;img class=&quot;flex-media__item&quot; title=&quot;Open Library folder with Finder&quot; src=&quot;/2011/10/Open-Library-folder-wtih-Finder.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Inside that Library folder, there is a folder called VirtualBox, which contains a Machines folder. In each VM folder, open the *.vbox file using a text-editor. It’s a XML file.&lt;/p&gt;
+
+&lt;p&gt;It looks like:&lt;/p&gt;
+
+&lt;pre class=&quot;code blocks&quot;&gt;&amp;lt;?xml ...
+    &amp;lt;VirtualBox ...
+        &amp;lt;Machine ...
+            &amp;lt;CPU count=&quot;1&quot;&amp;gt;
+                &amp;lt;HardwareVirtEx enabled=&quot;true&quot; ... /&amp;gt;
+            ...&lt;/pre&gt;
+
+&lt;p&gt;Exit Virtual Box, change this « true » to « false » and Save. Restart Virtual Box and (or open it if you had it closed) and the hardware virtualization extensions will be disabled.&lt;/p&gt;
+
+&lt;figure class=&quot;flex-media--unknown&quot;&gt;
+  &lt;a href=&quot;/2011/10/Edit-Virtualbox-xml-file.png&quot;&gt;
+    &lt;img class=&quot;flex-media__item&quot; title=&quot;Edit Virtualbox xml file&quot; src=&quot;/2011/10/Edit-Virtualbox-xml-file.png&quot; alt=&quot;&quot; /&gt;
+  &lt;/a&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Seems like a clear bug with VirtualBox, being that the setting is grayed out in the GUI but you can change it in the XML config file and that fixes the problem.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Source: &lt;a href=&quot;https://forums.virtualbox.org/viewtopic.php?f=2&amp;amp;t=17090&quot;&gt;https://forums.virtualbox.org/viewtopic.php?f=2&amp;amp;t=17090&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+</description>
+                <pubDate>Thu, 27 Oct 2011 00:00:00 +0200</pubDate>
+                <link>/blog/run-virtual-machine-virtualbox-hackintosh/</link>
+                <guid isPermaLink="true">/blog/run-virtual-machine-virtualbox-hackintosh/</guid>
+            </item>
+        
+            <item>
+                <title>Keep one Netbeans icon in your OS X Finder Dock</title>
+                <description>&lt;p&gt;After installing Netbeans, you drag the Netbeans.app in your dock. And each time you start Netbeans, you have a second Netbeans icon which appears… That’s boring.&lt;/p&gt;
+
+&lt;p&gt;Here is the solution :&lt;/p&gt;
+
+&lt;p&gt;Go into the &lt;code&gt;/Applications/Netbeans&lt;/code&gt; folder, and open the Netbeans package.&lt;/p&gt;
+
+&lt;figure class=&quot;flex-media--unknown&quot;&gt;
+    &lt;a href=&quot;/2011/10/open-netbeans-package.png&quot;&gt;
+        &lt;img class=&quot;flex-media__item&quot; src=&quot;/2011/10/open-netbeans-package.png&quot; alt=&quot;&quot; title=&quot;Open Netbeans.app package&quot; /&gt;
+    &lt;/a&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Then open &lt;code&gt;etc/netbeans.conf&lt;/code&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;flex-media--unknown&quot;&gt;
+    &lt;a href=&quot;/2011/10/open-netbeans-conf.png&quot;&gt;
+        &lt;img class=&quot;flex-media__item&quot; src=&quot;/2011/10/open-netbeans-conf.png&quot; alt=&quot;&quot; title=&quot;Edit netbeans.conf&quot; /&gt;
+    &lt;/a&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;You should see in the file :&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Default location of JDK, can be overridden by using --jdkhome [&amp;lt;dir&amp;gt;:&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#netbeans_jdkhome=&amp;quot;/path/to/jdk&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Just add &lt;code&gt;netbeans_jdkhome=&amp;quot;/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home/&amp;quot;&lt;/code&gt; after theses lines.&lt;/p&gt;
+
+&lt;p&gt;Restart Netbeans and voilà !&lt;/p&gt;
+</description>
+                <pubDate>Thu, 27 Oct 2011 00:00:00 +0200</pubDate>
+                <link>/blog/netbeans-icon-os-finder-dock/</link>
+                <guid isPermaLink="true">/blog/netbeans-icon-os-finder-dock/</guid>
+            </item>
+        
+            <item>
+                <title>Delete a removed folder in your Finder&#8217;s sidebar on Mac OS X</title>
+                <description>&lt;p&gt;Maybe you done what I just made : remove a folder which was in your Finder sidebar. Now you can’t remove from it.  &lt;/p&gt;
+
+&lt;p&gt;So here is the solution which require Xcode installed.&lt;br&gt;
+In your terminal do&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;open Library/Preferences/com.apple.sidebarlists.plist
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Or open this file manually.&lt;/p&gt;
+
+&lt;p&gt;You should have « Property List Editor » app to do this.&lt;/p&gt;
+
+&lt;figure class=&quot;flex-media--unknown&quot;&gt;&lt;a href=&quot;/2011/06/Remove-deleted-folder-osx-finder-sidebar.png&quot;&gt;&lt;img class=&quot;flex-media__item&quot; title=&quot;Remove-deleted-folder-osx-finder-sidebar&quot; src=&quot;/2011/06/Remove-deleted-folder-osx-finder-sidebar.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/figure&gt;
+
+&lt;p&gt;Open each entries to find what you want under Root » useritems » CustomListItems. Try to open each item and check the name of the folder. When you found the correct entry, delete the « Item x » and save the file.&lt;/p&gt;
+
+&lt;p&gt;When it’s done, just restart Finder.  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;killall Finder
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Or just make option+click on Finder’s icon in your dock, then Relaunch.&lt;/p&gt;
+
+&lt;figure class=&quot;flex-media--unknown&quot;&gt;&lt;a href=&quot;/2011/06/relaunch-finder.png&quot;&gt;&lt;img class=&quot;flex-media__item&quot; title=&quot;relaunch-finder&quot; src=&quot;/2011/06/relaunch-finder.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/figure&gt;
+
+&lt;p&gt;It’s that simple :)&lt;/p&gt;
+</description>
+                <pubDate>Sun, 03 Jul 2011 00:00:00 +0200</pubDate>
+                <link>/blog/delete-removed-folder-finders-sidebar-mac-os/</link>
+                <guid isPermaLink="true">/blog/delete-removed-folder-finders-sidebar-mac-os/</guid>
+            </item>
+        
+            <item>
+                <title>Switch the Ctrl and Fn keys on your Macbook Keyboard</title>
+                <description>&lt;p&gt;&lt;em&gt;Before read this just be aware that, if you sometimes use a plugged keyboard (I use one at home to be more confortable, with a numeric pad) this technic should « broke » your &lt;kbd&gt;ctrl&lt;/kbd&gt; key (which act like an &lt;kbd&gt;fn&lt;/kbd&gt;). Maybe you can just use the first part whenever you just use the laptop keyboard.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2&gt;Switch &lt;kbd&gt;ctrl&lt;/kbd&gt; and &lt;kbd&gt;fn&lt;/kbd&gt; on Mac OS X&lt;/h2&gt;
+
+&lt;p&gt;To switch &lt;kbd&gt;ctrl&lt;/kbd&gt; and &lt;kbd&gt;fn&lt;/kbd&gt; on your computer, the first step is to switch the two keys on your OS.&lt;br&gt;
+For Mac OS X, you can use &lt;a href=&quot;http://www.macupdate.com/app/mac/25141/keyremap4macbook&quot;&gt;KeyRemap4MacBook&lt;/a&gt;.&lt;br&gt;
+Download the the software and install it. When installation is finished, you need to restart the computer to be able to use KeyRemap4MacBook.&lt;br&gt;
+After reboot, you will notice a new empty icon which look like a key in your menu bar.&lt;/p&gt;
+
+&lt;figure class=&quot;flex-media--unknown&quot;&gt;&lt;a class=&quot;zoom&quot; href=&quot;/2011/06/KeyRemap4MacBook-menu-bar-icon.png&quot;&gt;&lt;img class=&quot;flex-media__item&quot; title=&quot;KeyRemap4MacBook-menu-bar-icon&quot; src=&quot;/2011/06/KeyRemap4MacBook-menu-bar-icon.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/figure&gt;
+
+&lt;p&gt;You can open KeyRemap4MacBook from this icon or find the dedicated Preference Pane under « System Preferences ».&lt;br&gt;
+On the « Change Key » tab, look at « Change Control_L Key (Left Control) » and select « Control_L to Fn ».&lt;/p&gt;
+
+&lt;figure class=&quot;flex-media--unknown&quot;&gt;&lt;a class=&quot;zoom&quot; href=&quot;/2011/06/KeyRemap4MacBook-Control_L-to-Fn.png&quot;&gt;&lt;img class=&quot;flex-media__item&quot; title=&quot;KeyRemap4MacBook-Control_L-to-Fn&quot; src=&quot;/2011/06/KeyRemap4MacBook-Control_L-to-Fn.png&quot; alt=&quot;&quot;/&gt;&lt;/a&gt;&lt;/figure&gt;
+
+&lt;p&gt;After that your need to change &lt;kbd&gt;fn&lt;/kbd&gt; behavior too. So look at « Change Control_L Key (Left Control) » and select « Control_L to Fn ».&lt;/p&gt;
+
+&lt;figure class=&quot;flex-media--unknown&quot;&gt;&lt;a class=&quot;zoom&quot; href=&quot;/2011/06/KeyRemap4MacBook-Fn-to-Control_L.png&quot;&gt;&lt;img class=&quot;flex-media__item&quot; title=&quot;KeyRemap4MacBook-Fn-to-Control_L&quot; src=&quot;/2011/06/KeyRemap4MacBook-Fn-to-Control_L.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/figure&gt;
+
+&lt;p&gt;Eventually you can remove the menu bar icon under the « MenuBar » tab. Just unselect the « Show icon in menu bar » option.&lt;/p&gt;
+
+&lt;figure class=&quot;flex-media--unknown&quot;&gt;&lt;a class=&quot;zoom&quot; href=&quot;/2011/06/KeyRemap4MacBook-Remove-from-menu-bar.png&quot;&gt;&lt;img class=&quot;flex-media__item&quot; title=&quot;KeyRemap4MacBook-Remove-from-menu-bar&quot; src=&quot;/2011/06/KeyRemap4MacBook-Remove-from-menu-bar.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/figure&gt;
+
+&lt;h2&gt;Switch &lt;kbd&gt;ctrl&lt;/kbd&gt; and &lt;kbd&gt;fn&lt;/kbd&gt; on the Macbook (Pro/Air) Keyboard&lt;/h2&gt;
+
+&lt;figure class=&quot;flex-media--unknown&quot;&gt;&lt;a href=&quot;/2011/06/Macbook-Pro-Keyboard-Switch-Ctrl-and-Fn-Remove-keys.jpg&quot;&gt;&lt;img class=&quot;flex-media__item&quot; title=&quot;Macbook Pro Keyboard - Switch Ctrl and Fn - Remove keys&quot; src=&quot;/2011/06/Macbook-Pro-Keyboard-Switch-Ctrl-and-Fn-Remove-keys.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now &lt;kbd&gt;ctrl&lt;/kbd&gt; and &lt;kbd&gt;fn&lt;/kbd&gt; are switched on your OS, you need to switch the real keys ! This part is quite easy, it just require some delicacy.&lt;br&gt;
+Checkout the following video to see how to switch the keys on your Macbook Keyboard.&lt;/p&gt;
+
+&lt;figure class=&quot;flex-media--16-9&quot;&gt;
+&lt;iframe class=&quot;flex-media__item&quot; src=&quot;http://www.youtube.com/embed/kh88cn_rtLo&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now you can use your &lt;kbd&gt;ctrl&lt;/kbd&gt; as your &lt;kbd&gt;fn&lt;/kbd&gt; and your &lt;kbd&gt;fn&lt;/kbd&gt; as &lt;kbd&gt;ctrl&lt;/kbd&gt; !&lt;/p&gt;
+</description>
+                <pubDate>Fri, 01 Jul 2011 00:00:00 +0200</pubDate>
+                <link>/blog/switch-ctrl-fn-keys-macbook-keyboard/</link>
+                <guid isPermaLink="true">/blog/switch-ctrl-fn-keys-macbook-keyboard/</guid>
+            </item>
+        
+            <item>
+                <title>Compass.app, une application qu&#8217;elle est bien pour compiler ses CSS avec Sass / Compass</title>
+                <description>&lt;figure class=&quot;flex-media--3-1&quot;&gt;&lt;a href=&quot;http://compass-style.org/&quot;&gt;&lt;img class=&quot;flex-media__item&quot; src=&quot;/2011/05/compass.app_.jpg&quot; alt=&quot;compass app&quot; /&gt;&lt;/a&gt;&lt;/figure&gt;
+
+&lt;p&gt;Suite à mes précédents articles sur &lt;a href=&quot;/blog/utiliser-des-variables-fonctions-css&quot;&gt;les pré-processeurs CSS qui permettent d’utiliser des variables et fonctions&lt;/a&gt;, et &lt;a href=&quot;/blog/fonctions-variables-css-generer-ses-css-avec-sass-compass/&quot;&gt;un petit tutoriel sur l’installation et utilisation du combo Sass/Compass&lt;/a&gt;, voici la présentation d’un petite application, qui permet de s’affranchir des toujours utiliser des lignes de commandes pour lancer Compass.  &lt;/p&gt;
+
+&lt;p&gt;Voici une petite vidéo d’intro (sans son) provenant du &lt;a href=&quot;http://compass.handlino.com/&quot;&gt;site officiel de Compass.app&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;C’est quand même plus sympa d’avoir une petite appli discrète, avec les notifications systèmes ! Quelques options sont configurables via un menu (pour activer/désactiver certains types de notifications, ou spécifier la version de compass à utiliser).&lt;/p&gt;
+
+&lt;p&gt;Des versions compilés de l’application sont disponibles à la vente sur le site, mais l’application est Open-Source et il est bien indiqué dans la doc du &lt;a href=&quot;https://github.com/handlino/CompassApp&quot;&gt;repository Github de Compass.app&lt;/a&gt; que nous pouvons librement le compiler.&lt;/p&gt;
+
+&lt;p&gt;Pour mémo, voici de quoi l’installer (sur Mac OS X, doit donc fonctionner sur Linux, voir même Windows avec une petite adaptation pour les paths) :&lt;/p&gt;
+
+&lt;h2&gt;Prérequis à la compilation de Compass.app&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt; Avoir Java installé (vérifier avec &lt;code&gt;java -version&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;http://jruby.org/download&quot;&gt;Télécharger la dernière version de jRuby&lt;/a&gt; zippé (jRuby est un trip entre java et ruby, d’après ce que j’ai compris ça permet de coder un app java en ruby)&lt;/li&gt;
+&lt;li&gt; Dézippé jRuby dans &lt;code&gt;/usr/local/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt; Renommer en jruby (au lieu d’un jruby-1.x)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2&gt;Compass.app&lt;/h2&gt;
+
+&lt;p&gt;En ligne de commande,  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# pour la session en cours, on ajoute jruby dans le path pour simplifier les appels&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/jruby/bin:&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# installation d&amp;#39;un gem depuis jruby (autrement ça marche pas)&lt;/span&gt;
+jruby -S gem install rawr
+
+&lt;span class=&quot;c&quot;&gt;# ensuite créé un emplacement pour récupérer les sources de Compass.app&lt;/span&gt;
+mkdir ~/Applications/CompassApp
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/Applications/CompassApp
+&lt;span class=&quot;c&quot;&gt;# on clone depuis github&lt;/span&gt;
+git clone git://github.com/handlino/CompassApp.git &lt;span class=&quot;s2&quot;&gt;&amp;quot;CompassApp&amp;quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# et on compile (un peu de patience)&lt;/span&gt;
+./bin/build-all.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Vous trouverez ensuite les applis compilés et zippé pour Mac, Linux et Windows dans ./packages&lt;/p&gt;
+
+&lt;h2&gt;Mise à jour de Compass.app&lt;/h2&gt;
+
+&lt;p&gt;Pour faire une mise à jour (de temps en temps)&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/jruby/bin:&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;
+jruby -S gem update
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/Applications/CompassApp
+git pull
+./bin/build-all.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Là encore il vous reste à réinstaller la version compilé (dézipé et déplacement).&lt;/p&gt;
+
+&lt;p&gt;Certains risques de se demander pourquoi je n’ai pas ajouté jruby à mon PATH de manière permanente, c’est tout simplement car il y’a des binaires en double (ex: gem).&lt;/p&gt;
+
+&lt;p&gt;Bonne utilisation de Compass ;)&lt;/p&gt;
+</description>
+                <pubDate>Mon, 23 May 2011 00:00:00 +0200</pubDate>
+                <link>/blog/compass-app-application-pour-compiler-css-sass-compass/</link>
+                <guid isPermaLink="true">/blog/compass-app-application-pour-compiler-css-sass-compass/</guid>
+            </item>
+        
+            <item>
+                <title>Fonctions et variables CSS avec Sass et Compass</title>
+                <description>&lt;figure class=&quot;flex-media--3-1&quot;&gt;&lt;a href=&quot;http://sass-lang.com/&quot;&gt;&lt;img class=&quot;flex-media__item&quot; src=&quot;/2011/05/sass.jpg&quot; alt=&quot;sass&quot; /&gt;&lt;/a&gt;&lt;/figure&gt;
+
+&lt;p&gt;Comme je l’ai expliqué dans mon précédent article, aujourd’hui il est possible de passer la vitesse supérieure avec ses CSS, afin d’avoir à sa disposition &lt;a href=&quot;/blog/utiliser-des-variables-fonctions-css&quot; title=&quot;Utiliser des variables et fonctions CSS, c’est possible !&quot;&gt;variables et fonctions CSS&lt;/a&gt;. Voici donc un petit mémo concernant la solution que j’ai choisi &lt;a href=&quot;http://sass-lang.com/&quot;&gt;Sass&lt;/a&gt; avec la librairie Compass.  &lt;/p&gt;
+
+&lt;p&gt;Pour vous donner l’eau à la bouche, voici une petite vidéo que j’ai trouvé sur le site de Compass.&lt;/p&gt;
+
+&lt;figure class=&quot;flex-media--4-3&quot;&gt;
+  &lt;iframe class=&quot;flex-media__item&quot; src=&quot;http://player.vimeo.com/video/11671458&quot; frameborder=&quot;0&quot; webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;&lt;/iframe&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://vimeo.com/11671458&quot;&gt;An introduction to Compass&lt;/a&gt; from &lt;a href=&quot;http://vimeo.com/ltackett&quot;&gt;Lorin Tackett&lt;/a&gt; on &lt;a href=&quot;http://vimeo.com&quot;&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Pourquoi j’ai choisi &lt;strong&gt;Sass&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;Après avoir comparer 2 solutions (LESS et Sass) j’ai rapidement vu que Sass proposait un nombre supérieur de fonctions de base. Ne serait ce que un simple &lt;code&gt;rgba(#fff, .8)&lt;/code&gt; impossible en CSS ou avec LESS. Allez faire un tour sur les documentations respectives de &lt;a href=&quot;http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html&quot;&gt;Sass&lt;/a&gt; et &lt;a href=&quot;http://lesscss.org/#docs&quot;&gt;LESS&lt;/a&gt;. Je vous laisse libre arbitre pour ce choix qui vous appartient.&lt;br&gt;
+Ensuite j’ai cherché des librairies. Pour Sass, sans aucun doute, &lt;a href=&quot;http://compass-style.org/&quot;&gt;Compass&lt;/a&gt; est le parfait complément. Pour LESS, j’ai trouvé &lt;a href=&quot;http://markdotto.com/bootstrap/&quot;&gt;Bootstrap.less&lt;/a&gt; qui à l’air pas mal non plus, bien que bien moins complet que Compass en terme de fonctionnalités.&lt;br&gt;
+Après ce petit comparatif, j’ai eu le ressenti que le combo Sass / Compass avait l’air plus abouti que LESS. Mon choix s’est donc porté sur ces 2 projets.&lt;/p&gt;
+
+&lt;p&gt;Si Sass vous intéresse toujours, vous pouvez continuer la lecture ;) &lt;/p&gt;
+
+&lt;h2&gt;Utiliser des variables et fonctions CSS avec Sass&lt;/h2&gt;
+
+&lt;p&gt;Afin de pouvoir utiliser Sass, il faut installer les paquets nécessaires à son bon fonctionnement. Heureusement c’est pas bien compliqué.&lt;br&gt;
+Si vous êtes sous Mac OS X, c’est même très simple car cela nécessite Ruby et Ruby Gem qui sont déjà installé sur ce système.&lt;br&gt;
+Pour les autres il suffira d’installer ces 2 paquets.&lt;/p&gt;
+
+&lt;p&gt;Sous une distribution linux ça devrait ressembler à :  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo aptitude install ruby rubygems
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Sous Windows il faudra installer ça avec un &lt;a href=&quot;http://rubyinstaller.org/&quot;&gt;installeur Ruby&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Maintenant, on vérifie que Ruby et RubyGem sont bien présents :  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# we check that ruby exists&lt;/span&gt;
+which ruby
+&lt;span class=&quot;c&quot;&gt;# this command should return something like /usr/bin/ruby&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# same thing for gem&lt;/span&gt;
+which gem
+&lt;span class=&quot;c&quot;&gt;# /usr/bin/gem&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Une fois qu’on a RubyGem d’opérationnel, on peut installer Sass de la façon suivante :  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# sudo is probably required if you are not logged as root&lt;/span&gt;
+sudo gem install sass
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Une fois ceci fait, faites un petit tour sur le &lt;a href=&quot;http://sass-lang.com/tutorial.html&quot;&gt;tutorial Sass&lt;/a&gt; afin de faire un petit test pour vérifier que tout marche bien.&lt;/p&gt;
+
+&lt;p&gt;On crée un fichier test.scss avec le code suivant :  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rgba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;#fff&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ensuite on lance le binaire Sass depuis le dossier où se trouve le fichier de test :&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;sass --watch test.scss:style.css
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;On vérifie que le fichier contient bien du code css valide.&lt;br&gt;
+Et pour vérifier que l’aspect de tracking des modifications on peut modifier le fichier ainsi:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;darken&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rgba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;#fff&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;On peut vérifier que la CSS a bien été modifié.&lt;/p&gt;
+
+&lt;h3&gt;Structure et Importation des fichiers Sass&lt;/h3&gt;
+
+&lt;p&gt;Une autre chose à savoir au niveau de Sass, très importante, et surtout très pratique : si vous avez un fichier SCSS ou Sass que vous souhaitez importer, mais que vous ne souhaitez pas voir compiler en fichier CSS, vous pouvez ajouter un underscore au début du nom de fichier. Du coup tous les fichiers qui commencent par _ ne sont pas compiler en .css, mais par contre peuvent être inclus dans vos .scss. Cela permet de créer une librairie avec &lt;a href=&quot;http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#partials&quot;&gt;des fichiers Sass partiels&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Exemple de structure de dossier/fichiers SCSS :&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;/partials/
+    _header.scss
+    _body.scss
+    _footer.scss
+style.scss
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;style.scss contiendra des includes :&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;scss language-scss&quot; data-lang=&quot;scss&quot;&gt;&lt;span class=&quot;k&quot;&gt;@import&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;partials/header&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;@import&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;partials/footer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;@import&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;partials/body&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// some others rules ?&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;La librairie Compass utilise se système à outrance (&lt;a href=&quot;https://github.com/chriseppstein/compass/tree/stable/frameworks/compass/stylesheets&quot;&gt;la preuve sur le Github de Compass&lt;/a&gt;) :) Pratique non? &lt;/p&gt;
+
+&lt;p&gt;&lt;del datetime=&quot;2011-05-13T06:32:42+00:00&quot;&gt;Superbe&lt;/del&gt; transition : je vous propose de passer à l’étape 2 avec Compass.&lt;/p&gt;
+
+&lt;h2&gt;La librairie Compass&lt;figure&gt;&lt;/h2&gt;
+
+&lt;figure class=&quot;flex-media--3-1&quot;&gt;&lt;a href=&quot;http://compass-style.org/&quot;&gt;&lt;img class=&quot;flex-media__item&quot; src=&quot;/2011/05/compass.jpg&quot; alt=&quot;compass&quot; /&gt;&lt;/a&gt;&lt;/figure&gt;
+
+&lt;p&gt;Maintenant que vous êtes équipé de la boite à outils CSS, il faut bien commencer à la remplir !&lt;br&gt;
+Pour ce faire je vous propose d’installer la super &lt;a href=&quot;http://compass-style.org/&quot;&gt;librairie Compass&lt;/a&gt; qui comporte moult fonctionnalités utile pour &lt;a href=&quot;http://compass-style.org/reference/compass/css3/&quot;&gt;utiliser du CSS 3 sans les préfixes dans tous les sens&lt;/a&gt; ou &lt;a href=&quot;http://compass-style.org/reference/compass/utilities/sprites/&quot;&gt;générer des sprites CSS sans prises de têtes&lt;/a&gt;. Rien que ça, ça vaut le détour !&lt;br&gt;
+Hop hop on installe Compass, aussi vite que Sass :  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo gem install compass
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Du coup une fois Compass installé, on ne va plus utiliser directement Sass, mais le binaire compass. Tout est parfaitement clair dans &lt;a href=&quot;http://compass-style.org/help/&quot;&gt;le Tutorial de base sur le site de Compass&lt;/a&gt; &lt;em&gt;(pour peu que vous ne soyez pas anglophobe)&lt;/em&gt;&lt;br&gt;
+Pour donner un petit exemple de création de projet :&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;compass create &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;-project
+&lt;span class=&quot;nb&quot;&gt;cd test&lt;/span&gt;-project
+compass watch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Dès maintenant, vous pouvez créer et modifier dans ce dossier des fichiers .scss (ou .sass). Le processus de surveillance de Compass va automatiquement compiler vos feuilles de styles dans le répertoire contenant les CSS, et ce à la moindre modification.&lt;/p&gt;
+
+&lt;p&gt;Je vous laisse maintenant vous amuser avec ces nouveaux joujoux ! Profitez bien !&lt;/p&gt;
+
+&lt;p&gt;*&lt;em&gt;Et si vous avez besoin de quelques fonctions Sass utilisant Compass, j’ai un petit repo Github &lt;a href=&quot;https://github.com/MoOx/Compass-Recipes&quot;&gt;Compass-Recipes&lt;/a&gt;. N’hésitez pas à y contribuer si vous vous sentez l’âme de Git-eur :) *&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Je vous conseille vivement de parcourir les documentations respectives de Sass et Compass, non pas pour tout apprendre d’un coup, mais plutôt afin d’entre-apercevoir l’étendu des possibilités !&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Et maintenant, &lt;a href=&quot;/blog/compass-app-application-pour-compiler-css-sass-compass/&quot;&gt;je vous explique comment se passer des quelques lignes de commandes lorsque l’on utilise Compass souvent, grâce à une petit appli compatible Mac OS X, Linux (et même Windows) ;) &lt;/a&gt;&lt;/p&gt;
+</description>
+                <pubDate>Fri, 13 May 2011 00:00:00 +0200</pubDate>
+                <link>/blog/fonctions-variables-css-generer-ses-css-avec-sass-compass/</link>
+                <guid isPermaLink="true">/blog/fonctions-variables-css-generer-ses-css-avec-sass-compass/</guid>
+            </item>
+        
+            <item>
+                <title>Utiliser des variables et fonctions CSS, c&#8217;est possible !</title>
+                <description>&lt;p&gt;Depuis la création d’Internet à aujourd’hui, les interfaces web ont bien évolués. Les langages et méthodes aussi. On est passé de sites statiques à des sites dynamiques, puis hautement dynamiques (la fameuse période 2.0…). Dans tous ça, CSS n’a, à mon sens, que très peu évolué d’un point de vue des possibilités du langage. Certains disent que la puissance des CSS réside dans la simplicité de celles-ci. Ce qui n’est pas forcément faux. Ca se discute.  &lt;/p&gt;
+
+&lt;h2&gt;CSS n’a ni variables, ni fonctions&lt;/h2&gt;
+
+&lt;p&gt;Le langage des CSS n’a pas de côté dynamique. C’est lui avec lequel, à chaque fois qu’on intègre une maquette graphique, on doit se taper tout de zéro. Il a beau exister des &lt;a href=&quot;http://cssresetr.com/&quot;&gt;CSS « Reset »&lt;/a&gt;, &lt;a href=&quot;http://css4design.com/framework-css-semantique-maquette-dynamique-et-autres-notes&quot;&gt;des frameworks CSS&lt;/a&gt;, &lt;a href=&quot;http://css4design.com/framework-css-mettez-vos-grilles-au-pas&quot;&gt;tout un tas de grilles prête à l’emploi&lt;/a&gt;, &lt;a href=&quot;https://github.com/stubbornella/oocss&quot;&gt;des composants de CSS réutilisables&lt;/a&gt; avec l’approche &lt;a href=&quot;http://fr.wikipedia.org/wiki/Objet_(informatique)&quot;&gt;objet&lt;/a&gt;, je n’ai jamais réellement était satisfait par ces méthodes, que ce soit à cause des contraintes qu’impose la syntaxe (devoir mettre des classes à tout va dans l’HTML ça peut vite devenir chiant dans un CMS), ou par d’éventuelles limitations qui obligent à « trop » modifier la source du document (pas assez de, ou trop de, ou juste ça me plait pas comment c’est fait).&lt;/p&gt;
+
+&lt;h2&gt;Comment faire pour avoir des variables et fonctions dans CSS ?&lt;/h2&gt;
+
+&lt;p&gt;Bridé par le language, j’ai cherché des solutions car j’ai pas forcément envie d’attendre CSS 4 qui sera surement pas officiel avant 20 ans (sachant que CSS 3 n’est encore qu’un brouillon et que CSS 2.1 est à peine ouvert aux commentaires…)&lt;br&gt;
+Du coup, voilà ce que j’ai recencé à ce jour:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  &lt;a href=&quot;http://sass-lang.com/&quot;&gt;Sass&lt;/a&gt; dispo sur &lt;a href=&quot;https://github.com/nex3/sass&quot; title=&quot;Sass sur Github&quot;&gt;GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;  &lt;a href=&quot;http://lesscss.org/&quot;&gt;LESS&lt;/a&gt; dispo sur &lt;a href=&quot;https://github.com/cloudhead/less.js&quot; title=&quot;LESS sur Github&quot;&gt;GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;  &lt;a href=&quot;http://learnboost.github.com/stylus/&quot;&gt;Stylus&lt;/a&gt; dispo sur &lt;a href=&quot;https://github.com/LearnBoost/stylus&quot; title=&quot;Stylus sur Github&quot;&gt;GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Présentation des surcouches existantes aux langages des CSS&lt;/h2&gt;
+
+&lt;p&gt;Voici des textes traduits des sites officiels, qui résument très bien les outils. Puis s’ils résument pas bien, c’est pas de ma faute, c’est comme ça mais ça montre qui est clair et qui ne l’est pas :) &lt;/p&gt;
+
+&lt;h3&gt;Sass&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Sass rend les CSS à nouveau amusant. Sass est une extension de CSS 3, en ajoutant règles imbriqués, variables, &lt;a href=&quot;http://fr.wikipedia.org/wiki/Mixin&quot;&gt;mixins&lt;/a&gt;, l’héritage de sélection, et encore plus. Cela ce transforme en CSS standard, bien formaté, à l’aide d’outils en ligne de commande ou avec des plugins de frameworks web [-ou un petit outil avec GUI que je vous présenterais ;) ].&lt;/p&gt;
+
+&lt;p&gt;Sass à 2 syntaxes. La principale (depuis Sass 3) est connu sous le nom de “SCSS » (pour “Sassy CSS”), et est un surensemble de la syntaxe CSS 3. Cela veut dire que du tout feuille de styles CSS 3 est aussi du SCSS valide. Les fichiers SCSS utilise l’extension .scss.&lt;/p&gt;
+
+&lt;p&gt;La seconde sxyntaxe, plus ancienne, est connu comme la syntaxe indenté (juste “Sass”). Inspiré par le laconisme de &lt;a href=&quot;http://haml-lang.com/&quot;&gt;Haml&lt;/a&gt;, elle est destinée aux personnes qui préfèrent la concision. Au lieu de crochets et des points-virgules, elle utilise l’indentation des lignes pour spécifier les blocs. Bien que elle ne soit plus la syntaxe primaire, cette syntaxe continuera d’être pris en charge. Les fichiers de cette ancienne syntaxe utilisent l’extension .sass.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4&gt;Petit exemple de code Sass avec la syntaxe Scss&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;scss language-scss&quot; data-lang=&quot;scss&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// note : ceci est bien un commentaire valide avec sass. Au revoir les /**/&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$blue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;#3bbfce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Variable&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;.content-navigation&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;border-color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$blue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// mixin&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;darken&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$blue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// Imbrication&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;li&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;font&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;serif&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;weight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;bold&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.2&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;em&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$margin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;.border&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// operateurs&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$margin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$margin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;border-color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$blue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;LESS&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;LESS étend CSS avec un comportement dynamique grâce à des variables, mixins, opérations et fonctions. LESS fonctionne à la fois sur côté-client (IE 6+, Webkit, Firefox) et côté serveur avec Node.js.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4&gt;Petit exemple de code LESS&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;.box-shadow (@x: 0, @y: 0, @blur: 1px, @alpha) {
+  @val: @x @y @blur rgba(0, 0, 0, @alpha);
+
+  box-shadow:         @val;
+  -webkit-box-shadow: @val;
+  -moz-box-shadow:    @val;
+}
+.box { @base: #f938ab;
+  color:        saturate(@base, 5%);
+  border-color: lighten(@base, 30%);
+  div { .box-shadow(0, 0, 5px, 0.4) }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Stylus&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Stylus est un nouveau langage révolutionnaire, qui apporte une méthode efficace, dynamique et expressive pour générer des CSS.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4&gt;Petit exemple de code Stylus&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;border-radius()
+  -webkit-border-radius arguments
+  -moz-border-radius arguments
+  border-radius arguments  
+
+body
+  font 12px Helvetica, Arial, sans-serif  
+
+a.button
+  border-radius 5px
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Quel langage choisir pour générer ses CSS ?&lt;/h2&gt;
+
+&lt;p&gt;À la vue des syntaxe (toute assez proche), on sais bien qu’on parle de CSS. On dégage 2 approches: une qui ajoute des possibilités à CSS sans modifier la syntaxe d’origine (Scss, LESS), et une qui veut simplifier (Sass, Stylus).&lt;br&gt;
+La syntaxe ne fait pas tout, il faut aussi regarder la méthode de génération des feuilles de style en CSS :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  Sass possède une méthode en ligne de commande qui va surveiller vos fichiers .sass ou .scss et va mettre à jour tout seul vos CSS,&lt;/li&gt;
+&lt;li&gt;  LESS possède pour le développement, un fichier javascript, et pour la production, un compilateur (ligne de commande),&lt;/li&gt;
+&lt;li&gt;  Stylus utilise une méthode de compilation (je n’ai pas été foutu de trouver un exemple clair rapidement)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Sass est basé sur Ruby, LESS et Stylus sur Javascript (Node.js). Tous les 3 peuvents être utilisé depuis d’autres langages pour peu que vous utilisiez des interface comme &lt;a href=&quot;https://github.com/kriswallsmith/assetic&quot;&gt;Assetic en PHP&lt;/a&gt;. Globalement rien de bien différent, si ce n’est que Sass possède des solutions pour gérer la génération depuis votre GUI (&lt;a href=&quot;https://github.com/hlb/SassSalon&quot;&gt;SassSalon&lt;/a&gt;, &lt;a href=&quot;http://compass.handlino.com/&quot;&gt;Compass.app&lt;/a&gt; ), utile pour des designers qui n’aiment souvent pas les lignes de commandes…&lt;/p&gt;
+
+&lt;p&gt;Ensuite il faut rentrer un peu dans le détail des fonctionnalités offertes, mais je vous laisse prendre le temps de faire ça par vous même en consultant les docs.&lt;/p&gt;
+
+&lt;p&gt;Sass a une base qui a du vécu et 2 syntaxes. LESS, lui, me parait un peu light, et je n’aime pas trop le coup du compilateur js. Quant à Stylus je n’ai pas trop pris le temps de faire des tests, mais il est encore assez jeune, quoique prometteur.&lt;/p&gt;
+
+&lt;p&gt;Pour l’instant j’utilise Sass (avec la syntaxe scss), ma principale raison est le framework &lt;a href=&quot;http://beta.compass-style.org/&quot;&gt;Compass&lt;/a&gt; qu’on peut rajouter en surcouche. Sass et Compass représente une grosse communauté et à eux 2 un bon gros tas de fonctions. Je rentrerais un peu plus dans le détail avec Sass/Compass dans un prochain post.&lt;/p&gt;
+
+&lt;p&gt;Il me paraît aujourd’hui évident d’utiliser une de ces solutions et je ne suis pas près de m’en passer (pas avant que CSS ne possède des variables et mixins en tout cas), surtout à notre époque où chaque nouvelle propriété amusante des CSS utilise un préfixe par navigateur (et peu donc vite devenir gerbant à l’utilisation). &lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;En tout cas, il y’a du choix, alors passez à la vitesse supérieur avec vos CSS !&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Edit: Depuis j’ai publié d’autres articles relatifs, un plus détaillé sur &lt;a href=&quot;/blog/fonctions-variables-css-generer-ses-css-avec-sass-compass/&quot;&gt;la solution Sass/Compass (et son installation) &lt;/a&gt;puis un autre sur &lt;a href=&quot;/blog/compass-app-application-pour-compiler-css-sass-compass/&quot;&gt;comment se passer des lignes de commandes avec Compass.app !&lt;/a&gt;&lt;/p&gt;
+</description>
+                <pubDate>Thu, 21 Apr 2011 00:00:00 +0200</pubDate>
+                <link>/blog/utiliser-des-variables-fonctions-css/</link>
+                <guid isPermaLink="true">/blog/utiliser-des-variables-fonctions-css/</guid>
+            </item>
+        
+            <item>
+                <title>Coder en Javascript dans une console</title>
+                <description>&lt;p&gt;Depuis l’apparition des consoles Javascript, on peut debugger plus facilement des erreurs de scripts, qui à l’époque d’IE6 &amp;amp; co se faisait à coup de alert().&lt;br&gt;
+Un chose que je ne trouve pas très répandu, c’est d’utiliser ces consoles pour coder directement, de petit morceaux de code, sans se (re)taper d’ajouter du script inline, ou un fichier juste pour avoir bonne conscience. Avec une console avancée, on peut même éditer des scripts en cours d’exécution !  &lt;/p&gt;
+
+&lt;h2&gt;A quoi ça sert de coder du Javascript dans une console ?&lt;/h2&gt;
+
+&lt;p&gt;Un exemple très simple sera plus parlant : vous voyez un paragraphe de texte et vous vous demandez combien il comporte de caractères. Et là vous commencez à compter… 1, 2, 3… Sttoooppp ! On peut faire ça en javascript ! Sans perdre du temps !&lt;br&gt;
+En admettant que vous ayez une console javascript digne de ce nom (la console Webkit en fait partie – Chrome, Safari…), vous avez un shortcut vraiment énorme. C’est le &lt;strong&gt;$0&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3&gt;$0 ?&lt;/h3&gt;
+
+&lt;p&gt;$0 est très simple d’utilisation, et peut être très utile. Choisissez un élément sur une page web, faites une inspection de l’élément (sous Webkit et Gecko, un simple clic droit dessus et « Inspect Element » / « Inspecter l’élément » fait l’affaire). Allez dans votre console Javascript, et tapez $0 (puis Enter). Et là magie, cette variable contient une référence du noeud DOM en question ! C’est assez énorme je trouve.&lt;/p&gt;
+
+&lt;h3&gt;Utilisation : compter le texte d’un paragraphe&lt;/h3&gt;
+
+&lt;p&gt;Admettons que vous cherchez à compter le nombre de caractères dans une &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;, inspectez là, puis dans votre console entrez-y la ligne suivante:  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;js language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;$0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;innerHTML&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Et voilà vous avez votre résultat !&lt;/p&gt;
+
+&lt;p&gt;Bien entendu il est bien évidement possible d’avoir des utilisations bien plus poussé de cette technique, comme par exemple récupérer tous les liens d’une page pour avoir leur href ou pour les entourer en rouge.&lt;/p&gt;
+
+&lt;h3&gt;Coder plus d’un ligne&lt;/h3&gt;
+
+&lt;p&gt;Voici quelques trucs utile à savoir pour avoir une utilisation correcte des consoles javascript :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  Utiliser les flèches du clavier Haut et Bas pour naviguer dans les précédentes commandes effectués, comme dans un terminal;&lt;/li&gt;
+&lt;li&gt;  Penser à Shift+Enter pour faire des retours à la ligne sans exécuter le code;&lt;/li&gt;
+&lt;li&gt;  La touche TABulation vous permet d’avoir une autocomplétion. Appuyez dessus plusieurs fois vous présentera les différentes options à votre disposition.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Ajouter jQuery dans n’importe quel page depuis une console Javascript&lt;/h2&gt;
+
+&lt;p&gt;Lorsque l’on fait vite mumuse avec cette technique, il peut s’avérer judicieux d’utiliser jQuery ou une librairie quelconque de votre choix pour gagner encore en rapidité, et jQuery n’est pas encore sur toutes les pages web (&lt;a href=&quot;https://twitter.com/mathias/status/59692133157842946&quot; title=&quot;Statistique jQuery/Flash sur les pages web&quot;&gt;même si ça s’en reproche&lt;/a&gt;)&lt;br&gt;
+Alors voilà une petite technique de sioux afin d’ajouter jQuery (ou autre) dans la page en cours.  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;js language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;jQuery&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;undefined&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myScript&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;script&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;myScript&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setAttribute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;src&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// you can change this filename&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementsByTagName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;head&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;myScript&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;N.B. : Si justement vous n’avez pas jQuery déjà inclus, il se peut que l’ajouter provoque des soucis si la variable $ est utile à la page (ce qui peut être le cas si une librairie tel que ProtoypeJs est inclus). Il faut donc utiliser la méthode de jQuery pour palier à ce problème : &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;js language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;jQuery&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;noConflict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// if you think there will be a problem with &amp;quot;$&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ce qui impliquer d’utiliser par la suite jQuery avec son vrai nom plutôt que $ (ex: jQuery(‘.selector’).plugin() ).&lt;/p&gt;
+
+&lt;p&gt;Ainsi on pourra faire des choses plus avancés facilement.&lt;br&gt;
+Si on reprends mon exemple de tout à l’heure où j’ai compté les caractères d’une div, vous avez peut être remarqué le soucis que cette technique peut avoir : si vous avez de l’HTML dedans, le nombre de caractère est faussé puisque cela va compter les caractères réservés à l’HTML.&lt;br&gt;
+Avec jQuery, ça devient aussi simple que ça pour contourner le problème :&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;jQuery($0).text().length
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And voilà… Vous prendrez vite goût à cette technique qui peut devenir très utile. D’ailleurs si vous avez des petits snippets sympathiques, n’hésitez pas à les poster dans les commentaires, je pourrais très bien ajouter une liste de commandes utiles en dessous de cette article !&lt;/p&gt;
+
+&lt;p&gt;Ajout du 17 mai 2011 : Je vous invite à &lt;a href=&quot;http://paulirish.com/2011/a-re-introduction-to-the-chrome-developer-tools/&quot;&gt;redécouvrir l’outil de dév. de Chrome, via une vidéo du dernier Google I/O présenté par Paul Irish&lt;/a&gt;&lt;/p&gt;
+</description>
+                <pubDate>Mon, 18 Apr 2011 00:00:00 +0200</pubDate>
+                <link>/blog/coder-en-javascript-dans-une-console/</link>
+                <guid isPermaLink="true">/blog/coder-en-javascript-dans-une-console/</guid>
+            </item>
+        
+            <item>
+                <title>Installer Apache PHP MySQL sous Mac OS X</title>
+                <description>&lt;p&gt;Une des premières choses à faire pour un développeur web comme moi, c’est d’avoir &lt;strong&gt;un environnement de développement pour travailler en local&lt;/strong&gt;. C’est sûr que ça peut paraître la base comme ça, mais à l’époque où j’étais encore sous Windows, j’ai déjà vu des gros noobs se taper de l’upload par FTP à chaque sauvegarde de fichiers. Et ouais. Avec sauvegarde par bouton en forme de disquette et upload par glisser déposer… Si si…  &lt;/p&gt;
+
+&lt;p&gt;Enfin bref. &lt;em&gt;Installer un serveur web local sur OS X&lt;/em&gt; basé sur &lt;strong&gt;Apache/PHP/MySQL&lt;/strong&gt; peut se faire de plusieurs manières :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  Activer le serveur web installé par défaut sur Mac (!),&lt;/li&gt;
+&lt;li&gt;  Installer la solution &lt;a href=&quot;//www.apachefriends.org/&quot;&gt;XAMPP&lt;/a&gt; des amis d’apache,&lt;/li&gt;
+&lt;li&gt;  Installer la solution &lt;a href=&quot;//www.mamp.info/&quot;&gt;MAMP&lt;/a&gt;,&lt;/li&gt;
+&lt;li&gt;  Installer la solution &lt;a href=&quot;//www.zend.com/fr/products/server-ce/&quot;&gt;Zend Server (Community Edition)&lt;/a&gt;,&lt;/li&gt;
+&lt;li&gt;  Utiliser une solution à partir d’un gestionnaire de paquet tel que &lt;a href=&quot;//www.macports.org/&quot;&gt;MacPorts&lt;/a&gt;, &lt;a href=&quot;//www.finkproject.org/&quot;&gt;Fink&lt;/a&gt; ou &lt;a href=&quot;//mxcl.github.com/homebrew/&quot;&gt;Howbrew&lt;/a&gt;,&lt;/li&gt;
+&lt;li&gt;  Se démerder avec du code source et tout compiler soit même !&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Quelle solution choisir pour son serveur web sous Mac OS X ?&lt;/h2&gt;
+
+&lt;p&gt;Petit à petit j’ai eu l’occasion d’essayer toutes les solutions. J’ai commencé sans me prendre la tête par la solution built-in mais j’y ai vite vu des limitations dès lors que j’ai eu besoin de plus de libertés sur PHP (version, extensions etc). Pour activer le &lt;em&gt;serveur web&lt;/em&gt;, il suffit d’aller dans les préférences d’OS X, puis de se rendre dans « Sharing » (Partage) et d’activer « Web sharing » (Partage web).&lt;/p&gt;
+
+&lt;p&gt;Je ne suis pas fan de &lt;strong&gt;XAMPP&lt;/strong&gt;, ne me demandez pas pourquoi. Je me rappelle l’avoir installé et l’avoir supprimé dans l’heure qui suit (que ce soit sous Windows, Ubuntu ou OS X)…&lt;/p&gt;
+
+&lt;p&gt;J’ai donc essayé &lt;strong&gt;MAMP&lt;/strong&gt;, qui a comme inconvénient de nécessiter un démarrage manuel. Pour un développeur web comme moi qui passe 80% de son temps à coder sur sa machine, rien que ça peut devenir pénible. M’enfin si c’est que ça y’a la version PRO (payante). Okay, au suivant.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Zend Server (CE)&lt;/strong&gt; est vraiment pas mal, dans le sens une majeur partie de la configuration PHP se fait via une interface web. Dans ce sens ça rejoint WAMP pour la facilité de configuration (activer/désactiver une extension, mettre à jour des valeurs du php.ini…). La webapp tourne sous lighttpd ce qui fait que si vous pétez votre conf Apache (qui elle se fait à la main), la webapp n’en dépend pas et peut toujours fonctionner. Zend Server est d’office avec la plupart des extensions dont j’ai pu avoir besoin depuis que j’ai mon Mac (à ce jour plus d’un an). J’ai vraiment trouvé cette solution élégante, sans prise de tête. Y’a même un driver mssql pour vous dire (il me semble que ça m’a manqué dans certaines des solutions ci-dessus) !&lt;/p&gt;
+
+&lt;p&gt;Récemment j’ai eu de nouveaux besoins pour mon job. Une extension qui n’était pas dans Zend Server (client Solr pour l’anecdote), j’ai donc testé une solution basée sur une gestionnaire de paquet, ce qui m’a rappelé les bons côtés des distributions Linux avec leurs packages.&lt;br&gt;
+Pour le choix du gestionnaire je me suis orienté vers MacPorts non pas parce qu’il est supérieur, mais parce que les 2 autres (Fink et Homebrew) n’ont pas assez de paquets pour PHP (tout simplement). MacPorts en recense une centaine sur la recherche « php ». Fink environ 50, et Homebrew même pas une dizaine. Howbrew aurait l’avantage d’être beaucoup plus rapide que les 2 autres solutions, mais à comme principe de base de ne pas dupliquer un paquet déjà présent sur le système OS X. Et comme Apache/PHP sont déjà présents (bien que la version ne soit pas à jour et les extensions présentes ne se bousculent pas), il faut utiliser d’autres sources…&lt;br&gt;
+Donc je me suis simplement orienté vers &lt;strong&gt;MacPorts&lt;/strong&gt; :&lt;/p&gt;
+
+&lt;blockquote lang=&quot;en&quot;&gt;
+    The MacPorts Project is an open-source community initiative to design an easy-to-use system for compiling, installing, and upgrading either command-line, X11 or Aqua based open-source software on the &lt;a href=&quot;//www.apple.com/macosx/&quot;&gt;Mac OS X&lt;/a&gt; operating system. To that end we provide the command-line driven MacPorts software package under a &lt;a href=&quot;//opensource.org/licenses/bsd-license.php&quot;&gt;BSD License&lt;/a&gt;, and through it easy access to thousands of ports that &lt;a href=&quot;//guide.macports.org/#introduction&quot;&gt;greatly simplify&lt;/a&gt; the task of &lt;a href=&quot;//guide.macports.org/#using&quot;&gt;compiling and installing&lt;/a&gt; open-source software on your Mac.
+&lt;/blockquote&gt;
+
+&lt;p&gt;Pour installer &lt;strong&gt;MacPorts&lt;/strong&gt; rien de difficile : on se rend sur le site officiel du projet, on télécharge l’image disque puis on installe ça facilement (pré-requis : il faut avoir XCode et X11 d’installer sur sa machine, tous les 2 sont dispos sur les DVD d’applications fournies avec votre Mac). Après ça dans notre Terminal on a accès la commande &lt;strong&gt;port&lt;/strong&gt; qui permettra de faire des équivalents d’apt-get / aptitude sous Linux. La grosse différence, qui est ses avantages et inconvénients c’est que ça compile les sources sur votre machine. Avantage : précision pour les options sur les paquets. Inconvénient : temps d’installation (surtout pour les premiers paquets).&lt;/p&gt;
+
+&lt;h2&gt;Installation des paquets Apache, PHP, MySQL avec MacPorts&lt;/h2&gt;
+
+&lt;p&gt;Passons donc au nécessaire. Installer Apache et le server mysql. PHP est installé juste après avec quelques petites spécificités éventuelles. Pour ce faire, dans votre &lt;em&gt;Application &amp;gt; Utilitaires &amp;gt; Terminal.app&lt;/em&gt;, exécutez les commandes suivantes et ne soyez pas pressé, allez vous faire un café, prenez votre smartphone et allez &lt;a href=&quot;//www.rovio.com/index.php?page=angry-birds&quot; title=&quot;Voir au site du jeu Angry Birds&quot;&gt;péter des cochons&lt;/a&gt; quelques minutes sur votre trône :&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo port install apache2 mysql5-server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Si c’est votre première fois avec &lt;strong&gt;port&lt;/strong&gt;, vous comptez au moins une bonne douzaine de minutes le temps que les premiers paquets se compilent.&lt;/p&gt;
+
+&lt;p&gt;Une fois ceci fait, on va compiler et installer PHP 5 avec les options de compilation (+*) pour Apache, MySQL et PEAR (&lt;a href=&quot;//pear.php.net/&quot; title=&quot;Accéder au site de PEAR (PHP Extension and Application Repository)&quot;&gt;PEAR quesako ?&lt;/a&gt;)&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo port install php5 +apache2 +mysql5 +pear
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Là encore ça peut prendre du temps.&lt;/p&gt;
+
+&lt;p&gt;Ensuite on passe aux paquets de base, manière de ne pas avoir à installer un paquet toutes les 2h à chaque « &lt;em&gt;Fatal Error : Class not found&lt;/em&gt; » :) &lt;/p&gt;
+
+&lt;p&gt;*Note: N’ayez pas peur de copier les commentaires des les lignes de codes dans votre terminal, ça reste des commentaires, même pour un terminal ;) *&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# usefull packages&lt;/span&gt;
+sudo port install php5-apc php5-curl php5-ftp php5-gd php5-gettext php5-iconv php5-imagick php5-ldap php5-pcntl php5-pdflib php5-mbstring php5-mcrypt php5-memcached php5-soap php5-uploadprogress php5-xdebug php5-xmlrpc php5-zip
+&lt;span class=&quot;c&quot;&gt;# database related packages&lt;/span&gt;
+sudo port install php5-odbc php5-mysql php5-sqlite
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A vous de voir ce qui vous intéresse dans la liste, mais la plupart sont des classiques (et encore il en manque peut-être)&lt;/p&gt;
+
+&lt;p&gt;Pour la liste des paquets, vous avez un énorme choix et &lt;a href=&quot;//www.macports.org/ports.php?by=name&amp;amp;substr=php5&quot; title=&quot;Accéder à la liste des paquets php5 sur le site de MacPorts&quot;&gt;vous pouvez parcourir la liste sur le site&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Mémo à moi-même : pour mon boulot j’ai dû me rajouter ces 3 paquets (oui oui j’ai besoin du driver mssql…)&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo port install php5-solr freetds php5-mssql
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ensuite il reste quelques petites modifs avant d’avoir un environnement fin prêt.&lt;/p&gt;
+
+&lt;h2&gt;Configuration d’Apache&lt;/h2&gt;
+
+&lt;p&gt;On active PHP5 au niveau d’Apache  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# activate php5 module for apache&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /opt/local/apache2/modules
+sudo /opt/local/apache2/bin/apxs -a -e -n &lt;span class=&quot;s2&quot;&gt;&amp;quot;php5&amp;quot;&lt;/span&gt; libphp5.so
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Il faut maintenant préciser à Apache que les fichiers index.php peuvent être les fichiers index par défaut. Pour ce faire, il faut éditer le fichier /opt/local/apache2/conf/httpd.conf et rechercher « DirectoryIndex index.html »&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# add &amp;quot;index.php&amp;quot; at the end&lt;/span&gt;
+DirectoryIndex index.html index.php
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;On peut aussi ajouter la conf du module apache php (en fin de fichier ?)&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;Include conf/extra/mod_php.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ayant déjà vécu un paquet de reinstall système, j’ai l’habitude de mettre mes configs dans mes dossiers perso indépendamment du système, voilà donc ce que j’ai ajouté en à la fin du httpd.conf.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;Include /Users/YOUR-USERNAME/Dropbox/Servers/conf/development/*
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Vous remarquerez que j’ai mis ça sur ma &lt;a href=&quot;//db.tt/C5lc46w&quot;&gt;Dropbox&lt;/a&gt; (comme je suis rassuré d’avoir tous mes petits fichiers au chaud bien à l’abri d’un hardreset :) ). &lt;a href=&quot;//db.tt/C5lc46w&quot; title=&quot;Créer votre compte Dropbox gratuitement !&quot;&gt;Je vous invite à faire pareille&lt;/a&gt;, ça ne coûte rien et c’est tellement pratique d’avoir un mega dossier synchro entre ses différentes machines (smartphone inclus) !&lt;/p&gt;
+
+&lt;p&gt;Après avoir modifié la conf &lt;strong&gt;Apache&lt;/strong&gt;, il faut bien sur penser à redémarrer le serveur pour que la nouvelle configuration soit prise en compte:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo /opt/local/apache2/bin/apachectl -k restart
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ceci doit être fait dès que vous modifiez votre httpd.conf (ou apache2.conf selon), pensez-y quand vous ajouterez des virtual hosts !&lt;/p&gt;
+
+&lt;h2&gt;Configuration de PHP&lt;/h2&gt;
+
+&lt;p&gt;On doit créer un fichier de configuration de PHP. On copie donc la version par défaut de développement. Puis vous pouvez prendre le temps d’éditer ce nouveau php.ini pour l’adapter à vos besoins.  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# create a default php.ini&lt;/span&gt;
+sudo cp /opt/local/etc/php5/php.ini-development /opt/local/etc/php5/php.ini
+&lt;span class=&quot;c&quot;&gt;# open it to customize&lt;/span&gt;
+sudo open /opt/local/etc/php5/php.ini
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Prenez 2 secondes pour éviter des warnings avec les fonctions/classes date, time etc… en ajoutant ceci à la fin du fichier php.ini&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# set a default timezone for your server&lt;/span&gt;
+date.timezone&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Europe/Paris&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Configuration de MySQL&lt;/h2&gt;
+
+&lt;p&gt;Il reste à configurer  notre serveur de base de données SQL.&lt;/p&gt;
+
+&lt;p&gt;Pendant qu’on est encore chaud sur le php.ini, on en profite pour adapter les réglages MySQL. Voilà ce qui va être nécessaire (&lt;em&gt;cherchez dans le fichier les clés de configs et modifiez les comme ici&lt;/em&gt;)&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# edit php.ini to add default mysql socket&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# ...&lt;/span&gt;
+pdo_mysql.default_socket&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/tmp/mysql.sock
+&lt;span class=&quot;c&quot;&gt;# ...&lt;/span&gt;
+mysql.default_socket &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; /tmp/mysql.sock
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Une fois ceci fait, on va vraiment configurer MySQL&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# mysql installation&lt;/span&gt;
+sudo -u mysql mysql_install_db5
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ensuite on défini les fameuses sockets pour php (entre autres) dans le fichier /opt/local/etc/mysql5/my.cnf&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# create file if not exists&lt;/span&gt;
+sudo touch /opt/local/etc/mysql5/my.cnf
+&lt;span class=&quot;c&quot;&gt;# open it&lt;/span&gt;
+sudo open /opt/local/etc/mysql5/my.cnf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Voilà les ajouts/modifications à apporter  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# add this into the configuration file, or edit current settings&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;mysqld_safe&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;socket&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; /tmp/mysql.sock
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;mysqld&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/tmp/mysql.sock
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;client&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/tmp/mysql.sock
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Il y’en a peut être beaucoup mais il vaut mieux trop que pas assez.&lt;/p&gt;
+
+&lt;h2&gt;Activer Apache PHP et MySQL au démarrage de votre machine&lt;/h2&gt;
+
+&lt;p&gt;Vous remarquerez que les paquets qui nécessitent de fonctionner en tant que serveur (apache, mysql…) doivent être démarrés à la main.&lt;br&gt;
+Mais si vous avez l’oeil, lors des compilations, des commentaires similaires à celui-ci vous indique comment faire simplement.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;###########################################################&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# A startup item has been generated that will aid in&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# starting apache2 with launchd. It is disabled&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# by default. Execute the following command to start it,&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# and to cause it to launch at startup:&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# sudo port load apache2&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;###########################################################&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Donc pour loader Apache et MySQL au démarrage, rien de plus simple:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo port load apache2 mysql5-server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Les petits plus&lt;/h2&gt;
+
+&lt;h3&gt;Installer PHPUnit sur Mac OS X&lt;/h3&gt;
+
+&lt;p&gt;Quand on est un développeur digne de ce nom, on se doit de faire des &lt;a href=&quot;//fr.wikipedia.org/wiki/Test_unitaire&quot;&gt;tests unitaires&lt;/a&gt;. Voilà comment ajouter le nécessaire à votre configuration. Et c’est là que PEAR est nécessaire !&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# install phpunit&lt;/span&gt;
+sudo pear channel-discover pear.phpunit.de
+sudo pear install --alldeps phpunit/PHPUnit
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Si vous avez des soucis avez les lignes commandes ci-dessus, comme quoi il vous manque des dépendances, voici de quoi faire&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo pear channel-discover pear.phpunit.de
+sudo pear channel-discover pear.symfony-project.com
+sudo pear channel-discover components.ez.no
+sudo pear install phpunit/PHPUnit
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Installer Memcache&lt;/h3&gt;
+
+&lt;p&gt;Memcache, un système de cache bien sympatique utilisable en PHP (entre autres) peut s’installer simplement grâce aux MacPorts.&lt;br&gt;
+Il suffit d’installer 2 paquets, puis éventuellement de lancer ça au démarrage de la machine.  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Install the executable and the bindings for PHP5&lt;/span&gt;
+sudo port install memcached php5-memcached
+
+&lt;span class=&quot;c&quot;&gt;# Verify that the executable exists in your path&lt;/span&gt;
+which memcached
+&lt;span class=&quot;c&quot;&gt;# output something like /opt/local/bin/memcached&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Start memcached for the current session&lt;/span&gt;
+memcached -d -m 24 -p 11211
+
+&lt;span class=&quot;c&quot;&gt;# Configure memcached to execute on startup, if desired&lt;/span&gt;
+sudo port load memcached
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Avec tout ça, vous devrait être fin prêt pour attaquer du code !&lt;br&gt;
+Il reste maintenant à bien configurer Apache, avec des virtual hosts mais ça fera peut être l’objet d’un autre post.&lt;/p&gt;
+
+&lt;p&gt;*[PEAR]: PHP Extension and Application Repository&lt;/p&gt;
+</description>
+                <pubDate>Thu, 31 Mar 2011 00:00:00 +0200</pubDate>
+                <link>/blog/installer-serveur-web-apache-php-mysql-mac-os-x-macports/</link>
+                <guid isPermaLink="true">/blog/installer-serveur-web-apache-php-mysql-mac-os-x-macports/</guid>
+            </item>
+        
+    </channel>
+</rss>

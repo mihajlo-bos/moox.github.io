@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!--
+	HEY YOU, STOP LOOKING AT MY SOURCE CODE
+	Just check it out directly on Github :
+	
+	https://github.com/MoOx/moox.io.git
+-->
+<html lang="en" class="no-js no-touch grid-title--quotes">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<script>(function(docEl) {
+	docEl.className = docEl.className.replace(/\bno-js\b/, 'js');
+	if ('ontouchstart' in docEl) { docEl.className = docEl.className.replace(/\bno-touch\b/, 'touch'); }
+})(document.documentElement);</script>
+<head>
+
+<meta charset="utf-8">
+<title>Run a Virtual Machine with VirtualBox on a Hackintosh</title>
+<meta name="description" content="">
+<base href="/" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="feed.xml" rel="alternate" type="application/rss+xml">
+
+<link rel="stylesheet" href="/assets/css/style.css">
+
+
+</head>
+<body>
+
+
+
+<a class="source-code" href="https://github.com/MoOx/moox.io.git">source code</a>
+
+<div class="body-wrapper">
+<nav class="Navbar Navbar--top js-togglable">
+	<a class="SiteLogo Navbar__section Navbar__section--left hint hint--bottom title" href="/" data-hint="Home">
+		<span class="SiteLogo-title">MoOx</span>
+		<br />
+		<span class="SiteLogo-description">Front-end web developer</span>
+	</a>
+	<button class="Navbar__toggler js-togglable__toggler">☰</button>
+
+	<ul class="Navbar__section Navbar__section--right js-togglable__item js-togglable__item--hide">
+		<li class="Navbar-separator--after"><a class=""  href="profile/"><i class="icon icon_user"></i> Profile</a>
+		</li><li class="Navbar-separator--after"><a class=""  href="#not-ready"><i class="icon icon_gears"></i> Portfolio</a>
+		</li><li class="Navbar-separator--after"><a class=""  href="#not-ready"><i class="icon icon_gears"></i> Code</a>
+		</li><li class="Navbar-separator--after"><a class="active"  href="blog/"><i class="icon icon_pencil"></i> Blog</a>
+		</li><li class="Navbar-separator--after"><a class=""  href="about/"><i class="icon icon_help"></i> About</a>
+		</li><li class="Navbar-separator--after"><a class=""  href="contact/"><i class="icon icon_speech-bubble"></i> Contact</a></li>
+	</ul>
+</nav>
+
+<div class="grid grid--center grid--title">
+	<hgroup class="grid__cell unit-8-12--medium title--light">
+		<h1>MoOx' hut</h1>
+		<h2>... where he talks about web &amp; dev.</h2>
+	</hgroup>
+</div>
+
+<div class="grid grid--blabla">
+	<div class="grid__cell Box">
+		<article class="Box-module" lang="en">
+			<header>
+				<h1><span class="text-less-visible">[en]</span> Run a Virtual Machine with VirtualBox on a Hackintosh</h1>
+				<time class="text-less-visible" pubdate datetime="2011-10-27">Oct 27 2011</time>
+			</header>
+			<!-- 
+			<div class="category">
+				<ul>
+					
+						<li><a href="#">hackintosh</a></li>
+					
+						<li><a href="#">os x</a></li>
+					
+						<li><a href="#">virtualbox</a></li>
+					
+						<li><a href="#">vm</a></li>
+					
+				</ul>
+			</div>
+			 -->
+			<div class="content">
+				<p>You are running on a OS X à la Hackintosh ? You have a « <strong>VT-x is not available. VERR_VMX_NO_VMX</strong> » when you start a virtual machine ? Do not panic !</p>
+
+<p>Under the <code>~/Library/VirtualBox/Machines</code> directory you will find a folder for each virtual machine you have created. Within this directly you will find an XML file with the machine settings.  </p>
+
+<ins datetime="2012-02-22T16:58:23+00:00">Update: You can now just type in your terminal: `VBoxManage modifyvm &lt;VMname&gt; --hwvirtex off` (change `&lt;VMname&gt;` with your VM name)</ins>
+
+<h2>Edit XML VBox file</h2>
+
+<p>So, in your « user folder » (~/), there will be a Library folder, hidden in OS X Lion, so to see it, open the Finder, in the « Go » menu, hold <kbd>⌥</kbd>.</p>
+
+<figure class="flex-media--unknown">
+  <a href="/2011/10/Open-Library-folder-wtih-Finder.png">
+    <img class="flex-media__item" title="Open Library folder with Finder" src="/2011/10/Open-Library-folder-wtih-Finder.png" alt="" /></a>
+</figure>
+
+<p>Inside that Library folder, there is a folder called VirtualBox, which contains a Machines folder. In each VM folder, open the *.vbox file using a text-editor. It’s a XML file.</p>
+
+<p>It looks like:</p>
+
+<pre class="code blocks">&lt;?xml ...
+    &lt;VirtualBox ...
+        &lt;Machine ...
+            &lt;CPU count="1"&gt;
+                &lt;HardwareVirtEx enabled="true" ... /&gt;
+            ...</pre>
+
+<p>Exit Virtual Box, change this « true » to « false » and Save. Restart Virtual Box and (or open it if you had it closed) and the hardware virtualization extensions will be disabled.</p>
+
+<figure class="flex-media--unknown">
+  <a href="/2011/10/Edit-Virtualbox-xml-file.png">
+    <img class="flex-media__item" title="Edit Virtualbox xml file" src="/2011/10/Edit-Virtualbox-xml-file.png" alt="" />
+  </a>
+</figure>
+
+<p>Seems like a clear bug with VirtualBox, being that the setting is grayed out in the GUI but you can change it in the XML config file and that fixes the problem.</p>
+
+<p><em>Source: <a href="https://forums.virtualbox.org/viewtopic.php?f=2&amp;t=17090">https://forums.virtualbox.org/viewtopic.php?f=2&amp;t=17090</a></em></p>
+
+			</div>
+			<br /><br />
+			----
+			<br /><br />
+			<footer>
+				<div class="report">
+					See something wrong here ? Please tell me <a href="https://github.com/MoOx/moox.io/issues">with an issue on Github</a>, 
+					or just some words on twitter at <a href="https://twitter.com/MoOx/">@MoOx</a>.
+				</div>
+			</footer>
+		</article>
+		
+		
+			<section class="Box-module about-author">
+	<img class="obj-start" src="//gravatar.com/avatar/d2a1c95e2af59538301c3ee6d2907f6f?s=128" alt="">
+	<h1 class="h3 margin-vn">About the author</h1>
+	<p>
+		<strong>Maxime Thirouin</strong>, known as <em>MoOx</em> on the web, is a freelance front-end web developer living in Toulouse, France. When he is not behind his screen like a geek, he loves to do the handyman in his wood house or having fun with is awesome wife. You can check what he codes on <a href="https://github.com/MoOx">Github</a> or just take a look at what he shares on <a href="https://twitter.com/MoOx">Twitter</a>.
+	</p>
+</section>
+
+		
+		
+		
+		<section class="Box-module">
+			<h1>Comments</h1>
+			<div id="disqus_thread" aria-live="polite">
+				<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+			</div>
+		</section>
+		
+		<footer class="Box-module">
+			<h3>This is a temporary footer</h3>
+			<div class="icons--big">
+				<a href="https://twitter.com/MoOx"><i class="icon icon_twitter"></i><span class="text">Twitter</span></a>
+				<a href="https://github.com/MoOx"><i class="icon icon_github"></i><span class="text">Github</span></a>
+				<a href="http://www.linkedin.com/in/maxthirouin"><i class="icon icon_linkedin"></i><span class="text">LinkedIn</span></a>
+				<a href="skype:maxime.thirouin?add"><i class="icon icon_skype"></i><span class="text">Skype</span></a>
+				<a href="contact/"><i class="icon icon_email"></i><span class="text">Contact</span></a>
+			</div>
+		</footer>
+	</div>
+</div>
+
+</div>
+<script src="/assets/js/ieshim.js"></script>
+<script src="/assets/js/vanilla.js"></script>
+
+
+<script>var _gaq=[['_setAccount','UA-1716762-6'],['_trackPageview']];
+
+(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+
+
+<script>
+var disqus_shortname = 'moox',
+
+
+	
+	disqus_identifier = '/blog/run-virtual-machine-virtualbox-hackintosh/',
+	disqus_url = '/blog/run-virtual-machine-virtualbox-hackintosh/',
+	disqus_script = 'embed.js';
+
+
+(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+g.src='http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+s.parentNode.insertBefore(g,s)}(document,'script'));
+
+</script>
+
+
+</body>
+</html>
