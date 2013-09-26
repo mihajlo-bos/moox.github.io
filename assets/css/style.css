@@ -537,7 +537,7 @@ html {
   font-size: .8rem;
   line-height: 1.6rem;
   font-family: "Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
-  background: url('/assets/img/forest-ruins--portrait.jpg?1380137118') no-repeat center fixed;
+  background: url('/assets/img/forest-ruins--portrait.jpg?1380172824') no-repeat center fixed;
   background-size: cover;
 }
 
@@ -549,18 +549,18 @@ html {
 
 @media (orientation: landscape) and (min-width: 50em) {
   html {
-    background-image: url('/assets/img/forest-ruins--landscape.jpg?1380137117');
+    background-image: url('/assets/img/forest-ruins--landscape.jpg?1380172824');
   }
 }
 
 html.error-404 {
-  background: url('/assets/img/lost-woods--portrait.jpg?1380137118') no-repeat center fixed;
+  background: url('/assets/img/lost-woods--portrait.jpg?1380172824') no-repeat center fixed;
   background-size: cover;
 }
 
 @media (orientation: landscape) and (min-width: 50em) {
   html.error-404 {
-    background-image: url('/assets/img/lost-woods--landscape.jpg?1380137118');
+    background-image: url('/assets/img/lost-woods--landscape.jpg?1380172824');
   }
 }
 
