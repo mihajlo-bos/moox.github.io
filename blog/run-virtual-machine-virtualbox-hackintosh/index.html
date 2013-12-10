@@ -2,12 +2,11 @@
 <!--
 	HEY YOU, STOP LOOKING AT MY SOURCE CODE
 	Just check it out directly on Github :
-	
+
 	https://github.com/MoOx/moox.io.git
 -->
-<html lang="en" class="no-js no-touch grid-title--quotes">
+<html lang="en" class="no-js no-touch ">
 <head>
-<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <script>(function(docEl) {
 	docEl.className = docEl.className.replace(/\bno-js\b/, 'js');
 	if ('ontouchstart' in docEl) { docEl.className = docEl.className.replace(/\bno-touch\b/, 'touch'); }
@@ -15,12 +14,14 @@
 
 <meta charset="utf-8">
 <title>Run a Virtual Machine with VirtualBox on a Hackintosh</title>
-<meta name="description" content="">
-<base href="http://moox.io/" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<base href="http://moox.io/">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <link href="feed.xml" rel="alternate" type="application/rss+xml">
 
-<link rel="stylesheet" href="/assets/css/style.css?20130926072016">
+<link rel="stylesheet" href="/assets/css/moox.css?20131210173338">
+
 
 
 
@@ -44,11 +45,12 @@
 		<li class="Navbar-separator--after"><a class=""  href="profile/"><i class="icon icon_user"></i> Profile</a>
 		</li><li class="Navbar-separator--after"><a class=""  href="#not-ready"><i class="icon icon_gears"></i> Portfolio</a>
 		</li><li class="Navbar-separator--after"><a class=""  href="#not-ready"><i class="icon icon_gears"></i> Code</a>
-		</li><li class="Navbar-separator--after"><a class="active"  href="blog/"><i class="icon icon_pencil"></i> Blog</a>
+		</li><li class="Navbar-separator--after"><a class=""  href="blog/"><i class="icon icon_pencil"></i> Blog</a>
 		</li><li class="Navbar-separator--after"><a class=""  href="about/"><i class="icon icon_help"></i> About</a>
 		</li><li class="Navbar-separator--after"><a class=""  href="contact/"><i class="icon icon_speech-bubble"></i> Contact</a></li>
 	</ul>
 </nav>
+
 
 <div class="grid grid--center grid--title">
 	<hgroup class="grid__cell unit-8-12--medium title--light">
@@ -62,43 +64,38 @@
 		<article class="Box-module" lang="en">
 			<header>
 				<h1><span class="text-less-visible">[en]</span> Run a Virtual Machine with VirtualBox on a Hackintosh</h1>
-				<time class="text-less-visible" pubdate datetime="2011-10-27">Oct 27 2011</time>
+				<time class="text-less-visible" pubdate datetime="2013-12-10">10 December 2013</time>
 			</header>
 			<!-- 
 			<div class="category">
 				<ul>
 					
-						<li><a href="#">hackintosh</a></li>
+						<li><a href="#"></a></li>
 					
-						<li><a href="#">os x</a></li>
+						<li><a href="#"></a></li>
 					
-						<li><a href="#">virtualbox</a></li>
+						<li><a href="#"></a></li>
 					
-						<li><a href="#">vm</a></li>
+						<li><a href="#"></a></li>
 					
 				</ul>
 			</div>
 			 -->
 			<div class="content">
-				<p>You are running on a OS X à la Hackintosh ? You have a « <strong>VT-x is not available. VERR_VMX_NO_VMX</strong> » when you start a virtual machine ? Do not panic !</p>
+				
 
-<p>Under the <code>~/Library/VirtualBox/Machines</code> directory you will find a folder for each virtual machine you have created. Within this directly you will find an XML file with the machine settings.  </p>
-
-<ins datetime="2012-02-22T16:58:23+00:00">Update: You can now just type in your terminal: `VBoxManage modifyvm &lt;VMname&gt; --hwvirtex off` (change `&lt;VMname&gt;` with your VM name)</ins>
-
-<h2>Edit XML VBox file</h2>
-
-<p>So, in your « user folder » (~/), there will be a Library folder, hidden in OS X Lion, so to see it, open the Finder, in the « Go » menu, hold <kbd>⌥</kbd>.</p>
-
+<p>You are running on a OS X à la Hackintosh ? You have a « <strong>VT-x is not available. VERR_VMX_NO_VMX</strong> » when you start a virtual machine ? Do not panic !</p>
+<p>Under the <code>~/Library/VirtualBox/Machines</code> directory you will find a folder for each virtual machine you have created. Within this directly you will find an XML file with the machine settings.</p>
+<p><ins datetime="2012-02-22T16:58:23+00:00">Update: You can now just type in your terminal: <code>VBoxManage modifyvm &amp;lt;VMname&amp;gt; --hwvirtex off</code> (change <code>&amp;lt;VMname&amp;gt;</code> with your VM name)</ins></p>
+<h2 id="edit-xml-vbox-file">Edit XML VBox file</h2>
+<p>So, in your « user folder » (~/), there will be a Library folder, hidden in OS X Lion, so to see it, open the Finder, in the « Go » menu, hold <kbd>⌥</kbd>.</p>
 <figure class="flex-media--unknown">
   <a href="/media/2011/10/Open-Library-folder-wtih-Finder.png">
     <img class="flex-media__item" title="Open Library folder with Finder" src="/media/2011/10/Open-Library-folder-wtih-Finder.png" alt="" /></a>
 </figure>
 
 <p>Inside that Library folder, there is a folder called VirtualBox, which contains a Machines folder. In each VM folder, open the *.vbox file using a text-editor. It’s a XML file.</p>
-
 <p>It looks like:</p>
-
 <pre class="code blocks">&lt;?xml ...
     &lt;VirtualBox ...
         &lt;Machine ...
@@ -106,8 +103,7 @@
                 &lt;HardwareVirtEx enabled="true" ... /&gt;
             ...</pre>
 
-<p>Exit Virtual Box, change this « true » to « false » and Save. Restart Virtual Box and (or open it if you had it closed) and the hardware virtualization extensions will be disabled.</p>
-
+<p>Exit Virtual Box, change this « true » to « false » and Save. Restart Virtual Box and (or open it if you had it closed) and the hardware virtualization extensions will be disabled.</p>
 <figure class="flex-media--unknown">
   <a href="/media/2011/10/Edit-Virtualbox-xml-file.png">
     <img class="flex-media__item" title="Edit Virtualbox xml file" src="/media/2011/10/Edit-Virtualbox-xml-file.png" alt="" />
@@ -115,21 +111,21 @@
 </figure>
 
 <p>Seems like a clear bug with VirtualBox, being that the setting is grayed out in the GUI but you can change it in the XML config file and that fixes the problem.</p>
+<p><em>Source: <a href="https://forums.virtualbox.org/viewtopic.php?f=2&amp;t=17080">https://forums.virtualbox.org/viewtopic.php?f=2&amp;t=17080</a></em></p>
 
-<p><em>Source: <a href="https://forums.virtualbox.org/viewtopic.php?f=2&amp;t=17090">https://forums.virtualbox.org/viewtopic.php?f=2&amp;t=17090</a></em></p>
 
 			</div>
 			<br /><br />
-			----
+			---
 			<br /><br />
 			<footer>
 				<div class="report">
-					See something wrong here ? Please tell me <a href="https://github.com/MoOx/moox.io/issues">with an issue on Github</a>, 
+					See something wrong here ? Please tell me <a href="https://github.com/MoOx/moox.io/issues">with an issue on Github</a>,
 					or just some words on twitter at <a href="https://twitter.com/MoOx/">@MoOx</a>.
 				</div>
 			</footer>
 		</article>
-		
+
 		
 			<section class="Box-module about-author">
 	<img class="obj-start" src="//gravatar.com/avatar/d2a1c95e2af59538301c3ee6d2907f6f?s=128" alt="">
@@ -140,7 +136,7 @@
 </section>
 
 		
-		
+
 		
 		<section class="Box-module">
 			<h1>Comments</h1>
@@ -163,7 +159,7 @@
 </div>
 
 </div>
-<script src="/assets/js/vanilla.js?20130926072016"></script>
+<script src="/assets/js/vanilla.js?20131210173338"></script>
 
 
 	
@@ -179,23 +175,22 @@
 
 
 
+  <script>
+  var disqus_shortname = 'moox',
+  
+  
+  
+  disqus_identifier = 'http://moox.io',
+  disqus_url = 'http://moox.io',
+  disqus_script = 'embed.js';
+  
+  (function(d,s) {
+  s = d.createElement('script');s.async=1;s.src = '//' + disqus_shortname + '.disqus.com/'+disqus_script;
+  (d.getElementsByTagName('head')[0]).appendChild(s);
+  })(document);
+  </script>
 
-<script>
-var disqus_shortname = 'moox',
 
 
-
-disqus_identifier = 'http://moox.io/blog/run-virtual-machine-virtualbox-hackintosh/',
-disqus_url = 'http://moox.io/blog/run-virtual-machine-virtualbox-hackintosh/',
-disqus_script = 'embed.js';
-
-
-(function(d,s) {
-s = d.createElement('script');s.async=1;s.src = '//' + disqus_shortname + '.disqus.com/'+disqus_script;
-(d.getElementsByTagName('head')[0]).appendChild(s);
-})(document);
-</script>
-
- 
 </body>
 </html>

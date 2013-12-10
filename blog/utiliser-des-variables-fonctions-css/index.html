@@ -2,25 +2,26 @@
 <!--
 	HEY YOU, STOP LOOKING AT MY SOURCE CODE
 	Just check it out directly on Github :
-	
+
 	https://github.com/MoOx/moox.io.git
 -->
-<html lang="en" class="no-js no-touch grid-title--quotes">
+<html lang="en" class="no-js no-touch ">
 <head>
-<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <script>(function(docEl) {
 	docEl.className = docEl.className.replace(/\bno-js\b/, 'js');
 	if ('ontouchstart' in docEl) { docEl.className = docEl.className.replace(/\bno-touch\b/, 'touch'); }
 })(document.documentElement);</script>
 
 <meta charset="utf-8">
-<title>Utiliser des variables et fonctions CSS, c&#8217;est possible !</title>
-<meta name="description" content="">
-<base href="http://moox.io/" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Utiliser des variables et fonctions CSS, c&#x27;est possible !</title>
+
+<base href="http://moox.io/">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <link href="feed.xml" rel="alternate" type="application/rss+xml">
 
-<link rel="stylesheet" href="/assets/css/style.css?20130926072016">
+<link rel="stylesheet" href="/assets/css/moox.css?20131210173338">
+
 
 
 
@@ -44,11 +45,12 @@
 		<li class="Navbar-separator--after"><a class=""  href="profile/"><i class="icon icon_user"></i> Profile</a>
 		</li><li class="Navbar-separator--after"><a class=""  href="#not-ready"><i class="icon icon_gears"></i> Portfolio</a>
 		</li><li class="Navbar-separator--after"><a class=""  href="#not-ready"><i class="icon icon_gears"></i> Code</a>
-		</li><li class="Navbar-separator--after"><a class="active"  href="blog/"><i class="icon icon_pencil"></i> Blog</a>
+		</li><li class="Navbar-separator--after"><a class=""  href="blog/"><i class="icon icon_pencil"></i> Blog</a>
 		</li><li class="Navbar-separator--after"><a class=""  href="about/"><i class="icon icon_help"></i> About</a>
 		</li><li class="Navbar-separator--after"><a class=""  href="contact/"><i class="icon icon_speech-bubble"></i> Contact</a></li>
 	</ul>
 </nav>
+
 
 <div class="grid grid--center grid--title">
 	<hgroup class="grid__cell unit-8-12--medium title--light">
@@ -61,98 +63,85 @@
 	<div class="grid__cell Box">
 		<article class="Box-module" lang="fr">
 			<header>
-				<h1><span class="text-less-visible">[fr]</span> Utiliser des variables et fonctions CSS, c&#8217;est possible !</h1>
-				<time class="text-less-visible" pubdate datetime="2011-04-21">Apr 21 2011</time>
+				<h1><span class="text-less-visible">[fr]</span> Utiliser des variables et fonctions CSS, c&#x27;est possible !</h1>
+				<time class="text-less-visible" pubdate datetime="2013-12-10">10 December 2013</time>
 			</header>
 			<!-- 
 			<div class="category">
 				<ul>
 					
-						<li><a href="#">compass</a></li>
+						<li><a href="#"></a></li>
 					
-						<li><a href="#">css</a></li>
+						<li><a href="#"></a></li>
 					
-						<li><a href="#">less</a></li>
+						<li><a href="#"></a></li>
 					
-						<li><a href="#">node.js</a></li>
+						<li><a href="#"></a></li>
 					
-						<li><a href="#">ruby</a></li>
+						<li><a href="#"></a></li>
 					
-						<li><a href="#">sass</a></li>
+						<li><a href="#"></a></li>
 					
-						<li><a href="#">stylus</a></li>
+						<li><a href="#"></a></li>
 					
 				</ul>
 			</div>
 			 -->
 			<div class="content">
-				<p>Depuis la création d’Internet à aujourd’hui, les interfaces web ont bien évolués. Les langages et méthodes aussi. On est passé de sites statiques à des sites dynamiques, puis hautement dynamiques (la fameuse période 2.0…). Dans tous ça, CSS n’a, à mon sens, que très peu évolué d’un point de vue des possibilités du langage. Certains disent que la puissance des CSS réside dans la simplicité de celles-ci. Ce qui n’est pas forcément faux. Ca se discute.  </p>
+				
 
-<h2>CSS n’a ni variables, ni fonctions</h2>
-
-<p>Le langage des CSS n’a pas de côté dynamique. C’est lui avec lequel, à chaque fois qu’on intègre une maquette graphique, on doit se taper tout de zéro. Il a beau exister des <a href="http://cssresetr.com/">CSS « Reset »</a>, <a href="http://css4design.com/framework-css-semantique-maquette-dynamique-et-autres-notes">des frameworks CSS</a>, <a href="http://css4design.com/framework-css-mettez-vos-grilles-au-pas">tout un tas de grilles prête à l’emploi</a>, <a href="https://github.com/stubbornella/oocss">des composants de CSS réutilisables</a> avec l’approche <a href="http://fr.wikipedia.org/wiki/Objet_(informatique)">objet</a>, je n’ai jamais réellement était satisfait par ces méthodes, que ce soit à cause des contraintes qu’impose la syntaxe (devoir mettre des classes à tout va dans l’HTML ça peut vite devenir chiant dans un CMS), ou par d’éventuelles limitations qui obligent à « trop » modifier la source du document (pas assez de, ou trop de, ou juste ça me plait pas comment c’est fait).</p>
-
-<h2>Comment faire pour avoir des variables et fonctions dans CSS ?</h2>
-
-<p>Bridé par le language, j’ai cherché des solutions car j’ai pas forcément envie d’attendre CSS 4 qui sera surement pas officiel avant 20 ans (sachant que CSS 3 n’est encore qu’un brouillon et que CSS 2.1 est à peine ouvert aux commentaires…)<br>
+<p>Depuis la création d’Internet à aujourd’hui, les interfaces web ont bien évolués. Les langages et méthodes aussi. On est passé de sites statiques à des sites dynamiques, puis hautement dynamiques (la fameuse période 2.0…). Dans tous ça, CSS n’a, à mon sens, que très peu évolué d’un point de vue des possibilités du langage. Certains disent que la puissance des CSS réside dans la simplicité de celles-ci. Ce qui n’est pas forcément faux. Ca se discute.</p>
+<h2 id="css-n-a-ni-variables-ni-fonctions">CSS n’a ni variables, ni fonctions</h2>
+<p>Le langage des CSS n’a pas de côté dynamique. C’est lui avec lequel, à chaque fois qu’on intègre une maquette graphique, on doit se taper tout de zéro. Il a beau exister des <a href="http://cssresetr.com/">CSS « Reset »</a>, <a href="http://css4design.com/framework-css-semantique-maquette-dynamique-et-autres-notes">des frameworks CSS</a>, <a href="http://css4design.com/framework-css-mettez-vos-grilles-au-pas">tout un tas de grilles prête à l’emploi</a>, <a href="https://github.com/stubbornella/oocss">des composants de CSS réutilisables</a> avec l’approche <a href="http://fr.wikipedia.org/wiki/Objet_(informatique)">objet</a>, je n’ai jamais réellement était satisfait par ces méthodes, que ce soit à cause des contraintes qu’impose la syntaxe (devoir mettre des classes à tout va dans l’HTML ça peut vite devenir chiant dans un CMS), ou par d’éventuelles limitations qui obligent à « trop » modifier la source du document (pas assez de, ou trop de, ou juste ça me plait pas comment c’est fait).</p>
+<h2 id="comment-faire-pour-avoir-des-variables-et-fonctions-dans-css-">Comment faire pour avoir des variables et fonctions dans CSS ?</h2>
+<p>Bridé par le language, j’ai cherché des solutions car j’ai pas forcément envie d’attendre CSS 4 qui sera surement pas officiel avant 20 ans (sachant que CSS 3 n’est encore qu’un brouillon et que CSS 2.1 est à peine ouvert aux commentaires…)
 Du coup, voilà ce que j’ai recencé à ce jour:</p>
-
 <ul>
-<li>  <a href="http://sass-lang.com/">Sass</a> dispo sur <a href="https://github.com/nex3/sass" title="Sass sur Github">GitHub</a></li>
-<li>  <a href="http://lesscss.org/">LESS</a> dispo sur <a href="https://github.com/cloudhead/less.js" title="LESS sur Github">GitHub</a></li>
-<li>  <a href="http://learnboost.github.com/stylus/">Stylus</a> dispo sur <a href="https://github.com/LearnBoost/stylus" title="Stylus sur Github">GitHub</a></li>
+<li><a href="http://sass-lang.com/">Sass</a> dispo sur <a href="https://github.com/nex3/sass" title="Sass sur Github">GitHub</a></li>
+<li><a href="http://lesscss.org/">LESS</a> dispo sur <a href="https://github.com/cloudhead/less.js" title="LESS sur Github">GitHub</a></li>
+<li><a href="http://learnboost.github.com/stylus/">Stylus</a> dispo sur <a href="https://github.com/LearnBoost/stylus" title="Stylus sur Github">GitHub</a></li>
 </ul>
-
-<h2>Présentation des surcouches existantes aux langages des CSS</h2>
-
-<p>Voici des textes traduits des sites officiels, qui résument très bien les outils. Puis s’ils résument pas bien, c’est pas de ma faute, c’est comme ça mais ça montre qui est clair et qui ne l’est pas :) </p>
-
-<h3>Sass</h3>
-
+<h2 id="pr-sentation-des-surcouches-existantes-aux-langages-des-css">Présentation des surcouches existantes aux langages des CSS</h2>
+<p>Voici des textes traduits des sites officiels, qui résument très bien les outils. Puis s’ils résument pas bien, c’est pas de ma faute, c’est comme ça mais ça montre qui est clair et qui ne l’est pas :)</p>
+<h3 id="sass">Sass</h3>
 <blockquote>
 <p>Sass rend les CSS à nouveau amusant. Sass est une extension de CSS 3, en ajoutant règles imbriqués, variables, <a href="http://fr.wikipedia.org/wiki/Mixin">mixins</a>, l’héritage de sélection, et encore plus. Cela ce transforme en CSS standard, bien formaté, à l’aide d’outils en ligne de commande ou avec des plugins de frameworks web [-ou un petit outil avec GUI que je vous présenterais ;) ].</p>
-
-<p>Sass à 2 syntaxes. La principale (depuis Sass 3) est connu sous le nom de “SCSS » (pour “Sassy CSS”), et est un surensemble de la syntaxe CSS 3. Cela veut dire que du tout feuille de styles CSS 3 est aussi du SCSS valide. Les fichiers SCSS utilise l’extension .scss.</p>
-
+<p>Sass à 2 syntaxes. La principale (depuis Sass 3) est connu sous le nom de “SCSS » (pour “Sassy CSS”), et est un surensemble de la syntaxe CSS 3. Cela veut dire que du tout feuille de styles CSS 3 est aussi du SCSS valide. Les fichiers SCSS utilise l’extension .scss.</p>
 <p>La seconde sxyntaxe, plus ancienne, est connu comme la syntaxe indenté (juste “Sass”). Inspiré par le laconisme de <a href="http://haml-lang.com/">Haml</a>, elle est destinée aux personnes qui préfèrent la concision. Au lieu de crochets et des points-virgules, elle utilise l’indentation des lignes pour spécifier les blocs. Bien que elle ne soit plus la syntaxe primaire, cette syntaxe continuera d’être pris en charge. Les fichiers de cette ancienne syntaxe utilisent l’extension .sass.</p>
 </blockquote>
+<h4 id="petit-exemple-de-code-sass-avec-la-syntaxe-scss">Petit exemple de code Sass avec la syntaxe Scss</h4>
+<pre><code class="language-scss"><span class="comment">// note : ceci est bien un commentaire valide avec sass. Au revoir les /**/</span>
 
-<h4>Petit exemple de code Sass avec la syntaxe Scss</h4>
-<div class="highlight"><pre><code class="scss language-scss" data-lang="scss"><span class="c1">// note : ceci est bien un commentaire valide avec sass. Au revoir les /**/</span>
+$blue<span class="value">: <span class="hexcolor">#3bbfce</span>;</span> <span class="comment">// Variable</span>
+<span class="class">.content-navigation</span> {
+  <span class="attribute">border-color</span><span class="value">: $blue;</span>
 
-<span class="nv">$blue</span><span class="o">:</span> <span class="mh">#3bbfce</span><span class="p">;</span> <span class="c1">// Variable</span>
-<span class="nc">.content-navigation</span> <span class="p">{</span>
-  <span class="na">border-color</span><span class="o">:</span> <span class="nv">$blue</span><span class="p">;</span>
+  <span class="comment">// mixin</span>
+  <span class="attribute">color</span><span class="value">: darken($blue, <span class="number">9</span>%);</span>
 
-  <span class="c1">// mixin</span>
-  <span class="na">color</span><span class="o">:</span> <span class="nf">darken</span><span class="p">(</span><span class="nv">$blue</span><span class="o">,</span> <span class="mi">9</span><span class="kt">%</span><span class="p">);</span>
+  <span class="comment">// Imbrication</span>
+  <span class="tag">li</span> {
+    <span class="attribute">font</span><span class="value">: {
+      family: serif;</span>
+      weight<span class="value">: bold;</span>
+      size<span class="value">: <span class="number">1.2</span>em;</span>
+    }
+  }
+}
 
-  <span class="c1">// Imbrication</span>
-  <span class="nt">li</span> <span class="p">{</span>
-    <span class="na">font</span><span class="o">:</span> <span class="p">{</span>
-      <span class="na">family</span><span class="o">:</span> <span class="no">serif</span><span class="p">;</span>
-      <span class="na">weight</span><span class="o">:</span> <span class="no">bold</span><span class="p">;</span>
-      <span class="na">size</span><span class="o">:</span> <span class="mi">1</span><span class="mf">.2</span><span class="kt">em</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nv">$margin</span><span class="o">:</span> <span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
-<span class="nc">.border</span> <span class="p">{</span>
-  <span class="c1">// operateurs</span>
-  <span class="na">padding</span><span class="o">:</span> <span class="nv">$margin</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
-  <span class="na">margin</span><span class="o">:</span> <span class="nv">$margin</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
-  <span class="na">border-color</span><span class="o">:</span> <span class="nv">$blue</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-<h3>LESS</h3>
-
+$<span class="attribute">margin</span><span class="value">: <span class="number">16</span>px;</span>
+<span class="class">.border</span> {
+  <span class="comment">// operateurs</span>
+  <span class="attribute">padding</span><span class="value">: $margin / <span class="number">2</span>;</span>
+  <span class="attribute">margin</span><span class="value">: $margin / <span class="number">2</span>;</span>
+  <span class="attribute">border-color</span><span class="value">: $blue;</span>
+}</code></pre>
+<h3 id="less">LESS</h3>
 <blockquote>
 <p>LESS étend CSS avec un comportement dynamique grâce à des variables, mixins, opérations et fonctions. LESS fonctionne à la fois sur côté-client (IE 6+, Webkit, Firefox) et côté serveur avec Node.js.</p>
 </blockquote>
-
-<h4>Petit exemple de code LESS</h4>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">.box-shadow (@x: 0, @y: 0, @blur: 1px, @alpha) {
+<h4 id="petit-exemple-de-code-less">Petit exemple de code LESS</h4>
+<pre><code>.box-shadow (@x: 0, @y: 0, @blur: 1px, @alpha) {
   @val: @x @y @blur rgba(0, 0, 0, @alpha);
 
   box-shadow:         @val;
@@ -163,63 +152,51 @@ Du coup, voilà ce que j’ai recencé à ce jour:</p>
   color:        saturate(@base, 5%);
   border-color: lighten(@base, 30%);
   div { .box-shadow(0, 0, 5px, 0.4) }
-}
-</code></pre></div>
-<h3>Stylus</h3>
-
+}</code></pre>
+<h3 id="stylus">Stylus</h3>
 <blockquote>
 <p>Stylus est un nouveau langage révolutionnaire, qui apporte une méthode efficace, dynamique et expressive pour générer des CSS.</p>
 </blockquote>
-
-<h4>Petit exemple de code Stylus</h4>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">border-radius()
+<h4 id="petit-exemple-de-code-stylus">Petit exemple de code Stylus</h4>
+<pre><code>border-radius()
   -webkit-border-radius arguments
   -moz-border-radius arguments
-  border-radius arguments  
+  border-radius arguments
 
 body
-  font 12px Helvetica, Arial, sans-serif  
+  font 12px Helvetica, Arial, sans-serif
 
 a.button
-  border-radius 5px
-</code></pre></div>
-<h2>Quel langage choisir pour générer ses CSS ?</h2>
-
-<p>À la vue des syntaxe (toute assez proche), on sais bien qu’on parle de CSS. On dégage 2 approches: une qui ajoute des possibilités à CSS sans modifier la syntaxe d’origine (Scss, LESS), et une qui veut simplifier (Sass, Stylus).<br>
+  border-radius 5px</code></pre>
+<h2 id="quel-langage-choisir-pour-g-n-rer-ses-css-">Quel langage choisir pour générer ses CSS ?</h2>
+<p>À la vue des syntaxe (toute assez proche), on sais bien qu’on parle de CSS. On dégage 2 approches: une qui ajoute des possibilités à CSS sans modifier la syntaxe d’origine (Scss, LESS), et une qui veut simplifier (Sass, Stylus).
 La syntaxe ne fait pas tout, il faut aussi regarder la méthode de génération des feuilles de style en CSS :</p>
-
 <ul>
-<li>  Sass possède une méthode en ligne de commande qui va surveiller vos fichiers .sass ou .scss et va mettre à jour tout seul vos CSS,</li>
-<li>  LESS possède pour le développement, un fichier javascript, et pour la production, un compilateur (ligne de commande),</li>
-<li>  Stylus utilise une méthode de compilation (je n’ai pas été foutu de trouver un exemple clair rapidement)</li>
+<li>Sass possède une méthode en ligne de commande qui va surveiller vos fichiers .sass ou .scss et va mettre à jour tout seul vos CSS,</li>
+<li>LESS possède pour le développement, un fichier javascript, et pour la production, un compilateur (ligne de commande),</li>
+<li>Stylus utilise une méthode de compilation (je n’ai pas été foutu de trouver un exemple clair rapidement)</li>
 </ul>
-
 <p>Sass est basé sur Ruby, LESS et Stylus sur Javascript (Node.js). Tous les 3 peuvents être utilisé depuis d’autres langages pour peu que vous utilisiez des interface comme <a href="https://github.com/kriswallsmith/assetic">Assetic en PHP</a>. Globalement rien de bien différent, si ce n’est que Sass possède des solutions pour gérer la génération depuis votre GUI (<a href="https://github.com/hlb/SassSalon">SassSalon</a>, <a href="http://compass.handlino.com/">Compass.app</a> ), utile pour des designers qui n’aiment souvent pas les lignes de commandes…</p>
-
 <p>Ensuite il faut rentrer un peu dans le détail des fonctionnalités offertes, mais je vous laisse prendre le temps de faire ça par vous même en consultant les docs.</p>
-
 <p>Sass a une base qui a du vécu et 2 syntaxes. LESS, lui, me parait un peu light, et je n’aime pas trop le coup du compilateur js. Quant à Stylus je n’ai pas trop pris le temps de faire des tests, mais il est encore assez jeune, quoique prometteur.</p>
-
 <p>Pour l’instant j’utilise Sass (avec la syntaxe scss), ma principale raison est le framework <a href="http://beta.compass-style.org/">Compass</a> qu’on peut rajouter en surcouche. Sass et Compass représente une grosse communauté et à eux 2 un bon gros tas de fonctions. Je rentrerais un peu plus dans le détail avec Sass/Compass dans un prochain post.</p>
-
-<p>Il me paraît aujourd’hui évident d’utiliser une de ces solutions et je ne suis pas près de m’en passer (pas avant que CSS ne possède des variables et mixins en tout cas), surtout à notre époque où chaque nouvelle propriété amusante des CSS utilise un préfixe par navigateur (et peu donc vite devenir gerbant à l’utilisation). </p>
-
+<p>Il me paraît aujourd’hui évident d’utiliser une de ces solutions et je ne suis pas près de m’en passer (pas avant que CSS ne possède des variables et mixins en tout cas), surtout à notre époque où chaque nouvelle propriété amusante des CSS utilise un préfixe par navigateur (et peu donc vite devenir gerbant à l’utilisation).</p>
 <p><em>En tout cas, il y’a du choix, alors passez à la vitesse supérieur avec vos CSS !</em></p>
-
 <p>Edit: Depuis j’ai publié d’autres articles relatifs, un plus détaillé sur <a href="/blog/fonctions-variables-css-generer-ses-css-avec-sass-compass/">la solution Sass/Compass (et son installation) </a>puis un autre sur <a href="/blog/compass-app-application-pour-compiler-css-sass-compass/">comment se passer des lignes de commandes avec Compass.app !</a></p>
+
 
 			</div>
 			<br /><br />
-			----
+			---
 			<br /><br />
 			<footer>
 				<div class="report">
-					See something wrong here ? Please tell me <a href="https://github.com/MoOx/moox.io/issues">with an issue on Github</a>, 
+					See something wrong here ? Please tell me <a href="https://github.com/MoOx/moox.io/issues">with an issue on Github</a>,
 					or just some words on twitter at <a href="https://twitter.com/MoOx/">@MoOx</a>.
 				</div>
 			</footer>
 		</article>
-		
+
 		
 			<section class="Box-module about-author">
 	<img class="obj-start" src="//gravatar.com/avatar/d2a1c95e2af59538301c3ee6d2907f6f?s=128" alt="">
@@ -232,7 +209,7 @@ La syntaxe ne fait pas tout, il faut aussi regarder la méthode de génération 
 
 
 		
-		
+
 		
 		<section class="Box-module">
 			<h1>Comments</h1>
@@ -255,7 +232,7 @@ La syntaxe ne fait pas tout, il faut aussi regarder la méthode de génération 
 </div>
 
 </div>
-<script src="/assets/js/vanilla.js?20130926072016"></script>
+<script src="/assets/js/vanilla.js?20131210173338"></script>
 
 
 	
@@ -271,23 +248,22 @@ La syntaxe ne fait pas tout, il faut aussi regarder la méthode de génération 
 
 
 
+  <script>
+  var disqus_shortname = 'moox',
+  
+  
+  
+  disqus_identifier = 'http://moox.io',
+  disqus_url = 'http://moox.io',
+  disqus_script = 'embed.js';
+  
+  (function(d,s) {
+  s = d.createElement('script');s.async=1;s.src = '//' + disqus_shortname + '.disqus.com/'+disqus_script;
+  (d.getElementsByTagName('head')[0]).appendChild(s);
+  })(document);
+  </script>
 
-<script>
-var disqus_shortname = 'moox',
 
 
-
-disqus_identifier = 'http://moox.io/blog/utiliser-des-variables-fonctions-css/',
-disqus_url = 'http://moox.io/blog/utiliser-des-variables-fonctions-css/',
-disqus_script = 'embed.js';
-
-
-(function(d,s) {
-s = d.createElement('script');s.async=1;s.src = '//' + disqus_shortname + '.disqus.com/'+disqus_script;
-(d.getElementsByTagName('head')[0]).appendChild(s);
-})(document);
-</script>
-
- 
 </body>
 </html>

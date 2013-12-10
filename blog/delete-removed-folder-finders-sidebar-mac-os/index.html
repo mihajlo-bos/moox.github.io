@@ -2,25 +2,26 @@
 <!--
 	HEY YOU, STOP LOOKING AT MY SOURCE CODE
 	Just check it out directly on Github :
-	
+
 	https://github.com/MoOx/moox.io.git
 -->
-<html lang="en" class="no-js no-touch grid-title--quotes">
+<html lang="en" class="no-js no-touch ">
 <head>
-<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <script>(function(docEl) {
 	docEl.className = docEl.className.replace(/\bno-js\b/, 'js');
 	if ('ontouchstart' in docEl) { docEl.className = docEl.className.replace(/\bno-touch\b/, 'touch'); }
 })(document.documentElement);</script>
 
 <meta charset="utf-8">
-<title>Delete a removed folder in your Finder&#8217;s sidebar on Mac OS X</title>
-<meta name="description" content="">
-<base href="http://moox.io/" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delete a removed folder in your Finder&#x27;s sidebar on Mac OS X</title>
+
+<base href="http://moox.io/">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <link href="feed.xml" rel="alternate" type="application/rss+xml">
 
-<link rel="stylesheet" href="/assets/css/style.css?20130926072016">
+<link rel="stylesheet" href="/assets/css/moox.css?20131210173338">
+
 
 
 
@@ -44,11 +45,12 @@
 		<li class="Navbar-separator--after"><a class=""  href="profile/"><i class="icon icon_user"></i> Profile</a>
 		</li><li class="Navbar-separator--after"><a class=""  href="#not-ready"><i class="icon icon_gears"></i> Portfolio</a>
 		</li><li class="Navbar-separator--after"><a class=""  href="#not-ready"><i class="icon icon_gears"></i> Code</a>
-		</li><li class="Navbar-separator--after"><a class="active"  href="blog/"><i class="icon icon_pencil"></i> Blog</a>
+		</li><li class="Navbar-separator--after"><a class=""  href="blog/"><i class="icon icon_pencil"></i> Blog</a>
 		</li><li class="Navbar-separator--after"><a class=""  href="about/"><i class="icon icon_help"></i> About</a>
 		</li><li class="Navbar-separator--after"><a class=""  href="contact/"><i class="icon icon_speech-bubble"></i> Contact</a></li>
 	</ul>
 </nav>
+
 
 <div class="grid grid--center grid--title">
 	<hgroup class="grid__cell unit-8-12--medium title--light">
@@ -61,60 +63,64 @@
 	<div class="grid__cell Box">
 		<article class="Box-module" lang="en">
 			<header>
-				<h1><span class="text-less-visible">[en]</span> Delete a removed folder in your Finder&#8217;s sidebar on Mac OS X</h1>
-				<time class="text-less-visible" pubdate datetime="2011-07-03">Jul 03 2011</time>
+				<h1><span class="text-less-visible">[en]</span> Delete a removed folder in your Finder&#x27;s sidebar on Mac OS X</h1>
+				<time class="text-less-visible" pubdate datetime="2013-12-10">10 December 2013</time>
 			</header>
 			<!-- 
 			<div class="category">
 				<ul>
 					
-						<li><a href="#">finder</a></li>
+						<li><a href="#"></a></li>
 					
-						<li><a href="#">os x</a></li>
+						<li><a href="#"></a></li>
 					
-						<li><a href="#">terminal</a></li>
+						<li><a href="#"></a></li>
 					
-						<li><a href="#">tips</a></li>
+						<li><a href="#"></a></li>
 					
 				</ul>
 			</div>
 			 -->
 			<div class="content">
-				<p>Maybe you done what I just made : remove a folder which was in your Finder sidebar. Now you can’t remove from it.  </p>
+				
 
-<p>So here is the solution which require Xcode installed.<br>
+<p>Maybe you done what I just made : remove a folder which was in your Finder sidebar. Now you can’t remove from it.</p>
+<p>So here is the solution which require Xcode installed.
 In your terminal do</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">open Library/Preferences/com.apple.sidebarlists.plist
-</code></pre></div>
+<pre><code class="language-bash">open Library/Preferences/com.apple.sidebarlists.plist</code></pre>
 <p>Or open this file manually.</p>
+<p>You should have « Property List Editor » app to do this.</p>
+<figure class="flex-media--unknown">
+  <a href="/media/2011/06/Remove-deleted-folder-osx-finder-sidebar.png">
+    <img class="flex-media__item" title="Remove-deleted-folder-osx-finder-sidebar" src="/media/2011/06/Remove-deleted-folder-osx-finder-sidebar.png" alt="" />
+  </a>
+</figure>
 
-<p>You should have « Property List Editor » app to do this.</p>
-
-<figure class="flex-media--unknown"><a href="/media/2011/06/Remove-deleted-folder-osx-finder-sidebar.png"><img class="flex-media__item" title="Remove-deleted-folder-osx-finder-sidebar" src="/media/2011/06/Remove-deleted-folder-osx-finder-sidebar.png" alt="" /></a></figure>
-
-<p>Open each entries to find what you want under Root » useritems » CustomListItems. Try to open each item and check the name of the folder. When you found the correct entry, delete the « Item x » and save the file.</p>
-
-<p>When it’s done, just restart Finder.  </p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">killall Finder
-</code></pre></div>
+<p>Open each entries to find what you want under Root » useritems » CustomListItems. Try to open each item and check the name of the folder. When you found the correct entry, delete the « Item x » and save the file.</p>
+<p>When it’s done, just restart Finder.</p>
+<pre><code class="language-bash">killall Finder</code></pre>
 <p>Or just make option+click on Finder’s icon in your dock, then Relaunch.</p>
-
-<figure class="flex-media--unknown"><a href="/media/2011/06/relaunch-finder.png"><img class="flex-media__item" title="relaunch-finder" src="/media/2011/06/relaunch-finder.png" alt="" /></a></figure>
+<figure class="flex-media--unknown">
+  <a href="/media/2011/06/relaunch-finder.png">
+    <img class="flex-media__item" title="relaunch-finder" src="/media/2011/06/relaunch-finder.png" alt="" />
+  </a>
+</figure>
 
 <p>It’s that simple :)</p>
 
+
 			</div>
 			<br /><br />
-			----
+			---
 			<br /><br />
 			<footer>
 				<div class="report">
-					See something wrong here ? Please tell me <a href="https://github.com/MoOx/moox.io/issues">with an issue on Github</a>, 
+					See something wrong here ? Please tell me <a href="https://github.com/MoOx/moox.io/issues">with an issue on Github</a>,
 					or just some words on twitter at <a href="https://twitter.com/MoOx/">@MoOx</a>.
 				</div>
 			</footer>
 		</article>
-		
+
 		
 			<section class="Box-module about-author">
 	<img class="obj-start" src="//gravatar.com/avatar/d2a1c95e2af59538301c3ee6d2907f6f?s=128" alt="">
@@ -125,7 +131,7 @@ In your terminal do</p>
 </section>
 
 		
-		
+
 		
 		<section class="Box-module">
 			<h1>Comments</h1>
@@ -148,7 +154,7 @@ In your terminal do</p>
 </div>
 
 </div>
-<script src="/assets/js/vanilla.js?20130926072016"></script>
+<script src="/assets/js/vanilla.js?20131210173338"></script>
 
 
 	
@@ -164,23 +170,22 @@ In your terminal do</p>
 
 
 
+  <script>
+  var disqus_shortname = 'moox',
+  
+  
+  
+  disqus_identifier = 'http://moox.io',
+  disqus_url = 'http://moox.io',
+  disqus_script = 'embed.js';
+  
+  (function(d,s) {
+  s = d.createElement('script');s.async=1;s.src = '//' + disqus_shortname + '.disqus.com/'+disqus_script;
+  (d.getElementsByTagName('head')[0]).appendChild(s);
+  })(document);
+  </script>
 
-<script>
-var disqus_shortname = 'moox',
 
 
-
-disqus_identifier = 'http://moox.io/blog/delete-removed-folder-finders-sidebar-mac-os/',
-disqus_url = 'http://moox.io/blog/delete-removed-folder-finders-sidebar-mac-os/',
-disqus_script = 'embed.js';
-
-
-(function(d,s) {
-s = d.createElement('script');s.async=1;s.src = '//' + disqus_shortname + '.disqus.com/'+disqus_script;
-(d.getElementsByTagName('head')[0]).appendChild(s);
-})(document);
-</script>
-
- 
 </body>
 </html>

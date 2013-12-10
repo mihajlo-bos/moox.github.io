@@ -2,12 +2,11 @@
 <!--
 	HEY YOU, STOP LOOKING AT MY SOURCE CODE
 	Just check it out directly on Github :
-	
+
 	https://github.com/MoOx/moox.io.git
 -->
-<html lang="en" class="no-js no-touch grid-title--quotes">
+<html lang="en" class="no-js no-touch ">
 <head>
-<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <script>(function(docEl) {
 	docEl.className = docEl.className.replace(/\bno-js\b/, 'js');
 	if ('ontouchstart' in docEl) { docEl.className = docEl.className.replace(/\bno-touch\b/, 'touch'); }
@@ -15,12 +14,14 @@
 
 <meta charset="utf-8">
 <title>Installer Apache PHP MySQL sous Mac OS X</title>
-<meta name="description" content="">
-<base href="http://moox.io/" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<base href="http://moox.io/">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <link href="feed.xml" rel="alternate" type="application/rss+xml">
 
-<link rel="stylesheet" href="/assets/css/style.css?20130926072016">
+<link rel="stylesheet" href="/assets/css/moox.css?20131210173338">
+
 
 
 
@@ -44,11 +45,12 @@
 		<li class="Navbar-separator--after"><a class=""  href="profile/"><i class="icon icon_user"></i> Profile</a>
 		</li><li class="Navbar-separator--after"><a class=""  href="#not-ready"><i class="icon icon_gears"></i> Portfolio</a>
 		</li><li class="Navbar-separator--after"><a class=""  href="#not-ready"><i class="icon icon_gears"></i> Code</a>
-		</li><li class="Navbar-separator--after"><a class="active"  href="blog/"><i class="icon icon_pencil"></i> Blog</a>
+		</li><li class="Navbar-separator--after"><a class=""  href="blog/"><i class="icon icon_pencil"></i> Blog</a>
 		</li><li class="Navbar-separator--after"><a class=""  href="about/"><i class="icon icon_help"></i> About</a>
 		</li><li class="Navbar-separator--after"><a class=""  href="contact/"><i class="icon icon_speech-bubble"></i> Contact</a></li>
 	</ul>
 </nav>
+
 
 <div class="grid grid--center grid--title">
 	<hgroup class="grid__cell unit-8-12--medium title--light">
@@ -62,227 +64,181 @@
 		<article class="Box-module" lang="fr">
 			<header>
 				<h1><span class="text-less-visible">[fr]</span> Installer Apache PHP MySQL sous Mac OS X</h1>
-				<time class="text-less-visible" pubdate datetime="2011-03-31">Mar 31 2011</time>
+				<time class="text-less-visible" pubdate datetime="2013-12-10">10 December 2013</time>
 			</header>
 			<!-- 
 			<div class="category">
 				<ul>
 					
-						<li><a href="#">apache</a></li>
+						<li><a href="#"></a></li>
 					
-						<li><a href="#">fink</a></li>
+						<li><a href="#"></a></li>
 					
-						<li><a href="#">homebrew</a></li>
+						<li><a href="#"></a></li>
 					
-						<li><a href="#">macports</a></li>
+						<li><a href="#"></a></li>
 					
-						<li><a href="#">memcache</a></li>
+						<li><a href="#"></a></li>
 					
-						<li><a href="#">mysql</a></li>
+						<li><a href="#"></a></li>
 					
-						<li><a href="#">php</a></li>
+						<li><a href="#"></a></li>
 					
-						<li><a href="#">phpunit</a></li>
+						<li><a href="#"></a></li>
 					
 				</ul>
 			</div>
 			 -->
 			<div class="content">
-				<p>Une des premières choses à faire pour un développeur web comme moi, c’est d’avoir <strong>un environnement de développement pour travailler en local</strong>. C’est sûr que ça peut paraître la base comme ça, mais à l’époque où j’étais encore sous Windows, j’ai déjà vu des gros noobs se taper de l’upload par FTP à chaque sauvegarde de fichiers. Et ouais. Avec sauvegarde par bouton en forme de disquette et upload par glisser déposer… Si si…  </p>
+				
 
+<p>Une des premières choses à faire pour un développeur web comme moi, c’est d’avoir <strong>un environnement de développement pour travailler en local</strong>. C’est sûr que ça peut paraître la base comme ça, mais à l’époque où j’étais encore sous Windows, j’ai déjà vu des gros noobs se taper de l’upload par FTP à chaque sauvegarde de fichiers. Et ouais. Avec sauvegarde par bouton en forme de disquette et upload par glisser déposer… Si si…</p>
 <p>Enfin bref. <em>Installer un serveur web local sur OS X</em> basé sur <strong>Apache/PHP/MySQL</strong> peut se faire de plusieurs manières :</p>
-
 <ul>
-<li>  Activer le serveur web installé par défaut sur Mac (!),</li>
-<li>  Installer la solution <a href="//www.apachefriends.org/">XAMPP</a> des amis d’apache,</li>
-<li>  Installer la solution <a href="//www.mamp.info/">MAMP</a>,</li>
-<li>  Installer la solution <a href="//www.zend.com/fr/products/server-ce/">Zend Server (Community Edition)</a>,</li>
-<li>  Utiliser une solution à partir d’un gestionnaire de paquet tel que <a href="//www.macports.org/">MacPorts</a>, <a href="//www.finkproject.org/">Fink</a> ou <a href="//mxcl.github.com/homebrew/">Howbrew</a>,</li>
-<li>  Se démerder avec du code source et tout compiler soit même !</li>
+<li>Activer le serveur web installé par défaut sur Mac (!),</li>
+<li>Installer la solution <a href="//www.apachefriends.org/">XAMPP</a> des amis d’apache,</li>
+<li>Installer la solution <a href="//www.mamp.info/">MAMP</a>,</li>
+<li>Installer la solution <a href="//www.zend.com/fr/products/server-ce/">Zend Server (Community Edition)</a>,</li>
+<li>Utiliser une solution à partir d’un gestionnaire de paquet tel que <a href="//www.macports.org/">MacPorts</a>, <a href="//www.finkproject.org/">Fink</a> ou <a href="//mxcl.github.com/homebrew/">Howbrew</a>,</li>
+<li>Se démerder avec du code source et tout compiler soit même !</li>
 </ul>
-
-<h2>Quelle solution choisir pour son serveur web sous Mac OS X ?</h2>
-
-<p>Petit à petit j’ai eu l’occasion d’essayer toutes les solutions. J’ai commencé sans me prendre la tête par la solution built-in mais j’y ai vite vu des limitations dès lors que j’ai eu besoin de plus de libertés sur PHP (version, extensions etc). Pour activer le <em>serveur web</em>, il suffit d’aller dans les préférences d’OS X, puis de se rendre dans « Sharing » (Partage) et d’activer « Web sharing » (Partage web).</p>
-
+<h2 id="quelle-solution-choisir-pour-son-serveur-web-sous-mac-os-x-">Quelle solution choisir pour son serveur web sous Mac OS X ?</h2>
+<p>Petit à petit j’ai eu l’occasion d’essayer toutes les solutions. J’ai commencé sans me prendre la tête par la solution built-in mais j’y ai vite vu des limitations dès lors que j’ai eu besoin de plus de libertés sur PHP (version, extensions etc). Pour activer le <em>serveur web</em>, il suffit d’aller dans les préférences d’OS X, puis de se rendre dans « Sharing » (Partage) et d’activer « Web sharing » (Partage web).</p>
 <p>Je ne suis pas fan de <strong>XAMPP</strong>, ne me demandez pas pourquoi. Je me rappelle l’avoir installé et l’avoir supprimé dans l’heure qui suit (que ce soit sous Windows, Ubuntu ou OS X)…</p>
-
 <p>J’ai donc essayé <strong>MAMP</strong>, qui a comme inconvénient de nécessiter un démarrage manuel. Pour un développeur web comme moi qui passe 80% de son temps à coder sur sa machine, rien que ça peut devenir pénible. M’enfin si c’est que ça y’a la version PRO (payante). Okay, au suivant.</p>
-
 <p><strong>Zend Server (CE)</strong> est vraiment pas mal, dans le sens une majeur partie de la configuration PHP se fait via une interface web. Dans ce sens ça rejoint WAMP pour la facilité de configuration (activer/désactiver une extension, mettre à jour des valeurs du php.ini…). La webapp tourne sous lighttpd ce qui fait que si vous pétez votre conf Apache (qui elle se fait à la main), la webapp n’en dépend pas et peut toujours fonctionner. Zend Server est d’office avec la plupart des extensions dont j’ai pu avoir besoin depuis que j’ai mon Mac (à ce jour plus d’un an). J’ai vraiment trouvé cette solution élégante, sans prise de tête. Y’a même un driver mssql pour vous dire (il me semble que ça m’a manqué dans certaines des solutions ci-dessus) !</p>
-
-<p>Récemment j’ai eu de nouveaux besoins pour mon job. Une extension qui n’était pas dans Zend Server (client Solr pour l’anecdote), j’ai donc testé une solution basée sur une gestionnaire de paquet, ce qui m’a rappelé les bons côtés des distributions Linux avec leurs packages.<br>
-Pour le choix du gestionnaire je me suis orienté vers MacPorts non pas parce qu’il est supérieur, mais parce que les 2 autres (Fink et Homebrew) n’ont pas assez de paquets pour PHP (tout simplement). MacPorts en recense une centaine sur la recherche « php ». Fink environ 50, et Homebrew même pas une dizaine. Howbrew aurait l’avantage d’être beaucoup plus rapide que les 2 autres solutions, mais à comme principe de base de ne pas dupliquer un paquet déjà présent sur le système OS X. Et comme Apache/PHP sont déjà présents (bien que la version ne soit pas à jour et les extensions présentes ne se bousculent pas), il faut utiliser d’autres sources…<br>
+<p>Récemment j’ai eu de nouveaux besoins pour mon job. Une extension qui n’était pas dans Zend Server (client Solr pour l’anecdote), j’ai donc testé une solution basée sur une gestionnaire de paquet, ce qui m’a rappelé les bons côtés des distributions Linux avec leurs packages.
+Pour le choix du gestionnaire je me suis orienté vers MacPorts non pas parce qu’il est supérieur, mais parce que les 2 autres (Fink et Homebrew) n’ont pas assez de paquets pour PHP (tout simplement). MacPorts en recense une centaine sur la recherche « php ». Fink environ 50, et Homebrew même pas une dizaine. Howbrew aurait l’avantage d’être beaucoup plus rapide que les 2 autres solutions, mais à comme principe de base de ne pas dupliquer un paquet déjà présent sur le système OS X. Et comme Apache/PHP sont déjà présents (bien que la version ne soit pas à jour et les extensions présentes ne se bousculent pas), il faut utiliser d’autres sources…
 Donc je me suis simplement orienté vers <strong>MacPorts</strong> :</p>
-
 <blockquote lang="en">
-    The MacPorts Project is an open-source community initiative to design an easy-to-use system for compiling, installing, and upgrading either command-line, X11 or Aqua based open-source software on the <a href="//www.apple.com/macosx/">Mac OS X</a> operating system. To that end we provide the command-line driven MacPorts software package under a <a href="//opensource.org/licenses/bsd-license.php">BSD License</a>, and through it easy access to thousands of ports that <a href="//guide.macports.org/#introduction">greatly simplify</a> the task of <a href="//guide.macports.org/#using">compiling and installing</a> open-source software on your Mac.
+    The MacPorts Project is an open-source community initiative to design an easy-to-use system for compiling, installing, and upgrading either command-line, X11 or Aqua based open-source software on the <a href="//www.apple.com/macosx/">Mac OS X</a> operating system. To that end we provide the command-line driven MacPorts software package under a <a href="//opensource.org/licenses/bsd-license.php">BSD License</a>, and through it easy access to thousands of ports that <a href="//guide.macports.org/#introduction">greatly simplify</a> the task of <a href="//guide.macports.org/#using">compiling and installing</a> open-source software on your Mac.
 </blockquote>
 
 <p>Pour installer <strong>MacPorts</strong> rien de difficile : on se rend sur le site officiel du projet, on télécharge l’image disque puis on installe ça facilement (pré-requis : il faut avoir XCode et X11 d’installer sur sa machine, tous les 2 sont dispos sur les DVD d’applications fournies avec votre Mac). Après ça dans notre Terminal on a accès la commande <strong>port</strong> qui permettra de faire des équivalents d’apt-get / aptitude sous Linux. La grosse différence, qui est ses avantages et inconvénients c’est que ça compile les sources sur votre machine. Avantage : précision pour les options sur les paquets. Inconvénient : temps d’installation (surtout pour les premiers paquets).</p>
-
-<h2>Installation des paquets Apache, PHP, MySQL avec MacPorts</h2>
-
-<p>Passons donc au nécessaire. Installer Apache et le server mysql. PHP est installé juste après avec quelques petites spécificités éventuelles. Pour ce faire, dans votre <em>Application &gt; Utilitaires &gt; Terminal.app</em>, exécutez les commandes suivantes et ne soyez pas pressé, allez vous faire un café, prenez votre smartphone et allez <a href="//www.rovio.com/index.php?page=angry-birds" title="Voir au site du jeu Angry Birds">péter des cochons</a> quelques minutes sur votre trône :</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">sudo port install apache2 mysql5-server
-</code></pre></div>
+<h2 id="installation-des-paquets-apache-php-mysql-avec-macports">Installation des paquets Apache, PHP, MySQL avec MacPorts</h2>
+<p>Passons donc au nécessaire. Installer Apache et le server mysql. PHP est installé juste après avec quelques petites spécificités éventuelles. Pour ce faire, dans votre <em>Application &gt; Utilitaires &gt; Terminal.app</em>, exécutez les commandes suivantes et ne soyez pas pressé, allez vous faire un café, prenez votre smartphone et allez <a href="//www.rovio.com/index.php?page=angry-birds" title="Voir au site du jeu Angry Birds">péter des cochons</a> quelques minutes sur votre trône :</p>
+<pre><code class="language-bash"><span class="built_in">sudo</span> port install apache2 mysql5-server</code></pre>
 <p>Si c’est votre première fois avec <strong>port</strong>, vous comptez au moins une bonne douzaine de minutes le temps que les premiers paquets se compilent.</p>
-
 <p>Une fois ceci fait, on va compiler et installer PHP 5 avec les options de compilation (+*) pour Apache, MySQL et PEAR (<a href="//pear.php.net/" title="Accéder au site de PEAR (PHP Extension and Application Repository)">PEAR quesako ?</a>)</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">sudo port install php5 +apache2 +mysql5 +pear
-</code></pre></div>
+<pre><code class="language-bash"><span class="built_in">sudo</span> port install php5 +apache2 +mysql5 +pear</code></pre>
 <p>Là encore ça peut prendre du temps.</p>
-
-<p>Ensuite on passe aux paquets de base, manière de ne pas avoir à installer un paquet toutes les 2h à chaque « <em>Fatal Error : Class not found</em> » :) </p>
-
-<p>*Note: N’ayez pas peur de copier les commentaires des les lignes de codes dans votre terminal, ça reste des commentaires, même pour un terminal ;) *</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="c"># usefull packages</span>
-sudo port install php5-apc php5-curl php5-ftp php5-gd php5-gettext php5-iconv php5-imagick php5-ldap php5-pcntl php5-pdflib php5-mbstring php5-mcrypt php5-memcached php5-soap php5-uploadprogress php5-xdebug php5-xmlrpc php5-zip
-<span class="c"># database related packages</span>
-sudo port install php5-odbc php5-mysql php5-sqlite
-</code></pre></div>
+<p>Ensuite on passe aux paquets de base, manière de ne pas avoir à installer un paquet toutes les 2h à chaque « <em>Fatal Error : Class not found</em> » :)</p>
+<p><em>Note: N’ayez pas peur de copier les commentaires des les lignes de codes dans votre terminal, ça reste des commentaires, même pour un terminal ;) </em></p>
+<pre><code class="language-bash"><span class="comment"># usefull packages</span>
+<span class="built_in">sudo</span> port install php5-apc php5-curl php5-ftp php5-gd php5-gettext php5-iconv php5-imagick php5-ldap php5-pcntl php5-pdflib php5-mbstring php5-mcrypt php5-memcached php5-soap php5-uploadprogress php5-xdebug php5-xmlrpc php5-zip
+<span class="comment"># database related packages</span>
+<span class="built_in">sudo</span> port install php5-odbc php5-mysql php5-sqlite</code></pre>
 <p>A vous de voir ce qui vous intéresse dans la liste, mais la plupart sont des classiques (et encore il en manque peut-être)</p>
-
 <p>Pour la liste des paquets, vous avez un énorme choix et <a href="//www.macports.org/ports.php?by=name&amp;substr=php5" title="Accéder à la liste des paquets php5 sur le site de MacPorts">vous pouvez parcourir la liste sur le site</a></p>
-
 <p>Mémo à moi-même : pour mon boulot j’ai dû me rajouter ces 3 paquets (oui oui j’ai besoin du driver mssql…)</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">sudo port install php5-solr freetds php5-mssql
-</code></pre></div>
+<pre><code class="language-bash"><span class="built_in">sudo</span> port install php5-solr freetds php5-mssql</code></pre>
 <p>Ensuite il reste quelques petites modifs avant d’avoir un environnement fin prêt.</p>
-
-<h2>Configuration d’Apache</h2>
-
-<p>On active PHP5 au niveau d’Apache  </p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="c"># activate php5 module for apache</span>
-<span class="nb">cd</span> /opt/local/apache2/modules
-sudo /opt/local/apache2/bin/apxs -a -e -n <span class="s2">&quot;php5&quot;</span> libphp5.so
-</code></pre></div>
-<p>Il faut maintenant préciser à Apache que les fichiers index.php peuvent être les fichiers index par défaut. Pour ce faire, il faut éditer le fichier /opt/local/apache2/conf/httpd.conf et rechercher « DirectoryIndex index.html »</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="c"># add &quot;index.php&quot; at the end</span>
-DirectoryIndex index.html index.php
-</code></pre></div>
+<h2 id="configuration-d-apache">Configuration d’Apache</h2>
+<p>On active PHP5 au niveau d’Apache</p>
+<pre><code class="language-bash"><span class="comment"># activate php5 module for apache</span>
+<span class="built_in">cd</span> /opt/local/apache2/modules
+<span class="built_in">sudo</span> /opt/local/apache2/bin/apxs <span class="operator">-a</span> <span class="operator">-e</span> -n <span class="string">"php5"</span> libphp5.so</code></pre>
+<p>Il faut maintenant préciser à Apache que les fichiers index.php peuvent être les fichiers index par défaut. Pour ce faire, il faut éditer le fichier /opt/local/apache2/conf/httpd.conf et rechercher « DirectoryIndex index.html »</p>
+<pre><code class="language-bash"><span class="comment"># add "index.php" at the end</span>
+DirectoryIndex index.html index.php</code></pre>
 <p>On peut aussi ajouter la conf du module apache php (en fin de fichier ?)</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">Include conf/extra/mod_php.conf
-</code></pre></div>
-<p>Ayant déjà vécu un paquet de reinstall système, j’ai l’habitude de mettre mes configs dans mes dossiers perso indépendamment du système, voilà donc ce que j’ai ajouté en à la fin du httpd.conf.</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">Include /Users/YOUR-USERNAME/Dropbox/Servers/conf/development/*
-</code></pre></div>
+<pre><code class="language-bash">Include conf/extra/mod_php.conf</code></pre>
+<p>Ayant déjà vécu un paquet de reinstall système, j’ai l’habitude de mettre mes configs dans mes dossiers perso indépendamment du système, voilà donc ce que j’ai ajouté en à la fin du httpd.conf.</p>
+<pre><code class="language-bash">Include /Users/YOUR-USERNAME/Dropbox/Servers/conf/development/*</code></pre>
 <p>Vous remarquerez que j’ai mis ça sur ma <a href="//db.tt/C5lc46w">Dropbox</a> (comme je suis rassuré d’avoir tous mes petits fichiers au chaud bien à l’abri d’un hardreset :) ). <a href="//db.tt/C5lc46w" title="Créer votre compte Dropbox gratuitement !">Je vous invite à faire pareille</a>, ça ne coûte rien et c’est tellement pratique d’avoir un mega dossier synchro entre ses différentes machines (smartphone inclus) !</p>
-
 <p>Après avoir modifié la conf <strong>Apache</strong>, il faut bien sur penser à redémarrer le serveur pour que la nouvelle configuration soit prise en compte:</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">sudo /opt/local/apache2/bin/apachectl -k restart
-</code></pre></div>
+<pre><code class="language-bash"><span class="built_in">sudo</span> /opt/local/apache2/bin/apachectl -k restart</code></pre>
 <p>Ceci doit être fait dès que vous modifiez votre httpd.conf (ou apache2.conf selon), pensez-y quand vous ajouterez des virtual hosts !</p>
-
-<h2>Configuration de PHP</h2>
-
-<p>On doit créer un fichier de configuration de PHP. On copie donc la version par défaut de développement. Puis vous pouvez prendre le temps d’éditer ce nouveau php.ini pour l’adapter à vos besoins.  </p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="c"># create a default php.ini</span>
-sudo cp /opt/local/etc/php5/php.ini-development /opt/local/etc/php5/php.ini
-<span class="c"># open it to customize</span>
-sudo open /opt/local/etc/php5/php.ini
-</code></pre></div>
+<h2 id="configuration-de-php">Configuration de PHP</h2>
+<p>On doit créer un fichier de configuration de PHP. On copie donc la version par défaut de développement. Puis vous pouvez prendre le temps d’éditer ce nouveau php.ini pour l’adapter à vos besoins.</p>
+<pre><code class="language-bash"><span class="comment"># create a default php.ini</span>
+<span class="built_in">sudo</span> cp /opt/local/etc/php5/php.ini-development /opt/local/etc/php5/php.ini
+<span class="comment"># open it to customize</span>
+<span class="built_in">sudo</span> open /opt/local/etc/php5/php.ini</code></pre>
 <p>Prenez 2 secondes pour éviter des warnings avec les fonctions/classes date, time etc… en ajoutant ceci à la fin du fichier php.ini</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="c"># set a default timezone for your server</span>
-date.timezone<span class="o">=</span><span class="s2">&quot;Europe/Paris&quot;</span>
-</code></pre></div>
-<h2>Configuration de MySQL</h2>
-
-<p>Il reste à configurer  notre serveur de base de données SQL.</p>
-
+<pre><code class="language-bash"><span class="comment"># set a default timezone for your server</span>
+date.timezone=<span class="string">"Europe/Paris"</span></code></pre>
+<h2 id="configuration-de-mysql">Configuration de MySQL</h2>
+<p>Il reste à configurer  notre serveur de base de données SQL.</p>
 <p>Pendant qu’on est encore chaud sur le php.ini, on en profite pour adapter les réglages MySQL. Voilà ce qui va être nécessaire (<em>cherchez dans le fichier les clés de configs et modifiez les comme ici</em>)</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="c"># edit php.ini to add default mysql socket</span>
-<span class="c"># ...</span>
-pdo_mysql.default_socket<span class="o">=</span>/tmp/mysql.sock
-<span class="c"># ...</span>
-mysql.default_socket <span class="o">=</span> /tmp/mysql.sock
-</code></pre></div>
+<pre><code class="language-bash"><span class="comment"># edit php.ini to add default mysql socket</span>
+<span class="comment"># ...</span>
+pdo_mysql.default_socket=/tmp/mysql.sock
+<span class="comment"># ...</span>
+mysql.default_socket = /tmp/mysql.sock</code></pre>
 <p>Une fois ceci fait, on va vraiment configurer MySQL</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="c"># mysql installation</span>
-sudo -u mysql mysql_install_db5
-</code></pre></div>
-<p>Ensuite on défini les fameuses sockets pour php (entre autres) dans le fichier /opt/local/etc/mysql5/my.cnf</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="c"># create file if not exists</span>
-sudo touch /opt/local/etc/mysql5/my.cnf
-<span class="c"># open it</span>
-sudo open /opt/local/etc/mysql5/my.cnf
-</code></pre></div>
-<p>Voilà les ajouts/modifications à apporter  </p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="c"># add this into the configuration file, or edit current settings</span>
-<span class="o">[</span>mysqld_safe<span class="o">]</span>
-<span class="nv">socket</span> <span class="o">=</span> /tmp/mysql.sock
-<span class="o">[</span>mysqld<span class="o">]</span>
-<span class="nv">socket</span><span class="o">=</span>/tmp/mysql.sock
-<span class="o">[</span>client<span class="o">]</span>
-<span class="nv">socket</span><span class="o">=</span>/tmp/mysql.sock
-</code></pre></div>
+<pre><code class="language-bash"><span class="comment"># mysql installation</span>
+<span class="built_in">sudo</span> -u mysql mysql_install_db5</code></pre>
+<p>Ensuite on défini les fameuses sockets pour php (entre autres) dans le fichier /opt/local/etc/mysql5/my.cnf</p>
+<pre><code class="language-bash"><span class="comment"># create file if not exists</span>
+<span class="built_in">sudo</span> touch /opt/local/etc/mysql5/my.cnf
+<span class="comment"># open it</span>
+<span class="built_in">sudo</span> open /opt/local/etc/mysql5/my.cnf</code></pre>
+<p>Voilà les ajouts/modifications à apporter</p>
+<pre><code class="language-bash"><span class="comment"># add this into the configuration file, or edit current settings</span>
+[mysqld_safe]
+socket = /tmp/mysql.sock
+[mysqld]
+socket=/tmp/mysql.sock
+[client]
+socket=/tmp/mysql.sock</code></pre>
 <p>Il y’en a peut être beaucoup mais il vaut mieux trop que pas assez.</p>
-
-<h2>Activer Apache PHP et MySQL au démarrage de votre machine</h2>
-
-<p>Vous remarquerez que les paquets qui nécessitent de fonctionner en tant que serveur (apache, mysql…) doivent être démarrés à la main.<br>
+<h2 id="activer-apache-php-et-mysql-au-d-marrage-de-votre-machine">Activer Apache PHP et MySQL au démarrage de votre machine</h2>
+<p>Vous remarquerez que les paquets qui nécessitent de fonctionner en tant que serveur (apache, mysql…) doivent être démarrés à la main.
 Mais si vous avez l’oeil, lors des compilations, des commentaires similaires à celui-ci vous indique comment faire simplement.</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="c">###########################################################</span>
-<span class="c"># A startup item has been generated that will aid in</span>
-<span class="c"># starting apache2 with launchd. It is disabled</span>
-<span class="c"># by default. Execute the following command to start it,</span>
-<span class="c"># and to cause it to launch at startup:</span>
-<span class="c">#</span>
-<span class="c"># sudo port load apache2</span>
-<span class="c">###########################################################</span>
-</code></pre></div>
+<pre><code class="language-bash"><span class="comment">###########################################################</span>
+<span class="comment"># A startup item has been generated that will aid in</span>
+<span class="comment"># starting apache2 with launchd. It is disabled</span>
+<span class="comment"># by default. Execute the following command to start it,</span>
+<span class="comment"># and to cause it to launch at startup:</span>
+<span class="comment">#</span>
+<span class="comment"># sudo port load apache2</span>
+<span class="comment">###########################################################</span></code></pre>
 <p>Donc pour loader Apache et MySQL au démarrage, rien de plus simple:</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">sudo port load apache2 mysql5-server
-</code></pre></div>
-<h2>Les petits plus</h2>
-
-<h3>Installer PHPUnit sur Mac OS X</h3>
-
+<pre><code class="language-bash"><span class="built_in">sudo</span> port load apache2 mysql5-server</code></pre>
+<h2 id="les-petits-plus">Les petits plus</h2>
+<h3 id="installer-phpunit-sur-mac-os-x">Installer PHPUnit sur Mac OS X</h3>
 <p>Quand on est un développeur digne de ce nom, on se doit de faire des <a href="//fr.wikipedia.org/wiki/Test_unitaire">tests unitaires</a>. Voilà comment ajouter le nécessaire à votre configuration. Et c’est là que PEAR est nécessaire !</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="c"># install phpunit</span>
-sudo pear channel-discover pear.phpunit.de
-sudo pear install --alldeps phpunit/PHPUnit
-</code></pre></div>
+<pre><code class="language-bash"><span class="comment"># install phpunit</span>
+<span class="built_in">sudo</span> pear channel-discover pear.phpunit.de
+<span class="built_in">sudo</span> pear install --alldeps phpunit/PHPUnit</code></pre>
 <p>Si vous avez des soucis avez les lignes commandes ci-dessus, comme quoi il vous manque des dépendances, voici de quoi faire</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">sudo pear channel-discover pear.phpunit.de
-sudo pear channel-discover pear.symfony-project.com
-sudo pear channel-discover components.ez.no
-sudo pear install phpunit/PHPUnit
-</code></pre></div>
-<h3>Installer Memcache</h3>
+<pre><code class="language-bash"><span class="built_in">sudo</span> pear channel-discover pear.phpunit.de
+<span class="built_in">sudo</span> pear channel-discover pear.symfony-project.com
+<span class="built_in">sudo</span> pear channel-discover components.ez.no
+<span class="built_in">sudo</span> pear install phpunit/PHPUnit</code></pre>
+<h3 id="installer-memcache">Installer Memcache</h3>
+<p>Memcache, un système de cache bien sympatique utilisable en PHP (entre autres) peut s’installer simplement grâce aux MacPorts.
+Il suffit d’installer 2 paquets, puis éventuellement de lancer ça au démarrage de la machine.</p>
+<pre><code class="language-bash"><span class="comment"># Install the executable and the bindings for PHP5</span>
+<span class="built_in">sudo</span> port install memcached php5-memcached
 
-<p>Memcache, un système de cache bien sympatique utilisable en PHP (entre autres) peut s’installer simplement grâce aux MacPorts.<br>
-Il suffit d’installer 2 paquets, puis éventuellement de lancer ça au démarrage de la machine.  </p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="c"># Install the executable and the bindings for PHP5</span>
-sudo port install memcached php5-memcached
-
-<span class="c"># Verify that the executable exists in your path</span>
+<span class="comment"># Verify that the executable exists in your path</span>
 which memcached
-<span class="c"># output something like /opt/local/bin/memcached</span>
+<span class="comment"># output something like /opt/local/bin/memcached</span>
 
-<span class="c"># Start memcached for the current session</span>
-memcached -d -m 24 -p 11211
+<span class="comment"># Start memcached for the current session</span>
+memcached <span class="operator">-d</span> -m <span class="number">24</span> -p <span class="number">11211</span>
 
-<span class="c"># Configure memcached to execute on startup, if desired</span>
-sudo port load memcached
-</code></pre></div>
-<p>Avec tout ça, vous devrait être fin prêt pour attaquer du code !<br>
+<span class="comment"># Configure memcached to execute on startup, if desired</span>
+<span class="built_in">sudo</span> port load memcached</code></pre>
+<p>Avec tout ça, vous devrait être fin prêt pour attaquer du code !
 Il reste maintenant à bien configurer Apache, avec des virtual hosts mais ça fera peut être l’objet d’un autre post.</p>
+<p> *[PEAR]: PHP Extension and Application Repository</p>
 
-<p>*[PEAR]: PHP Extension and Application Repository</p>
 
 			</div>
 			<br /><br />
-			----
+			---
 			<br /><br />
 			<footer>
 				<div class="report">
-					See something wrong here ? Please tell me <a href="https://github.com/MoOx/moox.io/issues">with an issue on Github</a>, 
+					See something wrong here ? Please tell me <a href="https://github.com/MoOx/moox.io/issues">with an issue on Github</a>,
 					or just some words on twitter at <a href="https://twitter.com/MoOx/">@MoOx</a>.
 				</div>
 			</footer>
 		</article>
-		
+
 		
 			<section class="Box-module about-author">
 	<img class="obj-start" src="//gravatar.com/avatar/d2a1c95e2af59538301c3ee6d2907f6f?s=128" alt="">
@@ -295,7 +251,7 @@ Il reste maintenant à bien configurer Apache, avec des virtual hosts mais ça f
 
 
 		
-		
+
 		
 		<section class="Box-module">
 			<h1>Comments</h1>
@@ -318,7 +274,7 @@ Il reste maintenant à bien configurer Apache, avec des virtual hosts mais ça f
 </div>
 
 </div>
-<script src="/assets/js/vanilla.js?20130926072016"></script>
+<script src="/assets/js/vanilla.js?20131210173338"></script>
 
 
 	
@@ -334,23 +290,22 @@ Il reste maintenant à bien configurer Apache, avec des virtual hosts mais ça f
 
 
 
+  <script>
+  var disqus_shortname = 'moox',
+  
+  
+  
+  disqus_identifier = 'http://moox.io',
+  disqus_url = 'http://moox.io',
+  disqus_script = 'embed.js';
+  
+  (function(d,s) {
+  s = d.createElement('script');s.async=1;s.src = '//' + disqus_shortname + '.disqus.com/'+disqus_script;
+  (d.getElementsByTagName('head')[0]).appendChild(s);
+  })(document);
+  </script>
 
-<script>
-var disqus_shortname = 'moox',
 
 
-
-disqus_identifier = 'http://moox.io/blog/installer-serveur-web-apache-php-mysql-mac-os-x-macports/',
-disqus_url = 'http://moox.io/blog/installer-serveur-web-apache-php-mysql-mac-os-x-macports/',
-disqus_script = 'embed.js';
-
-
-(function(d,s) {
-s = d.createElement('script');s.async=1;s.src = '//' + disqus_shortname + '.disqus.com/'+disqus_script;
-(d.getElementsByTagName('head')[0]).appendChild(s);
-})(document);
-</script>
-
- 
 </body>
 </html>

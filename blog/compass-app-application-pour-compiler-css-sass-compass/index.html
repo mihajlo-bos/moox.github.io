@@ -2,25 +2,26 @@
 <!--
 	HEY YOU, STOP LOOKING AT MY SOURCE CODE
 	Just check it out directly on Github :
-	
+
 	https://github.com/MoOx/moox.io.git
 -->
-<html lang="en" class="no-js no-touch grid-title--quotes">
+<html lang="en" class="no-js no-touch ">
 <head>
-<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <script>(function(docEl) {
 	docEl.className = docEl.className.replace(/\bno-js\b/, 'js');
 	if ('ontouchstart' in docEl) { docEl.className = docEl.className.replace(/\bno-touch\b/, 'touch'); }
 })(document.documentElement);</script>
 
 <meta charset="utf-8">
-<title>Compass.app, une application qu&#8217;elle est bien pour compiler ses CSS avec Sass / Compass</title>
-<meta name="description" content="">
-<base href="http://moox.io/" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compass.app, une application qu&#x27;elle est bien pour compiler ses CSS avec Sass / Compass</title>
+
+<base href="http://moox.io/">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <link href="feed.xml" rel="alternate" type="application/rss+xml">
 
-<link rel="stylesheet" href="/assets/css/style.css?20130926072016">
+<link rel="stylesheet" href="/assets/css/moox.css?20131210173338">
+
 
 
 
@@ -44,11 +45,12 @@
 		<li class="Navbar-separator--after"><a class=""  href="profile/"><i class="icon icon_user"></i> Profile</a>
 		</li><li class="Navbar-separator--after"><a class=""  href="#not-ready"><i class="icon icon_gears"></i> Portfolio</a>
 		</li><li class="Navbar-separator--after"><a class=""  href="#not-ready"><i class="icon icon_gears"></i> Code</a>
-		</li><li class="Navbar-separator--after"><a class="active"  href="blog/"><i class="icon icon_pencil"></i> Blog</a>
+		</li><li class="Navbar-separator--after"><a class=""  href="blog/"><i class="icon icon_pencil"></i> Blog</a>
 		</li><li class="Navbar-separator--after"><a class=""  href="about/"><i class="icon icon_help"></i> About</a>
 		</li><li class="Navbar-separator--after"><a class=""  href="contact/"><i class="icon icon_speech-bubble"></i> Contact</a></li>
 	</ul>
 </nav>
+
 
 <div class="grid grid--center grid--title">
 	<hgroup class="grid__cell unit-8-12--medium title--light">
@@ -61,94 +63,87 @@
 	<div class="grid__cell Box">
 		<article class="Box-module" lang="fr">
 			<header>
-				<h1><span class="text-less-visible">[fr]</span> Compass.app, une application qu&#8217;elle est bien pour compiler ses CSS avec Sass / Compass</h1>
-				<time class="text-less-visible" pubdate datetime="2011-05-23">May 23 2011</time>
+				<h1><span class="text-less-visible">[fr]</span> Compass.app, une application qu&#x27;elle est bien pour compiler ses CSS avec Sass / Compass</h1>
+				<time class="text-less-visible" pubdate datetime="2013-12-10">10 December 2013</time>
 			</header>
 			<!-- 
 			<div class="category">
 				<ul>
 					
-						<li><a href="#">app</a></li>
+						<li><a href="#"></a></li>
 					
-						<li><a href="#">compass</a></li>
+						<li><a href="#"></a></li>
 					
-						<li><a href="#">css</a></li>
+						<li><a href="#"></a></li>
 					
-						<li><a href="#">ruby</a></li>
+						<li><a href="#"></a></li>
 					
-						<li><a href="#">sass</a></li>
+						<li><a href="#"></a></li>
 					
 				</ul>
 			</div>
 			 -->
 			<div class="content">
-				<figure class="flex-media--3-1"><a href="http://compass-style.org/"><img class="flex-media__item" src="/media/2011/05/compass.app_.jpg" alt="compass app" /></a></figure>
+				
 
-<p>Suite à mes précédents articles sur <a href="/blog/utiliser-des-variables-fonctions-css">les pré-processeurs CSS qui permettent d’utiliser des variables et fonctions</a>, et <a href="/blog/fonctions-variables-css-generer-ses-css-avec-sass-compass/">un petit tutoriel sur l’installation et utilisation du combo Sass/Compass</a>, voici la présentation d’un petite application, qui permet de s’affranchir des toujours utiliser des lignes de commandes pour lancer Compass.  </p>
+<figure class="flex-media--3-1">
+  <a href="http://compass-style.org/">
+    <img class="flex-media__item" src="/media/2011/05/compass.app_.jpg" alt="compass app" />
+  </a>
+</figure>
 
+<p>Suite à mes précédents articles sur <a href="/blog/utiliser-des-variables-fonctions-css">les pré-processeurs CSS qui permettent d’utiliser des variables et fonctions</a>, et <a href="/blog/fonctions-variables-css-generer-ses-css-avec-sass-compass/">un petit tutoriel sur l’installation et utilisation du combo Sass/Compass</a>, voici la présentation d’un petite application, qui permet de s’affranchir des toujours utiliser des lignes de commandes pour lancer Compass.</p>
 <p>Voici une petite vidéo d’intro (sans son) provenant du <a href="http://compass.handlino.com/">site officiel de Compass.app</a></p>
-
 <p>C’est quand même plus sympa d’avoir une petite appli discrète, avec les notifications systèmes ! Quelques options sont configurables via un menu (pour activer/désactiver certains types de notifications, ou spécifier la version de compass à utiliser).</p>
-
 <p>Des versions compilés de l’application sont disponibles à la vente sur le site, mais l’application est Open-Source et il est bien indiqué dans la doc du <a href="https://github.com/handlino/CompassApp">repository Github de Compass.app</a> que nous pouvons librement le compiler.</p>
-
 <p>Pour mémo, voici de quoi l’installer (sur Mac OS X, doit donc fonctionner sur Linux, voir même Windows avec une petite adaptation pour les paths) :</p>
-
-<h2>Prérequis à la compilation de Compass.app</h2>
-
+<h2 id="pr-requis-la-compilation-de-compass-app">Prérequis à la compilation de Compass.app</h2>
 <ol>
-<li> Avoir Java installé (vérifier avec <code>java -version</code>)</li>
-<li> <a href="http://jruby.org/download">Télécharger la dernière version de jRuby</a> zippé (jRuby est un trip entre java et ruby, d’après ce que j’ai compris ça permet de coder un app java en ruby)</li>
-<li> Dézippé jRuby dans <code>/usr/local/</code></li>
-<li> Renommer en jruby (au lieu d’un jruby-1.x)</li>
+<li>Avoir Java installé (vérifier avec <code>java -version</code>)</li>
+<li><a href="http://jruby.org/download">Télécharger la dernière version de jRuby</a> zippé (jRuby est un trip entre java et ruby, d’après ce que j’ai compris ça permet de coder un app java en ruby)</li>
+<li>Dézippé jRuby dans <code>/usr/local/</code></li>
+<li>Renommer en jruby (au lieu d’un jruby-1.x)</li>
 </ol>
-
-<h2>Compass.app</h2>
-
-<p>En ligne de commande,  </p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="c"># pour la session en cours, on ajoute jruby dans le path pour simplifier les appels</span>
-<span class="nv">PATH</span><span class="o">=</span>/usr/local/jruby/bin:<span class="nv">$PATH</span>
-<span class="c"># installation d&#39;un gem depuis jruby (autrement ça marche pas)</span>
+<h2 id="compass-app">Compass.app</h2>
+<p>En ligne de commande,</p>
+<pre><code class="language-bash"><span class="comment"># pour la session en cours, on ajoute jruby dans le path pour simplifier les appels</span>
+PATH=/usr/local/jruby/bin:<span class="variable">$PATH</span>
+<span class="comment"># installation d'un gem depuis jruby (autrement ça marche pas)</span>
 jruby -S gem install rawr
 
-<span class="c"># ensuite créé un emplacement pour récupérer les sources de Compass.app</span>
+<span class="comment"># ensuite créé un emplacement pour récupérer les sources de Compass.app</span>
 mkdir ~/Applications/CompassApp
-<span class="nb">cd</span> ~/Applications/CompassApp
-<span class="c"># on clone depuis github</span>
-git clone git://github.com/handlino/CompassApp.git <span class="s2">&quot;CompassApp&quot;</span>
+<span class="built_in">cd</span> ~/Applications/CompassApp
+<span class="comment"># on clone depuis github</span>
+git clone git://github.com/handlino/CompassApp.git <span class="string">"CompassApp"</span>
 
-<span class="c"># et on compile (un peu de patience)</span>
-./bin/build-all.sh
-</code></pre></div>
+<span class="comment"># et on compile (un peu de patience)</span>
+./bin/build-all.sh</code></pre>
 <p>Vous trouverez ensuite les applis compilés et zippé pour Mac, Linux et Windows dans ./packages</p>
-
-<h2>Mise à jour de Compass.app</h2>
-
+<h2 id="mise-jour-de-compass-app">Mise à jour de Compass.app</h2>
 <p>Pour faire une mise à jour (de temps en temps)</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">PATH</span><span class="o">=</span>/usr/local/jruby/bin:<span class="nv">$PATH</span>
+<pre><code class="language-bash">PATH=/usr/local/jruby/bin:<span class="variable">$PATH</span>
 jruby -S gem update
-<span class="nb">cd</span> ~/Applications/CompassApp
+<span class="built_in">cd</span> ~/Applications/CompassApp
 git pull
-./bin/build-all.sh
-</code></pre></div>
+./bin/build-all.sh</code></pre>
 <p>Là encore il vous reste à réinstaller la version compilé (dézipé et déplacement).</p>
-
 <p>Certains risques de se demander pourquoi je n’ai pas ajouté jruby à mon PATH de manière permanente, c’est tout simplement car il y’a des binaires en double (ex: gem).</p>
-
 <p>Bonne utilisation de Compass ;)</p>
+
 
 			</div>
 			<br /><br />
-			----
+			---
 			<br /><br />
 			<footer>
 				<div class="report">
-					See something wrong here ? Please tell me <a href="https://github.com/MoOx/moox.io/issues">with an issue on Github</a>, 
+					See something wrong here ? Please tell me <a href="https://github.com/MoOx/moox.io/issues">with an issue on Github</a>,
 					or just some words on twitter at <a href="https://twitter.com/MoOx/">@MoOx</a>.
 				</div>
 			</footer>
 		</article>
-		
+
 		
 			<section class="Box-module about-author">
 	<img class="obj-start" src="//gravatar.com/avatar/d2a1c95e2af59538301c3ee6d2907f6f?s=128" alt="">
@@ -161,7 +156,7 @@ git pull
 
 
 		
-		
+
 		
 		<section class="Box-module">
 			<h1>Comments</h1>
@@ -184,7 +179,7 @@ git pull
 </div>
 
 </div>
-<script src="/assets/js/vanilla.js?20130926072016"></script>
+<script src="/assets/js/vanilla.js?20131210173338"></script>
 
 
 	
@@ -200,23 +195,22 @@ git pull
 
 
 
+  <script>
+  var disqus_shortname = 'moox',
+  
+  
+  
+  disqus_identifier = 'http://moox.io',
+  disqus_url = 'http://moox.io',
+  disqus_script = 'embed.js';
+  
+  (function(d,s) {
+  s = d.createElement('script');s.async=1;s.src = '//' + disqus_shortname + '.disqus.com/'+disqus_script;
+  (d.getElementsByTagName('head')[0]).appendChild(s);
+  })(document);
+  </script>
 
-<script>
-var disqus_shortname = 'moox',
 
 
-
-disqus_identifier = 'http://moox.io/blog/compass-app-application-pour-compiler-css-sass-compass/',
-disqus_url = 'http://moox.io/blog/compass-app-application-pour-compiler-css-sass-compass/',
-disqus_script = 'embed.js';
-
-
-(function(d,s) {
-s = d.createElement('script');s.async=1;s.src = '//' + disqus_shortname + '.disqus.com/'+disqus_script;
-(d.getElementsByTagName('head')[0]).appendChild(s);
-})(document);
-</script>
-
- 
 </body>
 </html>

@@ -2,12 +2,11 @@
 <!--
 	HEY YOU, STOP LOOKING AT MY SOURCE CODE
 	Just check it out directly on Github :
-	
+
 	https://github.com/MoOx/moox.io.git
 -->
-<html lang="en" class="no-js no-touch grid-title--quotes">
+<html lang="en" class="no-js no-touch ">
 <head>
-<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <script>(function(docEl) {
 	docEl.className = docEl.className.replace(/\bno-js\b/, 'js');
 	if ('ontouchstart' in docEl) { docEl.className = docEl.className.replace(/\bno-touch\b/, 'touch'); }
@@ -15,12 +14,14 @@
 
 <meta charset="utf-8">
 <title>Keep one Netbeans icon in your OS X Finder Dock</title>
-<meta name="description" content="">
-<base href="http://moox.io/" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<base href="http://moox.io/">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <link href="feed.xml" rel="alternate" type="application/rss+xml">
 
-<link rel="stylesheet" href="/assets/css/style.css?20130926072016">
+<link rel="stylesheet" href="/assets/css/moox.css?20131210173338">
+
 
 
 
@@ -44,11 +45,12 @@
 		<li class="Navbar-separator--after"><a class=""  href="profile/"><i class="icon icon_user"></i> Profile</a>
 		</li><li class="Navbar-separator--after"><a class=""  href="#not-ready"><i class="icon icon_gears"></i> Portfolio</a>
 		</li><li class="Navbar-separator--after"><a class=""  href="#not-ready"><i class="icon icon_gears"></i> Code</a>
-		</li><li class="Navbar-separator--after"><a class="active"  href="blog/"><i class="icon icon_pencil"></i> Blog</a>
+		</li><li class="Navbar-separator--after"><a class=""  href="blog/"><i class="icon icon_pencil"></i> Blog</a>
 		</li><li class="Navbar-separator--after"><a class=""  href="about/"><i class="icon icon_help"></i> About</a>
 		</li><li class="Navbar-separator--after"><a class=""  href="contact/"><i class="icon icon_speech-bubble"></i> Contact</a></li>
 	</ul>
 </nav>
+
 
 <div class="grid grid--center grid--title">
 	<hgroup class="grid__cell unit-8-12--medium title--light">
@@ -62,28 +64,27 @@
 		<article class="Box-module" lang="en">
 			<header>
 				<h1><span class="text-less-visible">[en]</span> Keep one Netbeans icon in your OS X Finder Dock</h1>
-				<time class="text-less-visible" pubdate datetime="2011-10-27">Oct 27 2011</time>
+				<time class="text-less-visible" pubdate datetime="2013-12-10">10 December 2013</time>
 			</header>
 			<!-- 
 			<div class="category">
 				<ul>
 					
-						<li><a href="#">ide</a></li>
+						<li><a href="#"></a></li>
 					
-						<li><a href="#">netbeans</a></li>
+						<li><a href="#"></a></li>
 					
-						<li><a href="#">os x</a></li>
+						<li><a href="#"></a></li>
 					
 				</ul>
 			</div>
 			 -->
 			<div class="content">
-				<p>After installing Netbeans, you drag the Netbeans.app in your dock. And each time you start Netbeans, you have a second Netbeans icon which appears… That’s boring.</p>
+				
 
+<p>After installing Netbeans, you drag the Netbeans.app in your dock. And each time you start Netbeans, you have a second Netbeans icon which appears… That’s boring.</p>
 <p>Here is the solution :</p>
-
 <p>Go into the <code>/Applications/Netbeans</code> folder, and open the Netbeans package.</p>
-
 <figure class="flex-media--unknown">
     <a href="/media/2011/10/open-netbeans-package.png">
         <img class="flex-media__item" src="/media/2011/10/open-netbeans-package.png" alt="" title="Open Netbeans.app package" />
@@ -91,7 +92,6 @@
 </figure>
 
 <p>Then open <code>etc/netbeans.conf</code></p>
-
 <figure class="flex-media--unknown">
     <a href="/media/2011/10/open-netbeans-conf.png">
         <img class="flex-media__item" src="/media/2011/10/open-netbeans-conf.png" alt="" title="Edit netbeans.conf" />
@@ -99,25 +99,24 @@
 </figure>
 
 <p>You should see in the file :</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="c"># Default location of JDK, can be overridden by using --jdkhome [&lt;dir&gt;:</span>
-<span class="c">#netbeans_jdkhome=&quot;/path/to/jdk&quot;</span>
-</code></pre></div>
+<pre><code class="language-bash"><span class="comment"># Default location of JDK, can be overridden by using --jdkhome [&lt;dir&gt;:</span>
+<span class="comment">#netbeans_jdkhome="/path/to/jdk"</span></code></pre>
 <p>Just add <code>netbeans_jdkhome=&quot;/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home/&quot;</code> after theses lines.</p>
-
 <p>Restart Netbeans and voilà !</p>
+
 
 			</div>
 			<br /><br />
-			----
+			---
 			<br /><br />
 			<footer>
 				<div class="report">
-					See something wrong here ? Please tell me <a href="https://github.com/MoOx/moox.io/issues">with an issue on Github</a>, 
+					See something wrong here ? Please tell me <a href="https://github.com/MoOx/moox.io/issues">with an issue on Github</a>,
 					or just some words on twitter at <a href="https://twitter.com/MoOx/">@MoOx</a>.
 				</div>
 			</footer>
 		</article>
-		
+
 		
 			<section class="Box-module about-author">
 	<img class="obj-start" src="//gravatar.com/avatar/d2a1c95e2af59538301c3ee6d2907f6f?s=128" alt="">
@@ -128,7 +127,7 @@
 </section>
 
 		
-		
+
 		
 		<section class="Box-module">
 			<h1>Comments</h1>
@@ -151,7 +150,7 @@
 </div>
 
 </div>
-<script src="/assets/js/vanilla.js?20130926072016"></script>
+<script src="/assets/js/vanilla.js?20131210173338"></script>
 
 
 	
@@ -167,23 +166,22 @@
 
 
 
+  <script>
+  var disqus_shortname = 'moox',
+  
+  
+  
+  disqus_identifier = 'http://moox.io',
+  disqus_url = 'http://moox.io',
+  disqus_script = 'embed.js';
+  
+  (function(d,s) {
+  s = d.createElement('script');s.async=1;s.src = '//' + disqus_shortname + '.disqus.com/'+disqus_script;
+  (d.getElementsByTagName('head')[0]).appendChild(s);
+  })(document);
+  </script>
 
-<script>
-var disqus_shortname = 'moox',
 
 
-
-disqus_identifier = 'http://moox.io/blog/netbeans-icon-os-finder-dock/',
-disqus_url = 'http://moox.io/blog/netbeans-icon-os-finder-dock/',
-disqus_script = 'embed.js';
-
-
-(function(d,s) {
-s = d.createElement('script');s.async=1;s.src = '//' + disqus_shortname + '.disqus.com/'+disqus_script;
-(d.getElementsByTagName('head')[0]).appendChild(s);
-})(document);
-</script>
-
- 
 </body>
 </html>

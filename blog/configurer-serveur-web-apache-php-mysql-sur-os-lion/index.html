@@ -2,12 +2,11 @@
 <!--
 	HEY YOU, STOP LOOKING AT MY SOURCE CODE
 	Just check it out directly on Github :
-	
+
 	https://github.com/MoOx/moox.io.git
 -->
-<html lang="en" class="no-js no-touch grid-title--quotes">
+<html lang="en" class="no-js no-touch ">
 <head>
-<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <script>(function(docEl) {
 	docEl.className = docEl.className.replace(/\bno-js\b/, 'js');
 	if ('ontouchstart' in docEl) { docEl.className = docEl.className.replace(/\bno-touch\b/, 'touch'); }
@@ -15,12 +14,14 @@
 
 <meta charset="utf-8">
 <title>Configurer un Serveur Web Apache PHP MySQL sur OS X Lion</title>
-<meta name="description" content="">
-<base href="http://moox.io/" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<base href="http://moox.io/">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <link href="feed.xml" rel="alternate" type="application/rss+xml">
 
-<link rel="stylesheet" href="/assets/css/style.css?20130926072016">
+<link rel="stylesheet" href="/assets/css/moox.css?20131210173338">
+
 
 
 
@@ -44,11 +45,12 @@
 		<li class="Navbar-separator--after"><a class=""  href="profile/"><i class="icon icon_user"></i> Profile</a>
 		</li><li class="Navbar-separator--after"><a class=""  href="#not-ready"><i class="icon icon_gears"></i> Portfolio</a>
 		</li><li class="Navbar-separator--after"><a class=""  href="#not-ready"><i class="icon icon_gears"></i> Code</a>
-		</li><li class="Navbar-separator--after"><a class="active"  href="blog/"><i class="icon icon_pencil"></i> Blog</a>
+		</li><li class="Navbar-separator--after"><a class=""  href="blog/"><i class="icon icon_pencil"></i> Blog</a>
 		</li><li class="Navbar-separator--after"><a class=""  href="about/"><i class="icon icon_help"></i> About</a>
 		</li><li class="Navbar-separator--after"><a class=""  href="contact/"><i class="icon icon_speech-bubble"></i> Contact</a></li>
 	</ul>
 </nav>
+
 
 <div class="grid grid--center grid--title">
 	<hgroup class="grid__cell unit-8-12--medium title--light">
@@ -62,37 +64,34 @@
 		<article class="Box-module" lang="fr">
 			<header>
 				<h1><span class="text-less-visible">[fr]</span> Configurer un Serveur Web Apache PHP MySQL sur OS X Lion</h1>
-				<time class="text-less-visible" pubdate datetime="2011-11-15">Nov 15 2011</time>
+				<time class="text-less-visible" pubdate datetime="2013-12-10">10 December 2013</time>
 			</header>
 			<!-- 
 			<div class="category">
 				<ul>
 					
-						<li><a href="#">apache</a></li>
+						<li><a href="#"></a></li>
 					
-						<li><a href="#">mysql</a></li>
+						<li><a href="#"></a></li>
 					
-						<li><a href="#">OS X Lion</a></li>
+						<li><a href="#"></a></li>
 					
-						<li><a href="#">php</a></li>
+						<li><a href="#"></a></li>
 					
-						<li><a href="#">xdebug</a></li>
+						<li><a href="#"></a></li>
 					
 				</ul>
 			</div>
 			 -->
 			<div class="content">
-				<p>Ayant mis à jour récemment mon système d’exploitation (OS X 10.6 <em>Snow Leopard</em> à <strong>OS X 10.7 *Lion</strong>*), j’ai du réinstaller mon serveur web dessus.<br>
+				
+
+<p>Ayant mis à jour récemment mon système d’exploitation (OS X 10.6 <em>Snow Leopard</em> à <strong>OS X 10.7 <em>Lion</em></strong>), j’ai du réinstaller mon serveur web dessus.
 La précédente technique que j’avais utilisé était basé sur MacPorts, j’avais donc écris un article à ce sujet: <a href="/blog/installer-serveur-web-apache-php-mysql-mac-os-x-macports/">Installer Apache PHP MySQL sous Mac OS X</a>. Comme je l’expliquais dans cette article, cette solution est pour moi la plus intéressante lorsque l’on cherche un serveur web AMP complet.</p>
-
 <p>Mais aujourd’hui, j’utilise lorsque j’ai besoin d’un vrai serveur digne de ce nom, j’utilise la virtualisation avec Vagrant et VirtualBox (cela fera peut être l’objet d’un autre billet) afin d’avoir un environnement proche de celui que j’ai en production.</p>
-
-<p>Du coup, nativement sur mon Mac OS, je n’ai besoin que d’un simple *<em>serveur web Apache/PHP/MySQL *</em>. Rien qui casse la baraque, juste de quoi faire tourner quelques petits scripts (voir un WordPress) sans allumer une VM. Si vous cherchez une solution complète, ej vous invite à vous rendre sur mon lien ci-dessus.</p>
-
-<h2>Activer Apache/PHP en quelques secondes sur OS X Lion</h2>
-
+<p>Du coup, nativement sur mon Mac OS, je n’ai besoin que d’un simple <strong>serveur web Apache/PHP/MySQL </strong>. Rien qui casse la baraque, juste de quoi faire tourner quelques petits scripts (voir un WordPress) sans allumer une VM. Si vous cherchez une solution complète, ej vous invite à vous rendre sur mon lien ci-dessus.</p>
+<h2 id="activer-apache-php-en-quelques-secondes-sur-os-x-lion">Activer Apache/PHP en quelques secondes sur OS X Lion</h2>
 <p>Maintenant que <em>OS X Lion</em> vient de sortir, les versions des logiciels qu’ils embarquent sont assez récente. <strong>Apache 2</strong> est juste à activer dans les préférences du système dans la partie qui concerne le <em>Partage</em> (<em>Sharing</em> si votre OS est en anglais)</p>
-
 <figure class="flex-media--unknown">
     <a href="/media/2011/07/OS-X-Lion-System-Preferences-Sharing.png">
         <img src="/media/2011/07/OS-X-Lion-System-Preferences-Sharing.png" alt="" title="OS-X-Lion--System-Preferences--Sharing" class="flex-media__item" />
@@ -105,57 +104,46 @@ La précédente technique que j’avais utilisé était basé sur MacPorts, j’
     </a>
 </figure>
 
-<p>Vous pouvez vérifier en cliquant sur un des liens que Apache fonctionne bien. Vous devriez voir une page avec « It works ! ».</p>
-
-<p>Ensuite il faut activer sur Apache le module PHP 5 (5.3.6). Rien de complexe.<br>
+<p>Vous pouvez vérifier en cliquant sur un des liens que Apache fonctionne bien. Vous devriez voir une page avec « It works ! ».</p>
+<p>Ensuite il faut activer sur Apache le module PHP 5 (5.3.6). Rien de complexe.
 Avec Terminal.app (<code>/Application/Utilitaires/Terminal.app</code>), un coup de <code>sudo pico /etc/apache2/httpd.conf</code> devrait vous ouvrir le fichier de configuration d’Apache dans la console.</p>
-
 <p><em>Remarque: pour toutes les commandes qui commencent par <code>sudo</code> (Super Utilisateur DO), il vous est demandé un mot de passe. Utilisez celui de votre session (et ne vous inquiétez pas si vous ne voyez aucun caratère s’afficher lorsque vous tapez, c’est normal – sécurité des systèmes &amp; co).</em></p>
-
-<p>Sinon avec le Finder <kbd>⇧</kbd>+<kbd>⌘</kbd>+<kbd>G</kbd> (Go to the folder). Entrez <code>/private/etc/apache2/httpd.conf</code> puis ouvrez <code>httpd.conf</code> (mais là vous devrez avoir les droits sur le fichiers pour le modifier – préférez donc la méthode du Terminal).<br>
+<p>Sinon avec le Finder <kbd>⇧</kbd>+<kbd>⌘</kbd>+<kbd>G</kbd> (Go to the folder). Entrez <code>/private/etc/apache2/httpd.conf</code> puis ouvrez <code>httpd.conf</code> (mais là vous devrez avoir les droits sur le fichiers pour le modifier – préférez donc la méthode du Terminal).
 Cherchez et décommentez dans le premier quart du fichier la ligne <code>LoadModule php5_module libexec/apache2/libphp5.so</code>. Il suffit d’enlever le <strong>#</strong> présent au début de la ligne.</p>
-
-<h2>Installer MySQL sur OS X Lion</h2>
-
-<p>Pour installer MySQL simplement, il suffit d’utiliser les packages du site officiel: <a href="http://dev.mysql.com/downloads/mysql/">http://dev.mysql.com/downloads/mysql/</a>. 
-Installez MySQL, puis le panneau de préférence afin de pouvoir activer/désactiver MySQL à souhait, ainsi que si vous en avez besoin, le paquet pour avoir MySQL avec qui démarre avec le système.<br>
-Une fois les paquets installés, il reste à « brancher » PHP et MySQL ensemble.</p>
-
-<p>Un petit tour dans la configuration de PHP pour ajuster le lien entre MySQL et PHP:<br>
+<h2 id="installer-mysql-sur-os-x-lion">Installer MySQL sur OS X Lion</h2>
+<p>Pour installer MySQL simplement, il suffit d’utiliser les packages du site officiel: <a href="http://dev.mysql.com/downloads/mysql/"><a href="http://dev.mysql.com/downloads/mysql/">http://dev.mysql.com/downloads/mysql/</a></a>.
+Installez MySQL, puis le panneau de préférence afin de pouvoir activer/désactiver MySQL à souhait, ainsi que si vous en avez besoin, le paquet pour avoir MySQL avec qui démarre avec le système.
+Une fois les paquets installés, il reste à « brancher » PHP et MySQL ensemble.</p>
+<p>Un petit tour dans la configuration de PHP pour ajuster le lien entre MySQL et PHP:
 Allez dans <code>/private/etc/</code> et copier <code>php.ini.default</code> en <code>php.ini</code>, ceci afin de pouvoir adapter la configuration. Modifier directement le <code>php.ini.default</code> ne servirait à rien.</p>
-
-<p>Avec Terminal.app , rien de plus simple il vous suffit d’exécuter les lignes suivantes:  </p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="c"># copie du fichier</span>
-sudo cp /private/etc/php.ini.default /private/etc/php.ini
-<span class="c"># ouverture pour édition</span>
-sudo open -a TextEdit /private/etc/php.ini
-</code></pre></div>
+<p>Avec Terminal.app , rien de plus simple il vous suffit d’exécuter les lignes suivantes:</p>
+<pre><code class="language-bash"><span class="comment"># copie du fichier</span>
+<span class="built_in">sudo</span> cp /private/etc/php.ini.default /private/etc/php.ini
+<span class="comment"># ouverture pour édition</span>
+<span class="built_in">sudo</span> open <span class="operator">-a</span> TextEdit /private/etc/php.ini</code></pre>
 <p>Modifiez dedans (en plus de vos ajustements personnels) les valeurs des sockets pour MySQL : remplacez <code>/var/mysql</code> en <code>/tmp</code> aux différents endroits (pour l’extension [MySQL], [MySQLi] et [Pdo_mysql]) afin d’avoir un socket qui pointe sur <code>/tmp/mysql.sock</code> (valeur par défaut du package MySQL pour Mac OS X)</p>
-
-<h2>Petite touche en plus : xDebug</h2>
-
-<p>xDebug est déjà présent sur le système dans <code>/usr/lib/php/extensions</code>, il suffit de l’activer.<br>
-Ajouter dans votre php.ini (cf configuration de php ci-dessus)  </p>
-<div class="highlight"><pre><code class="ini language-ini" data-lang="ini"><span class="k">[xdebug]</span>
-<span class="na">zend_extension</span><span class="o">=</span><span class="s">/usr/lib/php/extensions/no-debug-non-zts-20090626/xdebug.so</span>
-<span class="c1">; more option ?</span>
-</code></pre></div>
+<h2 id="petite-touche-en-plus-xdebug">Petite touche en plus : xDebug</h2>
+<p>xDebug est déjà présent sur le système dans <code>/usr/lib/php/extensions</code>, il suffit de l’activer.
+Ajouter dans votre php.ini (cf configuration de php ci-dessus)</p>
+<pre><code class="language-ini"><span class="title">[xdebug]</span>
+<span class="setting">zend_extension=<span class="value">/usr/lib/php/extensions/<span class="keyword">no</span>-debug-non-zts-<span class="number">20090626</span>/xdebug.so</span></span>
+<span class="comment">; more option ?</span></code></pre>
 <p>Toutes les <a href="http://xdebug.org/docs/all_settings">options de xdebug</a> sont disponibles accessible sur le site officiel.</p>
-
 <p>Et voilà le tour est joué ! Vous voilà avec <strong>Apache 2, PHP 5.3.6 et MySQL 5.5 et xDebug sur MAC OS X Lion 10.7 !</strong></p>
+
 
 			</div>
 			<br /><br />
-			----
+			---
 			<br /><br />
 			<footer>
 				<div class="report">
-					See something wrong here ? Please tell me <a href="https://github.com/MoOx/moox.io/issues">with an issue on Github</a>, 
+					See something wrong here ? Please tell me <a href="https://github.com/MoOx/moox.io/issues">with an issue on Github</a>,
 					or just some words on twitter at <a href="https://twitter.com/MoOx/">@MoOx</a>.
 				</div>
 			</footer>
 		</article>
-		
+
 		
 			<section class="Box-module about-author">
 	<img class="obj-start" src="//gravatar.com/avatar/d2a1c95e2af59538301c3ee6d2907f6f?s=128" alt="">
@@ -168,7 +156,7 @@ Ajouter dans votre php.ini (cf configuration de php ci-dessus)  </p>
 
 
 		
-		
+
 		
 		<section class="Box-module">
 			<h1>Comments</h1>
@@ -191,7 +179,7 @@ Ajouter dans votre php.ini (cf configuration de php ci-dessus)  </p>
 </div>
 
 </div>
-<script src="/assets/js/vanilla.js?20130926072016"></script>
+<script src="/assets/js/vanilla.js?20131210173338"></script>
 
 
 	
@@ -207,23 +195,22 @@ Ajouter dans votre php.ini (cf configuration de php ci-dessus)  </p>
 
 
 
+  <script>
+  var disqus_shortname = 'moox',
+  
+  
+  
+  disqus_identifier = 'http://moox.io',
+  disqus_url = 'http://moox.io',
+  disqus_script = 'embed.js';
+  
+  (function(d,s) {
+  s = d.createElement('script');s.async=1;s.src = '//' + disqus_shortname + '.disqus.com/'+disqus_script;
+  (d.getElementsByTagName('head')[0]).appendChild(s);
+  })(document);
+  </script>
 
-<script>
-var disqus_shortname = 'moox',
 
 
-
-disqus_identifier = 'http://moox.io/blog/configurer-serveur-web-apache-php-mysql-sur-os-lion/',
-disqus_url = 'http://moox.io/blog/configurer-serveur-web-apache-php-mysql-sur-os-lion/',
-disqus_script = 'embed.js';
-
-
-(function(d,s) {
-s = d.createElement('script');s.async=1;s.src = '//' + disqus_shortname + '.disqus.com/'+disqus_script;
-(d.getElementsByTagName('head')[0]).appendChild(s);
-})(document);
-</script>
-
- 
 </body>
 </html>
