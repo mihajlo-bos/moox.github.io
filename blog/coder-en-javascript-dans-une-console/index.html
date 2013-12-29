@@ -20,7 +20,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <link href="feed.xml" rel="alternate" type="application/rss+xml">
 
-<link rel="stylesheet" href="/assets/css/moox.css?20131216110407">
+<link rel="stylesheet" href="/assets/css/moox.css?20131229201805">
 
 
 
@@ -65,7 +65,7 @@
 		<article class="Box-module" lang="fr">
 			<header>
 				<h1><span class="text-less-visible">[fr]</span> Coder en Javascript dans une console</h1>
-				<time class="text-less-visible" pubdate datetime="2013-12-16">18 April 2011</time>
+				<time class="text-less-visible" pubdate datetime="2013-12-29">18 April 2011</time>
 			</header>
 			<!-- 
 			<div class="category">
@@ -98,7 +98,7 @@ En admettant que vous ayez une console javascript digne de ce nom (la console We
 <p>$0 est très simple d’utilisation, et peut être très utile. Choisissez un élément sur une page web, faites une inspection de l’élément (sous Webkit et Gecko, un simple clic droit dessus et « Inspect Element » / « Inspecter l’élément » fait l’affaire). Allez dans votre console Javascript, et tapez $0 (puis Enter). Et là magie, cette variable contient une référence du noeud DOM en question ! C’est assez énorme je trouve.</p>
 <h3 id="utilisation-compter-le-texte-d-un-paragraphe">Utilisation : compter le texte d’un paragraphe</h3>
 <p>Admettons que vous cherchez à compter le nombre de caractères dans une <code>&lt;div&gt;</code>, inspectez là, puis dans votre console entrez-y la ligne suivante:</p>
-<pre><code class="language-js">$<span class="number">0.</span>innerHTML.length</code></pre>
+<pre><code class="language-js"><span class="cm-variable">$0</span>.<span class="cm-property">innerHTML</span>.<span class="cm-property">length</span></code></pre>
 <p>Et voilà vous avez votre résultat !</p>
 <p>Bien entendu il est bien évidement possible d’avoir des utilisations bien plus poussé de cette technique, comme par exemple récupérer tous les liens d’une page pour avoir leur href ou pour les entourer en rouge.</p>
 <h3 id="coder-plus-d-un-ligne">Coder plus d’un ligne</h3>
@@ -111,18 +111,18 @@ En admettant que vous ayez une console javascript digne de ce nom (la console We
 <h2 id="ajouter-jquery-dans-n-importe-quel-page-depuis-une-console-javascript">Ajouter jQuery dans n’importe quel page depuis une console Javascript</h2>
 <p>Lorsque l’on fait vite mumuse avec cette technique, il peut s’avérer judicieux d’utiliser jQuery ou une librairie quelconque de votre choix pour gagner encore en rapidité, et jQuery n’est pas encore sur toutes les pages web (<a href="https://twitter.com/mathias/status/59692133157842946" title="Statistique jQuery/Flash sur les pages web">même si ça s’en reproche</a>)
 Alors voilà une petite technique de sioux afin d’ajouter jQuery (ou autre) dans la page en cours.</p>
-<pre><code class="language-js"><span class="keyword">if</span> (<span class="keyword">typeof</span> jQuery == <span class="string">'undefined'</span>) {
-    <span class="keyword">var</span> myScript = document.createElement(<span class="string">'script'</span>);
-    myScript.setAttribute(<span class="string">"src"</span>, <span class="string">"http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"</span>); <span class="comment">// you can change this filename</span>
-    document.getElementsByTagName(<span class="string">"head"</span>)[<span class="number">0</span>].appendChild(myScript);
+<pre><code class="language-js"><span class="cm-keyword">if</span> (<span class="cm-keyword">typeof</span> <span class="cm-variable">jQuery</span> == <span class="cm-string">&#39;undefined&#39;</span>) {
+    <span class="cm-keyword">var</span> <span class="cm-variable">myScript</span> = <span class="cm-variable">document</span>.<span class="cm-property">createElement</span>(<span class="cm-string">&#39;script&#39;</span>);
+    <span class="cm-variable">myScript</span>.<span class="cm-property">setAttribute</span>(<span class="cm-string">&quot;src&quot;</span>, <span class="cm-string">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js&quot;</span>); <span class="cm-comment">// you can change this filename</span>
+    <span class="cm-variable">document</span>.<span class="cm-property">getElementsByTagName</span>(<span class="cm-string">&quot;head&quot;</span>)[<span class="cm-number">0</span>].<span class="cm-property">appendChild</span>(<span class="cm-variable">myScript</span>);
 }</code></pre>
 <p>N.B. : Si justement vous n’avez pas jQuery déjà inclus, il se peut que l’ajouter provoque des soucis si la variable $ est utile à la page (ce qui peut être le cas si une librairie tel que ProtoypeJs est inclus). Il faut donc utiliser la méthode de jQuery pour palier à ce problème :</p>
-<pre><code class="language-js">jQuery.noConflict(); <span class="comment">// if you think there will be a problem with "$"</span></code></pre>
+<pre><code class="language-js"><span class="cm-variable">jQuery</span>.<span class="cm-property">noConflict</span>(); <span class="cm-comment">// if you think there will be a problem with &quot;$&quot;</span></code></pre>
 <p>Ce qui impliquer d’utiliser par la suite jQuery avec son vrai nom plutôt que $ (ex: jQuery(‘.selector’).plugin() ).</p>
 <p>Ainsi on pourra faire des choses plus avancés facilement.
 Si on reprends mon exemple de tout à l’heure où j’ai compté les caractères d’une div, vous avez peut être remarqué le soucis que cette technique peut avoir : si vous avez de l’HTML dedans, le nombre de caractère est faussé puisque cela va compter les caractères réservés à l’HTML.
 Avec jQuery, ça devient aussi simple que ça pour contourner le problème :</p>
-<pre><code>jQuery($0).text().length</code></pre>
+<pre><code class="language-js"><span class="cm-variable">jQuery</span>(<span class="cm-variable">$0</span>).<span class="cm-property">text</span>().<span class="cm-property">length</span></code></pre>
 <p>And voilà… Vous prendrez vite goût à cette technique qui peut devenir très utile. D’ailleurs si vous avez des petits snippets sympathiques, n’hésitez pas à les poster dans les commentaires, je pourrais très bien ajouter une liste de commandes utiles en dessous de cette article !</p>
 <p>Ajout du 17 mai 2011 : Je vous invite à <a href="http://paulirish.com/2011/a-re-introduction-to-the-chrome-developer-tools/">redécouvrir l’outil de dév. de Chrome, via une vidéo du dernier Google I/O présenté par Paul Irish</a></p>
 
@@ -174,7 +174,7 @@ Avec jQuery, ça devient aussi simple que ça pour contourner le problème :</p>
 </div>
 
 </div>
-<script src="/assets/js/vanilla.js?20131216110407"></script>
+<script src="/assets/js/vanilla.js?20131229201805"></script>
 
 
 	
@@ -195,8 +195,8 @@ Avec jQuery, ça devient aussi simple que ça pour contourner le problème :</p>
   
   
   
-  disqus_identifier = 'http://moox.io',
-  disqus_url = 'http://moox.io',
+  disqus_identifier = 'http://moox.io/blog/coder-en-javascript-dans-une-console/',
+  disqus_url = 'http://moox.io/blog/coder-en-javascript-dans-une-console/',
   disqus_script = 'embed.js';
   
   (function(d,s) {

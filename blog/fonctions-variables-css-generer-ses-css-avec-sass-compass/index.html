@@ -20,7 +20,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <link href="feed.xml" rel="alternate" type="application/rss+xml">
 
-<link rel="stylesheet" href="/assets/css/moox.css?20131216110407">
+<link rel="stylesheet" href="/assets/css/moox.css?20131229201805">
 
 
 
@@ -65,7 +65,7 @@
 		<article class="Box-module" lang="fr">
 			<header>
 				<h1><span class="text-less-visible">[fr]</span> Fonctions et variables CSS avec Sass et Compass</h1>
-				<time class="text-less-visible" pubdate datetime="2013-12-16">13 May 2011</time>
+				<time class="text-less-visible" pubdate datetime="2013-12-29">13 May 2011</time>
 			</header>
 			<!-- 
 			<div class="category">
@@ -89,113 +89,79 @@
 
 <figure class="flex-media--3-1"><a href="http://sass-lang.com/"><img class="flex-media__item" src="/media/2011/05/sass.jpg" alt="sass" /></a></figure>
 
-<p>Comme je l’ai expliqué dans mon précédent article, aujourd’hui il est possible de passer la vitesse supérieure avec ses CSS, afin d’avoir à sa disposition <a href="/blog/utiliser-des-variables-fonctions-css" title="Utiliser des variables et fonctions CSS, c’est possible !">variables et fonctions CSS</a>. Voici donc un petit mémo concernant la solution que j’ai choisi <a href="http://sass-lang.com/">Sass</a> avec la librairie Compass.</p>
+<p>Comme je l’ai expliqué dans mon précédent article, aujourd’hui il est possible de passer la vitesse supérieure avec ses CSS, afin d’avoir à sa disposition [variables et fonctions CSS][1]. Voici donc un petit mémo concernant la solution que j’ai choisi [Sass][2] avec la librairie Compass.</p>
 <p>Pour vous donner l’eau à la bouche, voici une petite vidéo que j’ai trouvé sur le site de Compass.</p>
-<figure class="flex-media--4-3">
+<p><figure class="flex-media--4-3">
   <iframe class="flex-media__item" src="http://player.vimeo.com/video/11671458" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></figure>
-<a href="http://vimeo.com/11671458">An introduction to Compass</a> from <a href="http://vimeo.com/ltackett">Lorin Tackett</a> on <a href="http://vimeo.com">Vimeo</a>.
-
-## Pourquoi j’ai choisi <strong>Sass</strong>
-
-Après avoir comparer 2 solutions (LESS et Sass) j’ai rapidement vu que Sass proposait un nombre supérieur de fonctions de base. Ne serait ce que un simple <code>rgba(#fff, .8)</code> impossible en CSS ou avec LESS. Allez faire un tour sur les documentations respectives de <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html">Sass</a> et <a href="http://lesscss.org/#docs">LESS</a>. Je vous laisse libre arbitre pour ce choix qui vous appartient.
-Ensuite j’ai cherché des librairies. Pour Sass, sans aucun doute, <a href="http://compass-style.org/">Compass</a> est le parfait complément. Pour LESS, j’ai trouvé <a href="http://markdotto.com/bootstrap/">Bootstrap.less</a> qui à l’air pas mal non plus, bien que bien moins complet que Compass en terme de fonctionnalités.
-Après ce petit comparatif, j’ai eu le ressenti que le combo Sass / Compass avait l’air plus abouti que LESS. Mon choix s’est donc porté sur ces 2 projets.
-
-Si Sass vous intéresse toujours, vous pouvez continuer la lecture ;)
-
-## Utiliser des variables et fonctions CSS avec Sass
-
-Afin de pouvoir utiliser Sass, il faut installer les paquets nécessaires à son bon fonctionnement. Heureusement c’est pas bien compliqué.
+[An introduction to Compass][3] from [Lorin Tackett][4] on [Vimeo][5].</p>
+<h2 id="pourquoi-j-ai-choisi-sass-">Pourquoi j’ai choisi <strong>Sass</strong></h2>
+<p>Après avoir comparer 2 solutions (LESS et Sass) j’ai rapidement vu que Sass proposait un nombre supérieur de fonctions de base. Ne serait ce que un simple <code>rgba(#fff, .8)</code> impossible en CSS ou avec LESS. Allez faire un tour sur les documentations respectives de [Sass][6] et [LESS][7]. Je vous laisse libre arbitre pour ce choix qui vous appartient.
+Ensuite j’ai cherché des librairies. Pour Sass, sans aucun doute, [Compass][8] est le parfait complément. Pour LESS, j’ai trouvé [Bootstrap.less][9] qui à l’air pas mal non plus, bien que bien moins complet que Compass en terme de fonctionnalités.
+Après ce petit comparatif, j’ai eu le ressenti que le combo Sass / Compass avait l’air plus abouti que LESS. Mon choix s’est donc porté sur ces 2 projets.</p>
+<p>Si Sass vous intéresse toujours, vous pouvez continuer la lecture ;)</p>
+<h2 id="utiliser-des-variables-et-fonctions-css-avec-sass">Utiliser des variables et fonctions CSS avec Sass</h2>
+<p>Afin de pouvoir utiliser Sass, il faut installer les paquets nécessaires à son bon fonctionnement. Heureusement c’est pas bien compliqué.
 Si vous êtes sous Mac OS X, c’est même très simple car cela nécessite Ruby et Ruby Gem qui sont déjà installé sur ce système.
-Pour les autres il suffira d’installer ces 2 paquets.
-
-Sous une distribution linux ça devrait ressembler à :
-
-<code>bash
-sudo aptitude install ruby rubygems</code>
-
-Sous Windows il faudra installer ça avec un <a href="http://rubyinstaller.org/">installeur Ruby</a>.
-
-Maintenant, on vérifie que Ruby et RubyGem sont bien présents :
-
-<code>bash
-# we check that ruby exists
+Pour les autres il suffira d’installer ces 2 paquets.</p>
+<p>Sous une distribution linux ça devrait ressembler à :</p>
+<pre><code class="language-bash"><span class="cm-builtin">sudo</span> aptitude install ruby rubygems</code></pre>
+<p>Sous Windows il faudra installer ça avec un [installeur Ruby][10].</p>
+<p>Maintenant, on vérifie que Ruby et RubyGem sont bien présents :</p>
+<pre><code class="language-bash"><span class="cm-comment"># we check that ruby exists</span>
 which ruby
-# this command should return something like /usr/bin/ruby
+<span class="cm-comment"># this command should return something like /usr/bin/ruby</span>
 
-# same thing for gem
+<span class="cm-comment"># same thing for gem</span>
 which gem
-# /usr/bin/gem</code>
-
-Une fois qu’on a RubyGem d’opérationnel, on peut installer Sass de la façon suivante :
-
-<code>bash
-# sudo is probably required if you are not logged as root
-sudo gem install sass</code>
-
-Une fois ceci fait, faites un petit tour sur le <a href="http://sass-lang.com/tutorial.html">tutorial Sass</a> afin de faire un petit test pour vérifier que tout marche bien.
-
-On crée un fichier test.scss avec le code suivant :
-
-<code>css
-body {
-    color: rgba(#fff, .8);
-}</code>
-
-Ensuite on lance le binaire Sass depuis le dossier où se trouve le fichier de test :
-
-<code>bash
-sass --watch test.scss:style.css</code>
-
-On vérifie que le fichier contient bien du code css valide.
-Et pour vérifier que l’aspect de tracking des modifications on peut modifier le fichier ainsi:
-
-<code>css
-body {
-    color: darken(rgba(#fff, .8), 10%);
-}</code>
-
-On peut vérifier que la CSS a bien été modifié.
-
-### Structure et Importation des fichiers Sass
-
-Une autre chose à savoir au niveau de Sass, très importante, et surtout très pratique : si vous avez un fichier SCSS ou Sass que vous souhaitez importer, mais que vous ne souhaitez pas voir compiler en fichier CSS, vous pouvez ajouter un underscore au début du nom de fichier. Du coup tous les fichiers qui commencent par _ ne sont pas compiler en .css, mais par contre peuvent être inclus dans vos .scss. Cela permet de créer une librairie avec <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#partials">des fichiers Sass partiels</a>.
-
-Exemple de structure de dossier/fichiers SCSS :
-
-
-<code>/partials/
+<span class="cm-comment"># /usr/bin/gem</span></code></pre>
+<p>Une fois qu’on a RubyGem d’opérationnel, on peut installer Sass de la façon suivante :</p>
+<pre><code class="language-bash"><span class="cm-comment"># sudo is probably required if you are not logged as root</span>
+<span class="cm-builtin">sudo</span> gem install sass</code></pre>
+<p>Une fois ceci fait, faites un petit tour sur le [tutorial Sass][11] afin de faire un petit test pour vérifier que tout marche bien.</p>
+<p>On crée un fichier test.scss avec le code suivant :</p>
+<pre><code class="language-css"><span class="cm-tag">body</span> {
+    <span class="cm-property">color</span><span class="cm-operator">:</span> <span class="cm-string-2">rgba</span>(<span class="cm-error">#fff</span>, <span class="cm-number">.8</span>);
+}</code></pre>
+<p>Ensuite on lance le binaire Sass depuis le dossier où se trouve le fichier de test :</p>
+<pre><code class="language-bash">sass <span class="cm-attribute">--watch</span> test.scss:style.css</code></pre>
+<p>On vérifie que le fichier contient bien du code css valide.
+Et pour vérifier que l’aspect de tracking des modifications on peut modifier le fichier ainsi:</p>
+<pre><code class="language-css"><span class="cm-tag">body</span> {
+    <span class="cm-property">color</span><span class="cm-operator">:</span> <span class="cm-variable-2">darken</span>(<span class="cm-error">rgba</span>(<span class="cm-error">#fff</span>, <span class="cm-number">.8</span>), <span class="cm-number">10%</span>);
+}</code></pre>
+<p>On peut vérifier que la CSS a bien été modifié.</p>
+<h3 id="structure-et-importation-des-fichiers-sass">Structure et Importation des fichiers Sass</h3>
+<p>Une autre chose à savoir au niveau de Sass, très importante, et surtout très pratique : si vous avez un fichier SCSS ou Sass que vous souhaitez importer, mais que vous ne souhaitez pas voir compiler en fichier CSS, vous pouvez ajouter un underscore au début du nom de fichier. Du coup tous les fichiers qui commencent par _ ne sont pas compiler en .css, mais par contre peuvent être inclus dans vos .scss. Cela permet de créer une librairie avec [des fichiers Sass partiels][12].</p>
+<p>Exemple de structure de dossier/fichiers SCSS :</p>
+<pre><code>/partials/
     _header.scss
     _body.scss
     _footer.scss
-style.scss</code>
+style.scss</code></pre>
+<p>style.scss contiendra des includes :</p>
+<pre><code class="language-scss"><span class="cm-def">@import</span> <span class="cm-string">&quot;partials/header&quot;</span>;
+<span class="cm-def">@import</span> <span class="cm-string">&quot;partials/footer&quot;</span>;
 
-style.scss contiendra des includes :
+<span class="cm-def">@import</span> <span class="cm-string">&quot;partials/body&quot;</span>;
 
-<code>scss
-@import &quot;partials/header&quot;;
-@import &quot;partials/footer&quot;;
+// <span class="cm-tag">some</span> <span class="cm-tag">others</span> <span class="cm-tag">rules</span> <span class="cm-tag">?</span></code></pre>
+<p>La librairie Compass utilise se système à outrance ([la preuve sur le Github de Compass][13]) :) Pratique non?</p>
+<p><del datetime="2011-05-13T06:32:42+00:00">Superbe</del> transition : je vous propose de passer à l’étape 2 avec Compass.</p>
+<h2 id="la-librairie-compass">La librairie Compass</h2>
 
-@import &quot;partials/body&quot;;
 
-// some others rules ?</code>
-
-La librairie Compass utilise se système à outrance (<a href="https://github.com/chriseppstein/compass/tree/stable/frameworks/compass/stylesheets">la preuve sur le Github de Compass</a>) :) Pratique non?
-
-<del datetime="2011-05-13T06:32:42+00:00">Superbe</del> transition : je vous propose de passer à l’étape 2 avec Compass.
-
-## La librairie Compass<figure>
-
-<figure class="flex-media--3-1"><a href="http://compass-style.org/"><img class="flex-media__item" src="/media/2011/05/compass.jpg" alt="compass" /></a></figure>
+  <figure class="flex-media--3-1">
+    <a href="http://compass-style.org/"><img class="flex-media__item" src="/media/2011/05/compass.jpg" alt="compass" /></a>
+  </figure>
 
 <p>Maintenant que vous êtes équipé de la boite à outils CSS, il faut bien commencer à la remplir !
 Pour ce faire je vous propose d’installer la super <a href="http://compass-style.org/">librairie Compass</a> qui comporte moult fonctionnalités utile pour <a href="http://compass-style.org/reference/compass/css3/">utiliser du CSS 3 sans les préfixes dans tous les sens</a> ou <a href="http://compass-style.org/reference/compass/utilities/sprites/">générer des sprites CSS sans prises de têtes</a>. Rien que ça, ça vaut le détour !
 Hop hop on installe Compass, aussi vite que Sass :</p>
-<pre><code class="language-bash"><span class="built_in">sudo</span> gem install compass</code></pre>
+<pre><code class="language-bash"><span class="cm-builtin">sudo</span> gem install compass</code></pre>
 <p>Du coup une fois Compass installé, on ne va plus utiliser directement Sass, mais le binaire compass. Tout est parfaitement clair dans <a href="http://compass-style.org/help/">le Tutorial de base sur le site de Compass</a> <em>(pour peu que vous ne soyez pas anglophobe)</em>
 Pour donner un petit exemple de création de projet :</p>
 <pre><code class="language-bash">compass create test-project
-<span class="built_in">cd</span> test-project
+<span class="cm-builtin">cd</span> test-project
 compass watch</code></pre>
 <p>Dès maintenant, vous pouvez créer et modifier dans ce dossier des fichiers .scss (ou .sass). Le processus de surveillance de Compass va automatiquement compiler vos feuilles de styles dans le répertoire contenant les CSS, et ce à la moindre modification.</p>
 <p>Je vous laisse maintenant vous amuser avec ces nouveaux joujoux ! Profitez bien !</p>
@@ -251,7 +217,7 @@ compass watch</code></pre>
 </div>
 
 </div>
-<script src="/assets/js/vanilla.js?20131216110407"></script>
+<script src="/assets/js/vanilla.js?20131229201805"></script>
 
 
 	
@@ -272,8 +238,8 @@ compass watch</code></pre>
   
   
   
-  disqus_identifier = 'http://moox.io',
-  disqus_url = 'http://moox.io',
+  disqus_identifier = 'http://moox.io/blog/fonctions-variables-css-generer-ses-css-avec-sass-compass/',
+  disqus_url = 'http://moox.io/blog/fonctions-variables-css-generer-ses-css-avec-sass-compass/',
   disqus_script = 'embed.js';
   
   (function(d,s) {

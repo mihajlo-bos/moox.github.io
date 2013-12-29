@@ -4,8 +4,8 @@
         <title>MoOx</title>
         <description>Front-end web developer</description>
         <link>http://moox.io/</link>
-        <generator>happyplan 0.4.0-alpha.11</generator>
-        <lastBuildDate>Mon, 16 December 2013 00:00:00 +0100</lastBuildDate>
+        <generator>happyplan 0.4.0-beta.3</generator>
+        <lastBuildDate>Sun, 29 December 2013 00:00:00 +0100</lastBuildDate>
 
           <item>
               <title>Configurer un Serveur Web Apache PHP MySQL sur OS X Lion</title>
@@ -42,17 +42,17 @@ Une fois les paquets installés, il reste à « brancher » PHP et MySQL ensembl
 <p>Un petit tour dans la configuration de PHP pour ajuster le lien entre MySQL et PHP:
 Allez dans <code>/private/etc/</code> et copier <code>php.ini.default</code> en <code>php.ini</code>, ceci afin de pouvoir adapter la configuration. Modifier directement le <code>php.ini.default</code> ne servirait à rien.</p>
 <p>Avec Terminal.app , rien de plus simple il vous suffit d’exécuter les lignes suivantes:</p>
-<pre><code class="language-bash"><span class="comment"># copie du fichier</span>
-<span class="built_in">sudo</span> cp /private/etc/php.ini.default /private/etc/php.ini
-<span class="comment"># ouverture pour édition</span>
-<span class="built_in">sudo</span> open <span class="operator">-a</span> TextEdit /private/etc/php.ini</code></pre>
+<pre><code class="language-bash"><span class="cm-comment"># copie du fichier</span>
+<span class="cm-builtin">sudo</span> <span class="cm-builtin">cp</span> /private/etc/php.ini.default /private/etc/php.ini
+<span class="cm-comment"># ouverture pour édition</span>
+<span class="cm-builtin">sudo</span> open <span class="cm-attribute">-a</span> TextEdit /private/etc/php.ini</code></pre>
 <p>Modifiez dedans (en plus de vos ajustements personnels) les valeurs des sockets pour MySQL : remplacez <code>/var/mysql</code> en <code>/tmp</code> aux différents endroits (pour l’extension [MySQL], [MySQLi] et [Pdo_mysql]) afin d’avoir un socket qui pointe sur <code>/tmp/mysql.sock</code> (valeur par défaut du package MySQL pour Mac OS X)</p>
 <h2 id="petite-touche-en-plus-xdebug">Petite touche en plus : xDebug</h2>
 <p>xDebug est déjà présent sur le système dans <code>/usr/lib/php/extensions</code>, il suffit de l’activer.
 Ajouter dans votre php.ini (cf configuration de php ci-dessus)</p>
-<pre><code class="language-ini"><span class="title">[xdebug]</span>
-<span class="setting">zend_extension=<span class="value">/usr/lib/php/extensions/<span class="keyword">no</span>-debug-non-zts-<span class="number">20090626</span>/xdebug.so</span></span>
-<span class="comment">; more option ?</span></code></pre>
+<pre><code class="language-ini"><span class="cm-header">[xdebug]</span>
+<span class="cm-def">z</span><span class="cm-def">e</span><span class="cm-def">n</span><span class="cm-def">d</span><span class="cm-def">_</span><span class="cm-def">e</span><span class="cm-def">x</span><span class="cm-def">t</span><span class="cm-def">e</span><span class="cm-def">n</span><span class="cm-def">s</span><span class="cm-def">i</span><span class="cm-def">o</span><span class="cm-def">n</span>=<span class="cm-quote">/</span><span class="cm-quote">u</span><span class="cm-quote">s</span><span class="cm-quote">r</span><span class="cm-quote">/</span><span class="cm-quote">l</span><span class="cm-quote">i</span><span class="cm-quote">b</span><span class="cm-quote">/</span><span class="cm-quote">p</span><span class="cm-quote">h</span><span class="cm-quote">p</span><span class="cm-quote">/</span><span class="cm-quote">e</span><span class="cm-quote">x</span><span class="cm-quote">t</span><span class="cm-quote">e</span><span class="cm-quote">n</span><span class="cm-quote">s</span><span class="cm-quote">i</span><span class="cm-quote">o</span><span class="cm-quote">n</span><span class="cm-quote">s</span><span class="cm-quote">/</span><span class="cm-quote">n</span><span class="cm-quote">o</span><span class="cm-quote">-</span><span class="cm-quote">d</span><span class="cm-quote">e</span><span class="cm-quote">b</span><span class="cm-quote">u</span><span class="cm-quote">g</span><span class="cm-quote">-</span><span class="cm-quote">n</span><span class="cm-quote">o</span><span class="cm-quote">n</span><span class="cm-quote">-</span><span class="cm-quote">z</span><span class="cm-quote">t</span><span class="cm-quote">s</span><span class="cm-quote">-</span><span class="cm-quote">2</span><span class="cm-quote">0</span><span class="cm-quote">0</span><span class="cm-quote">9</span><span class="cm-quote">0</span><span class="cm-quote">6</span><span class="cm-quote">2</span><span class="cm-quote">6</span><span class="cm-quote">/</span><span class="cm-quote">x</span><span class="cm-quote">d</span><span class="cm-quote">e</span><span class="cm-quote">b</span><span class="cm-quote">u</span><span class="cm-quote">g</span><span class="cm-quote">.</span><span class="cm-quote">s</span><span class="cm-quote">o</span>
+<span class="cm-comment">; more option ?</span></code></pre>
 <p>Toutes les <a href="http://xdebug.org/docs/all_settings">options de xdebug</a> sont disponibles accessible sur le site officiel.</p>
 <p>Et voilà le tour est joué ! Vous voilà avec <strong>Apache 2, PHP 5.3.6 et MySQL 5.5 et xDebug sur MAC OS X Lion 10.7 !</strong></p>
 
@@ -86,26 +86,26 @@ Ajouter dans votre php.ini (cf configuration de php ci-dessus)</p>
 </ol>
 <h2 id="compass-app">Compass.app</h2>
 <p>En ligne de commande,</p>
-<pre><code class="language-bash"><span class="comment"># pour la session en cours, on ajoute jruby dans le path pour simplifier les appels</span>
-PATH=/usr/local/jruby/bin:<span class="variable">$PATH</span>
-<span class="comment"># installation d'un gem depuis jruby (autrement ça marche pas)</span>
-jruby -S gem install rawr
+<pre><code class="language-bash"><span class="cm-comment"># pour la session en cours, on ajoute jruby dans le path pour simplifier les appels</span>
+<span class="cm-def">PATH</span><span class="cm-operator">=</span>/usr/local/jruby/bin:<span class="cm-def">$PATH</span>
+<span class="cm-comment"># installation d&#39;un gem depuis jruby (autrement ça marche pas)</span>
+jruby <span class="cm-attribute">-S</span> gem install rawr
 
-<span class="comment"># ensuite créé un emplacement pour récupérer les sources de Compass.app</span>
-mkdir ~/Applications/CompassApp
-<span class="built_in">cd</span> ~/Applications/CompassApp
-<span class="comment"># on clone depuis github</span>
-git clone git://github.com/handlino/CompassApp.git <span class="string">"CompassApp"</span>
+<span class="cm-comment"># ensuite créé un emplacement pour récupérer les sources de Compass.app</span>
+<span class="cm-builtin">mkdir</span> ~/Applications/CompassApp
+<span class="cm-builtin">cd</span> ~/Applications/CompassApp
+<span class="cm-comment"># on clone depuis github</span>
+<span class="cm-builtin">git</span> clone <span class="cm-builtin">git</span>://github.com/handlino/CompassApp.git <span class="cm-string">&quot;CompassApp&quot;</span>
 
-<span class="comment"># et on compile (un peu de patience)</span>
+<span class="cm-comment"># et on compile (un peu de patience)</span>
 ./bin/build-all.sh</code></pre>
 <p>Vous trouverez ensuite les applis compilés et zippé pour Mac, Linux et Windows dans ./packages</p>
 <h2 id="mise-jour-de-compass-app">Mise à jour de Compass.app</h2>
 <p>Pour faire une mise à jour (de temps en temps)</p>
-<pre><code class="language-bash">PATH=/usr/local/jruby/bin:<span class="variable">$PATH</span>
-jruby -S gem update
-<span class="built_in">cd</span> ~/Applications/CompassApp
-git pull
+<pre><code class="language-bash"><span class="cm-def">PATH</span><span class="cm-operator">=</span>/usr/local/jruby/bin:<span class="cm-def">$PATH</span>
+jruby <span class="cm-attribute">-S</span> gem update
+<span class="cm-builtin">cd</span> ~/Applications/CompassApp
+<span class="cm-builtin">git</span> pull
 ./bin/build-all.sh</code></pre>
 <p>Là encore il vous reste à réinstaller la version compilé (dézipé et déplacement).</p>
 <p>Certains risques de se demander pourquoi je n’ai pas ajouté jruby à mon PATH de manière permanente, c’est tout simplement car il y’a des binaires en double (ex: gem).</p>
@@ -123,113 +123,79 @@ git pull
 
 <figure class="flex-media--3-1"><a href="http://sass-lang.com/"><img class="flex-media__item" src="/2011/05/sass.jpg" alt="sass" /></a></figure>
 
-<p>Comme je l’ai expliqué dans mon précédent article, aujourd’hui il est possible de passer la vitesse supérieure avec ses CSS, afin d’avoir à sa disposition <a href="/blog/utiliser-des-variables-fonctions-css" title="Utiliser des variables et fonctions CSS, c’est possible !">variables et fonctions CSS</a>. Voici donc un petit mémo concernant la solution que j’ai choisi <a href="http://sass-lang.com/">Sass</a> avec la librairie Compass.</p>
+<p>Comme je l’ai expliqué dans mon précédent article, aujourd’hui il est possible de passer la vitesse supérieure avec ses CSS, afin d’avoir à sa disposition [variables et fonctions CSS][1]. Voici donc un petit mémo concernant la solution que j’ai choisi [Sass][2] avec la librairie Compass.</p>
 <p>Pour vous donner l’eau à la bouche, voici une petite vidéo que j’ai trouvé sur le site de Compass.</p>
-<figure class="flex-media--4-3">
+<p><figure class="flex-media--4-3">
   <iframe class="flex-media__item" src="http://player.vimeo.com/video/11671458" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></figure>
-<a href="http://vimeo.com/11671458">An introduction to Compass</a> from <a href="http://vimeo.com/ltackett">Lorin Tackett</a> on <a href="http://vimeo.com">Vimeo</a>.
-
-## Pourquoi j’ai choisi <strong>Sass</strong>
-
-Après avoir comparer 2 solutions (LESS et Sass) j’ai rapidement vu que Sass proposait un nombre supérieur de fonctions de base. Ne serait ce que un simple <code>rgba(#fff, .8)</code> impossible en CSS ou avec LESS. Allez faire un tour sur les documentations respectives de <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html">Sass</a> et <a href="http://lesscss.org/#docs">LESS</a>. Je vous laisse libre arbitre pour ce choix qui vous appartient.
-Ensuite j’ai cherché des librairies. Pour Sass, sans aucun doute, <a href="http://compass-style.org/">Compass</a> est le parfait complément. Pour LESS, j’ai trouvé <a href="http://markdotto.com/bootstrap/">Bootstrap.less</a> qui à l’air pas mal non plus, bien que bien moins complet que Compass en terme de fonctionnalités.
-Après ce petit comparatif, j’ai eu le ressenti que le combo Sass / Compass avait l’air plus abouti que LESS. Mon choix s’est donc porté sur ces 2 projets.
-
-Si Sass vous intéresse toujours, vous pouvez continuer la lecture ;)
-
-## Utiliser des variables et fonctions CSS avec Sass
-
-Afin de pouvoir utiliser Sass, il faut installer les paquets nécessaires à son bon fonctionnement. Heureusement c’est pas bien compliqué.
+[An introduction to Compass][3] from [Lorin Tackett][4] on [Vimeo][5].</p>
+<h2 id="pourquoi-j-ai-choisi-sass-">Pourquoi j’ai choisi <strong>Sass</strong></h2>
+<p>Après avoir comparer 2 solutions (LESS et Sass) j’ai rapidement vu que Sass proposait un nombre supérieur de fonctions de base. Ne serait ce que un simple <code>rgba(#fff, .8)</code> impossible en CSS ou avec LESS. Allez faire un tour sur les documentations respectives de [Sass][6] et [LESS][7]. Je vous laisse libre arbitre pour ce choix qui vous appartient.
+Ensuite j’ai cherché des librairies. Pour Sass, sans aucun doute, [Compass][8] est le parfait complément. Pour LESS, j’ai trouvé [Bootstrap.less][9] qui à l’air pas mal non plus, bien que bien moins complet que Compass en terme de fonctionnalités.
+Après ce petit comparatif, j’ai eu le ressenti que le combo Sass / Compass avait l’air plus abouti que LESS. Mon choix s’est donc porté sur ces 2 projets.</p>
+<p>Si Sass vous intéresse toujours, vous pouvez continuer la lecture ;)</p>
+<h2 id="utiliser-des-variables-et-fonctions-css-avec-sass">Utiliser des variables et fonctions CSS avec Sass</h2>
+<p>Afin de pouvoir utiliser Sass, il faut installer les paquets nécessaires à son bon fonctionnement. Heureusement c’est pas bien compliqué.
 Si vous êtes sous Mac OS X, c’est même très simple car cela nécessite Ruby et Ruby Gem qui sont déjà installé sur ce système.
-Pour les autres il suffira d’installer ces 2 paquets.
-
-Sous une distribution linux ça devrait ressembler à :
-
-<code>bash
-sudo aptitude install ruby rubygems</code>
-
-Sous Windows il faudra installer ça avec un <a href="http://rubyinstaller.org/">installeur Ruby</a>.
-
-Maintenant, on vérifie que Ruby et RubyGem sont bien présents :
-
-<code>bash
-# we check that ruby exists
+Pour les autres il suffira d’installer ces 2 paquets.</p>
+<p>Sous une distribution linux ça devrait ressembler à :</p>
+<pre><code class="language-bash"><span class="cm-builtin">sudo</span> aptitude install ruby rubygems</code></pre>
+<p>Sous Windows il faudra installer ça avec un [installeur Ruby][10].</p>
+<p>Maintenant, on vérifie que Ruby et RubyGem sont bien présents :</p>
+<pre><code class="language-bash"><span class="cm-comment"># we check that ruby exists</span>
 which ruby
-# this command should return something like /usr/bin/ruby
+<span class="cm-comment"># this command should return something like /usr/bin/ruby</span>
 
-# same thing for gem
+<span class="cm-comment"># same thing for gem</span>
 which gem
-# /usr/bin/gem</code>
-
-Une fois qu’on a RubyGem d’opérationnel, on peut installer Sass de la façon suivante :
-
-<code>bash
-# sudo is probably required if you are not logged as root
-sudo gem install sass</code>
-
-Une fois ceci fait, faites un petit tour sur le <a href="http://sass-lang.com/tutorial.html">tutorial Sass</a> afin de faire un petit test pour vérifier que tout marche bien.
-
-On crée un fichier test.scss avec le code suivant :
-
-<code>css
-body {
-    color: rgba(#fff, .8);
-}</code>
-
-Ensuite on lance le binaire Sass depuis le dossier où se trouve le fichier de test :
-
-<code>bash
-sass --watch test.scss:style.css</code>
-
-On vérifie que le fichier contient bien du code css valide.
-Et pour vérifier que l’aspect de tracking des modifications on peut modifier le fichier ainsi:
-
-<code>css
-body {
-    color: darken(rgba(#fff, .8), 10%);
-}</code>
-
-On peut vérifier que la CSS a bien été modifié.
-
-### Structure et Importation des fichiers Sass
-
-Une autre chose à savoir au niveau de Sass, très importante, et surtout très pratique : si vous avez un fichier SCSS ou Sass que vous souhaitez importer, mais que vous ne souhaitez pas voir compiler en fichier CSS, vous pouvez ajouter un underscore au début du nom de fichier. Du coup tous les fichiers qui commencent par _ ne sont pas compiler en .css, mais par contre peuvent être inclus dans vos .scss. Cela permet de créer une librairie avec <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#partials">des fichiers Sass partiels</a>.
-
-Exemple de structure de dossier/fichiers SCSS :
-
-
-<code>/partials/
+<span class="cm-comment"># /usr/bin/gem</span></code></pre>
+<p>Une fois qu’on a RubyGem d’opérationnel, on peut installer Sass de la façon suivante :</p>
+<pre><code class="language-bash"><span class="cm-comment"># sudo is probably required if you are not logged as root</span>
+<span class="cm-builtin">sudo</span> gem install sass</code></pre>
+<p>Une fois ceci fait, faites un petit tour sur le [tutorial Sass][11] afin de faire un petit test pour vérifier que tout marche bien.</p>
+<p>On crée un fichier test.scss avec le code suivant :</p>
+<pre><code class="language-css"><span class="cm-tag">body</span> {
+    <span class="cm-property">color</span><span class="cm-operator">:</span> <span class="cm-string-2">rgba</span>(<span class="cm-error">#fff</span>, <span class="cm-number">.8</span>);
+}</code></pre>
+<p>Ensuite on lance le binaire Sass depuis le dossier où se trouve le fichier de test :</p>
+<pre><code class="language-bash">sass <span class="cm-attribute">--watch</span> test.scss:style.css</code></pre>
+<p>On vérifie que le fichier contient bien du code css valide.
+Et pour vérifier que l’aspect de tracking des modifications on peut modifier le fichier ainsi:</p>
+<pre><code class="language-css"><span class="cm-tag">body</span> {
+    <span class="cm-property">color</span><span class="cm-operator">:</span> <span class="cm-variable-2">darken</span>(<span class="cm-error">rgba</span>(<span class="cm-error">#fff</span>, <span class="cm-number">.8</span>), <span class="cm-number">10%</span>);
+}</code></pre>
+<p>On peut vérifier que la CSS a bien été modifié.</p>
+<h3 id="structure-et-importation-des-fichiers-sass">Structure et Importation des fichiers Sass</h3>
+<p>Une autre chose à savoir au niveau de Sass, très importante, et surtout très pratique : si vous avez un fichier SCSS ou Sass que vous souhaitez importer, mais que vous ne souhaitez pas voir compiler en fichier CSS, vous pouvez ajouter un underscore au début du nom de fichier. Du coup tous les fichiers qui commencent par _ ne sont pas compiler en .css, mais par contre peuvent être inclus dans vos .scss. Cela permet de créer une librairie avec [des fichiers Sass partiels][12].</p>
+<p>Exemple de structure de dossier/fichiers SCSS :</p>
+<pre><code>/partials/
     _header.scss
     _body.scss
     _footer.scss
-style.scss</code>
+style.scss</code></pre>
+<p>style.scss contiendra des includes :</p>
+<pre><code class="language-scss"><span class="cm-def">@import</span> <span class="cm-string">&quot;partials/header&quot;</span>;
+<span class="cm-def">@import</span> <span class="cm-string">&quot;partials/footer&quot;</span>;
 
-style.scss contiendra des includes :
+<span class="cm-def">@import</span> <span class="cm-string">&quot;partials/body&quot;</span>;
 
-<code>scss
-@import &quot;partials/header&quot;;
-@import &quot;partials/footer&quot;;
+// <span class="cm-tag">some</span> <span class="cm-tag">others</span> <span class="cm-tag">rules</span> <span class="cm-tag">?</span></code></pre>
+<p>La librairie Compass utilise se système à outrance ([la preuve sur le Github de Compass][13]) :) Pratique non?</p>
+<p><del datetime="2011-05-13T06:32:42+00:00">Superbe</del> transition : je vous propose de passer à l’étape 2 avec Compass.</p>
+<h2 id="la-librairie-compass">La librairie Compass</h2>
 
-@import &quot;partials/body&quot;;
 
-// some others rules ?</code>
-
-La librairie Compass utilise se système à outrance (<a href="https://github.com/chriseppstein/compass/tree/stable/frameworks/compass/stylesheets">la preuve sur le Github de Compass</a>) :) Pratique non?
-
-<del datetime="2011-05-13T06:32:42+00:00">Superbe</del> transition : je vous propose de passer à l’étape 2 avec Compass.
-
-## La librairie Compass<figure>
-
-<figure class="flex-media--3-1"><a href="http://compass-style.org/"><img class="flex-media__item" src="/2011/05/compass.jpg" alt="compass" /></a></figure>
+  <figure class="flex-media--3-1">
+    <a href="http://compass-style.org/"><img class="flex-media__item" src="/2011/05/compass.jpg" alt="compass" /></a>
+  </figure>
 
 <p>Maintenant que vous êtes équipé de la boite à outils CSS, il faut bien commencer à la remplir !
 Pour ce faire je vous propose d’installer la super <a href="http://compass-style.org/">librairie Compass</a> qui comporte moult fonctionnalités utile pour <a href="http://compass-style.org/reference/compass/css3/">utiliser du CSS 3 sans les préfixes dans tous les sens</a> ou <a href="http://compass-style.org/reference/compass/utilities/sprites/">générer des sprites CSS sans prises de têtes</a>. Rien que ça, ça vaut le détour !
 Hop hop on installe Compass, aussi vite que Sass :</p>
-<pre><code class="language-bash"><span class="built_in">sudo</span> gem install compass</code></pre>
+<pre><code class="language-bash"><span class="cm-builtin">sudo</span> gem install compass</code></pre>
 <p>Du coup une fois Compass installé, on ne va plus utiliser directement Sass, mais le binaire compass. Tout est parfaitement clair dans <a href="http://compass-style.org/help/">le Tutorial de base sur le site de Compass</a> <em>(pour peu que vous ne soyez pas anglophobe)</em>
 Pour donner un petit exemple de création de projet :</p>
 <pre><code class="language-bash">compass create test-project
-<span class="built_in">cd</span> test-project
+<span class="cm-builtin">cd</span> test-project
 compass watch</code></pre>
 <p>Dès maintenant, vous pouvez créer et modifier dans ce dossier des fichiers .scss (ou .sass). Le processus de surveillance de Compass va automatiquement compiler vos feuilles de styles dans le répertoire contenant les CSS, et ce à la moindre modification.</p>
 <p>Je vous laisse maintenant vous amuser avec ces nouveaux joujoux ! Profitez bien !</p>
@@ -267,48 +233,52 @@ Du coup, voilà ce que j’ai recencé à ce jour:</p>
 <p>La seconde sxyntaxe, plus ancienne, est connu comme la syntaxe indenté (juste “Sass”). Inspiré par le laconisme de <a href="http://haml-lang.com/">Haml</a>, elle est destinée aux personnes qui préfèrent la concision. Au lieu de crochets et des points-virgules, elle utilise l’indentation des lignes pour spécifier les blocs. Bien que elle ne soit plus la syntaxe primaire, cette syntaxe continuera d’être pris en charge. Les fichiers de cette ancienne syntaxe utilisent l’extension .sass.</p>
 </blockquote>
 <h4 id="petit-exemple-de-code-sass-avec-la-syntaxe-scss">Petit exemple de code Sass avec la syntaxe Scss</h4>
-<pre><code class="language-scss"><span class="comment">// note : ceci est bien un commentaire valide avec sass. Au revoir les /**/</span>
+<pre><code class="language-scss">// <span class="cm-tag">note</span> <span class="cm-operator">:</span> <span class="cm-tag">ceci</span> <span class="cm-tag">est</span> <span class="cm-tag">bien</span> <span class="cm-tag">un</span> <span class="cm-tag">commentaire</span> <span class="cm-tag">valide</span> <span class="cm-tag">avec</span> <span class="cm-tag">sass</span><span class="cm-tag">.</span> <span class="cm-tag">Au</span> <span class="cm-tag">revoir</span> <span class="cm-tag">les</span> <span class="cm-comment">/**/</span>
 
-$blue<span class="value">: <span class="hexcolor">#3bbfce</span>;</span> <span class="comment">// Variable</span>
-<span class="class">.content-navigation</span> {
-  <span class="attribute">border-color</span><span class="value">: $blue;</span>
+<span class="cm-tag">$blue</span><span class="cm-operator">:</span> <span class="cm-builtin">#3bbfce</span>; // <span class="cm-tag">Variable</span>
+<span class="cm-qualifier">.content-navigation</span> {
+  <span class="cm-property">border-color</span><span class="cm-operator">:</span> <span class="cm-variable-2">$blue</span>;
 
-  <span class="comment">// mixin</span>
-  <span class="attribute">color</span><span class="value">: darken($blue, <span class="number">9</span>%);</span>
+  // <span class="cm-propertycm-error">mixin</span>
+  <span class="cm-property">color</span><span class="cm-operator">:</span> <span class="cm-variable-2">darken</span>(<span class="cm-error">$blue</span>, <span class="cm-number">9%</span>);
 
-  <span class="comment">// Imbrication</span>
-  <span class="tag">li</span> {
-    <span class="attribute">font</span><span class="value">: {
-      family: serif;</span>
-      weight<span class="value">: bold;</span>
-      size<span class="value">: <span class="number">1.2</span>em;</span>
+  // <span class="cm-propertycm-error">Imbrication</span>
+  <span class="cm-propertycm-error">li</span> {
+    <span class="cm-property">font</span><span class="cm-operator">:</span> {
+      <span class="cm-propertycm-error">family</span><span class="cm-operator">:</span> <span class="cm-propertycm-error">serif</span>;
+      <span class="cm-propertycm-error">weight</span><span class="cm-operator">:</span> <span class="cm-propertycm-error">bold</span>;
+      <span class="cm-property">size</span><span class="cm-operator">:</span> <span class="cm-number">1.2em</span>;
     }
   }
 }
 
-$<span class="attribute">margin</span><span class="value">: <span class="number">16</span>px;</span>
-<span class="class">.border</span> {
-  <span class="comment">// operateurs</span>
-  <span class="attribute">padding</span><span class="value">: $margin / <span class="number">2</span>;</span>
-  <span class="attribute">margin</span><span class="value">: $margin / <span class="number">2</span>;</span>
-  <span class="attribute">border-color</span><span class="value">: $blue;</span>
+<span class="cm-tag">$margin</span><span class="cm-operator">:</span> <span class="cm-number">16px</span>;
+<span class="cm-qualifier">.border</span> {
+  // <span class="cm-propertycm-error">operateurs</span>
+  <span class="cm-property">padding</span><span class="cm-operator">:</span> <span class="cm-variable-2">$margin</span> / <span class="cm-number">2</span>;
+  <span class="cm-property">margin</span><span class="cm-operator">:</span> <span class="cm-variable-2">$margin</span> / <span class="cm-number">2</span>;
+  <span class="cm-property">border-color</span><span class="cm-operator">:</span> <span class="cm-variable-2">$blue</span>;
 }</code></pre>
 <h3 id="less">LESS</h3>
 <blockquote>
 <p>LESS étend CSS avec un comportement dynamique grâce à des variables, mixins, opérations et fonctions. LESS fonctionne à la fois sur côté-client (IE 6+, Webkit, Firefox) et côté serveur avec Node.js.</p>
 </blockquote>
 <h4 id="petit-exemple-de-code-less">Petit exemple de code LESS</h4>
-<pre><code>.box-shadow (@x: 0, @y: 0, @blur: 1px, @alpha) {
-  @val: @x @y @blur rgba(0, 0, 0, @alpha);
+<pre><code class="language-less"><span class="cm-qualifier">.box-shadow</span> (<span class="cm-def">@x</span><span class="cm-operator">:</span> <span class="cm-number">0</span>, <span class="cm-def">@y</span><span class="cm-operator">:</span> <span class="cm-number">0</span>, <span class="cm-def">@blur</span><span class="cm-operator">:</span> <span class="cm-number">1px</span>, <span class="cm-def">@alpha</span>) {
+  <span class="cm-def">@val</span><span class="cm-operator">:</span> <span class="cm-def">@x</span> <span class="cm-def">@y</span> <span class="cm-def">@blur</span> <span class="cm-propertycm-error">rgba</span>(<span class="cm-number">0</span>, <span class="cm-number">0</span>, <span class="cm-number">0</span>, <span class="cm-def">@alpha</span>);
 
-  box-shadow:         @val;
-  -webkit-box-shadow: @val;
-  -moz-box-shadow:    @val;
+  <span class="cm-property">box-shadow</span><span class="cm-operator">:</span>         <span class="cm-def">@val</span>;
+  <span class="cm-meta">-webkit-</span><span class="cm-property">box-shadow</span><span class="cm-operator">:</span> <span class="cm-def">@val</span>;
+  <span class="cm-meta">-moz-</span><span class="cm-property">box-shadow</span><span class="cm-operator">:</span>    <span class="cm-def">@val</span>;
 }
-.box { @base: #f938ab;
-  color:        saturate(@base, 5%);
-  border-color: lighten(@base, 30%);
-  div { .box-shadow(0, 0, 5px, 0.4) }
+
+<span class="cm-qualifier">.box</span> {
+  <span class="cm-def">@base</span><span class="cm-operator">:</span> <span class="cm-error">#f938ab</span>;
+  <span class="cm-property">color</span><span class="cm-operator">:</span>        <span class="cm-variable-2">saturate</span>(<span class="cm-def">@base</span>, <span class="cm-number">5%</span>);
+  <span class="cm-property">border-color</span><span class="cm-operator">:</span> <span class="cm-variable-2">lighten</span>(<span class="cm-def">@base</span>, <span class="cm-number">30%</span>);
+  <span class="cm-propertycm-error">div</span> {
+    <span class="cm-qualifier">.box-shadow</span>(<span class="cm-number">0</span>, <span class="cm-number">0</span>, <span class="cm-number">5px</span>, <span class="cm-number">0.4</span>)
+  }
 }</code></pre>
 <h3 id="stylus">Stylus</h3>
 <blockquote>
@@ -360,7 +330,7 @@ En admettant que vous ayez une console javascript digne de ce nom (la console We
 <p>$0 est très simple d’utilisation, et peut être très utile. Choisissez un élément sur une page web, faites une inspection de l’élément (sous Webkit et Gecko, un simple clic droit dessus et « Inspect Element » / « Inspecter l’élément » fait l’affaire). Allez dans votre console Javascript, et tapez $0 (puis Enter). Et là magie, cette variable contient une référence du noeud DOM en question ! C’est assez énorme je trouve.</p>
 <h3 id="utilisation-compter-le-texte-d-un-paragraphe">Utilisation : compter le texte d’un paragraphe</h3>
 <p>Admettons que vous cherchez à compter le nombre de caractères dans une <code>&lt;div&gt;</code>, inspectez là, puis dans votre console entrez-y la ligne suivante:</p>
-<pre><code class="language-js">$<span class="number">0.</span>innerHTML.length</code></pre>
+<pre><code class="language-js"><span class="cm-variable">$0</span>.<span class="cm-property">innerHTML</span>.<span class="cm-property">length</span></code></pre>
 <p>Et voilà vous avez votre résultat !</p>
 <p>Bien entendu il est bien évidement possible d’avoir des utilisations bien plus poussé de cette technique, comme par exemple récupérer tous les liens d’une page pour avoir leur href ou pour les entourer en rouge.</p>
 <h3 id="coder-plus-d-un-ligne">Coder plus d’un ligne</h3>
@@ -373,18 +343,18 @@ En admettant que vous ayez une console javascript digne de ce nom (la console We
 <h2 id="ajouter-jquery-dans-n-importe-quel-page-depuis-une-console-javascript">Ajouter jQuery dans n’importe quel page depuis une console Javascript</h2>
 <p>Lorsque l’on fait vite mumuse avec cette technique, il peut s’avérer judicieux d’utiliser jQuery ou une librairie quelconque de votre choix pour gagner encore en rapidité, et jQuery n’est pas encore sur toutes les pages web (<a href="https://twitter.com/mathias/status/59692133157842946" title="Statistique jQuery/Flash sur les pages web">même si ça s’en reproche</a>)
 Alors voilà une petite technique de sioux afin d’ajouter jQuery (ou autre) dans la page en cours.</p>
-<pre><code class="language-js"><span class="keyword">if</span> (<span class="keyword">typeof</span> jQuery == <span class="string">'undefined'</span>) {
-    <span class="keyword">var</span> myScript = document.createElement(<span class="string">'script'</span>);
-    myScript.setAttribute(<span class="string">"src"</span>, <span class="string">"http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"</span>); <span class="comment">// you can change this filename</span>
-    document.getElementsByTagName(<span class="string">"head"</span>)[<span class="number">0</span>].appendChild(myScript);
+<pre><code class="language-js"><span class="cm-keyword">if</span> (<span class="cm-keyword">typeof</span> <span class="cm-variable">jQuery</span> == <span class="cm-string">&#39;undefined&#39;</span>) {
+    <span class="cm-keyword">var</span> <span class="cm-variable">myScript</span> = <span class="cm-variable">document</span>.<span class="cm-property">createElement</span>(<span class="cm-string">&#39;script&#39;</span>);
+    <span class="cm-variable">myScript</span>.<span class="cm-property">setAttribute</span>(<span class="cm-string">&quot;src&quot;</span>, <span class="cm-string">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js&quot;</span>); <span class="cm-comment">// you can change this filename</span>
+    <span class="cm-variable">document</span>.<span class="cm-property">getElementsByTagName</span>(<span class="cm-string">&quot;head&quot;</span>)[<span class="cm-number">0</span>].<span class="cm-property">appendChild</span>(<span class="cm-variable">myScript</span>);
 }</code></pre>
 <p>N.B. : Si justement vous n’avez pas jQuery déjà inclus, il se peut que l’ajouter provoque des soucis si la variable $ est utile à la page (ce qui peut être le cas si une librairie tel que ProtoypeJs est inclus). Il faut donc utiliser la méthode de jQuery pour palier à ce problème :</p>
-<pre><code class="language-js">jQuery.noConflict(); <span class="comment">// if you think there will be a problem with "$"</span></code></pre>
+<pre><code class="language-js"><span class="cm-variable">jQuery</span>.<span class="cm-property">noConflict</span>(); <span class="cm-comment">// if you think there will be a problem with &quot;$&quot;</span></code></pre>
 <p>Ce qui impliquer d’utiliser par la suite jQuery avec son vrai nom plutôt que $ (ex: jQuery(‘.selector’).plugin() ).</p>
 <p>Ainsi on pourra faire des choses plus avancés facilement.
 Si on reprends mon exemple de tout à l’heure où j’ai compté les caractères d’une div, vous avez peut être remarqué le soucis que cette technique peut avoir : si vous avez de l’HTML dedans, le nombre de caractère est faussé puisque cela va compter les caractères réservés à l’HTML.
 Avec jQuery, ça devient aussi simple que ça pour contourner le problème :</p>
-<pre><code>jQuery($0).text().length</code></pre>
+<pre><code class="language-js"><span class="cm-variable">jQuery</span>(<span class="cm-variable">$0</span>).<span class="cm-property">text</span>().<span class="cm-property">length</span></code></pre>
 <p>And voilà… Vous prendrez vite goût à cette technique qui peut devenir très utile. D’ailleurs si vous avez des petits snippets sympathiques, n’hésitez pas à les poster dans les commentaires, je pourrais très bien ajouter une liste de commandes utiles en dessous de cette article !</p>
 <p>Ajout du 17 mai 2011 : Je vous invite à <a href="http://paulirish.com/2011/a-re-introduction-to-the-chrome-developer-tools/">redécouvrir l’outil de dév. de Chrome, via une vidéo du dernier Google I/O présenté par Paul Irish</a></p>
 
@@ -423,111 +393,111 @@ Donc je me suis simplement orienté vers <strong>MacPorts</strong> :</p>
 <p>Pour installer <strong>MacPorts</strong> rien de difficile : on se rend sur le site officiel du projet, on télécharge l’image disque puis on installe ça facilement (pré-requis : il faut avoir XCode et X11 d’installer sur sa machine, tous les 2 sont dispos sur les DVD d’applications fournies avec votre Mac). Après ça dans notre Terminal on a accès la commande <strong>port</strong> qui permettra de faire des équivalents d’apt-get / aptitude sous Linux. La grosse différence, qui est ses avantages et inconvénients c’est que ça compile les sources sur votre machine. Avantage : précision pour les options sur les paquets. Inconvénient : temps d’installation (surtout pour les premiers paquets).</p>
 <h2 id="installation-des-paquets-apache-php-mysql-avec-macports">Installation des paquets Apache, PHP, MySQL avec MacPorts</h2>
 <p>Passons donc au nécessaire. Installer Apache et le server mysql. PHP est installé juste après avec quelques petites spécificités éventuelles. Pour ce faire, dans votre <em>Application &gt; Utilitaires &gt; Terminal.app</em>, exécutez les commandes suivantes et ne soyez pas pressé, allez vous faire un café, prenez votre smartphone et allez <a href="//www.rovio.com/index.php?page=angry-birds" title="Voir au site du jeu Angry Birds">péter des cochons</a> quelques minutes sur votre trône :</p>
-<pre><code class="language-bash"><span class="built_in">sudo</span> port install apache2 mysql5-server</code></pre>
+<pre><code class="language-bash"><span class="cm-builtin">sudo</span> port install apache2 mysql5-server</code></pre>
 <p>Si c’est votre première fois avec <strong>port</strong>, vous comptez au moins une bonne douzaine de minutes le temps que les premiers paquets se compilent.</p>
 <p>Une fois ceci fait, on va compiler et installer PHP 5 avec les options de compilation (+*) pour Apache, MySQL et PEAR (<a href="//pear.php.net/" title="Accéder au site de PEAR (PHP Extension and Application Repository)">PEAR quesako ?</a>)</p>
-<pre><code class="language-bash"><span class="built_in">sudo</span> port install php5 +apache2 +mysql5 +pear</code></pre>
+<pre><code class="language-bash"><span class="cm-builtin">sudo</span> port install php5 <span class="cm-operator">+</span>apache2 <span class="cm-operator">+</span>mysql5 <span class="cm-operator">+</span>pear</code></pre>
 <p>Là encore ça peut prendre du temps.</p>
 <p>Ensuite on passe aux paquets de base, manière de ne pas avoir à installer un paquet toutes les 2h à chaque « <em>Fatal Error : Class not found</em> » :)</p>
 <p><em>Note: N’ayez pas peur de copier les commentaires des les lignes de codes dans votre terminal, ça reste des commentaires, même pour un terminal ;) </em></p>
-<pre><code class="language-bash"><span class="comment"># usefull packages</span>
-<span class="built_in">sudo</span> port install php5-apc php5-curl php5-ftp php5-gd php5-gettext php5-iconv php5-imagick php5-ldap php5-pcntl php5-pdflib php5-mbstring php5-mcrypt php5-memcached php5-soap php5-uploadprogress php5-xdebug php5-xmlrpc php5-zip
-<span class="comment"># database related packages</span>
-<span class="built_in">sudo</span> port install php5-odbc php5-mysql php5-sqlite</code></pre>
+<pre><code class="language-bash"><span class="cm-comment"># usefull packages</span>
+<span class="cm-builtin">sudo</span> port install php5-apc php5-curl php5-ftp php5-gd php5-gettext php5-iconv php5-imagick php5-ldap php5-pcntl php5-pdflib php5-mbstring php5-mcrypt php5-memcached php5-soap php5-uploadprogress php5-xdebug php5-xmlrpc php5-zip
+<span class="cm-comment"># database related packages</span>
+<span class="cm-builtin">sudo</span> port install php5-odbc php5-mysql php5-sqlite</code></pre>
 <p>A vous de voir ce qui vous intéresse dans la liste, mais la plupart sont des classiques (et encore il en manque peut-être)</p>
 <p>Pour la liste des paquets, vous avez un énorme choix et <a href="//www.macports.org/ports.php?by=name&amp;substr=php5" title="Accéder à la liste des paquets php5 sur le site de MacPorts">vous pouvez parcourir la liste sur le site</a></p>
 <p>Mémo à moi-même : pour mon boulot j’ai dû me rajouter ces 3 paquets (oui oui j’ai besoin du driver mssql…)</p>
-<pre><code class="language-bash"><span class="built_in">sudo</span> port install php5-solr freetds php5-mssql</code></pre>
+<pre><code class="language-bash"><span class="cm-builtin">sudo</span> port install php5-solr freetds php5-mssql</code></pre>
 <p>Ensuite il reste quelques petites modifs avant d’avoir un environnement fin prêt.</p>
 <h2 id="configuration-d-apache">Configuration d’Apache</h2>
 <p>On active PHP5 au niveau d’Apache</p>
-<pre><code class="language-bash"><span class="comment"># activate php5 module for apache</span>
-<span class="built_in">cd</span> /opt/local/apache2/modules
-<span class="built_in">sudo</span> /opt/local/apache2/bin/apxs <span class="operator">-a</span> <span class="operator">-e</span> -n <span class="string">"php5"</span> libphp5.so</code></pre>
+<pre><code class="language-bash"><span class="cm-comment"># activate php5 module for apache</span>
+<span class="cm-builtin">cd</span> /opt/local/apache2/modules
+<span class="cm-builtin">sudo</span> /opt/local/apache2/bin/apxs <span class="cm-attribute">-a</span> <span class="cm-attribute">-e</span> <span class="cm-attribute">-n</span> <span class="cm-string">&quot;php5&quot;</span> libphp5.so</code></pre>
 <p>Il faut maintenant préciser à Apache que les fichiers index.php peuvent être les fichiers index par défaut. Pour ce faire, il faut éditer le fichier /opt/local/apache2/conf/httpd.conf et rechercher « DirectoryIndex index.html »</p>
-<pre><code class="language-bash"><span class="comment"># add "index.php" at the end</span>
-DirectoryIndex index.html index.php</code></pre>
+<pre><code class="language-ini"><span class="cm-comment">; add &quot;index.php&quot; at the end</span>
+<span class="cm-def">D</span><span class="cm-def">i</span><span class="cm-def">r</span><span class="cm-def">e</span><span class="cm-def">c</span><span class="cm-def">t</span><span class="cm-def">o</span><span class="cm-def">r</span><span class="cm-def">y</span><span class="cm-def">I</span><span class="cm-def">n</span><span class="cm-def">d</span><span class="cm-def">e</span><span class="cm-def">x</span><span class="cm-def"> </span><span class="cm-def">i</span><span class="cm-def">n</span><span class="cm-def">d</span><span class="cm-def">e</span><span class="cm-def">x</span><span class="cm-def">.</span><span class="cm-def">h</span><span class="cm-def">t</span><span class="cm-def">m</span><span class="cm-def">l</span><span class="cm-def"> </span><span class="cm-def">i</span><span class="cm-def">n</span><span class="cm-def">d</span><span class="cm-def">e</span><span class="cm-def">x</span><span class="cm-def">.</span><span class="cm-def">p</span><span class="cm-def">h</span><span class="cm-def">p</span></code></pre>
 <p>On peut aussi ajouter la conf du module apache php (en fin de fichier ?)</p>
-<pre><code class="language-bash">Include conf/extra/mod_php.conf</code></pre>
+<pre><code>Include conf/extra/mod_php.conf</code></pre>
 <p>Ayant déjà vécu un paquet de reinstall système, j’ai l’habitude de mettre mes configs dans mes dossiers perso indépendamment du système, voilà donc ce que j’ai ajouté en à la fin du httpd.conf.</p>
-<pre><code class="language-bash">Include /Users/YOUR-USERNAME/Dropbox/Servers/conf/development/*</code></pre>
+<pre><code>Include /Users/YOUR-USERNAME/Dropbox/Servers/conf/development/*</code></pre>
 <p>Vous remarquerez que j’ai mis ça sur ma <a href="//db.tt/C5lc46w">Dropbox</a> (comme je suis rassuré d’avoir tous mes petits fichiers au chaud bien à l’abri d’un hardreset :) ). <a href="//db.tt/C5lc46w" title="Créer votre compte Dropbox gratuitement !">Je vous invite à faire pareille</a>, ça ne coûte rien et c’est tellement pratique d’avoir un mega dossier synchro entre ses différentes machines (smartphone inclus) !</p>
 <p>Après avoir modifié la conf <strong>Apache</strong>, il faut bien sur penser à redémarrer le serveur pour que la nouvelle configuration soit prise en compte:</p>
-<pre><code class="language-bash"><span class="built_in">sudo</span> /opt/local/apache2/bin/apachectl -k restart</code></pre>
+<pre><code class="language-bash"><span class="cm-builtin">sudo</span> /opt/local/apache2/bin/apachectl <span class="cm-attribute">-k</span> <span class="cm-builtin">restart</span></code></pre>
 <p>Ceci doit être fait dès que vous modifiez votre httpd.conf (ou apache2.conf selon), pensez-y quand vous ajouterez des virtual hosts !</p>
 <h2 id="configuration-de-php">Configuration de PHP</h2>
 <p>On doit créer un fichier de configuration de PHP. On copie donc la version par défaut de développement. Puis vous pouvez prendre le temps d’éditer ce nouveau php.ini pour l’adapter à vos besoins.</p>
-<pre><code class="language-bash"><span class="comment"># create a default php.ini</span>
-<span class="built_in">sudo</span> cp /opt/local/etc/php5/php.ini-development /opt/local/etc/php5/php.ini
-<span class="comment"># open it to customize</span>
-<span class="built_in">sudo</span> open /opt/local/etc/php5/php.ini</code></pre>
+<pre><code class="language-bash"><span class="cm-comment"># create a default php.ini</span>
+<span class="cm-builtin">sudo</span> <span class="cm-builtin">cp</span> /opt/local/etc/php5/php.ini-development /opt/local/etc/php5/php.ini
+<span class="cm-comment"># open it to customize</span>
+<span class="cm-builtin">sudo</span> open /opt/local/etc/php5/php.ini</code></pre>
 <p>Prenez 2 secondes pour éviter des warnings avec les fonctions/classes date, time etc… en ajoutant ceci à la fin du fichier php.ini</p>
-<pre><code class="language-bash"><span class="comment"># set a default timezone for your server</span>
-date.timezone=<span class="string">"Europe/Paris"</span></code></pre>
+<pre><code class="language-ini"><span class="cm-comment"># set a default timezone for your server</span>
+<span class="cm-def">d</span><span class="cm-def">a</span><span class="cm-def">t</span><span class="cm-def">e</span><span class="cm-def">.</span><span class="cm-def">t</span><span class="cm-def">i</span><span class="cm-def">m</span><span class="cm-def">e</span><span class="cm-def">z</span><span class="cm-def">o</span><span class="cm-def">n</span><span class="cm-def">e</span>=<span class="cm-quote">&quot;</span><span class="cm-quote">E</span><span class="cm-quote">u</span><span class="cm-quote">r</span><span class="cm-quote">o</span><span class="cm-quote">p</span><span class="cm-quote">e</span><span class="cm-quote">/</span><span class="cm-quote">P</span><span class="cm-quote">a</span><span class="cm-quote">r</span><span class="cm-quote">i</span><span class="cm-quote">s</span><span class="cm-quote">&quot;</span></code></pre>
 <h2 id="configuration-de-mysql">Configuration de MySQL</h2>
 <p>Il reste à configurer  notre serveur de base de données SQL.</p>
 <p>Pendant qu’on est encore chaud sur le php.ini, on en profite pour adapter les réglages MySQL. Voilà ce qui va être nécessaire (<em>cherchez dans le fichier les clés de configs et modifiez les comme ici</em>)</p>
-<pre><code class="language-bash"><span class="comment"># edit php.ini to add default mysql socket</span>
-<span class="comment"># ...</span>
-pdo_mysql.default_socket=/tmp/mysql.sock
-<span class="comment"># ...</span>
-mysql.default_socket = /tmp/mysql.sock</code></pre>
+<pre><code class="language-ini"><span class="cm-comment"># edit php.ini to add default mysql socket</span>
+<span class="cm-comment"># ...</span>
+<span class="cm-def">p</span><span class="cm-def">d</span><span class="cm-def">o</span><span class="cm-def">_</span><span class="cm-def">m</span><span class="cm-def">y</span><span class="cm-def">s</span><span class="cm-def">q</span><span class="cm-def">l</span><span class="cm-def">.</span><span class="cm-def">d</span><span class="cm-def">e</span><span class="cm-def">f</span><span class="cm-def">a</span><span class="cm-def">u</span><span class="cm-def">l</span><span class="cm-def">t</span><span class="cm-def">_</span><span class="cm-def">s</span><span class="cm-def">o</span><span class="cm-def">c</span><span class="cm-def">k</span><span class="cm-def">e</span><span class="cm-def">t</span>=<span class="cm-quote">/</span><span class="cm-quote">t</span><span class="cm-quote">m</span><span class="cm-quote">p</span><span class="cm-quote">/</span><span class="cm-quote">m</span><span class="cm-quote">y</span><span class="cm-quote">s</span><span class="cm-quote">q</span><span class="cm-quote">l</span><span class="cm-quote">.</span><span class="cm-quote">s</span><span class="cm-quote">o</span><span class="cm-quote">c</span><span class="cm-quote">k</span>
+<span class="cm-comment"># ...</span>
+<span class="cm-def">m</span><span class="cm-def">y</span><span class="cm-def">s</span><span class="cm-def">q</span><span class="cm-def">l</span><span class="cm-def">.</span><span class="cm-def">d</span><span class="cm-def">e</span><span class="cm-def">f</span><span class="cm-def">a</span><span class="cm-def">u</span><span class="cm-def">l</span><span class="cm-def">t</span><span class="cm-def">_</span><span class="cm-def">s</span><span class="cm-def">o</span><span class="cm-def">c</span><span class="cm-def">k</span><span class="cm-def">e</span><span class="cm-def">t</span><span class="cm-def"> </span>=<span class="cm-quote"> </span><span class="cm-quote">/</span><span class="cm-quote">t</span><span class="cm-quote">m</span><span class="cm-quote">p</span><span class="cm-quote">/</span><span class="cm-quote">m</span><span class="cm-quote">y</span><span class="cm-quote">s</span><span class="cm-quote">q</span><span class="cm-quote">l</span><span class="cm-quote">.</span><span class="cm-quote">s</span><span class="cm-quote">o</span><span class="cm-quote">c</span><span class="cm-quote">k</span></code></pre>
 <p>Une fois ceci fait, on va vraiment configurer MySQL</p>
-<pre><code class="language-bash"><span class="comment"># mysql installation</span>
-<span class="built_in">sudo</span> -u mysql mysql_install_db5</code></pre>
+<pre><code class="language-bash"><span class="cm-comment"># mysql installation</span>
+<span class="cm-builtin">sudo</span> <span class="cm-attribute">-u</span> mysql mysql_install_db5</code></pre>
 <p>Ensuite on défini les fameuses sockets pour php (entre autres) dans le fichier /opt/local/etc/mysql5/my.cnf</p>
-<pre><code class="language-bash"><span class="comment"># create file if not exists</span>
-<span class="built_in">sudo</span> touch /opt/local/etc/mysql5/my.cnf
-<span class="comment"># open it</span>
-<span class="built_in">sudo</span> open /opt/local/etc/mysql5/my.cnf</code></pre>
+<pre><code class="language-bash"><span class="cm-comment"># create file if not exists</span>
+<span class="cm-builtin">sudo</span> <span class="cm-builtin">touch</span> /opt/local/etc/mysql5/my.cnf
+<span class="cm-comment"># open it</span>
+<span class="cm-builtin">sudo</span> open /opt/local/etc/mysql5/my.cnf</code></pre>
 <p>Voilà les ajouts/modifications à apporter</p>
-<pre><code class="language-bash"><span class="comment"># add this into the configuration file, or edit current settings</span>
-[mysqld_safe]
-socket = /tmp/mysql.sock
-[mysqld]
-socket=/tmp/mysql.sock
-[client]
-socket=/tmp/mysql.sock</code></pre>
+<pre><code class="language-ini"><span class="cm-comment"># add this into the configuration file, or edit current settings</span>
+<span class="cm-header">[mysqld_safe]</span>
+<span class="cm-def">s</span><span class="cm-def">o</span><span class="cm-def">c</span><span class="cm-def">k</span><span class="cm-def">e</span><span class="cm-def">t</span><span class="cm-def"> </span>=<span class="cm-quote"> </span><span class="cm-quote">/</span><span class="cm-quote">t</span><span class="cm-quote">m</span><span class="cm-quote">p</span><span class="cm-quote">/</span><span class="cm-quote">m</span><span class="cm-quote">y</span><span class="cm-quote">s</span><span class="cm-quote">q</span><span class="cm-quote">l</span><span class="cm-quote">.</span><span class="cm-quote">s</span><span class="cm-quote">o</span><span class="cm-quote">c</span><span class="cm-quote">k</span>
+<span class="cm-header">[mysqld]</span>
+<span class="cm-def">s</span><span class="cm-def">o</span><span class="cm-def">c</span><span class="cm-def">k</span><span class="cm-def">e</span><span class="cm-def">t</span>=<span class="cm-quote">/</span><span class="cm-quote">t</span><span class="cm-quote">m</span><span class="cm-quote">p</span><span class="cm-quote">/</span><span class="cm-quote">m</span><span class="cm-quote">y</span><span class="cm-quote">s</span><span class="cm-quote">q</span><span class="cm-quote">l</span><span class="cm-quote">.</span><span class="cm-quote">s</span><span class="cm-quote">o</span><span class="cm-quote">c</span><span class="cm-quote">k</span>
+<span class="cm-header">[client]</span>
+<span class="cm-def">s</span><span class="cm-def">o</span><span class="cm-def">c</span><span class="cm-def">k</span><span class="cm-def">e</span><span class="cm-def">t</span>=<span class="cm-quote">/</span><span class="cm-quote">t</span><span class="cm-quote">m</span><span class="cm-quote">p</span><span class="cm-quote">/</span><span class="cm-quote">m</span><span class="cm-quote">y</span><span class="cm-quote">s</span><span class="cm-quote">q</span><span class="cm-quote">l</span><span class="cm-quote">.</span><span class="cm-quote">s</span><span class="cm-quote">o</span><span class="cm-quote">c</span><span class="cm-quote">k</span></code></pre>
 <p>Il y’en a peut être beaucoup mais il vaut mieux trop que pas assez.</p>
 <h2 id="activer-apache-php-et-mysql-au-d-marrage-de-votre-machine">Activer Apache PHP et MySQL au démarrage de votre machine</h2>
 <p>Vous remarquerez que les paquets qui nécessitent de fonctionner en tant que serveur (apache, mysql…) doivent être démarrés à la main.
 Mais si vous avez l’oeil, lors des compilations, des commentaires similaires à celui-ci vous indique comment faire simplement.</p>
-<pre><code class="language-bash"><span class="comment">###########################################################</span>
-<span class="comment"># A startup item has been generated that will aid in</span>
-<span class="comment"># starting apache2 with launchd. It is disabled</span>
-<span class="comment"># by default. Execute the following command to start it,</span>
-<span class="comment"># and to cause it to launch at startup:</span>
-<span class="comment">#</span>
-<span class="comment"># sudo port load apache2</span>
-<span class="comment">###########################################################</span></code></pre>
+<pre><code class="language-bash"><span class="cm-comment">###########################################################</span>
+<span class="cm-comment"># A startup item has been generated that will aid in</span>
+<span class="cm-comment"># starting apache2 with launchd. It is disabled</span>
+<span class="cm-comment"># by default. Execute the following command to start it,</span>
+<span class="cm-comment"># and to cause it to launch at startup:</span>
+<span class="cm-comment">#</span>
+<span class="cm-comment"># sudo port load apache2</span>
+<span class="cm-comment">###########################################################</span></code></pre>
 <p>Donc pour loader Apache et MySQL au démarrage, rien de plus simple:</p>
-<pre><code class="language-bash"><span class="built_in">sudo</span> port load apache2 mysql5-server</code></pre>
+<pre><code class="language-bash"><span class="cm-builtin">sudo</span> port load apache2 mysql5-server</code></pre>
 <h2 id="les-petits-plus">Les petits plus</h2>
 <h3 id="installer-phpunit-sur-mac-os-x">Installer PHPUnit sur Mac OS X</h3>
 <p>Quand on est un développeur digne de ce nom, on se doit de faire des <a href="//fr.wikipedia.org/wiki/Test_unitaire">tests unitaires</a>. Voilà comment ajouter le nécessaire à votre configuration. Et c’est là que PEAR est nécessaire !</p>
-<pre><code class="language-bash"><span class="comment"># install phpunit</span>
-<span class="built_in">sudo</span> pear channel-discover pear.phpunit.de
-<span class="built_in">sudo</span> pear install --alldeps phpunit/PHPUnit</code></pre>
+<pre><code class="language-bash"><span class="cm-comment"># install phpunit</span>
+<span class="cm-builtin">sudo</span> pear channel-discover pear.phpunit.de
+<span class="cm-builtin">sudo</span> pear install <span class="cm-attribute">--alldeps</span> phpunit/PHPUnit</code></pre>
 <p>Si vous avez des soucis avez les lignes commandes ci-dessus, comme quoi il vous manque des dépendances, voici de quoi faire</p>
-<pre><code class="language-bash"><span class="built_in">sudo</span> pear channel-discover pear.phpunit.de
-<span class="built_in">sudo</span> pear channel-discover pear.symfony-project.com
-<span class="built_in">sudo</span> pear channel-discover components.ez.no
-<span class="built_in">sudo</span> pear install phpunit/PHPUnit</code></pre>
+<pre><code class="language-bash"><span class="cm-builtin">sudo</span> pear channel-discover pear.phpunit.de
+<span class="cm-builtin">sudo</span> pear channel-discover pear.symfony-project.com
+<span class="cm-builtin">sudo</span> pear channel-discover components.ez.no
+<span class="cm-builtin">sudo</span> pear install phpunit/PHPUnit</code></pre>
 <h3 id="installer-memcache">Installer Memcache</h3>
 <p>Memcache, un système de cache bien sympatique utilisable en PHP (entre autres) peut s’installer simplement grâce aux MacPorts.
 Il suffit d’installer 2 paquets, puis éventuellement de lancer ça au démarrage de la machine.</p>
-<pre><code class="language-bash"><span class="comment"># Install the executable and the bindings for PHP5</span>
-<span class="built_in">sudo</span> port install memcached php5-memcached
+<pre><code class="language-bash"><span class="cm-comment"># Install the executable and the bindings for PHP5</span>
+<span class="cm-builtin">sudo</span> port install memcached php5-memcached
 
-<span class="comment"># Verify that the executable exists in your path</span>
+<span class="cm-comment"># Verify that the executable exists in your path</span>
 which memcached
-<span class="comment"># output something like /opt/local/bin/memcached</span>
+<span class="cm-comment"># output something like /opt/local/bin/memcached</span>
 
-<span class="comment"># Start memcached for the current session</span>
-memcached <span class="operator">-d</span> -m <span class="number">24</span> -p <span class="number">11211</span>
+<span class="cm-comment"># Start memcached for the current session</span>
+memcached <span class="cm-attribute">-d</span> <span class="cm-attribute">-m</span> <span class="cm-number">24</span> <span class="cm-attribute">-p</span> 11211
 
-<span class="comment"># Configure memcached to execute on startup, if desired</span>
-<span class="built_in">sudo</span> port load memcached</code></pre>
+<span class="cm-comment"># Configure memcached to execute on startup, if desired</span>
+<span class="cm-builtin">sudo</span> port load memcached</code></pre>
 <p>Avec tout ça, vous devrait être fin prêt pour attaquer du code !
 Il reste maintenant à bien configurer Apache, avec des virtual hosts mais ça fera peut être l’objet d’un autre post.</p>
 <p> *[PEAR]: PHP Extension and Application Repository</p>

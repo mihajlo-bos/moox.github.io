@@ -20,7 +20,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <link href="feed.xml" rel="alternate" type="application/rss+xml">
 
-<link rel="stylesheet" href="/assets/css/moox.css?20131216110407">
+<link rel="stylesheet" href="/assets/css/moox.css?20131229201805">
 
 
 
@@ -65,7 +65,7 @@
 		<article class="Box-module" lang="fr">
 			<header>
 				<h1><span class="text-less-visible">[fr]</span> Installer Apache PHP MySQL sous Mac OS X</h1>
-				<time class="text-less-visible" pubdate datetime="2013-12-16">31 March 2011</time>
+				<time class="text-less-visible" pubdate datetime="2013-12-29">31 March 2011</time>
 			</header>
 			<!-- 
 			<div class="category">
@@ -118,111 +118,111 @@ Donc je me suis simplement orienté vers <strong>MacPorts</strong> :</p>
 <p>Pour installer <strong>MacPorts</strong> rien de difficile : on se rend sur le site officiel du projet, on télécharge l’image disque puis on installe ça facilement (pré-requis : il faut avoir XCode et X11 d’installer sur sa machine, tous les 2 sont dispos sur les DVD d’applications fournies avec votre Mac). Après ça dans notre Terminal on a accès la commande <strong>port</strong> qui permettra de faire des équivalents d’apt-get / aptitude sous Linux. La grosse différence, qui est ses avantages et inconvénients c’est que ça compile les sources sur votre machine. Avantage : précision pour les options sur les paquets. Inconvénient : temps d’installation (surtout pour les premiers paquets).</p>
 <h2 id="installation-des-paquets-apache-php-mysql-avec-macports">Installation des paquets Apache, PHP, MySQL avec MacPorts</h2>
 <p>Passons donc au nécessaire. Installer Apache et le server mysql. PHP est installé juste après avec quelques petites spécificités éventuelles. Pour ce faire, dans votre <em>Application &gt; Utilitaires &gt; Terminal.app</em>, exécutez les commandes suivantes et ne soyez pas pressé, allez vous faire un café, prenez votre smartphone et allez <a href="//www.rovio.com/index.php?page=angry-birds" title="Voir au site du jeu Angry Birds">péter des cochons</a> quelques minutes sur votre trône :</p>
-<pre><code class="language-bash"><span class="built_in">sudo</span> port install apache2 mysql5-server</code></pre>
+<pre><code class="language-bash"><span class="cm-builtin">sudo</span> port install apache2 mysql5-server</code></pre>
 <p>Si c’est votre première fois avec <strong>port</strong>, vous comptez au moins une bonne douzaine de minutes le temps que les premiers paquets se compilent.</p>
 <p>Une fois ceci fait, on va compiler et installer PHP 5 avec les options de compilation (+*) pour Apache, MySQL et PEAR (<a href="//pear.php.net/" title="Accéder au site de PEAR (PHP Extension and Application Repository)">PEAR quesako ?</a>)</p>
-<pre><code class="language-bash"><span class="built_in">sudo</span> port install php5 +apache2 +mysql5 +pear</code></pre>
+<pre><code class="language-bash"><span class="cm-builtin">sudo</span> port install php5 <span class="cm-operator">+</span>apache2 <span class="cm-operator">+</span>mysql5 <span class="cm-operator">+</span>pear</code></pre>
 <p>Là encore ça peut prendre du temps.</p>
 <p>Ensuite on passe aux paquets de base, manière de ne pas avoir à installer un paquet toutes les 2h à chaque « <em>Fatal Error : Class not found</em> » :)</p>
 <p><em>Note: N’ayez pas peur de copier les commentaires des les lignes de codes dans votre terminal, ça reste des commentaires, même pour un terminal ;) </em></p>
-<pre><code class="language-bash"><span class="comment"># usefull packages</span>
-<span class="built_in">sudo</span> port install php5-apc php5-curl php5-ftp php5-gd php5-gettext php5-iconv php5-imagick php5-ldap php5-pcntl php5-pdflib php5-mbstring php5-mcrypt php5-memcached php5-soap php5-uploadprogress php5-xdebug php5-xmlrpc php5-zip
-<span class="comment"># database related packages</span>
-<span class="built_in">sudo</span> port install php5-odbc php5-mysql php5-sqlite</code></pre>
+<pre><code class="language-bash"><span class="cm-comment"># usefull packages</span>
+<span class="cm-builtin">sudo</span> port install php5-apc php5-curl php5-ftp php5-gd php5-gettext php5-iconv php5-imagick php5-ldap php5-pcntl php5-pdflib php5-mbstring php5-mcrypt php5-memcached php5-soap php5-uploadprogress php5-xdebug php5-xmlrpc php5-zip
+<span class="cm-comment"># database related packages</span>
+<span class="cm-builtin">sudo</span> port install php5-odbc php5-mysql php5-sqlite</code></pre>
 <p>A vous de voir ce qui vous intéresse dans la liste, mais la plupart sont des classiques (et encore il en manque peut-être)</p>
 <p>Pour la liste des paquets, vous avez un énorme choix et <a href="//www.macports.org/ports.php?by=name&amp;substr=php5" title="Accéder à la liste des paquets php5 sur le site de MacPorts">vous pouvez parcourir la liste sur le site</a></p>
 <p>Mémo à moi-même : pour mon boulot j’ai dû me rajouter ces 3 paquets (oui oui j’ai besoin du driver mssql…)</p>
-<pre><code class="language-bash"><span class="built_in">sudo</span> port install php5-solr freetds php5-mssql</code></pre>
+<pre><code class="language-bash"><span class="cm-builtin">sudo</span> port install php5-solr freetds php5-mssql</code></pre>
 <p>Ensuite il reste quelques petites modifs avant d’avoir un environnement fin prêt.</p>
 <h2 id="configuration-d-apache">Configuration d’Apache</h2>
 <p>On active PHP5 au niveau d’Apache</p>
-<pre><code class="language-bash"><span class="comment"># activate php5 module for apache</span>
-<span class="built_in">cd</span> /opt/local/apache2/modules
-<span class="built_in">sudo</span> /opt/local/apache2/bin/apxs <span class="operator">-a</span> <span class="operator">-e</span> -n <span class="string">"php5"</span> libphp5.so</code></pre>
+<pre><code class="language-bash"><span class="cm-comment"># activate php5 module for apache</span>
+<span class="cm-builtin">cd</span> /opt/local/apache2/modules
+<span class="cm-builtin">sudo</span> /opt/local/apache2/bin/apxs <span class="cm-attribute">-a</span> <span class="cm-attribute">-e</span> <span class="cm-attribute">-n</span> <span class="cm-string">&quot;php5&quot;</span> libphp5.so</code></pre>
 <p>Il faut maintenant préciser à Apache que les fichiers index.php peuvent être les fichiers index par défaut. Pour ce faire, il faut éditer le fichier /opt/local/apache2/conf/httpd.conf et rechercher « DirectoryIndex index.html »</p>
-<pre><code class="language-bash"><span class="comment"># add "index.php" at the end</span>
+<pre><code class="language-ini">; add &quot;index.php&quot; at the end
 DirectoryIndex index.html index.php</code></pre>
 <p>On peut aussi ajouter la conf du module apache php (en fin de fichier ?)</p>
-<pre><code class="language-bash">Include conf/extra/mod_php.conf</code></pre>
+<pre><code>Include conf/extra/mod_php.conf</code></pre>
 <p>Ayant déjà vécu un paquet de reinstall système, j’ai l’habitude de mettre mes configs dans mes dossiers perso indépendamment du système, voilà donc ce que j’ai ajouté en à la fin du httpd.conf.</p>
-<pre><code class="language-bash">Include /Users/YOUR-USERNAME/Dropbox/Servers/conf/development/*</code></pre>
+<pre><code>Include /Users/YOUR-USERNAME/Dropbox/Servers/conf/development/*</code></pre>
 <p>Vous remarquerez que j’ai mis ça sur ma <a href="//db.tt/C5lc46w">Dropbox</a> (comme je suis rassuré d’avoir tous mes petits fichiers au chaud bien à l’abri d’un hardreset :) ). <a href="//db.tt/C5lc46w" title="Créer votre compte Dropbox gratuitement !">Je vous invite à faire pareille</a>, ça ne coûte rien et c’est tellement pratique d’avoir un mega dossier synchro entre ses différentes machines (smartphone inclus) !</p>
 <p>Après avoir modifié la conf <strong>Apache</strong>, il faut bien sur penser à redémarrer le serveur pour que la nouvelle configuration soit prise en compte:</p>
-<pre><code class="language-bash"><span class="built_in">sudo</span> /opt/local/apache2/bin/apachectl -k restart</code></pre>
+<pre><code class="language-bash"><span class="cm-builtin">sudo</span> /opt/local/apache2/bin/apachectl <span class="cm-attribute">-k</span> <span class="cm-builtin">restart</span></code></pre>
 <p>Ceci doit être fait dès que vous modifiez votre httpd.conf (ou apache2.conf selon), pensez-y quand vous ajouterez des virtual hosts !</p>
 <h2 id="configuration-de-php">Configuration de PHP</h2>
 <p>On doit créer un fichier de configuration de PHP. On copie donc la version par défaut de développement. Puis vous pouvez prendre le temps d’éditer ce nouveau php.ini pour l’adapter à vos besoins.</p>
-<pre><code class="language-bash"><span class="comment"># create a default php.ini</span>
-<span class="built_in">sudo</span> cp /opt/local/etc/php5/php.ini-development /opt/local/etc/php5/php.ini
-<span class="comment"># open it to customize</span>
-<span class="built_in">sudo</span> open /opt/local/etc/php5/php.ini</code></pre>
+<pre><code class="language-bash"><span class="cm-comment"># create a default php.ini</span>
+<span class="cm-builtin">sudo</span> <span class="cm-builtin">cp</span> /opt/local/etc/php5/php.ini-development /opt/local/etc/php5/php.ini
+<span class="cm-comment"># open it to customize</span>
+<span class="cm-builtin">sudo</span> open /opt/local/etc/php5/php.ini</code></pre>
 <p>Prenez 2 secondes pour éviter des warnings avec les fonctions/classes date, time etc… en ajoutant ceci à la fin du fichier php.ini</p>
-<pre><code class="language-bash"><span class="comment"># set a default timezone for your server</span>
-date.timezone=<span class="string">"Europe/Paris"</span></code></pre>
+<pre><code class="language-ini"><span class="cm-comment"># set a default timezone for your server</span>
+<span class="cm-def">d</span><span class="cm-def">a</span><span class="cm-def">t</span><span class="cm-def">e</span><span class="cm-def">.</span><span class="cm-def">t</span><span class="cm-def">i</span><span class="cm-def">m</span><span class="cm-def">e</span><span class="cm-def">z</span><span class="cm-def">o</span><span class="cm-def">n</span><span class="cm-def">e</span>=<span class="cm-quote">&quot;</span><span class="cm-quote">E</span><span class="cm-quote">u</span><span class="cm-quote">r</span><span class="cm-quote">o</span><span class="cm-quote">p</span><span class="cm-quote">e</span><span class="cm-quote">/</span><span class="cm-quote">P</span><span class="cm-quote">a</span><span class="cm-quote">r</span><span class="cm-quote">i</span><span class="cm-quote">s</span><span class="cm-quote">&quot;</span></code></pre>
 <h2 id="configuration-de-mysql">Configuration de MySQL</h2>
 <p>Il reste à configurer  notre serveur de base de données SQL.</p>
 <p>Pendant qu’on est encore chaud sur le php.ini, on en profite pour adapter les réglages MySQL. Voilà ce qui va être nécessaire (<em>cherchez dans le fichier les clés de configs et modifiez les comme ici</em>)</p>
-<pre><code class="language-bash"><span class="comment"># edit php.ini to add default mysql socket</span>
-<span class="comment"># ...</span>
-pdo_mysql.default_socket=/tmp/mysql.sock
-<span class="comment"># ...</span>
-mysql.default_socket = /tmp/mysql.sock</code></pre>
+<pre><code class="language-ini"><span class="cm-comment"># edit php.ini to add default mysql socket</span>
+<span class="cm-comment"># ...</span>
+<span class="cm-def">p</span><span class="cm-def">d</span><span class="cm-def">o</span><span class="cm-def">_</span><span class="cm-def">m</span><span class="cm-def">y</span><span class="cm-def">s</span><span class="cm-def">q</span><span class="cm-def">l</span><span class="cm-def">.</span><span class="cm-def">d</span><span class="cm-def">e</span><span class="cm-def">f</span><span class="cm-def">a</span><span class="cm-def">u</span><span class="cm-def">l</span><span class="cm-def">t</span><span class="cm-def">_</span><span class="cm-def">s</span><span class="cm-def">o</span><span class="cm-def">c</span><span class="cm-def">k</span><span class="cm-def">e</span><span class="cm-def">t</span>=<span class="cm-quote">/</span><span class="cm-quote">t</span><span class="cm-quote">m</span><span class="cm-quote">p</span><span class="cm-quote">/</span><span class="cm-quote">m</span><span class="cm-quote">y</span><span class="cm-quote">s</span><span class="cm-quote">q</span><span class="cm-quote">l</span><span class="cm-quote">.</span><span class="cm-quote">s</span><span class="cm-quote">o</span><span class="cm-quote">c</span><span class="cm-quote">k</span>
+<span class="cm-comment"># ...</span>
+<span class="cm-def">m</span><span class="cm-def">y</span><span class="cm-def">s</span><span class="cm-def">q</span><span class="cm-def">l</span><span class="cm-def">.</span><span class="cm-def">d</span><span class="cm-def">e</span><span class="cm-def">f</span><span class="cm-def">a</span><span class="cm-def">u</span><span class="cm-def">l</span><span class="cm-def">t</span><span class="cm-def">_</span><span class="cm-def">s</span><span class="cm-def">o</span><span class="cm-def">c</span><span class="cm-def">k</span><span class="cm-def">e</span><span class="cm-def">t</span><span class="cm-def"> </span>=<span class="cm-quote"> </span><span class="cm-quote">/</span><span class="cm-quote">t</span><span class="cm-quote">m</span><span class="cm-quote">p</span><span class="cm-quote">/</span><span class="cm-quote">m</span><span class="cm-quote">y</span><span class="cm-quote">s</span><span class="cm-quote">q</span><span class="cm-quote">l</span><span class="cm-quote">.</span><span class="cm-quote">s</span><span class="cm-quote">o</span><span class="cm-quote">c</span><span class="cm-quote">k</span></code></pre>
 <p>Une fois ceci fait, on va vraiment configurer MySQL</p>
-<pre><code class="language-bash"><span class="comment"># mysql installation</span>
-<span class="built_in">sudo</span> -u mysql mysql_install_db5</code></pre>
+<pre><code class="language-bash"><span class="cm-comment"># mysql installation</span>
+<span class="cm-builtin">sudo</span> <span class="cm-attribute">-u</span> mysql mysql_install_db5</code></pre>
 <p>Ensuite on défini les fameuses sockets pour php (entre autres) dans le fichier /opt/local/etc/mysql5/my.cnf</p>
-<pre><code class="language-bash"><span class="comment"># create file if not exists</span>
-<span class="built_in">sudo</span> touch /opt/local/etc/mysql5/my.cnf
-<span class="comment"># open it</span>
-<span class="built_in">sudo</span> open /opt/local/etc/mysql5/my.cnf</code></pre>
+<pre><code class="language-bash"><span class="cm-comment"># create file if not exists</span>
+<span class="cm-builtin">sudo</span> <span class="cm-builtin">touch</span> /opt/local/etc/mysql5/my.cnf
+<span class="cm-comment"># open it</span>
+<span class="cm-builtin">sudo</span> open /opt/local/etc/mysql5/my.cnf</code></pre>
 <p>Voilà les ajouts/modifications à apporter</p>
-<pre><code class="language-bash"><span class="comment"># add this into the configuration file, or edit current settings</span>
-[mysqld_safe]
-socket = /tmp/mysql.sock
-[mysqld]
-socket=/tmp/mysql.sock
-[client]
-socket=/tmp/mysql.sock</code></pre>
+<pre><code class="language-ini"><span class="cm-comment"># add this into the configuration file, or edit current settings</span>
+<span class="cm-header">[mysqld_safe]</span>
+<span class="cm-def">s</span><span class="cm-def">o</span><span class="cm-def">c</span><span class="cm-def">k</span><span class="cm-def">e</span><span class="cm-def">t</span><span class="cm-def"> </span>=<span class="cm-quote"> </span><span class="cm-quote">/</span><span class="cm-quote">t</span><span class="cm-quote">m</span><span class="cm-quote">p</span><span class="cm-quote">/</span><span class="cm-quote">m</span><span class="cm-quote">y</span><span class="cm-quote">s</span><span class="cm-quote">q</span><span class="cm-quote">l</span><span class="cm-quote">.</span><span class="cm-quote">s</span><span class="cm-quote">o</span><span class="cm-quote">c</span><span class="cm-quote">k</span>
+<span class="cm-header">[mysqld]</span>
+<span class="cm-def">s</span><span class="cm-def">o</span><span class="cm-def">c</span><span class="cm-def">k</span><span class="cm-def">e</span><span class="cm-def">t</span>=<span class="cm-quote">/</span><span class="cm-quote">t</span><span class="cm-quote">m</span><span class="cm-quote">p</span><span class="cm-quote">/</span><span class="cm-quote">m</span><span class="cm-quote">y</span><span class="cm-quote">s</span><span class="cm-quote">q</span><span class="cm-quote">l</span><span class="cm-quote">.</span><span class="cm-quote">s</span><span class="cm-quote">o</span><span class="cm-quote">c</span><span class="cm-quote">k</span>
+<span class="cm-header">[client]</span>
+<span class="cm-def">s</span><span class="cm-def">o</span><span class="cm-def">c</span><span class="cm-def">k</span><span class="cm-def">e</span><span class="cm-def">t</span>=<span class="cm-quote">/</span><span class="cm-quote">t</span><span class="cm-quote">m</span><span class="cm-quote">p</span><span class="cm-quote">/</span><span class="cm-quote">m</span><span class="cm-quote">y</span><span class="cm-quote">s</span><span class="cm-quote">q</span><span class="cm-quote">l</span><span class="cm-quote">.</span><span class="cm-quote">s</span><span class="cm-quote">o</span><span class="cm-quote">c</span><span class="cm-quote">k</span></code></pre>
 <p>Il y’en a peut être beaucoup mais il vaut mieux trop que pas assez.</p>
 <h2 id="activer-apache-php-et-mysql-au-d-marrage-de-votre-machine">Activer Apache PHP et MySQL au démarrage de votre machine</h2>
 <p>Vous remarquerez que les paquets qui nécessitent de fonctionner en tant que serveur (apache, mysql…) doivent être démarrés à la main.
 Mais si vous avez l’oeil, lors des compilations, des commentaires similaires à celui-ci vous indique comment faire simplement.</p>
-<pre><code class="language-bash"><span class="comment">###########################################################</span>
-<span class="comment"># A startup item has been generated that will aid in</span>
-<span class="comment"># starting apache2 with launchd. It is disabled</span>
-<span class="comment"># by default. Execute the following command to start it,</span>
-<span class="comment"># and to cause it to launch at startup:</span>
-<span class="comment">#</span>
-<span class="comment"># sudo port load apache2</span>
-<span class="comment">###########################################################</span></code></pre>
+<pre><code class="language-bash"><span class="cm-comment">###########################################################</span>
+<span class="cm-comment"># A startup item has been generated that will aid in</span>
+<span class="cm-comment"># starting apache2 with launchd. It is disabled</span>
+<span class="cm-comment"># by default. Execute the following command to start it,</span>
+<span class="cm-comment"># and to cause it to launch at startup:</span>
+<span class="cm-comment">#</span>
+<span class="cm-comment"># sudo port load apache2</span>
+<span class="cm-comment">###########################################################</span></code></pre>
 <p>Donc pour loader Apache et MySQL au démarrage, rien de plus simple:</p>
-<pre><code class="language-bash"><span class="built_in">sudo</span> port load apache2 mysql5-server</code></pre>
+<pre><code class="language-bash"><span class="cm-builtin">sudo</span> port load apache2 mysql5-server</code></pre>
 <h2 id="les-petits-plus">Les petits plus</h2>
 <h3 id="installer-phpunit-sur-mac-os-x">Installer PHPUnit sur Mac OS X</h3>
 <p>Quand on est un développeur digne de ce nom, on se doit de faire des <a href="//fr.wikipedia.org/wiki/Test_unitaire">tests unitaires</a>. Voilà comment ajouter le nécessaire à votre configuration. Et c’est là que PEAR est nécessaire !</p>
-<pre><code class="language-bash"><span class="comment"># install phpunit</span>
-<span class="built_in">sudo</span> pear channel-discover pear.phpunit.de
-<span class="built_in">sudo</span> pear install --alldeps phpunit/PHPUnit</code></pre>
+<pre><code class="language-bash"><span class="cm-comment"># install phpunit</span>
+<span class="cm-builtin">sudo</span> pear channel-discover pear.phpunit.de
+<span class="cm-builtin">sudo</span> pear install <span class="cm-attribute">--alldeps</span> phpunit/PHPUnit</code></pre>
 <p>Si vous avez des soucis avez les lignes commandes ci-dessus, comme quoi il vous manque des dépendances, voici de quoi faire</p>
-<pre><code class="language-bash"><span class="built_in">sudo</span> pear channel-discover pear.phpunit.de
-<span class="built_in">sudo</span> pear channel-discover pear.symfony-project.com
-<span class="built_in">sudo</span> pear channel-discover components.ez.no
-<span class="built_in">sudo</span> pear install phpunit/PHPUnit</code></pre>
+<pre><code class="language-bash"><span class="cm-builtin">sudo</span> pear channel-discover pear.phpunit.de
+<span class="cm-builtin">sudo</span> pear channel-discover pear.symfony-project.com
+<span class="cm-builtin">sudo</span> pear channel-discover components.ez.no
+<span class="cm-builtin">sudo</span> pear install phpunit/PHPUnit</code></pre>
 <h3 id="installer-memcache">Installer Memcache</h3>
 <p>Memcache, un système de cache bien sympatique utilisable en PHP (entre autres) peut s’installer simplement grâce aux MacPorts.
 Il suffit d’installer 2 paquets, puis éventuellement de lancer ça au démarrage de la machine.</p>
-<pre><code class="language-bash"><span class="comment"># Install the executable and the bindings for PHP5</span>
-<span class="built_in">sudo</span> port install memcached php5-memcached
+<pre><code class="language-bash"><span class="cm-comment"># Install the executable and the bindings for PHP5</span>
+<span class="cm-builtin">sudo</span> port install memcached php5-memcached
 
-<span class="comment"># Verify that the executable exists in your path</span>
+<span class="cm-comment"># Verify that the executable exists in your path</span>
 which memcached
-<span class="comment"># output something like /opt/local/bin/memcached</span>
+<span class="cm-comment"># output something like /opt/local/bin/memcached</span>
 
-<span class="comment"># Start memcached for the current session</span>
-memcached <span class="operator">-d</span> -m <span class="number">24</span> -p <span class="number">11211</span>
+<span class="cm-comment"># Start memcached for the current session</span>
+memcached <span class="cm-attribute">-d</span> <span class="cm-attribute">-m</span> <span class="cm-number">24</span> <span class="cm-attribute">-p</span> 11211
 
-<span class="comment"># Configure memcached to execute on startup, if desired</span>
-<span class="built_in">sudo</span> port load memcached</code></pre>
+<span class="cm-comment"># Configure memcached to execute on startup, if desired</span>
+<span class="cm-builtin">sudo</span> port load memcached</code></pre>
 <p>Avec tout ça, vous devrait être fin prêt pour attaquer du code !
 Il reste maintenant à bien configurer Apache, avec des virtual hosts mais ça fera peut être l’objet d’un autre post.</p>
 <p> *[PEAR]: PHP Extension and Application Repository</p>
@@ -275,7 +275,7 @@ Il reste maintenant à bien configurer Apache, avec des virtual hosts mais ça f
 </div>
 
 </div>
-<script src="/assets/js/vanilla.js?20131216110407"></script>
+<script src="/assets/js/vanilla.js?20131229201805"></script>
 
 
 	
@@ -296,8 +296,8 @@ Il reste maintenant à bien configurer Apache, avec des virtual hosts mais ça f
   
   
   
-  disqus_identifier = 'http://moox.io',
-  disqus_url = 'http://moox.io',
+  disqus_identifier = 'http://moox.io/blog/installer-serveur-web-apache-php-mysql-mac-os-x-macports/',
+  disqus_url = 'http://moox.io/blog/installer-serveur-web-apache-php-mysql-mac-os-x-macports/',
   disqus_script = 'embed.js';
   
   (function(d,s) {

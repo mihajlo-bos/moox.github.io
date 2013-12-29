@@ -20,7 +20,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <link href="feed.xml" rel="alternate" type="application/rss+xml">
 
-<link rel="stylesheet" href="/assets/css/moox.css?20131216110407">
+<link rel="stylesheet" href="/assets/css/moox.css?20131229201805">
 
 
 
@@ -65,7 +65,7 @@
 		<article class="Box-module" lang="fr">
 			<header>
 				<h1><span class="text-less-visible">[fr]</span> Compass.app, une application qu&#x27;elle est bien pour compiler ses CSS avec Sass / Compass</h1>
-				<time class="text-less-visible" pubdate datetime="2013-12-16">23 May 2011</time>
+				<time class="text-less-visible" pubdate datetime="2013-12-29">23 May 2011</time>
 			</header>
 			<!-- 
 			<div class="category">
@@ -107,26 +107,26 @@
 </ol>
 <h2 id="compass-app">Compass.app</h2>
 <p>En ligne de commande,</p>
-<pre><code class="language-bash"><span class="comment"># pour la session en cours, on ajoute jruby dans le path pour simplifier les appels</span>
-PATH=/usr/local/jruby/bin:<span class="variable">$PATH</span>
-<span class="comment"># installation d'un gem depuis jruby (autrement ça marche pas)</span>
-jruby -S gem install rawr
+<pre><code class="language-bash"><span class="cm-comment"># pour la session en cours, on ajoute jruby dans le path pour simplifier les appels</span>
+<span class="cm-def">PATH</span><span class="cm-operator">=</span>/usr/local/jruby/bin:<span class="cm-def">$PATH</span>
+<span class="cm-comment"># installation d&#39;un gem depuis jruby (autrement ça marche pas)</span>
+jruby <span class="cm-attribute">-S</span> gem install rawr
 
-<span class="comment"># ensuite créé un emplacement pour récupérer les sources de Compass.app</span>
-mkdir ~/Applications/CompassApp
-<span class="built_in">cd</span> ~/Applications/CompassApp
-<span class="comment"># on clone depuis github</span>
-git clone git://github.com/handlino/CompassApp.git <span class="string">"CompassApp"</span>
+<span class="cm-comment"># ensuite créé un emplacement pour récupérer les sources de Compass.app</span>
+<span class="cm-builtin">mkdir</span> ~/Applications/CompassApp
+<span class="cm-builtin">cd</span> ~/Applications/CompassApp
+<span class="cm-comment"># on clone depuis github</span>
+<span class="cm-builtin">git</span> clone <span class="cm-builtin">git</span>://github.com/handlino/CompassApp.git <span class="cm-string">&quot;CompassApp&quot;</span>
 
-<span class="comment"># et on compile (un peu de patience)</span>
+<span class="cm-comment"># et on compile (un peu de patience)</span>
 ./bin/build-all.sh</code></pre>
 <p>Vous trouverez ensuite les applis compilés et zippé pour Mac, Linux et Windows dans ./packages</p>
 <h2 id="mise-jour-de-compass-app">Mise à jour de Compass.app</h2>
 <p>Pour faire une mise à jour (de temps en temps)</p>
-<pre><code class="language-bash">PATH=/usr/local/jruby/bin:<span class="variable">$PATH</span>
-jruby -S gem update
-<span class="built_in">cd</span> ~/Applications/CompassApp
-git pull
+<pre><code class="language-bash"><span class="cm-def">PATH</span><span class="cm-operator">=</span>/usr/local/jruby/bin:<span class="cm-def">$PATH</span>
+jruby <span class="cm-attribute">-S</span> gem update
+<span class="cm-builtin">cd</span> ~/Applications/CompassApp
+<span class="cm-builtin">git</span> pull
 ./bin/build-all.sh</code></pre>
 <p>Là encore il vous reste à réinstaller la version compilé (dézipé et déplacement).</p>
 <p>Certains risques de se demander pourquoi je n’ai pas ajouté jruby à mon PATH de manière permanente, c’est tout simplement car il y’a des binaires en double (ex: gem).</p>
@@ -180,7 +180,7 @@ git pull
 </div>
 
 </div>
-<script src="/assets/js/vanilla.js?20131216110407"></script>
+<script src="/assets/js/vanilla.js?20131229201805"></script>
 
 
 	
@@ -201,8 +201,8 @@ git pull
   
   
   
-  disqus_identifier = 'http://moox.io',
-  disqus_url = 'http://moox.io',
+  disqus_identifier = 'http://moox.io/blog/compass-app-application-pour-compiler-css-sass-compass/',
+  disqus_url = 'http://moox.io/blog/compass-app-application-pour-compiler-css-sass-compass/',
   disqus_script = 'embed.js';
   
   (function(d,s) {

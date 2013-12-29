@@ -20,7 +20,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <link href="feed.xml" rel="alternate" type="application/rss+xml">
 
-<link rel="stylesheet" href="/assets/css/moox.css?20131216110407">
+<link rel="stylesheet" href="/assets/css/moox.css?20131229201805">
 
 
 
@@ -65,7 +65,7 @@
 		<article class="Box-module" lang="fr">
 			<header>
 				<h1><span class="text-less-visible">[fr]</span> Utiliser des variables et fonctions CSS, c&#x27;est possible !</h1>
-				<time class="text-less-visible" pubdate datetime="2013-12-16">21 April 2011</time>
+				<time class="text-less-visible" pubdate datetime="2013-12-29">21 April 2011</time>
 			</header>
 			<!-- 
 			<div class="category">
@@ -111,48 +111,52 @@ Du coup, voilà ce que j’ai recencé à ce jour:</p>
 <p>La seconde sxyntaxe, plus ancienne, est connu comme la syntaxe indenté (juste “Sass”). Inspiré par le laconisme de <a href="http://haml-lang.com/">Haml</a>, elle est destinée aux personnes qui préfèrent la concision. Au lieu de crochets et des points-virgules, elle utilise l’indentation des lignes pour spécifier les blocs. Bien que elle ne soit plus la syntaxe primaire, cette syntaxe continuera d’être pris en charge. Les fichiers de cette ancienne syntaxe utilisent l’extension .sass.</p>
 </blockquote>
 <h4 id="petit-exemple-de-code-sass-avec-la-syntaxe-scss">Petit exemple de code Sass avec la syntaxe Scss</h4>
-<pre><code class="language-scss"><span class="comment">// note : ceci est bien un commentaire valide avec sass. Au revoir les /**/</span>
+<pre><code class="language-scss"><span class="cm-comment">// note : ceci est bien un commentaire valide avec sass. Au revoir les /**/</span>
 
-$blue<span class="value">: <span class="hexcolor">#3bbfce</span>;</span> <span class="comment">// Variable</span>
-<span class="class">.content-navigation</span> {
-  <span class="attribute">border-color</span><span class="value">: $blue;</span>
+<span class="cm-variable-2">$blue</span><span class="cm-operator">:</span> <span class="cm-atom">#3bbfce</span>; <span class="cm-comment">// Variable</span>
+<span class="cm-qualifier">.content-navigation</span> {
+  <span class="cm-property">border-color</span><span class="cm-operator">:</span> <span class="cm-variable-2">$blue</span>;
 
-  <span class="comment">// mixin</span>
-  <span class="attribute">color</span><span class="value">: darken($blue, <span class="number">9</span>%);</span>
+  <span class="cm-comment">// mixin</span>
+  <span class="cm-property">color</span><span class="cm-operator">:</span> <span class="cm-variable-2">darken</span>(<span class="cm-variable-2">$blue</span>, <span class="cm-number">9%</span>);
 
-  <span class="comment">// Imbrication</span>
-  <span class="tag">li</span> {
-    <span class="attribute">font</span><span class="value">: {
-      family: serif;</span>
-      weight<span class="value">: bold;</span>
-      size<span class="value">: <span class="number">1.2</span>em;</span>
+  <span class="cm-comment">// Imbrication</span>
+  <span class="cm-tag">li</span> {
+    <span class="cm-property">font</span>: {
+      <span class="cm-tag">family</span><span class="cm-operator">:</span> <span class="cm-string-2">serif</span>;
+      <span class="cm-tag">weight</span><span class="cm-operator">:</span> <span class="cm-string-2">bold</span>;
+      <span class="cm-property">size</span><span class="cm-operator">:</span> <span class="cm-number">1.2em</span>;
     }
   }
 }
 
-$<span class="attribute">margin</span><span class="value">: <span class="number">16</span>px;</span>
-<span class="class">.border</span> {
-  <span class="comment">// operateurs</span>
-  <span class="attribute">padding</span><span class="value">: $margin / <span class="number">2</span>;</span>
-  <span class="attribute">margin</span><span class="value">: $margin / <span class="number">2</span>;</span>
-  <span class="attribute">border-color</span><span class="value">: $blue;</span>
+<span class="cm-variable-2">$margin</span><span class="cm-operator">:</span> <span class="cm-number">16px</span>;
+<span class="cm-qualifier">.border</span> {
+  <span class="cm-comment">// operateurs</span>
+  <span class="cm-property">padding</span><span class="cm-operator">:</span> <span class="cm-variable-2">$margin</span> <span class="cm-operator">/</span> <span class="cm-number">2</span>;
+  <span class="cm-property">margin</span><span class="cm-operator">:</span> <span class="cm-variable-2">$margin</span> <span class="cm-operator">/</span> <span class="cm-number">2</span>;
+  <span class="cm-property">border-color</span><span class="cm-operator">:</span> <span class="cm-variable-2">$blue</span>;
 }</code></pre>
 <h3 id="less">LESS</h3>
 <blockquote>
 <p>LESS étend CSS avec un comportement dynamique grâce à des variables, mixins, opérations et fonctions. LESS fonctionne à la fois sur côté-client (IE 6+, Webkit, Firefox) et côté serveur avec Node.js.</p>
 </blockquote>
 <h4 id="petit-exemple-de-code-less">Petit exemple de code LESS</h4>
-<pre><code>.box-shadow (@x: 0, @y: 0, @blur: 1px, @alpha) {
+<pre><code class="language-less">.box-shadow (@x: 0, @y: 0, @blur: 1px, @alpha) {
   @val: @x @y @blur rgba(0, 0, 0, @alpha);
 
   box-shadow:         @val;
   -webkit-box-shadow: @val;
   -moz-box-shadow:    @val;
 }
-.box { @base: #f938ab;
+
+.box {
+  @base: #f938ab;
   color:        saturate(@base, 5%);
   border-color: lighten(@base, 30%);
-  div { .box-shadow(0, 0, 5px, 0.4) }
+  div {
+    .box-shadow(0, 0, 5px, 0.4)
+  }
 }</code></pre>
 <h3 id="stylus">Stylus</h3>
 <blockquote>
@@ -233,7 +237,7 @@ La syntaxe ne fait pas tout, il faut aussi regarder la méthode de génération 
 </div>
 
 </div>
-<script src="/assets/js/vanilla.js?20131216110407"></script>
+<script src="/assets/js/vanilla.js?20131229201805"></script>
 
 
 	
@@ -254,8 +258,8 @@ La syntaxe ne fait pas tout, il faut aussi regarder la méthode de génération 
   
   
   
-  disqus_identifier = 'http://moox.io',
-  disqus_url = 'http://moox.io',
+  disqus_identifier = 'http://moox.io/blog/utiliser-des-variables-fonctions-css/',
+  disqus_url = 'http://moox.io/blog/utiliser-des-variables-fonctions-css/',
   disqus_script = 'embed.js';
   
   (function(d,s) {

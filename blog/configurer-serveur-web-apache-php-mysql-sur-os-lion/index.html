@@ -20,7 +20,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <link href="feed.xml" rel="alternate" type="application/rss+xml">
 
-<link rel="stylesheet" href="/assets/css/moox.css?20131216110407">
+<link rel="stylesheet" href="/assets/css/moox.css?20131229201805">
 
 
 
@@ -65,7 +65,7 @@
 		<article class="Box-module" lang="fr">
 			<header>
 				<h1><span class="text-less-visible">[fr]</span> Configurer un Serveur Web Apache PHP MySQL sur OS X Lion</h1>
-				<time class="text-less-visible" pubdate datetime="2013-12-16">15 November 2011</time>
+				<time class="text-less-visible" pubdate datetime="2013-12-29">15 November 2011</time>
 			</header>
 			<!-- 
 			<div class="category">
@@ -118,17 +118,17 @@ Une fois les paquets installés, il reste à « brancher » PHP et MySQL ensembl
 <p>Un petit tour dans la configuration de PHP pour ajuster le lien entre MySQL et PHP:
 Allez dans <code>/private/etc/</code> et copier <code>php.ini.default</code> en <code>php.ini</code>, ceci afin de pouvoir adapter la configuration. Modifier directement le <code>php.ini.default</code> ne servirait à rien.</p>
 <p>Avec Terminal.app , rien de plus simple il vous suffit d’exécuter les lignes suivantes:</p>
-<pre><code class="language-bash"><span class="comment"># copie du fichier</span>
-<span class="built_in">sudo</span> cp /private/etc/php.ini.default /private/etc/php.ini
-<span class="comment"># ouverture pour édition</span>
-<span class="built_in">sudo</span> open <span class="operator">-a</span> TextEdit /private/etc/php.ini</code></pre>
+<pre><code class="language-bash"><span class="cm-comment"># copie du fichier</span>
+<span class="cm-builtin">sudo</span> <span class="cm-builtin">cp</span> /private/etc/php.ini.default /private/etc/php.ini
+<span class="cm-comment"># ouverture pour édition</span>
+<span class="cm-builtin">sudo</span> open <span class="cm-attribute">-a</span> TextEdit /private/etc/php.ini</code></pre>
 <p>Modifiez dedans (en plus de vos ajustements personnels) les valeurs des sockets pour MySQL : remplacez <code>/var/mysql</code> en <code>/tmp</code> aux différents endroits (pour l’extension [MySQL], [MySQLi] et [Pdo_mysql]) afin d’avoir un socket qui pointe sur <code>/tmp/mysql.sock</code> (valeur par défaut du package MySQL pour Mac OS X)</p>
 <h2 id="petite-touche-en-plus-xdebug">Petite touche en plus : xDebug</h2>
 <p>xDebug est déjà présent sur le système dans <code>/usr/lib/php/extensions</code>, il suffit de l’activer.
 Ajouter dans votre php.ini (cf configuration de php ci-dessus)</p>
-<pre><code class="language-ini"><span class="title">[xdebug]</span>
-<span class="setting">zend_extension=<span class="value">/usr/lib/php/extensions/<span class="keyword">no</span>-debug-non-zts-<span class="number">20090626</span>/xdebug.so</span></span>
-<span class="comment">; more option ?</span></code></pre>
+<pre><code class="language-ini"><span class="cm-header">[xdebug]</span>
+<span class="cm-def">z</span><span class="cm-def">e</span><span class="cm-def">n</span><span class="cm-def">d</span><span class="cm-def">_</span><span class="cm-def">e</span><span class="cm-def">x</span><span class="cm-def">t</span><span class="cm-def">e</span><span class="cm-def">n</span><span class="cm-def">s</span><span class="cm-def">i</span><span class="cm-def">o</span><span class="cm-def">n</span>=<span class="cm-quote">/</span><span class="cm-quote">u</span><span class="cm-quote">s</span><span class="cm-quote">r</span><span class="cm-quote">/</span><span class="cm-quote">l</span><span class="cm-quote">i</span><span class="cm-quote">b</span><span class="cm-quote">/</span><span class="cm-quote">p</span><span class="cm-quote">h</span><span class="cm-quote">p</span><span class="cm-quote">/</span><span class="cm-quote">e</span><span class="cm-quote">x</span><span class="cm-quote">t</span><span class="cm-quote">e</span><span class="cm-quote">n</span><span class="cm-quote">s</span><span class="cm-quote">i</span><span class="cm-quote">o</span><span class="cm-quote">n</span><span class="cm-quote">s</span><span class="cm-quote">/</span><span class="cm-quote">n</span><span class="cm-quote">o</span><span class="cm-quote">-</span><span class="cm-quote">d</span><span class="cm-quote">e</span><span class="cm-quote">b</span><span class="cm-quote">u</span><span class="cm-quote">g</span><span class="cm-quote">-</span><span class="cm-quote">n</span><span class="cm-quote">o</span><span class="cm-quote">n</span><span class="cm-quote">-</span><span class="cm-quote">z</span><span class="cm-quote">t</span><span class="cm-quote">s</span><span class="cm-quote">-</span><span class="cm-quote">2</span><span class="cm-quote">0</span><span class="cm-quote">0</span><span class="cm-quote">9</span><span class="cm-quote">0</span><span class="cm-quote">6</span><span class="cm-quote">2</span><span class="cm-quote">6</span><span class="cm-quote">/</span><span class="cm-quote">x</span><span class="cm-quote">d</span><span class="cm-quote">e</span><span class="cm-quote">b</span><span class="cm-quote">u</span><span class="cm-quote">g</span><span class="cm-quote">.</span><span class="cm-quote">s</span><span class="cm-quote">o</span>
+<span class="cm-comment">; more option ?</span></code></pre>
 <p>Toutes les <a href="http://xdebug.org/docs/all_settings">options de xdebug</a> sont disponibles accessible sur le site officiel.</p>
 <p>Et voilà le tour est joué ! Vous voilà avec <strong>Apache 2, PHP 5.3.6 et MySQL 5.5 et xDebug sur MAC OS X Lion 10.7 !</strong></p>
 
@@ -180,7 +180,7 @@ Ajouter dans votre php.ini (cf configuration de php ci-dessus)</p>
 </div>
 
 </div>
-<script src="/assets/js/vanilla.js?20131216110407"></script>
+<script src="/assets/js/vanilla.js?20131229201805"></script>
 
 
 	
@@ -201,8 +201,8 @@ Ajouter dans votre php.ini (cf configuration de php ci-dessus)</p>
   
   
   
-  disqus_identifier = 'http://moox.io',
-  disqus_url = 'http://moox.io',
+  disqus_identifier = 'http://moox.io/blog/configurer-serveur-web-apache-php-mysql-sur-os-lion/',
+  disqus_url = 'http://moox.io/blog/configurer-serveur-web-apache-php-mysql-sur-os-lion/',
   disqus_script = 'embed.js';
   
   (function(d,s) {
