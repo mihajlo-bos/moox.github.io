@@ -723,13 +723,14 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, .annonce-box, .Navbar {
   background-color: rgba(255, 255, 255, 0.1);
   -webkit-box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  text-align: justify; }
+  border-radius: 4px; }
   .Box-module:before, .Box-module:after {
     content: "";
     display: block; }
   .Box-module:after {
     clear: both; }
+  .Box-module p {
+    text-align: justify; }
 
 .Box :first-child, .Box-module :first-child {
   margin-top: 0; }
@@ -1131,6 +1132,7 @@ pre > code {
   padding: 12px; }
 
 :not(pre) > code {
+  display: inline-block;
   padding: 2px 6px; }
 
 .cm-attribute {
@@ -1184,6 +1186,28 @@ pre > code {
 .cm-variable-3 {
   color: #4ecdc4; }
 
+.AvailabilityStatus {
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  background: #418e2b;
+  border-radius: 4px; }
+
 .Home-projects {
   text-align: left;
   padding-left: 1rem; }
+
+.Posts {
+  margin: 0;
+  padding: 0;
+  list-style: inside; }
+  @media (min-width: 50em) {
+    .Posts {
+      padding-left: 2em; } }
+
+
+
+.AboutAuthor-avatar {
+  float: left;
+  margin-right: 1em;
+  border-radius: 4px; }

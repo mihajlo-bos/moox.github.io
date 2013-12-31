@@ -5,7 +5,7 @@
         <description>Front-end web developer</description>
         <link>http://moox.io/</link>
         <generator>happyplan 0.4.0-beta.3</generator>
-        <lastBuildDate>Sun, 29 December 2013 00:00:00 +0100</lastBuildDate>
+        <lastBuildDate>Tue, 31 December 2013 00:00:00 +0100</lastBuildDate>
 
           <item>
               <title>Configurer un Serveur Web Apache PHP MySQL sur OS X Lion</title>
@@ -153,14 +153,14 @@ which gem
 <span class="cm-builtin">sudo</span> gem install sass</code></pre>
 <p>Une fois ceci fait, faites un petit tour sur le [tutorial Sass][11] afin de faire un petit test pour vérifier que tout marche bien.</p>
 <p>On crée un fichier test.scss avec le code suivant :</p>
-<pre><code class="language-css"><span class="cm-tag">body</span> {
+<pre><code class="language-scss"><span class="cm-tag">body</span> {
     <span class="cm-property">color</span><span class="cm-operator">:</span> <span class="cm-string-2">rgba</span>(<span class="cm-error">#fff</span>, <span class="cm-number">.8</span>);
 }</code></pre>
 <p>Ensuite on lance le binaire Sass depuis le dossier où se trouve le fichier de test :</p>
 <pre><code class="language-bash">sass <span class="cm-attribute">--watch</span> test.scss:style.css</code></pre>
 <p>On vérifie que le fichier contient bien du code css valide.
 Et pour vérifier que l’aspect de tracking des modifications on peut modifier le fichier ainsi:</p>
-<pre><code class="language-css"><span class="cm-tag">body</span> {
+<pre><code class="language-scss"><span class="cm-tag">body</span> {
     <span class="cm-property">color</span><span class="cm-operator">:</span> <span class="cm-variable-2">darken</span>(<span class="cm-error">rgba</span>(<span class="cm-error">#fff</span>, <span class="cm-number">.8</span>), <span class="cm-number">10%</span>);
 }</code></pre>
 <p>On peut vérifier que la CSS a bien été modifié.</p>

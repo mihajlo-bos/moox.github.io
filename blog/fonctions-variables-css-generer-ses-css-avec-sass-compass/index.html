@@ -20,7 +20,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <link href="feed.xml" rel="alternate" type="application/rss+xml">
 
-<link rel="stylesheet" href="/assets/css/moox.css?20131229204109">
+<link rel="stylesheet" href="/assets/css/moox.css?20131231083137">
 
 
 
@@ -65,7 +65,7 @@
 		<article class="Box-module" lang="fr">
 			<header>
 				<h1><span class="text-less-visible">[fr]</span> Fonctions et variables CSS avec Sass et Compass</h1>
-				<time class="text-less-visible" pubdate datetime="2013-12-29">13 May 2011</time>
+				<time class="text-less-visible" pubdate datetime="2013-12-31">13 May 2011</time>
 			</header>
 			<!-- 
 			<div class="category">
@@ -119,14 +119,14 @@ which gem
 <span class="cm-builtin">sudo</span> gem install sass</code></pre>
 <p>Une fois ceci fait, faites un petit tour sur le [tutorial Sass][11] afin de faire un petit test pour vérifier que tout marche bien.</p>
 <p>On crée un fichier test.scss avec le code suivant :</p>
-<pre><code class="language-css"><span class="cm-tag">body</span> {
+<pre><code class="language-scss"><span class="cm-tag">body</span> {
     <span class="cm-property">color</span><span class="cm-operator">:</span> <span class="cm-string-2">rgba</span>(<span class="cm-error">#fff</span>, <span class="cm-number">.8</span>);
 }</code></pre>
 <p>Ensuite on lance le binaire Sass depuis le dossier où se trouve le fichier de test :</p>
 <pre><code class="language-bash">sass <span class="cm-attribute">--watch</span> test.scss:style.css</code></pre>
 <p>On vérifie que le fichier contient bien du code css valide.
 Et pour vérifier que l’aspect de tracking des modifications on peut modifier le fichier ainsi:</p>
-<pre><code class="language-css"><span class="cm-tag">body</span> {
+<pre><code class="language-scss"><span class="cm-tag">body</span> {
     <span class="cm-property">color</span><span class="cm-operator">:</span> <span class="cm-variable-2">darken</span>(<span class="cm-error">rgba</span>(<span class="cm-error">#fff</span>, <span class="cm-number">.8</span>), <span class="cm-number">10%</span>);
 }</code></pre>
 <p>On peut vérifier que la CSS a bien été modifié.</p>
@@ -183,8 +183,8 @@ compass watch</code></pre>
 		</article>
 
 		
-			<section class="Box-module about-author">
-	<img class="obj-start" src="//gravatar.com/avatar/d2a1c95e2af59538301c3ee6d2907f6f?s=128" alt="">
+			<section class="Box-module AboutAuthor">
+	<img class="AboutAuthor-avatar" src="//gravatar.com/avatar/d2a1c95e2af59538301c3ee6d2907f6f?s=128" alt="">
 	<h1 class="h3 margin-vn">À propos de l'auteur</h1>
 	<p>
 		<strong>Maxime Thirouin</strong>, alias <em>MoOx</em> sur le web, est un développeur front-end freelance vivant à Toulouse, en France. Lorsqu'il ne fait pas le geek derrière son écran, il adore bricoler dans sa maison en bois ou profiter de la vie avec sa merveilleuse femme. Vous pouvez consulter le code qu'il publie sur <a href="https://github.com/MoOx">Github</a> ou juste jeter un coup d'oeil à ce qu'il partage via <a href="https://twitter.com/MoOx">Twitter</a>.
@@ -217,7 +217,7 @@ compass watch</code></pre>
 </div>
 
 </div>
-<script src="/assets/js/vanilla.js?20131229204109"></script>
+<script src="/assets/js/vanilla.js?20131231083137"></script>
 
 
 	
