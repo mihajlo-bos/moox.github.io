@@ -633,6 +633,9 @@ table {
 .text--light {
   font-weight: normal; }
 
+h1, .h1 {
+  line-height: 1.2; }
+
 html {
   color: #eeeeee;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.8); }
@@ -753,17 +756,19 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, .annonce-box, .Navbar {
   .Navbar .icon {
     font-size: 1.2em; }
 
-.Navbar__section, .Navbar__section li, .Navbar__section a {
-  margin: 0;
-  padding: 0; }
-.Navbar__section a {
-  display: block;
-  font-weight: bold;
-  text-decoration: none;
-  color: white; }
-  .Navbar__section a:hover {
-    color: white;
-    background: rgba(0, 0, 0, 0.65); }
+.Navbar__section {
+  list-style: none; }
+  .Navbar__section, .Navbar__section li, .Navbar__section a {
+    margin: 0;
+    padding: 0; }
+  .Navbar__section a {
+    display: block;
+    font-weight: bold;
+    text-decoration: none;
+    color: white; }
+    .Navbar__section a:hover {
+      color: white;
+      background: rgba(0, 0, 0, 0.65); }
 
 @media (min-width: 50em) {
   .Navbar__section, .Navbar__section li, .Navbar__section a {
@@ -824,6 +829,8 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, .annonce-box, .Navbar {
   font-size: 0.8em;
   padding: 0 1em; }
 
+.Navbar__toggler {
+  right: 1rem; }
 
 @media (max-width: 50em) {
   .js .js-togglable__toggler {
@@ -836,7 +843,8 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, .annonce-box, .Navbar {
 
 .SiteLogo {
   line-height: 1;
-  padding: 0.6em 1em; }
+  padding: 0.6em 1em;
+  display: inline-block; }
 
 .SiteLogo-title, .SiteLogo-description {
   line-height: 1;
@@ -992,7 +1000,8 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, .annonce-box, .Navbar {
       opacity: 1; }
 
 .stretch-img_column {
-  padding-top: 1em; }
+  padding-top: 1em;
+  vertical-align: bottom; }
   .stretch-img_column img {
     display: block;
     margin: auto;
