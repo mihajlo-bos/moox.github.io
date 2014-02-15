@@ -20,7 +20,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <link href="feed.xml" rel="alternate" type="application/rss+xml">
 
-<link rel="stylesheet" href="/assets/css/moox.css?20140130081917">
+<link rel="stylesheet" href="/assets/css/moox.css?20140215084703">
 
 
 
@@ -32,64 +32,67 @@
 
 <a class="source-code" href="https://github.com/MoOx/moox.io.git">source code</a>
 
-<div class="body-wrapper">
 <nav class="Navbar Navbar--top js-togglable">
-	<a class="SiteLogo Navbar__section Navbar__section--left hint hint--bottom title" href="/" data-hint="Home">
-		<span class="SiteLogo-title">MoOx</span>
-		<br />
-		<span class="SiteLogo-description">Front-end web developer</span>
-	</a>
-	<button class="Navbar__toggler js-togglable__toggler">☰</button>
+  <div class="mx-Body">
+    <a class="SiteLogo Navbar__section Navbar__section--left hint hint--bottom title" href="/" data-hint="Home">
+      <span class="SiteLogo-title">MoOx</span>
+      <br />
+      <span class="SiteLogo-description">Front-end web developer</span>
+    </a>
+    <button class="Navbar__toggler js-togglable__toggler">☰</button>
 
-	<ul class="Navbar__section Navbar__section--right js-togglable__item js-togglable__item--hide">
-		<li class="Navbar-separator--after"><a class=""  href="profile/"><i class="icon icon_user"></i> Profile</a>
-		
-		</li><li class="Navbar-separator--after"><a class=""  href="/code/"><i class="icon icon_gears"></i> Code</a>
-    </li><li class="Navbar-separator--after"><a class=""  href="slides/"><i class="icon icon_speech-bubble"></i> Talks</a>
-		</li><li class="Navbar-separator--after"><a class=""  href="blog/"><i class="icon icon_pencil"></i> Blog</a>
-		</li><li class="Navbar-separator--after"><a class=""  href="about/"><i class="icon icon_help"></i> About</a>
-		</li><li class="Navbar-separator--after"><a class=""  href="contact/"><i class="icon icon_speech-bubbles"></i> Contact</a></li>
-	</ul>
+    <ul class="Navbar__section Navbar__section--right js-togglable__item js-togglable__item--hide">
+      <li class="Navbar-separator--after"><a class=""  href="profile/"><i class="icon icon_user"></i> Profile</a>
+      
+      </li><li class="Navbar-separator--after"><a class=""  href="/code/"><i class="icon icon_gears"></i> Code</a>
+      </li><li class="Navbar-separator--after"><a class=""  href="slides/"><i class="icon icon_speech-bubble"></i> Talks</a>
+      </li><li class="Navbar-separator--after"><a class=""  href="blog/"><i class="icon icon_pencil"></i> Blog</a>
+      </li><li class="Navbar-separator--after"><a class=""  href="about/"><i class="icon icon_help"></i> About</a>
+      </li><li class="Navbar-separator--after"><a class=""  href="contact/"><i class="icon icon_speech-bubbles"></i> Contact</a></li>
+    </ul>
+  </div>
 </nav>
 
 
-<div class="grid grid--center grid--title">
-	<hgroup class="grid__cell unit-8-12--medium title--light">
-		<h1>MoOx' hut</h1>
-		<h2>... where he talks about web &amp; dev.</h2>
-	</hgroup>
-</div>
+<header class="mx-Header">
+  <div class="mx-Body grid grid--center">
+    <hgroup class="grid__cell unit-8-12--medium title--light">
+      <h1>MoOx' hut</h1>
+      <h2>... where he talks about web &amp; dev.</h2>
+    </hgroup>
+  </div>
+</header>
 
-<div class="grid grid--blabla">
-	<div class="grid__cell Box">
-		<article class="Box-body" lang="fr">
-			<header>
-				<h1><span class="text-less-visible">[fr]</span> Utiliser des variables et fonctions CSS, c&#x27;est possible !</h1>
-				<time class="text-less-visible" pubdate datetime="2014-01-30">21 April 2011</time>
-			</header>
-			<!-- 
-			<div class="category">
-				<ul>
-					
-						<li><a href="#"></a></li>
-					
-						<li><a href="#"></a></li>
-					
-						<li><a href="#"></a></li>
-					
-						<li><a href="#"></a></li>
-					
-						<li><a href="#"></a></li>
-					
-						<li><a href="#"></a></li>
-					
-						<li><a href="#"></a></li>
-					
-				</ul>
-			</div>
-			 -->
-			<div class="content">
-				
+<div class="mx-Content mx-Body grid">
+  <div class="grid__cell">
+    <article class="" lang="fr">
+      <header>
+        <h1><span class="text-less-visible">[fr]</span> Utiliser des variables et fonctions CSS, c&#x27;est possible !</h1>
+        <time class="text-less-visible" pubdate datetime="2014-02-15">21 April 2011</time>
+      </header>
+      <!-- 
+      <div class="category">
+        <ul>
+          
+            <li><a href="#"></a></li>
+          
+            <li><a href="#"></a></li>
+          
+            <li><a href="#"></a></li>
+          
+            <li><a href="#"></a></li>
+          
+            <li><a href="#"></a></li>
+          
+            <li><a href="#"></a></li>
+          
+            <li><a href="#"></a></li>
+          
+        </ul>
+      </div>
+       -->
+      <div class="content">
+        
 
 <p>Depuis la création d’Internet à aujourd’hui, les interfaces web ont bien évolués. Les langages et méthodes aussi. On est passé de sites statiques à des sites dynamiques, puis hautement dynamiques (la fameuse période 2.0…). Dans tous ça, CSS n’a, à mon sens, que très peu évolué d’un point de vue des possibilités du langage. Certains disent que la puissance des CSS réside dans la simplicité de celles-ci. Ce qui n’est pas forcément faux. Ca se discute.</p>
 <h2 id="css-n-a-ni-variables-ni-fonctions">CSS n’a ni variables, ni fonctions</h2>
@@ -190,20 +193,20 @@ La syntaxe ne fait pas tout, il faut aussi regarder la méthode de génération 
 <p>Edit: Depuis j’ai publié d’autres articles relatifs, un plus détaillé sur <a href="/blog/fonctions-variables-css-generer-ses-css-avec-sass-compass/">la solution Sass/Compass (et son installation) </a>puis un autre sur <a href="/blog/compass-app-application-pour-compiler-css-sass-compass/">comment se passer des lignes de commandes avec Compass.app !</a></p>
 
 
-			</div>
-			<br /><br />
-			---
-			<br /><br />
-			<footer>
-				<div class="report">
-					See something wrong here ? Please tell me <a href="https://github.com/MoOx/moox.io/issues">with an issue on Github</a>,
-					or just some words on twitter at <a href="https://twitter.com/MoOx/">@MoOx</a>.
-				</div>
-			</footer>
-		</article>
+      </div>
+      <br /><br />
+      ---
+      <br /><br />
+      <footer>
+        <div class="report">
+          See something wrong here ? Please tell me <a href="https://github.com/MoOx/moox.io/issues">with an issue on Github</a>,
+          or just some words on twitter at <a href="https://twitter.com/MoOx/">@MoOx</a>.
+        </div>
+      </footer>
+    </article>
 
-		
-			<section class="Box-body AboutAuthor">
+    
+      <section class="Box-body AboutAuthor">
 	<img class="AboutAuthor-avatar" src="//gravatar.com/avatar/d2a1c95e2af59538301c3ee6d2907f6f?s=128" alt="">
 	<h1 class="h3 margin-vn">À propos de l'auteur</h1>
 	<p>
@@ -213,31 +216,35 @@ La syntaxe ne fait pas tout, il faut aussi regarder la méthode de génération 
 
 
 
-		
+    
 
-		
-		<section class="Box-body">
-			<h1>Comments</h1>
-			<div id="disqus_thread" aria-live="polite">
-				<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-			</div>
-		</section>
-		
-		<footer class="Box-body">
-			<h3>This is a temporary footer</h3>
-			<div class="icons--big">
-				<a href="https://twitter.com/MoOx"><i class="icon icon_twitter"></i><span class="text">Twitter</span></a>
-				<a href="https://github.com/MoOx"><i class="icon icon_github"></i><span class="text">Github</span></a>
-				<a href="http://www.linkedin.com/in/maxthirouin"><i class="icon icon_linkedin"></i><span class="text">LinkedIn</span></a>
-				<a href="skype:maxime.thirouin?add"><i class="icon icon_skype"></i><span class="text">Skype</span></a>
-				<a href="contact/"><i class="icon icon_email"></i><span class="text">Contact</span></a>
-			</div>
-		</footer>
-	</div>
+    
+    <section class="">
+      <h1>Comments</h1>
+      <div id="disqus_thread" aria-live="polite">
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
+    </section>
+    
+  </div>
 </div>
 
+<footer class="mx-Footer mx-Footer--tmp">
+  <h3>This is a temporary footer</h3>
+<div class="icons--big">
+	<a href="https://twitter.com/MoOx"><i class="icon icon_twitter"></i><span class="text">Twitter</span></a>
+	<a href="https://github.com/MoOx"><i class="icon icon_github"></i><span class="text">Github</span></a>
+	<a href="http://www.linkedin.com/in/maxthirouin"><i class="icon icon_linkedin"></i><span class="text">LinkedIn</span></a>
+	<a href="skype:maxime.thirouin?add"><i class="icon icon_skype"></i><span class="text">Skype</span></a>
+
+	<a href="contact/"><i class="icon icon_email"></i><span class="text">Contact</span></a>
+
 </div>
-<script src="/assets/js/vanilla.js?20140130081917"></script>
+
+</footer>
+
+
+<script src="/assets/js/vanilla.js?20140215084703"></script>
 
 
 	
