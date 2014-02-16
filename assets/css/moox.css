@@ -713,7 +713,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 0.8rem;
-  line-height: 1.6rem;
+  line-height: 1.6;
   font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   background: #eee url('/assets/img/lightpaperfibers.png'); }
   @media (min-width: 50em) {
@@ -751,7 +751,7 @@ html {
   position: relative;
   z-index: 1;
   width: 100%;
-  line-height: 4em;
+  line-height: 4rem;
   background: rgba(0, 0, 0, 0.65);
   text-shadow: 0 1px 0 #000; }
   .Navbar:before, .Navbar:after {
@@ -788,7 +788,7 @@ html {
   position: absolute;
   top: 0;
   right: 0;
-  font-size: 2.8em;
+  font-size: 2.8rem;
   line-height: 1.42857;
   padding: 0;
   border: 0;
@@ -803,36 +803,39 @@ html {
   .Navbar [href="#not-ready"] {
     color: rgba(255, 255, 255, 0.3) !important; }
 
-@media (min-width: 65em) {
-  .Navbar--top {
-    font-size: 1.1em; } }
-.Navbar--top .active {
-  position: relative;
-  overflow: hidden;
-  vertical-align: middle; }
-  .Navbar--top .active::after {
-    content: "";
-    background-color: #00a15d;
-    -webkit-box-shadow: 0 0 0.2em #00884d, 0 0.15em 0.4em #006e3e, 0 -0.15em 0.4em #006e3e, 0 0.3em 0.6em #003b21, 0 -0.3em 0.6em #003b21;
-    box-shadow: 0 0 0.2em #00884d, 0 0.15em 0.4em #006e3e, 0 -0.15em 0.4em #006e3e, 0 0.3em 0.6em #003b21, 0 -0.3em 0.6em #003b21;
-    width: 1em;
-    height: 1em;
-    border-radius: 100%;
-    position: absolute;
-    left: -0.8em;
-    top: 50%;
-    margin-top: -0.5em; }
-    @media (min-width: 50em) {
-      .Navbar--top .active::after {
-        top: auto;
-        left: auto;
-        margin-top: 0;
-        top: -0.8em;
-        left: 50%;
-        margin-left: -0.5em; } }
+.Navbar--top {
+  -webkit-box-shadow: 0 0.2em 0.6em rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0.2em 0.6em rgba(0, 0, 0, 0.4); }
+  @media (min-width: 65em) {
+    .Navbar--top {
+      font-size: 1.1em; } }
+  .Navbar--top .active {
+    position: relative;
+    overflow: hidden;
+    vertical-align: middle; }
+    .Navbar--top .active::after {
+      content: "";
+      background-color: #00a15d;
+      -webkit-box-shadow: 0 0 0.2em #00884d, 0 0.15em 0.4em #006e3e, 0 -0.15em 0.4em #006e3e, 0 0.3em 0.6em #003b21, 0 -0.3em 0.6em #003b21;
+      box-shadow: 0 0 0.2em #00884d, 0 0.15em 0.4em #006e3e, 0 -0.15em 0.4em #006e3e, 0 0.3em 0.6em #003b21, 0 -0.3em 0.6em #003b21;
+      width: 1em;
+      height: 1em;
+      border-radius: 100%;
+      position: absolute;
+      left: -0.8em;
+      top: 50%;
+      margin-top: -0.5em; }
+      @media (min-width: 50em) {
+        .Navbar--top .active::after {
+          top: auto;
+          left: auto;
+          margin-top: 0;
+          top: -0.8em;
+          left: 50%;
+          margin-left: -0.5em; } }
 
 .Navbar__section a {
-  font-size: 0.8em;
+  font-size: 0.9rem;
   padding: 0 1em; }
 
 .Navbar__toggler {
@@ -871,13 +874,26 @@ html {
   margin-top: -1.2em; }
 
 .mx-Header {
-  padding-top: 4em;
-  border-bottom: 0.4em solid #00a15d;
+  padding-top: 4rem;
+  border-bottom: 0.4rem solid #00a15d;
   -webkit-box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
   background: url("/assets/img/forest-ruins--portrait.jpg") no-repeat center 45%;
   -webkit-background-size: cover;
   background-size: cover; }
+  .mx-Header .mx-Body {
+    display: table;
+    height: 100%; }
+  .mx-Header .mx-Body hgroup {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 1rem; }
+    @media (min-width: 50em) {
+      .mx-Header .mx-Body hgroup {
+        padding: 4rem 1rem; } }
+    @media (min-height: 50rem) {
+      .mx-Header .mx-Body hgroup {
+        padding: 6rem 1rem; } }
   @media (orientation: landscape) and (min-width: 50em) {
     .mx-Header {
       background-image: url("/assets/img/forest-ruins--landscape.jpg"); } }
@@ -887,34 +903,32 @@ html {
     box-shadow: none;
     border: 0; }
   @media (min-width: 50em) {
-    .mx-Header {
-      padding: 10em 0 6em; }
-      .mx-Header .grid__cell {
-        text-align: center; }
-      .grid-title--quotes .mx-Header h1, .grid-title--quotes .mx-Header .h1 {
-        text-align: left; }
-      .grid-title--quotes .mx-Header h2, .grid-title--quotes .mx-Header .h2 {
-        text-align: right; }
-      .grid-title--quotes .mx-Header h1, .grid-title--quotes .mx-Header .h1, .grid-title--quotes .mx-Header h1:before, .grid-title--quotes .mx-Header h2, .grid-title--quotes .mx-Header .h2, .grid-title--quotes .mx-Header h2:after {
-        position: relative; }
-      .grid-title--quotes .mx-Header h1:before, .grid-title--quotes .mx-Header h2:after {
-        position: absolute;
-        font-size: 6em;
-        opacity: 0.6; }
-      .grid-title--quotes .mx-Header h1:before {
-        content: '\201C';
-        left: -0.7em;
-        top: -0.2em;
-        font-size: 1.4em; }
-      .grid-title--quotes .mx-Header h2:after {
-        content: '\201D';
-        right: -0.7em;
-        top: 0em;
-        font-size: 2.2em; } }
+    .mx-Header .grid__cell {
+      text-align: center; }
+    .grid-title--quotes .mx-Header h1, .grid-title--quotes .mx-Header .h1 {
+      text-align: left; }
+    .grid-title--quotes .mx-Header h2, .grid-title--quotes .mx-Header .h2 {
+      text-align: right; }
+    .grid-title--quotes .mx-Header h1, .grid-title--quotes .mx-Header .h1, .grid-title--quotes .mx-Header h1:before, .grid-title--quotes .mx-Header h2, .grid-title--quotes .mx-Header .h2, .grid-title--quotes .mx-Header h2:after {
+      position: relative; }
+    .grid-title--quotes .mx-Header h1:before, .grid-title--quotes .mx-Header h2:after {
+      position: absolute;
+      font-size: 6em;
+      opacity: 0.6; }
+    .grid-title--quotes .mx-Header h1:before {
+      content: '\201C';
+      left: -0.7em;
+      top: -0.2em;
+      font-size: 1.4em; }
+    .grid-title--quotes .mx-Header h2:after {
+      content: '\201D';
+      right: -0.7em;
+      top: 0em;
+      font-size: 2.2em; } }
 
 .mx-Content {
   position: relative;
-  padding: 2rem 1rem; }
+  padding: 2rem 1rem 0; }
 
 .mx-Footer {
   margin-top: 4rem;
@@ -1054,6 +1068,7 @@ html {
 
 .AvailabilityStatus-body {
   display: table;
+  width: 100%;
   border-color: rgba(0, 0, 0, 0.15); }
 
 a.AvailabilityStatus:hover .AvailabilityStatus-body {
@@ -1114,20 +1129,22 @@ a.AvailabilityStatus:hover .AvailabilityStatus-body {
   .mx--StretchImg, body {
     height: 100%; }
   .mx--StretchImg .mx-Header {
-    padding-top: 10em;
     height: 30%; }
+  .mx--StretchImg .mx-Header .mx-Body hgroup {
+    padding: 0 1em; }
   .mx--StretchImg .mx-Content {
     height: 70%; }
   .mx-StretchImg {
-    position: static;
+    position: relative;
+    height: 100%;
     padding-top: 0; }
     .mx-StretchImg img {
       position: absolute;
-      top: 0;
-      right: 0;
+      left: 0;
       bottom: 0;
-      max-height: 100%;
-      max-width: 50%; } }
+      height: 94%;
+      max-height: 94%;
+      max-width: none; } }
 
 blockquote {
   margin: 2em 2em;
@@ -1136,18 +1153,17 @@ blockquote {
   opacity: 0.7;
   position: relative; }
   blockquote:before, blockquote:after {
+    line-height: 1rem;
     z-index: 2;
-    position: relative; }
-  blockquote:before, blockquote:after {
     position: absolute;
-    font-size: 6em;
+    font-size: 6rem;
     opacity: 0.3; }
   blockquote:before {
     content: '\201C';
-    left: -0.16667em; }
+    left: -1.6rem; }
   blockquote:after {
     content: '\201D';
-    right: -0.16667em; }
+    right: -1.6rem; }
 
 .flex-media--unknown {
   text-align: center; }
