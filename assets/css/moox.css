@@ -762,29 +762,29 @@ html {
   .Navbar .icon {
     font-size: 1.2em; }
 
-.Navbar__section {
+.Navbar-section {
   list-style: none; }
-  .Navbar__section, .Navbar__section li, .Navbar__section a {
+  .Navbar-section, .Navbar-section li, .Navbar-section a {
     margin: 0;
     padding: 0; }
-  .Navbar__section a {
+  .Navbar-section a {
     display: block;
     font-weight: bold;
     text-decoration: none;
     color: #fff; }
-    .Navbar__section a:hover {
+    .Navbar-section a:hover {
       color: #fff;
       background: rgba(0, 0, 0, 0.65); }
 
 @media (min-width: 50em) {
-  .Navbar__section, .Navbar__section li, .Navbar__section a {
+  .Navbar-section, .Navbar-section li, .Navbar-section a {
     display: inline-block; }
-  .Navbar__section--left {
+  .Navbar-section--left {
     float: left; }
-  .Navbar__section--right {
+  .Navbar-section--right {
     float: right; } }
 
-.Navbar__toggler {
+.Navbar-toggler {
   position: absolute;
   top: 0;
   right: 0;
@@ -795,7 +795,7 @@ html {
   color: #fff;
   background: none; }
   @media (min-width: 50em) {
-    .Navbar__toggler {
+    .Navbar-toggler {
       display: none; } }
 
 .Navbar {
@@ -834,24 +834,24 @@ html {
           left: 50%;
           margin-left: -0.5em; } }
 
-.Navbar__section a {
+.Navbar-section a {
   font-size: 0.9rem;
   padding: 0 1em; }
 
-.Navbar__toggler {
+.Navbar-toggler {
   right: 1rem; }
 
 @media (max-width: 50em) {
-  .js-togglable--toggled {
+  .js-Togglable--toggled {
     background: rgba(0, 0, 0, 0.9); } }
 
 @media (max-width: 50em) {
-  .js .js-togglable__toggler {
+  .js .js-Togglable-toggler {
     display: inline-block; }
-  .js .js-togglable__item--hide {
+  .js .js-Togglable-item--hide {
     display: none; } }
 @media (min-width: 50em) {
-  .js .js-togglable__toggler {
+  .js .js-Togglable-toggler {
     display: none; } }
 
 .SiteLogo {
