@@ -5,7 +5,7 @@
         <description>Front-end web developer</description>
         <link>http://moox.io/</link>
         <generator>happyplan 0.4.0-beta.5</generator>
-        <lastBuildDate>Sun, 23 February 2014 00:00:00 +0100</lastBuildDate>
+        <lastBuildDate>Tue, 04 March 2014 00:00:00 +0100</lastBuildDate>
 
           <item>
               <title>Configurer un Serveur Web Apache PHP MySQL sur OS X Lion</title>
@@ -73,9 +73,9 @@ Ajouter dans votre php.ini (cf configuration de php ci-dessus)</p>
 </figure>
 
 <p>Suite à mes précédents articles sur <a href="/blog/utiliser-des-variables-fonctions-css">les pré-processeurs CSS qui permettent d’utiliser des variables et fonctions</a>, et <a href="/blog/fonctions-variables-css-generer-ses-css-avec-sass-compass/">un petit tutoriel sur l’installation et utilisation du combo Sass/Compass</a>, voici la présentation d’un petite application, qui permet de s’affranchir des toujours utiliser des lignes de commandes pour lancer Compass.</p>
-<p>Voici une petite vidéo d’intro (sans son) provenant du <a href="http://compass.handlino.com/">site officiel de Compass.app</a></p>
+<p>Voici une petite vidéo d’intro (sans son) provenant du <a href="http://compass.kkbox.com/">site officiel de Compass.app</a></p>
 <p>C’est quand même plus sympa d’avoir une petite appli discrète, avec les notifications systèmes ! Quelques options sont configurables via un menu (pour activer/désactiver certains types de notifications, ou spécifier la version de compass à utiliser).</p>
-<p>Des versions compilés de l’application sont disponibles à la vente sur le site, mais l’application est Open-Source et il est bien indiqué dans la doc du <a href="https://github.com/handlino/CompassApp">repository Github de Compass.app</a> que nous pouvons librement le compiler.</p>
+<p>Des versions compilés de l’application sont disponibles à la vente sur le site, mais l’application est Open-Source et il est bien indiqué dans la doc du <a href="https://github.com/KKBOX/CompassApp">repository Github de Compass.app</a> que nous pouvons librement le compiler.</p>
 <p>Pour mémo, voici de quoi l’installer (sur Mac OS X, doit donc fonctionner sur Linux, voir même Windows avec une petite adaptation pour les paths) :</p>
 <h2 id="pr-requis-la-compilation-de-compass-app">Prérequis à la compilation de Compass.app</h2>
 <ol>
@@ -215,14 +215,14 @@ compass watch</code></pre>
 
 <p>Depuis la création d’Internet à aujourd’hui, les interfaces web ont bien évolués. Les langages et méthodes aussi. On est passé de sites statiques à des sites dynamiques, puis hautement dynamiques (la fameuse période 2.0…). Dans tous ça, CSS n’a, à mon sens, que très peu évolué d’un point de vue des possibilités du langage. Certains disent que la puissance des CSS réside dans la simplicité de celles-ci. Ce qui n’est pas forcément faux. Ca se discute.</p>
 <h2 id="css-n-a-ni-variables-ni-fonctions">CSS n’a ni variables, ni fonctions</h2>
-<p>Le langage des CSS n’a pas de côté dynamique. C’est lui avec lequel, à chaque fois qu’on intègre une maquette graphique, on doit se taper tout de zéro. Il a beau exister des <a href="http://cssresetr.com/">CSS « Reset »</a>, <a href="http://css4design.com/framework-css-semantique-maquette-dynamique-et-autres-notes">des frameworks CSS</a>, <a href="http://css4design.com/framework-css-mettez-vos-grilles-au-pas">tout un tas de grilles prête à l’emploi</a>, <a href="https://github.com/stubbornella/oocss">des composants de CSS réutilisables</a> avec l’approche <a href="http://fr.wikipedia.org/wiki/Objet_(informatique)">objet</a>, je n’ai jamais réellement était satisfait par ces méthodes, que ce soit à cause des contraintes qu’impose la syntaxe (devoir mettre des classes à tout va dans l’HTML ça peut vite devenir chiant dans un CMS), ou par d’éventuelles limitations qui obligent à « trop » modifier la source du document (pas assez de, ou trop de, ou juste ça me plait pas comment c’est fait).</p>
+<p>Le langage des CSS n’a pas de côté dynamique. C’est lui avec lequel, à chaque fois qu’on intègre une maquette graphique, on doit se taper tout de zéro. Il a beau exister des <a href="http://cssresetr.com/">CSS « Reset »</a>, <a href="http://css.4design.tl/framework-css-semantique-maquette-dynamique-et-autres-notes">des frameworks CSS</a>, <a href="http://css.4design.tl/framework-css-mettez-vos-grilles-au-pas">tout un tas de grilles prête à l’emploi</a>, <a href="https://github.com/stubbornella/oocss">des composants de CSS réutilisables</a> avec l’approche <a href="http://fr.wikipedia.org/wiki/Objet_(informatique)">objet</a>, je n’ai jamais réellement était satisfait par ces méthodes, que ce soit à cause des contraintes qu’impose la syntaxe (devoir mettre des classes à tout va dans l’HTML ça peut vite devenir chiant dans un CMS), ou par d’éventuelles limitations qui obligent à « trop » modifier la source du document (pas assez de, ou trop de, ou juste ça me plait pas comment c’est fait).</p>
 <h2 id="comment-faire-pour-avoir-des-variables-et-fonctions-dans-css-">Comment faire pour avoir des variables et fonctions dans CSS ?</h2>
 <p>Bridé par le language, j’ai cherché des solutions car j’ai pas forcément envie d’attendre CSS 4 qui sera surement pas officiel avant 20 ans (sachant que CSS 3 n’est encore qu’un brouillon et que CSS 2.1 est à peine ouvert aux commentaires…)
 Du coup, voilà ce que j’ai recencé à ce jour:</p>
 <ul>
 <li><a href="http://sass-lang.com/">Sass</a> dispo sur <a href="https://github.com/nex3/sass" title="Sass sur Github">GitHub</a></li>
-<li><a href="http://lesscss.org/">LESS</a> dispo sur <a href="https://github.com/cloudhead/less.js" title="LESS sur Github">GitHub</a></li>
-<li><a href="http://learnboost.github.com/stylus/">Stylus</a> dispo sur <a href="https://github.com/LearnBoost/stylus" title="Stylus sur Github">GitHub</a></li>
+<li><a href="http://lesscss.org/">LESS</a> dispo sur <a href="https://github.com/less/less.js" title="LESS sur Github">GitHub</a></li>
+<li><a href="http://learnboost.github.io/stylus/">Stylus</a> dispo sur <a href="https://github.com/LearnBoost/stylus" title="Stylus sur Github">GitHub</a></li>
 </ul>
 <h2 id="pr-sentation-des-surcouches-existantes-aux-langages-des-css">Présentation des surcouches existantes aux langages des CSS</h2>
 <p>Voici des textes traduits des sites officiels, qui résument très bien les outils. Puis s’ils résument pas bien, c’est pas de ma faute, c’est comme ça mais ça montre qui est clair et qui ne l’est pas :)</p>
@@ -230,7 +230,7 @@ Du coup, voilà ce que j’ai recencé à ce jour:</p>
 <blockquote>
 <p>Sass rend les CSS à nouveau amusant. Sass est une extension de CSS 3, en ajoutant règles imbriqués, variables, <a href="http://fr.wikipedia.org/wiki/Mixin">mixins</a>, l’héritage de sélection, et encore plus. Cela ce transforme en CSS standard, bien formaté, à l’aide d’outils en ligne de commande ou avec des plugins de frameworks web [-ou un petit outil avec GUI que je vous présenterais ;) ].</p>
 <p>Sass à 2 syntaxes. La principale (depuis Sass 3) est connu sous le nom de “SCSS » (pour “Sassy CSS”), et est un surensemble de la syntaxe CSS 3. Cela veut dire que du tout feuille de styles CSS 3 est aussi du SCSS valide. Les fichiers SCSS utilise l’extension .scss.</p>
-<p>La seconde sxyntaxe, plus ancienne, est connu comme la syntaxe indenté (juste “Sass”). Inspiré par le laconisme de <a href="http://haml-lang.com/">Haml</a>, elle est destinée aux personnes qui préfèrent la concision. Au lieu de crochets et des points-virgules, elle utilise l’indentation des lignes pour spécifier les blocs. Bien que elle ne soit plus la syntaxe primaire, cette syntaxe continuera d’être pris en charge. Les fichiers de cette ancienne syntaxe utilisent l’extension .sass.</p>
+<p>La seconde sxyntaxe, plus ancienne, est connu comme la syntaxe indenté (juste “Sass”). Inspiré par le laconisme de <a href="http://haml.info/">Haml</a>, elle est destinée aux personnes qui préfèrent la concision. Au lieu de crochets et des points-virgules, elle utilise l’indentation des lignes pour spécifier les blocs. Bien que elle ne soit plus la syntaxe primaire, cette syntaxe continuera d’être pris en charge. Les fichiers de cette ancienne syntaxe utilisent l’extension .sass.</p>
 </blockquote>
 <h4 id="petit-exemple-de-code-sass-avec-la-syntaxe-scss">Petit exemple de code Sass avec la syntaxe Scss</h4>
 <pre><code class="language-scss">// <span class="cm-tag">note</span> <span class="cm-operator">:</span> <span class="cm-tag">ceci</span> <span class="cm-tag">est</span> <span class="cm-tag">bien</span> <span class="cm-tag">un</span> <span class="cm-tag">commentaire</span> <span class="cm-tag">valide</span> <span class="cm-tag">avec</span> <span class="cm-tag">sass</span><span class="cm-tag">.</span> <span class="cm-tag">Au</span> <span class="cm-tag">revoir</span> <span class="cm-tag">les</span> <span class="cm-comment">/**/</span>
@@ -303,7 +303,7 @@ La syntaxe ne fait pas tout, il faut aussi regarder la méthode de génération 
 <li>LESS possède pour le développement, un fichier javascript, et pour la production, un compilateur (ligne de commande),</li>
 <li>Stylus utilise une méthode de compilation (je n’ai pas été foutu de trouver un exemple clair rapidement)</li>
 </ul>
-<p>Sass est basé sur Ruby, LESS et Stylus sur Javascript (Node.js). Tous les 3 peuvents être utilisé depuis d’autres langages pour peu que vous utilisiez des interface comme <a href="https://github.com/kriswallsmith/assetic">Assetic en PHP</a>. Globalement rien de bien différent, si ce n’est que Sass possède des solutions pour gérer la génération depuis votre GUI (<a href="https://github.com/hlb/SassSalon">SassSalon</a>, <a href="http://compass.handlino.com/">Compass.app</a> ), utile pour des designers qui n’aiment souvent pas les lignes de commandes…</p>
+<p>Sass est basé sur Ruby, LESS et Stylus sur Javascript (Node.js). Tous les 3 peuvents être utilisé depuis d’autres langages pour peu que vous utilisiez des interface comme <a href="https://github.com/kriswallsmith/assetic">Assetic en PHP</a>. Globalement rien de bien différent, si ce n’est que Sass possède des solutions pour gérer la génération depuis votre GUI (<a href="https://github.com/hlb/SassSalon">SassSalon</a>, <a href="http://compass.kkbox.com/">Compass.app</a> ), utile pour des designers qui n’aiment souvent pas les lignes de commandes…</p>
 <p>Ensuite il faut rentrer un peu dans le détail des fonctionnalités offertes, mais je vous laisse prendre le temps de faire ça par vous même en consultant les docs.</p>
 <p>Sass a une base qui a du vécu et 2 syntaxes. LESS, lui, me parait un peu light, et je n’aime pas trop le coup du compilateur js. Quant à Stylus je n’ai pas trop pris le temps de faire des tests, mais il est encore assez jeune, quoique prometteur.</p>
 <p>Pour l’instant j’utilise Sass (avec la syntaxe scss), ma principale raison est le framework <a href="http://beta.compass-style.org/">Compass</a> qu’on peut rajouter en surcouche. Sass et Compass représente une grosse communauté et à eux 2 un bon gros tas de fonctions. Je rentrerais un peu plus dans le détail avec Sass/Compass dans un prochain post.</p>
@@ -356,7 +356,7 @@ Si on reprends mon exemple de tout à l’heure où j’ai compté les caractèr
 Avec jQuery, ça devient aussi simple que ça pour contourner le problème :</p>
 <pre><code class="language-js"><span class="cm-variable">jQuery</span>(<span class="cm-variable">$0</span>).<span class="cm-property">text</span>().<span class="cm-property">length</span></code></pre>
 <p>And voilà… Vous prendrez vite goût à cette technique qui peut devenir très utile. D’ailleurs si vous avez des petits snippets sympathiques, n’hésitez pas à les poster dans les commentaires, je pourrais très bien ajouter une liste de commandes utiles en dessous de cette article !</p>
-<p>Ajout du 17 mai 2011 : Je vous invite à <a href="http://paulirish.com/2011/a-re-introduction-to-the-chrome-developer-tools/">redécouvrir l’outil de dév. de Chrome, via une vidéo du dernier Google I/O présenté par Paul Irish</a></p>
+<p>Ajout du 17 mai 2011 : Je vous invite à <a href="http://www.paulirish.com/2011/a-re-introduction-to-the-chrome-developer-tools/">redécouvrir l’outil de dév. de Chrome, via une vidéo du dernier Google I/O présenté par Paul Irish</a></p>
 
 ]]></description>
               <pubDate>Mon, 18 April 2011 00:00:00 +0200</pubDate>
@@ -372,10 +372,10 @@ Avec jQuery, ça devient aussi simple que ça pour contourner le problème :</p>
 <p>Enfin bref. <em>Installer un serveur web local sur OS X</em> basé sur <strong>Apache/PHP/MySQL</strong> peut se faire de plusieurs manières :</p>
 <ul>
 <li>Activer le serveur web installé par défaut sur Mac (!),</li>
-<li>Installer la solution <a href="//www.apachefriends.org/">XAMPP</a> des amis d’apache,</li>
-<li>Installer la solution <a href="//www.mamp.info/">MAMP</a>,</li>
-<li>Installer la solution <a href="//www.zend.com/fr/products/server-ce/">Zend Server (Community Edition)</a>,</li>
-<li>Utiliser une solution à partir d’un gestionnaire de paquet tel que <a href="//www.macports.org/">MacPorts</a>, <a href="//www.finkproject.org/">Fink</a> ou <a href="//mxcl.github.com/homebrew/">Howbrew</a>,</li>
+<li>Installer la solution <a href="http://www.apachefriends.org/">XAMPP</a> des amis d’apache,</li>
+<li>Installer la solution <a href="http://www.mamp.info/">MAMP</a>,</li>
+<li>Installer la solution <a href="http://www.zend.com/fr/products/server/free-edition">Zend Server (Community Edition)</a>,</li>
+<li>Utiliser une solution à partir d’un gestionnaire de paquet tel que <a href="http://www.macports.org/">MacPorts</a>, <a href="http://www.finkproject.org/">Fink</a> ou <a href="http://mxcl.github.io/homebrew/">Howbrew</a>,</li>
 <li>Se démerder avec du code source et tout compiler soit même !</li>
 </ul>
 <h2 id="quelle-solution-choisir-pour-son-serveur-web-sous-mac-os-x-">Quelle solution choisir pour son serveur web sous Mac OS X ?</h2>
@@ -387,15 +387,15 @@ Avec jQuery, ça devient aussi simple que ça pour contourner le problème :</p>
 Pour le choix du gestionnaire je me suis orienté vers MacPorts non pas parce qu’il est supérieur, mais parce que les 2 autres (Fink et Homebrew) n’ont pas assez de paquets pour PHP (tout simplement). MacPorts en recense une centaine sur la recherche « php ». Fink environ 50, et Homebrew même pas une dizaine. Howbrew aurait l’avantage d’être beaucoup plus rapide que les 2 autres solutions, mais à comme principe de base de ne pas dupliquer un paquet déjà présent sur le système OS X. Et comme Apache/PHP sont déjà présents (bien que la version ne soit pas à jour et les extensions présentes ne se bousculent pas), il faut utiliser d’autres sources…
 Donc je me suis simplement orienté vers <strong>MacPorts</strong> :</p>
 <blockquote lang="en">
-    The MacPorts Project is an open-source community initiative to design an easy-to-use system for compiling, installing, and upgrading either command-line, X11 or Aqua based open-source software on the <a href="//www.apple.com/macosx/">Mac OS X</a> operating system. To that end we provide the command-line driven MacPorts software package under a <a href="//opensource.org/licenses/bsd-license.php">BSD License</a>, and through it easy access to thousands of ports that <a href="//guide.macports.org/#introduction">greatly simplify</a> the task of <a href="//guide.macports.org/#using">compiling and installing</a> open-source software on your Mac.
+    The MacPorts Project is an open-source community initiative to design an easy-to-use system for compiling, installing, and upgrading either command-line, X11 or Aqua based open-source software on the <a href="//www.apple.com/osx/">Mac OS X</a> operating system. To that end we provide the command-line driven MacPorts software package under a <a href="//opensource.org/licenses/bsd-license.php">BSD License</a>, and through it easy access to thousands of ports that <a href="//guide.macports.org/#introduction">greatly simplify</a> the task of <a href="//guide.macports.org/#using">compiling and installing</a> open-source software on your Mac.
 </blockquote>
 
 <p>Pour installer <strong>MacPorts</strong> rien de difficile : on se rend sur le site officiel du projet, on télécharge l’image disque puis on installe ça facilement (pré-requis : il faut avoir XCode et X11 d’installer sur sa machine, tous les 2 sont dispos sur les DVD d’applications fournies avec votre Mac). Après ça dans notre Terminal on a accès la commande <strong>port</strong> qui permettra de faire des équivalents d’apt-get / aptitude sous Linux. La grosse différence, qui est ses avantages et inconvénients c’est que ça compile les sources sur votre machine. Avantage : précision pour les options sur les paquets. Inconvénient : temps d’installation (surtout pour les premiers paquets).</p>
 <h2 id="installation-des-paquets-apache-php-mysql-avec-macports">Installation des paquets Apache, PHP, MySQL avec MacPorts</h2>
-<p>Passons donc au nécessaire. Installer Apache et le server mysql. PHP est installé juste après avec quelques petites spécificités éventuelles. Pour ce faire, dans votre <em>Application &gt; Utilitaires &gt; Terminal.app</em>, exécutez les commandes suivantes et ne soyez pas pressé, allez vous faire un café, prenez votre smartphone et allez <a href="//www.rovio.com/index.php?page=angry-birds" title="Voir au site du jeu Angry Birds">péter des cochons</a> quelques minutes sur votre trône :</p>
+<p>Passons donc au nécessaire. Installer Apache et le server mysql. PHP est installé juste après avec quelques petites spécificités éventuelles. Pour ce faire, dans votre <em>Application &gt; Utilitaires &gt; Terminal.app</em>, exécutez les commandes suivantes et ne soyez pas pressé, allez vous faire un café, prenez votre smartphone et allez <a href="http://www.rovio.com/en/our-work/games/view/1/angry-birds" title="Voir au site du jeu Angry Birds">péter des cochons</a> quelques minutes sur votre trône :</p>
 <pre><code class="language-bash"><span class="cm-builtin">sudo</span> port install apache2 mysql5-server</code></pre>
 <p>Si c’est votre première fois avec <strong>port</strong>, vous comptez au moins une bonne douzaine de minutes le temps que les premiers paquets se compilent.</p>
-<p>Une fois ceci fait, on va compiler et installer PHP 5 avec les options de compilation (+*) pour Apache, MySQL et PEAR (<a href="//pear.php.net/" title="Accéder au site de PEAR (PHP Extension and Application Repository)">PEAR quesako ?</a>)</p>
+<p>Une fois ceci fait, on va compiler et installer PHP 5 avec les options de compilation (+*) pour Apache, MySQL et PEAR (<a href="http://pear.php.net/" title="Accéder au site de PEAR (PHP Extension and Application Repository)">PEAR quesako ?</a>)</p>
 <pre><code class="language-bash"><span class="cm-builtin">sudo</span> port install php5 <span class="cm-operator">+</span>apache2 <span class="cm-operator">+</span>mysql5 <span class="cm-operator">+</span>pear</code></pre>
 <p>Là encore ça peut prendre du temps.</p>
 <p>Ensuite on passe aux paquets de base, manière de ne pas avoir à installer un paquet toutes les 2h à chaque « <em>Fatal Error : Class not found</em> » :)</p>
@@ -405,7 +405,7 @@ Donc je me suis simplement orienté vers <strong>MacPorts</strong> :</p>
 <span class="cm-comment"># database related packages</span>
 <span class="cm-builtin">sudo</span> port install php5-odbc php5-mysql php5-sqlite</code></pre>
 <p>A vous de voir ce qui vous intéresse dans la liste, mais la plupart sont des classiques (et encore il en manque peut-être)</p>
-<p>Pour la liste des paquets, vous avez un énorme choix et <a href="//www.macports.org/ports.php?by=name&amp;substr=php5" title="Accéder à la liste des paquets php5 sur le site de MacPorts">vous pouvez parcourir la liste sur le site</a></p>
+<p>Pour la liste des paquets, vous avez un énorme choix et <a href="http://www.macports.org/ports.php?by=name&amp;substr=php5" title="Accéder à la liste des paquets php5 sur le site de MacPorts">vous pouvez parcourir la liste sur le site</a></p>
 <p>Mémo à moi-même : pour mon boulot j’ai dû me rajouter ces 3 paquets (oui oui j’ai besoin du driver mssql…)</p>
 <pre><code class="language-bash"><span class="cm-builtin">sudo</span> port install php5-solr freetds php5-mssql</code></pre>
 <p>Ensuite il reste quelques petites modifs avant d’avoir un environnement fin prêt.</p>
@@ -421,7 +421,7 @@ Donc je me suis simplement orienté vers <strong>MacPorts</strong> :</p>
 <pre><code>Include conf/extra/mod_php.conf</code></pre>
 <p>Ayant déjà vécu un paquet de reinstall système, j’ai l’habitude de mettre mes configs dans mes dossiers perso indépendamment du système, voilà donc ce que j’ai ajouté en à la fin du httpd.conf.</p>
 <pre><code>Include /Users/YOUR-USERNAME/Dropbox/Servers/conf/development/*</code></pre>
-<p>Vous remarquerez que j’ai mis ça sur ma <a href="//db.tt/C5lc46w">Dropbox</a> (comme je suis rassuré d’avoir tous mes petits fichiers au chaud bien à l’abri d’un hardreset :) ). <a href="//db.tt/C5lc46w" title="Créer votre compte Dropbox gratuitement !">Je vous invite à faire pareille</a>, ça ne coûte rien et c’est tellement pratique d’avoir un mega dossier synchro entre ses différentes machines (smartphone inclus) !</p>
+<p>Vous remarquerez que j’ai mis ça sur ma <a href="https://www.dropbox.com/referrals/NTE0MTA4MTg1OQ">Dropbox</a> (comme je suis rassuré d’avoir tous mes petits fichiers au chaud bien à l’abri d’un hardreset :) ). <a href="https://www.dropbox.com/referrals/NTE0MTA4MTg1OQ" title="Créer votre compte Dropbox gratuitement !">Je vous invite à faire pareille</a>, ça ne coûte rien et c’est tellement pratique d’avoir un mega dossier synchro entre ses différentes machines (smartphone inclus) !</p>
 <p>Après avoir modifié la conf <strong>Apache</strong>, il faut bien sur penser à redémarrer le serveur pour que la nouvelle configuration soit prise en compte:</p>
 <pre><code class="language-bash"><span class="cm-builtin">sudo</span> /opt/local/apache2/bin/apachectl <span class="cm-attribute">-k</span> <span class="cm-builtin">restart</span></code></pre>
 <p>Ceci doit être fait dès que vous modifiez votre httpd.conf (ou apache2.conf selon), pensez-y quand vous ajouterez des virtual hosts !</p>
@@ -474,7 +474,7 @@ Mais si vous avez l’oeil, lors des compilations, des commentaires similaires �
 <pre><code class="language-bash"><span class="cm-builtin">sudo</span> port load apache2 mysql5-server</code></pre>
 <h2 id="les-petits-plus">Les petits plus</h2>
 <h3 id="installer-phpunit-sur-mac-os-x">Installer PHPUnit sur Mac OS X</h3>
-<p>Quand on est un développeur digne de ce nom, on se doit de faire des <a href="//fr.wikipedia.org/wiki/Test_unitaire">tests unitaires</a>. Voilà comment ajouter le nécessaire à votre configuration. Et c’est là que PEAR est nécessaire !</p>
+<p>Quand on est un développeur digne de ce nom, on se doit de faire des <a href="http://fr.wikipedia.org/wiki/Test_unitaire">tests unitaires</a>. Voilà comment ajouter le nécessaire à votre configuration. Et c’est là que PEAR est nécessaire !</p>
 <pre><code class="language-bash"><span class="cm-comment"># install phpunit</span>
 <span class="cm-builtin">sudo</span> pear channel-discover pear.phpunit.de
 <span class="cm-builtin">sudo</span> pear install <span class="cm-attribute">--alldeps</span> phpunit/PHPUnit</code></pre>
@@ -513,12 +513,12 @@ Il reste maintenant à bien configurer Apache, avec des virtual hosts mais ça f
               <description><![CDATA[
 
 <p>Bienvenue (ou pas) sur ma tentative de blog. Moi c’est Maxime, aka MoOx sur le net.</p>
-<p>Depuis le temps que j’en parlais à <a href="http://cheezburger.com/View/3246458112">un de mes lolcat</a>. Depuis le temps que je soulais ma chérie avec ça (après lui avoir ouvert son <a href="http://dame-bio.fr/">blog de recettes bio</a>). Voilà j’ouvre mon blog. Un vrai. Un avec WordPress quoi. La grande classe.</p>
+<p>Depuis le temps que j’en parlais à <a href="http://cheezburger.com/3246458112">un de mes lolcat</a>. Depuis le temps que je soulais ma chérie avec ça (après lui avoir ouvert son <a href="http://dame-bio.fr/">blog de recettes bio</a>). Voilà j’ouvre mon blog. Un vrai. Un avec WordPress quoi. La grande classe.</p>
 <p>Mais qu’es ce que ça va donner ? Un blog de geek. Encore un me direz-vous ? Bah ouais. Avec du code en plus ? Et ouais.</p>
 <p>Du coup, vu que je sais pas trop comment me lancer, voilà ce que je me propose de faire dans une premier temps: je vais expliquer comment j’ai pu monter ce blog. Ça qui fera office de mémos pour moi. Je passerais surement par quelques étapes du style : installer et configurer son serveur web (apache, php, mysql, vhosts toussa), installer et surtout bien configurer wordpress, créer un thème HTML5 proprement (et facilement), mettre du ARIA dedans, ensuite faire des zolies feuilles de styles CSS 3, mettre un peu de Javascript (jQuery) pour ajouter de la vie au documents…</p>
 <p>Y’aura aussi de quoi optimiser un site au petit oignons. Ça c’est mon petit kiff.</p>
 <p>Là je pense que j’ai déjà quelques billets. De quoi faire vu que je suis pas pressé et que je fais ça pour le fun.</p>
-<p>Puis quand ça sera fait, bah, je partagerais des choses que j’ai envie qui pourront être du style plugins jQuery, composants CSS ce genre de truc (vu que je suis développeur frontend… ou plutôt <a href="http://css4design.com/metiers-du-web-je-suis-enveloppeur-web-moi-monsieur">enveloppeur web</a>). J’parlerais peut être aussi de tricks liés aux OS (basé sur Unix très certainement), avec des lignes de commandes ce genre de trucs. J’parlerais aussi PHP avec Zend Framework ou même Symfony si chui un ouf. Puis si vraiment je suis en forme, j’utiliserais même Git sur GitHub pour partager du code wahoo ( <a href="https://github.com/MoOx" title="Accéder à mon profil Github">ça en fait c’est déjà fait</a>) !</p>
+<p>Puis quand ça sera fait, bah, je partagerais des choses que j’ai envie qui pourront être du style plugins jQuery, composants CSS ce genre de truc (vu que je suis développeur frontend… ou plutôt <a href="http://css.4design.tl/metiers-du-web-je-suis-enveloppeur-web-moi-monsieur">enveloppeur web</a>). J’parlerais peut être aussi de tricks liés aux OS (basé sur Unix très certainement), avec des lignes de commandes ce genre de trucs. J’parlerais aussi PHP avec Zend Framework ou même Symfony si chui un ouf. Puis si vraiment je suis en forme, j’utiliserais même Git sur GitHub pour partager du code wahoo ( <a href="https://github.com/MoOx" title="Accéder à mon profil Github">ça en fait c’est déjà fait</a>) !</p>
 <p>Puis pour changer un peu, j’essayerais de faire ça avec un peu d’humour et de conneries.</p>
 <p>Enfin bon on vera.</p>
 <p><em>Vous noterez que mon site n’est pas fini et loin d’être optimisé, dans un sens c’est un peu volontaire  et donc ça fera l’objet de posts ^^ !</em></p>

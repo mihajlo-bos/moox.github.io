@@ -20,7 +20,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <link href="feed.xml" rel="alternate" type="application/rss+xml">
 
-<link rel="stylesheet" href="/assets/css/moox.css?20140223081801">
+<link rel="stylesheet" href="/assets/css/moox.css?20140304084045">
 
 
 
@@ -68,7 +68,7 @@
     <article class="" lang="fr">
       <header>
         <h1><span class="text-less-visible">[fr]</span> Installer Apache PHP MySQL sous Mac OS X</h1>
-        <time class="text-less-visible" pubdate datetime="2014-02-23">31 March 2011</time>
+        <time class="text-less-visible" pubdate datetime="2014-03-04">31 March 2011</time>
       </header>
       <!-- 
       <div class="category">
@@ -100,10 +100,10 @@
 <p>Enfin bref. <em>Installer un serveur web local sur OS X</em> basé sur <strong>Apache/PHP/MySQL</strong> peut se faire de plusieurs manières :</p>
 <ul>
 <li>Activer le serveur web installé par défaut sur Mac (!),</li>
-<li>Installer la solution <a href="//www.apachefriends.org/">XAMPP</a> des amis d’apache,</li>
-<li>Installer la solution <a href="//www.mamp.info/">MAMP</a>,</li>
-<li>Installer la solution <a href="//www.zend.com/fr/products/server-ce/">Zend Server (Community Edition)</a>,</li>
-<li>Utiliser une solution à partir d’un gestionnaire de paquet tel que <a href="//www.macports.org/">MacPorts</a>, <a href="//www.finkproject.org/">Fink</a> ou <a href="//mxcl.github.com/homebrew/">Howbrew</a>,</li>
+<li>Installer la solution <a href="http://www.apachefriends.org/">XAMPP</a> des amis d’apache,</li>
+<li>Installer la solution <a href="http://www.mamp.info/">MAMP</a>,</li>
+<li>Installer la solution <a href="http://www.zend.com/fr/products/server/free-edition">Zend Server (Community Edition)</a>,</li>
+<li>Utiliser une solution à partir d’un gestionnaire de paquet tel que <a href="http://www.macports.org/">MacPorts</a>, <a href="http://www.finkproject.org/">Fink</a> ou <a href="http://mxcl.github.io/homebrew/">Howbrew</a>,</li>
 <li>Se démerder avec du code source et tout compiler soit même !</li>
 </ul>
 <h2 id="quelle-solution-choisir-pour-son-serveur-web-sous-mac-os-x-">Quelle solution choisir pour son serveur web sous Mac OS X ?</h2>
@@ -115,15 +115,15 @@
 Pour le choix du gestionnaire je me suis orienté vers MacPorts non pas parce qu’il est supérieur, mais parce que les 2 autres (Fink et Homebrew) n’ont pas assez de paquets pour PHP (tout simplement). MacPorts en recense une centaine sur la recherche « php ». Fink environ 50, et Homebrew même pas une dizaine. Howbrew aurait l’avantage d’être beaucoup plus rapide que les 2 autres solutions, mais à comme principe de base de ne pas dupliquer un paquet déjà présent sur le système OS X. Et comme Apache/PHP sont déjà présents (bien que la version ne soit pas à jour et les extensions présentes ne se bousculent pas), il faut utiliser d’autres sources…
 Donc je me suis simplement orienté vers <strong>MacPorts</strong> :</p>
 <blockquote lang="en">
-    The MacPorts Project is an open-source community initiative to design an easy-to-use system for compiling, installing, and upgrading either command-line, X11 or Aqua based open-source software on the <a href="//www.apple.com/macosx/">Mac OS X</a> operating system. To that end we provide the command-line driven MacPorts software package under a <a href="//opensource.org/licenses/bsd-license.php">BSD License</a>, and through it easy access to thousands of ports that <a href="//guide.macports.org/#introduction">greatly simplify</a> the task of <a href="//guide.macports.org/#using">compiling and installing</a> open-source software on your Mac.
+    The MacPorts Project is an open-source community initiative to design an easy-to-use system for compiling, installing, and upgrading either command-line, X11 or Aqua based open-source software on the <a href="//www.apple.com/osx/">Mac OS X</a> operating system. To that end we provide the command-line driven MacPorts software package under a <a href="//opensource.org/licenses/bsd-license.php">BSD License</a>, and through it easy access to thousands of ports that <a href="//guide.macports.org/#introduction">greatly simplify</a> the task of <a href="//guide.macports.org/#using">compiling and installing</a> open-source software on your Mac.
 </blockquote>
 
 <p>Pour installer <strong>MacPorts</strong> rien de difficile : on se rend sur le site officiel du projet, on télécharge l’image disque puis on installe ça facilement (pré-requis : il faut avoir XCode et X11 d’installer sur sa machine, tous les 2 sont dispos sur les DVD d’applications fournies avec votre Mac). Après ça dans notre Terminal on a accès la commande <strong>port</strong> qui permettra de faire des équivalents d’apt-get / aptitude sous Linux. La grosse différence, qui est ses avantages et inconvénients c’est que ça compile les sources sur votre machine. Avantage : précision pour les options sur les paquets. Inconvénient : temps d’installation (surtout pour les premiers paquets).</p>
 <h2 id="installation-des-paquets-apache-php-mysql-avec-macports">Installation des paquets Apache, PHP, MySQL avec MacPorts</h2>
-<p>Passons donc au nécessaire. Installer Apache et le server mysql. PHP est installé juste après avec quelques petites spécificités éventuelles. Pour ce faire, dans votre <em>Application &gt; Utilitaires &gt; Terminal.app</em>, exécutez les commandes suivantes et ne soyez pas pressé, allez vous faire un café, prenez votre smartphone et allez <a href="//www.rovio.com/index.php?page=angry-birds" title="Voir au site du jeu Angry Birds">péter des cochons</a> quelques minutes sur votre trône :</p>
+<p>Passons donc au nécessaire. Installer Apache et le server mysql. PHP est installé juste après avec quelques petites spécificités éventuelles. Pour ce faire, dans votre <em>Application &gt; Utilitaires &gt; Terminal.app</em>, exécutez les commandes suivantes et ne soyez pas pressé, allez vous faire un café, prenez votre smartphone et allez <a href="http://www.rovio.com/en/our-work/games/view/1/angry-birds" title="Voir au site du jeu Angry Birds">péter des cochons</a> quelques minutes sur votre trône :</p>
 <pre><code class="language-bash"><span class="cm-builtin">sudo</span> port install apache2 mysql5-server</code></pre>
 <p>Si c’est votre première fois avec <strong>port</strong>, vous comptez au moins une bonne douzaine de minutes le temps que les premiers paquets se compilent.</p>
-<p>Une fois ceci fait, on va compiler et installer PHP 5 avec les options de compilation (+*) pour Apache, MySQL et PEAR (<a href="//pear.php.net/" title="Accéder au site de PEAR (PHP Extension and Application Repository)">PEAR quesako ?</a>)</p>
+<p>Une fois ceci fait, on va compiler et installer PHP 5 avec les options de compilation (+*) pour Apache, MySQL et PEAR (<a href="http://pear.php.net/" title="Accéder au site de PEAR (PHP Extension and Application Repository)">PEAR quesako ?</a>)</p>
 <pre><code class="language-bash"><span class="cm-builtin">sudo</span> port install php5 <span class="cm-operator">+</span>apache2 <span class="cm-operator">+</span>mysql5 <span class="cm-operator">+</span>pear</code></pre>
 <p>Là encore ça peut prendre du temps.</p>
 <p>Ensuite on passe aux paquets de base, manière de ne pas avoir à installer un paquet toutes les 2h à chaque « <em>Fatal Error : Class not found</em> » :)</p>
@@ -133,7 +133,7 @@ Donc je me suis simplement orienté vers <strong>MacPorts</strong> :</p>
 <span class="cm-comment"># database related packages</span>
 <span class="cm-builtin">sudo</span> port install php5-odbc php5-mysql php5-sqlite</code></pre>
 <p>A vous de voir ce qui vous intéresse dans la liste, mais la plupart sont des classiques (et encore il en manque peut-être)</p>
-<p>Pour la liste des paquets, vous avez un énorme choix et <a href="//www.macports.org/ports.php?by=name&amp;substr=php5" title="Accéder à la liste des paquets php5 sur le site de MacPorts">vous pouvez parcourir la liste sur le site</a></p>
+<p>Pour la liste des paquets, vous avez un énorme choix et <a href="http://www.macports.org/ports.php?by=name&amp;substr=php5" title="Accéder à la liste des paquets php5 sur le site de MacPorts">vous pouvez parcourir la liste sur le site</a></p>
 <p>Mémo à moi-même : pour mon boulot j’ai dû me rajouter ces 3 paquets (oui oui j’ai besoin du driver mssql…)</p>
 <pre><code class="language-bash"><span class="cm-builtin">sudo</span> port install php5-solr freetds php5-mssql</code></pre>
 <p>Ensuite il reste quelques petites modifs avant d’avoir un environnement fin prêt.</p>
@@ -149,7 +149,7 @@ DirectoryIndex index.html index.php</code></pre>
 <pre><code>Include conf/extra/mod_php.conf</code></pre>
 <p>Ayant déjà vécu un paquet de reinstall système, j’ai l’habitude de mettre mes configs dans mes dossiers perso indépendamment du système, voilà donc ce que j’ai ajouté en à la fin du httpd.conf.</p>
 <pre><code>Include /Users/YOUR-USERNAME/Dropbox/Servers/conf/development/*</code></pre>
-<p>Vous remarquerez que j’ai mis ça sur ma <a href="//db.tt/C5lc46w">Dropbox</a> (comme je suis rassuré d’avoir tous mes petits fichiers au chaud bien à l’abri d’un hardreset :) ). <a href="//db.tt/C5lc46w" title="Créer votre compte Dropbox gratuitement !">Je vous invite à faire pareille</a>, ça ne coûte rien et c’est tellement pratique d’avoir un mega dossier synchro entre ses différentes machines (smartphone inclus) !</p>
+<p>Vous remarquerez que j’ai mis ça sur ma <a href="https://www.dropbox.com/referrals/NTE0MTA4MTg1OQ">Dropbox</a> (comme je suis rassuré d’avoir tous mes petits fichiers au chaud bien à l’abri d’un hardreset :) ). <a href="https://www.dropbox.com/referrals/NTE0MTA4MTg1OQ" title="Créer votre compte Dropbox gratuitement !">Je vous invite à faire pareille</a>, ça ne coûte rien et c’est tellement pratique d’avoir un mega dossier synchro entre ses différentes machines (smartphone inclus) !</p>
 <p>Après avoir modifié la conf <strong>Apache</strong>, il faut bien sur penser à redémarrer le serveur pour que la nouvelle configuration soit prise en compte:</p>
 <pre><code class="language-bash"><span class="cm-builtin">sudo</span> /opt/local/apache2/bin/apachectl <span class="cm-attribute">-k</span> <span class="cm-builtin">restart</span></code></pre>
 <p>Ceci doit être fait dès que vous modifiez votre httpd.conf (ou apache2.conf selon), pensez-y quand vous ajouterez des virtual hosts !</p>
@@ -202,7 +202,7 @@ Mais si vous avez l’oeil, lors des compilations, des commentaires similaires �
 <pre><code class="language-bash"><span class="cm-builtin">sudo</span> port load apache2 mysql5-server</code></pre>
 <h2 id="les-petits-plus">Les petits plus</h2>
 <h3 id="installer-phpunit-sur-mac-os-x">Installer PHPUnit sur Mac OS X</h3>
-<p>Quand on est un développeur digne de ce nom, on se doit de faire des <a href="//fr.wikipedia.org/wiki/Test_unitaire">tests unitaires</a>. Voilà comment ajouter le nécessaire à votre configuration. Et c’est là que PEAR est nécessaire !</p>
+<p>Quand on est un développeur digne de ce nom, on se doit de faire des <a href="http://fr.wikipedia.org/wiki/Test_unitaire">tests unitaires</a>. Voilà comment ajouter le nécessaire à votre configuration. Et c’est là que PEAR est nécessaire !</p>
 <pre><code class="language-bash"><span class="cm-comment"># install phpunit</span>
 <span class="cm-builtin">sudo</span> pear channel-discover pear.phpunit.de
 <span class="cm-builtin">sudo</span> pear install <span class="cm-attribute">--alldeps</span> phpunit/PHPUnit</code></pre>
@@ -282,7 +282,7 @@ Il reste maintenant à bien configurer Apache, avec des virtual hosts mais ça f
 </footer>
 
 
-<script src="/assets/js/vanilla.js?20140223081801"></script>
+<script src="/assets/js/vanilla.js?20140304084045"></script>
 
 
 	

@@ -20,7 +20,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <link href="feed.xml" rel="alternate" type="application/rss+xml">
 
-<link rel="stylesheet" href="/assets/css/moox.css?20140223081801">
+<link rel="stylesheet" href="/assets/css/moox.css?20140304084045">
 
 
 
@@ -68,7 +68,7 @@
     <article class="" lang="fr">
       <header>
         <h1><span class="text-less-visible">[fr]</span> Utiliser des variables et fonctions CSS, c&#x27;est possible !</h1>
-        <time class="text-less-visible" pubdate datetime="2014-02-23">21 April 2011</time>
+        <time class="text-less-visible" pubdate datetime="2014-03-04">21 April 2011</time>
       </header>
       <!-- 
       <div class="category">
@@ -96,14 +96,14 @@
 
 <p>Depuis la création d’Internet à aujourd’hui, les interfaces web ont bien évolués. Les langages et méthodes aussi. On est passé de sites statiques à des sites dynamiques, puis hautement dynamiques (la fameuse période 2.0…). Dans tous ça, CSS n’a, à mon sens, que très peu évolué d’un point de vue des possibilités du langage. Certains disent que la puissance des CSS réside dans la simplicité de celles-ci. Ce qui n’est pas forcément faux. Ca se discute.</p>
 <h2 id="css-n-a-ni-variables-ni-fonctions">CSS n’a ni variables, ni fonctions</h2>
-<p>Le langage des CSS n’a pas de côté dynamique. C’est lui avec lequel, à chaque fois qu’on intègre une maquette graphique, on doit se taper tout de zéro. Il a beau exister des <a href="http://cssresetr.com/">CSS « Reset »</a>, <a href="http://css4design.com/framework-css-semantique-maquette-dynamique-et-autres-notes">des frameworks CSS</a>, <a href="http://css4design.com/framework-css-mettez-vos-grilles-au-pas">tout un tas de grilles prête à l’emploi</a>, <a href="https://github.com/stubbornella/oocss">des composants de CSS réutilisables</a> avec l’approche <a href="http://fr.wikipedia.org/wiki/Objet_(informatique)">objet</a>, je n’ai jamais réellement était satisfait par ces méthodes, que ce soit à cause des contraintes qu’impose la syntaxe (devoir mettre des classes à tout va dans l’HTML ça peut vite devenir chiant dans un CMS), ou par d’éventuelles limitations qui obligent à « trop » modifier la source du document (pas assez de, ou trop de, ou juste ça me plait pas comment c’est fait).</p>
+<p>Le langage des CSS n’a pas de côté dynamique. C’est lui avec lequel, à chaque fois qu’on intègre une maquette graphique, on doit se taper tout de zéro. Il a beau exister des <a href="http://cssresetr.com/">CSS « Reset »</a>, <a href="http://css.4design.tl/framework-css-semantique-maquette-dynamique-et-autres-notes">des frameworks CSS</a>, <a href="http://css.4design.tl/framework-css-mettez-vos-grilles-au-pas">tout un tas de grilles prête à l’emploi</a>, <a href="https://github.com/stubbornella/oocss">des composants de CSS réutilisables</a> avec l’approche <a href="http://fr.wikipedia.org/wiki/Objet_(informatique)">objet</a>, je n’ai jamais réellement était satisfait par ces méthodes, que ce soit à cause des contraintes qu’impose la syntaxe (devoir mettre des classes à tout va dans l’HTML ça peut vite devenir chiant dans un CMS), ou par d’éventuelles limitations qui obligent à « trop » modifier la source du document (pas assez de, ou trop de, ou juste ça me plait pas comment c’est fait).</p>
 <h2 id="comment-faire-pour-avoir-des-variables-et-fonctions-dans-css-">Comment faire pour avoir des variables et fonctions dans CSS ?</h2>
 <p>Bridé par le language, j’ai cherché des solutions car j’ai pas forcément envie d’attendre CSS 4 qui sera surement pas officiel avant 20 ans (sachant que CSS 3 n’est encore qu’un brouillon et que CSS 2.1 est à peine ouvert aux commentaires…)
 Du coup, voilà ce que j’ai recencé à ce jour:</p>
 <ul>
 <li><a href="http://sass-lang.com/">Sass</a> dispo sur <a href="https://github.com/nex3/sass" title="Sass sur Github">GitHub</a></li>
-<li><a href="http://lesscss.org/">LESS</a> dispo sur <a href="https://github.com/cloudhead/less.js" title="LESS sur Github">GitHub</a></li>
-<li><a href="http://learnboost.github.com/stylus/">Stylus</a> dispo sur <a href="https://github.com/LearnBoost/stylus" title="Stylus sur Github">GitHub</a></li>
+<li><a href="http://lesscss.org/">LESS</a> dispo sur <a href="https://github.com/less/less.js" title="LESS sur Github">GitHub</a></li>
+<li><a href="http://learnboost.github.io/stylus/">Stylus</a> dispo sur <a href="https://github.com/LearnBoost/stylus" title="Stylus sur Github">GitHub</a></li>
 </ul>
 <h2 id="pr-sentation-des-surcouches-existantes-aux-langages-des-css">Présentation des surcouches existantes aux langages des CSS</h2>
 <p>Voici des textes traduits des sites officiels, qui résument très bien les outils. Puis s’ils résument pas bien, c’est pas de ma faute, c’est comme ça mais ça montre qui est clair et qui ne l’est pas :)</p>
@@ -111,7 +111,7 @@ Du coup, voilà ce que j’ai recencé à ce jour:</p>
 <blockquote>
 <p>Sass rend les CSS à nouveau amusant. Sass est une extension de CSS 3, en ajoutant règles imbriqués, variables, <a href="http://fr.wikipedia.org/wiki/Mixin">mixins</a>, l’héritage de sélection, et encore plus. Cela ce transforme en CSS standard, bien formaté, à l’aide d’outils en ligne de commande ou avec des plugins de frameworks web [-ou un petit outil avec GUI que je vous présenterais ;) ].</p>
 <p>Sass à 2 syntaxes. La principale (depuis Sass 3) est connu sous le nom de “SCSS » (pour “Sassy CSS”), et est un surensemble de la syntaxe CSS 3. Cela veut dire que du tout feuille de styles CSS 3 est aussi du SCSS valide. Les fichiers SCSS utilise l’extension .scss.</p>
-<p>La seconde sxyntaxe, plus ancienne, est connu comme la syntaxe indenté (juste “Sass”). Inspiré par le laconisme de <a href="http://haml-lang.com/">Haml</a>, elle est destinée aux personnes qui préfèrent la concision. Au lieu de crochets et des points-virgules, elle utilise l’indentation des lignes pour spécifier les blocs. Bien que elle ne soit plus la syntaxe primaire, cette syntaxe continuera d’être pris en charge. Les fichiers de cette ancienne syntaxe utilisent l’extension .sass.</p>
+<p>La seconde sxyntaxe, plus ancienne, est connu comme la syntaxe indenté (juste “Sass”). Inspiré par le laconisme de <a href="http://haml.info/">Haml</a>, elle est destinée aux personnes qui préfèrent la concision. Au lieu de crochets et des points-virgules, elle utilise l’indentation des lignes pour spécifier les blocs. Bien que elle ne soit plus la syntaxe primaire, cette syntaxe continuera d’être pris en charge. Les fichiers de cette ancienne syntaxe utilisent l’extension .sass.</p>
 </blockquote>
 <h4 id="petit-exemple-de-code-sass-avec-la-syntaxe-scss">Petit exemple de code Sass avec la syntaxe Scss</h4>
 <pre><code class="language-scss"><span class="cm-comment">// note : ceci est bien un commentaire valide avec sass. Au revoir les /**/</span>
@@ -184,7 +184,7 @@ La syntaxe ne fait pas tout, il faut aussi regarder la méthode de génération 
 <li>LESS possède pour le développement, un fichier javascript, et pour la production, un compilateur (ligne de commande),</li>
 <li>Stylus utilise une méthode de compilation (je n’ai pas été foutu de trouver un exemple clair rapidement)</li>
 </ul>
-<p>Sass est basé sur Ruby, LESS et Stylus sur Javascript (Node.js). Tous les 3 peuvents être utilisé depuis d’autres langages pour peu que vous utilisiez des interface comme <a href="https://github.com/kriswallsmith/assetic">Assetic en PHP</a>. Globalement rien de bien différent, si ce n’est que Sass possède des solutions pour gérer la génération depuis votre GUI (<a href="https://github.com/hlb/SassSalon">SassSalon</a>, <a href="http://compass.handlino.com/">Compass.app</a> ), utile pour des designers qui n’aiment souvent pas les lignes de commandes…</p>
+<p>Sass est basé sur Ruby, LESS et Stylus sur Javascript (Node.js). Tous les 3 peuvents être utilisé depuis d’autres langages pour peu que vous utilisiez des interface comme <a href="https://github.com/kriswallsmith/assetic">Assetic en PHP</a>. Globalement rien de bien différent, si ce n’est que Sass possède des solutions pour gérer la génération depuis votre GUI (<a href="https://github.com/hlb/SassSalon">SassSalon</a>, <a href="http://compass.kkbox.com/">Compass.app</a> ), utile pour des designers qui n’aiment souvent pas les lignes de commandes…</p>
 <p>Ensuite il faut rentrer un peu dans le détail des fonctionnalités offertes, mais je vous laisse prendre le temps de faire ça par vous même en consultant les docs.</p>
 <p>Sass a une base qui a du vécu et 2 syntaxes. LESS, lui, me parait un peu light, et je n’aime pas trop le coup du compilateur js. Quant à Stylus je n’ai pas trop pris le temps de faire des tests, mais il est encore assez jeune, quoique prometteur.</p>
 <p>Pour l’instant j’utilise Sass (avec la syntaxe scss), ma principale raison est le framework <a href="http://beta.compass-style.org/">Compass</a> qu’on peut rajouter en surcouche. Sass et Compass représente une grosse communauté et à eux 2 un bon gros tas de fonctions. Je rentrerais un peu plus dans le détail avec Sass/Compass dans un prochain post.</p>
@@ -244,7 +244,7 @@ La syntaxe ne fait pas tout, il faut aussi regarder la méthode de génération 
 </footer>
 
 
-<script src="/assets/js/vanilla.js?20140223081801"></script>
+<script src="/assets/js/vanilla.js?20140304084045"></script>
 
 
 	
