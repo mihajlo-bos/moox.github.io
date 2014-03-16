@@ -5,8 +5,9 @@
 
 	https://github.com/MoOx/moox.io.git
 -->
-<html lang="en" class="no-js no-touch grid-title--quotes">
+<html lang="en" class="no-js no-touch  mx--code">
 <head>
+<!--[if lt IE 9]><script>"header footer section aside nav article figure figcaption hgroup time main".replace(/\w+/g,function(a){document.createElement(a)})</script><![endif]-->
 <script>(function(docEl) {
 	docEl.className = docEl.className.replace(/\bno-js\b/, 'js');
 	if ('ontouchstart' in docEl) { docEl.className = docEl.className.replace(/\bno-touch\b/, 'touch'); }
@@ -20,101 +21,114 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <link href="feed.xml" rel="alternate" type="application/rss+xml">
 
-<link rel="stylesheet" href="/assets/css/moox.css?20140305145002">
+<link rel="stylesheet" href="/assets/css/moox.css?20140316080015">
 
 
 
 
+<!--[if lt IE 9]><script src="http://rawgithub.com/scottjehl/Respond/master/dest/respond.min.js"></script><![endif]-->
 </head>
 <body>
-
-
-
-<a class="source-code" href="https://github.com/MoOx/moox.io.git">source code</a>
+<!--[if lt IE 9]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
 
 <nav class="Navbar Navbar--top js-Togglable">
-  <div class="mx-Body">
-    <a class="SiteLogo Navbar-section Navbar-section--left AttrTip AttrTip--bottom title" href="/" data-tip="Home">
-      <span class="SiteLogo-title">MoOx</span>
-      <br />
-      <span class="SiteLogo-description">Front-end web developer</span>
-    </a>
-    <button class="Navbar-toggler js-Togglable-toggler">☰</button>
+  <div class="mx-Body grid">
+    <div class="grid__cell">
+      <a class="SiteLogo Navbar-section Navbar-section--left AttrTip AttrTip--bottom title" href="/" data-tip="Home">
+        <span class="SiteLogo-title">MoOx</span>
+        <br />
+        <span class="SiteLogo-description">Front-end web developer</span>
+      </a>
+      <button class="Navbar-toggler js-Togglable-toggler">☰</button>
 
-    <ul class="Navbar-section Navbar-section--right js-Togglable-item js-Togglable-item--hide">
-      <li class="Navbar-separator--after"><a class=""  href="profile/"><i class="icon icon_user"></i> Profile</a>
-      
-      </li><li class="Navbar-separator--after"><a class="active"  href="/code/"><i class="icon icon_gears"></i> Code</a>
-      </li><li class="Navbar-separator--after"><a class=""  href="slides/"><i class="icon icon_speech-bubble"></i> Talks</a>
-      </li><li class="Navbar-separator--after"><a class=""  href="blog/"><i class="icon icon_pencil"></i> Blog</a>
-      </li><li class="Navbar-separator--after"><a class=""  href="about/"><i class="icon icon_help"></i> About</a>
-      </li><li class="Navbar-separator--after"><a class=""  href="contact/"><i class="icon icon_speech-bubbles"></i> Contact</a></li>
-    </ul>
+      <ul class="Navbar-section Navbar-section--right js-Togglable-item js-Togglable-item--hide">
+        <li><a class=""  href="profile/"><i class="icon icon_user"></i> Profile</a>
+        
+        </li><li><a class="active"  href="/code/"><i class="icon icon_gears"></i> Code</a>
+        </li><li><a class=""  href="blog/"><i class="icon icon_pencil"></i> Posts</a>
+        </li><li><a class=""  href="slides/"><i class="icon icon_speech-bubble"></i> Talks</a>
+        </li><li><a class=""  href="about/"><i class="icon icon_help"></i> About</a>
+        </li><li><a class=""  href="contact/"><i class="icon icon_speech-bubbles"></i> Contact</a></li>
+      </ul>
+    </div>
   </div>
 </nav>
 
 
 
 <header class="mx-Header">
-  <div class="mx-Body grid grid--center">
-    <hgroup class="grid__cell unit-8-12--medium title--light">
-      <h1>MoOx likes to code,</h1>
-      <h2> &amp; is an Open Source addict.</h2>
-    </hgroup>
+  <div class="mx-Header-body mx-Body grid grid--center">
+    <h1 class="mx-Header-body-title mx-Text--light mx-Text--thin mx-Title--light grid__cell unit-8-12--medium">
+        <div class="mx-Header-left mx-Header-left--quote">MoOx likes to code,</div>
+        <div class="mx-Header-right mx-Header-right--quote">&amp; is an Open Source addict.</div>
+    </h1>
   </div>
 </header>
 
-<div class="mx-Content mx-Body grid">
-  <div class="grid__cell">
-    <h2>Code</h2>
-    
-    <p>
-      Most of the code I do is Open Source, whenever it's possible. That's just
-      because I'm an Open Source addict. I love to share and not just code.
-    </p>
-    
-    <p>
-      Here you will find some stats and materials about the code I produce and
-      share with the world:
-    </p>
-    
-    <ul>
-      <li><a href="https://github.com/MoOx">My GitHub profile, you will see my Open Source
-      repositories &amp; my activity,</a></li>
-      <li><a href="http://osrc.dfm.io/MoOx">My Open Source report card, which include &amp; lot of stats</a>,</li>
-      <li><a href="https://sourcegraph.com/MoOx">My SourceGraph, to see relation between Open Source project and people I interact with</a>.</li>
-    </ul>
-    
-    <p>Note: <em>It's clear that GitHub is not my resume.</em><!--, so take a look to it: <a href="/resume/">see my resume</a>--></p>
-    
-    <h3>Open Source projects</h3>
-    
-    Here is a tiny list of the Open Source projects I'm working on: 
-    <ul class="Home-projects">
-      <li><a href="//putaindecode.fr">Putain de code!</a>, a french community to share some good coding practices,
-      <li><a href="https://github.com/css-recipes">CSS Recipes</a>, CSS &amp; Sass reusable components, mixins &amp; functions (<a href="//compass-recipes.moox.fr">Compass Recipes</a> ported as standalone components),
-      <li><a href="https://github.com/happyplan/happyplan">HappyPlan</a>, a static website generator based on Grunt,
-      <li><a href="//dame-bio.fr/">D'Âme Bio</a>, the website of my wife where she shares organic &amp; gluten free food recipes.
-    </ul>
+
+<div class="mx-Content">
+  <div class="mx-Body grid">
+    <div class="grid__cell">
+      <h2>Code</h2>
+
+      <p>
+        Most of the code I do is Open Source, whenever it's possible. That's just
+        because I'm an Open Source addict. I love to share and not just code.
+      </p>
+
+      <p>
+        Here you will find some stats and materials about the code I produce and
+        share with the world:
+      </p>
+
+      <ul>
+        <li><a href="https://github.com/MoOx">My GitHub profile, you will see my Open Source
+        repositories &amp; my activity,</a></li>
+        <li><a href="http://osrc.dfm.io/MoOx">My Open Source report card, which include &amp; lot of stats</a>,</li>
+        <li><a href="https://sourcegraph.com/MoOx">My SourceGraph, to see relation between Open Source project and people I interact with</a>.</li>
+      </ul>
+
+      <p>Note: <em>It's clear that GitHub is not my resume.</em><!--, so take a look to it: <a href="/resume/">see my resume</a>--></p>
+
+      <h3>Open Source projects</h3>
+
+      Here is a tiny list of the Open Source projects I'm working on:
+      <ul class="mx-List">
+  <li><a href="//putaindecode.fr/">Putain de Code!</a>, a french community about code quality,
+  <li><a href="//dame-bio.fr/">D'Âme Bio</a>, website of my wife where she shares (mainly) food recipes.
+  <li><a href="https://github.com/MoOx/dotfiles">my dotfiles</a>, automation of setup and prefs for my machines,
+  <li><a href="https://github.com/happyplan/happyplan">HappyPlan</a>, a static website generator based on Grunt,
+  <li><a href="https://github.com/css-recipes">CSS Recipes</a>, CSS reusable components (<a href="//compass-recipes.moox.fr">Compass Recipes</a> ported as standalone components),
+</ul>
+
+    </div>
   </div>
 </div>
 
-<footer class="mx-Footer mx-Footer--tmp">
-  <h3>This is a temporary footer</h3>
-<div class="icons--big">
-	<a href="https://twitter.com/MoOx"><i class="icon icon_twitter"></i><span class="text">Twitter</span></a>
-	<a href="https://github.com/MoOx"><i class="icon icon_github"></i><span class="text">Github</span></a>
-	<a href="http://www.linkedin.com/in/maxthirouin"><i class="icon icon_linkedin"></i><span class="text">LinkedIn</span></a>
-	<a href="skype:maxime.thirouin?add"><i class="icon icon_skype"></i><span class="text">Skype</span></a>
-
-	<a href="contact/"><i class="icon icon_email"></i><span class="text">Contact</span></a>
-
-</div>
-
+<footer class="mx-Footer mx-Text--light">
+  <div class="mx-Footer-body mx-Body grid">
+    <div class="mx-TextCenter mx-TextLeft--m grid__cell unit-1-2--medium">
+      <a class="mx-IconLink AttrTip AttrTip--top" data-tip="Twitter" href="https://twitter.com/MoOx"><i class="icon icon_twitter"></i></a>
+      <a class="mx-IconLink AttrTip AttrTip--top" data-tip="Github" href="https://github.com/MoOx"><i class="icon icon_github"></i></a>
+      <a class="mx-IconLink AttrTip AttrTip--top" data-tip="LinkedIn" href="http://www.linkedin.com/in/maxthirouin"><i class="icon icon_linkedin"></i></a>
+      <a class="mx-IconLink AttrTip AttrTip--top" data-tip="Skype" href="skype:maxime.thirouin?add"><i class="icon icon_skype"></i></a>
+      <a class="mx-IconLink AttrTip AttrTip--top" data-tip="Get in touch" href="contact/"><i class="icon icon_speech-bubbles"></i></a>
+      <a class="mx-IconLink AttrTip AttrTip--top" data-tip="+33 6 78 13 54 39" href="tel:+33678135439"><i class="icon icon_device-smartphone"></i></a>
+    </div>
+    <div class="mx-TextCenter mx-TextRight--m grid__cell unit-1-2--medium">
+      <small>
+        Built &amp; designed with my hands.
+        Source code available on <a href="https://github.com/MoOx/moox.io">Github</a>.
+      </small>
+    </div>
+  </div>
 </footer>
 
 
-<script src="/assets/js/vanilla.js?20140305145002"></script>
+<script src="/assets/js/vanilla.js?20140316080015"></script>
+
 
 
 	
@@ -125,6 +139,7 @@
 		s.parentNode.insertBefore(g,s)}(document,'script'));
 	</script>
 	
+
 
 
 
