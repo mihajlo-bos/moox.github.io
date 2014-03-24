@@ -1054,6 +1054,9 @@ h1, .h1, .h1, h2, .h2, .h2, h3, .h3, .h3, h4, .h4, .h4, h5, .h5, .h5, h6, .h6, .
 .js-Pjax-child {
   width: 100%; }
 
+.js-Pjax-child--willChange {
+  opacity: 0.6; }
+
 .js-Pjax-remove {
   position: absolute;
   left: 50%; }
