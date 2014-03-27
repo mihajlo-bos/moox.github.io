@@ -1054,16 +1054,10 @@ h1, .h1, .h1, h2, .h2, .h2, h3, .h3, .h3, h4, .h4, .h4, h5, .h5, .h5, h6, .h6, .
 .js-Pjax-child {
   width: 100%;
   -webkit-transition: 0.1s;
-  transition: 0.1s;
-  -webkit-transform-origin: 50% 0;
-  -ms-transform-origin: 50% 0;
-  transform-origin: 50% 0; }
+  transition: 0.1s; }
 
 .js-Pjax-child--willChange {
-  opacity: 0.6;
-  -webkit-transform: scale(0.9);
-  -ms-transform: scale(0.9);
-  transform: scale(0.9); }
+  opacity: 0.5; }
 
 .js-Pjax-remove {
   position: absolute;
@@ -1591,24 +1585,24 @@ h1, .h1, .h1, h2, .h2, .h2, h3, .h3, .h3, h4, .h4, .h4, h5, .h5, .h5, h6, .h6, .
 @-webkit-keyframes Animation-slideInLeft {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(-100rem) scale(0.8);
-    transform: translateX(-100rem) scale(0.8); }
+    -webkit-transform: translateX(-100rem);
+    transform: translateX(-100rem); }
 
   100% {
-    -webkit-transform: translateX(0) scale(0.9);
-    transform: translateX(0) scale(0.9); } }
+    -webkit-transform: translateX(0);
+    transform: translateX(0); } }
 
 @keyframes Animation-slideInLeft {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(-100rem) scale(0.8);
-    -ms-transform: translateX(-100rem) scale(0.8);
-    transform: translateX(-100rem) scale(0.8); }
+    -webkit-transform: translateX(-100rem);
+    -ms-transform: translateX(-100rem);
+    transform: translateX(-100rem); }
 
   100% {
-    -webkit-transform: translateX(0) scale(0.9);
-    -ms-transform: translateX(0) scale(0.9);
-    transform: translateX(0) scale(0.9); } }
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0); } }
 
 .Animate--fadeIn {
   -webkit-animation-name: Animation-fadeIn;
