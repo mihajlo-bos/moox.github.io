@@ -8,10 +8,11 @@
 <html lang="en" class="no-js no-touch grid-title--quotes mx--slides">
 <head>
 <!--[if lt IE 9]><script>"header footer section aside nav article figure figcaption hgroup time main".replace(/\w+/g,function(a){document.createElement(a)})</script><![endif]-->
-<script>(function(docEl) {
-	docEl.className = docEl.className.replace(/\bno-js\b/, 'js');
-	if ('ontouchstart' in docEl) { docEl.className = docEl.className.replace(/\bno-touch\b/, 'touch'); }
-})(document.documentElement);</script>
+<script>
+  var html = document.documentElement
+  html.className = html.className.replace(/\bno-js\b/, "js")
+  if ("ontouchstart" in html) { html.className = html.className.replace(/\bno-touch\b/, "touch") }
+</script>
 
 <meta charset="utf-8">
 <title>MoOx slides</title>
@@ -21,7 +22,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <link href="feed.xml" rel="alternate" type="application/rss+xml">
 
-<link rel="stylesheet" href="/assets/css/moox.css?20140324093405">
+<link rel="stylesheet" href="/assets/css/moox.css?20140327082704">
 
 
 
@@ -107,6 +108,16 @@
         
         
           <li class="Posts-item">
+            <time datetime="Thu, 27 March 2014 01:00:00 +0100" class="time">27 Mar 2014</time>
+            <a href="slides/2014/introduction-gulp/" class="title">
+              <span class="mx-Text--lessVisible">[fr]</span>
+              Introduction à Gulp
+            </a>
+          </li>
+        
+        
+        
+          <li class="Posts-item">
             <time datetime="Thu, 30 January 2014 01:00:00 +0100" class="time">30 Jan 2014</time>
             <a href="slides/2014/browserify-all-the-things/" class="title">
               <span class="mx-Text--lessVisible">[fr]</span>
@@ -146,6 +157,8 @@
         
         
         
+        
+        
           <li class="Posts-item">
             <time datetime="Wed, 19 September 2012 02:00:00 +0200" class="time">19 Sep 2012</time>
             <a href="slides/2012/discovering-pre-processor/" class="title">
@@ -153,8 +166,6 @@
               Découvrons Un pré-processeur CSS
             </a>
           </li>
-        
-        
         
         
         
@@ -200,7 +211,7 @@
 </footer>
 
 
-<script src="/assets/js/vanilla.js?20140324093405"></script>
+<script src="/assets/js/vanilla.js?20140327082704"></script>
 
 
 
