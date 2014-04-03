@@ -24,7 +24,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <link href="feed.xml" rel="alternate" type="application/rss+xml">
 
-<link rel="stylesheet" href="/assets/css/moox.css?20140403073708">
+<link rel="stylesheet" href="/assets/css/moox.css?20140403080606">
 
 
 
@@ -106,7 +106,7 @@
   </div>
 </footer>
 
-<script src="/assets/js/vanilla.js?20140403073708"></script>
+<script src="/assets/js/vanilla.js?20140403080606"></script>
 
 
 	
@@ -122,6 +122,29 @@
 
 <div class="js-Disqus">
 
+  <script>
+  var disqus_shortname = 'moox'
+  
+  
+  
+  , disqus_script = 'count.js'
+  
+  if (!window.DISQUS) {
+    (function(d,s) {
+    s = d.createElement('script');s.async=1;s.src = '//' + disqus_shortname + '.disqus.com/'+disqus_script;
+    (d.getElementsByTagName('head')[0]).appendChild(s);
+    })(document)
+  }
+  else {
+    DISQUS.reset({
+      reload: true,
+      config: function () {
+        this.page.identifier = disqus_identifier
+        this.page.url = disqus_url
+      }
+    })
+  }
+  </script>
 
 </div>
 </body>
