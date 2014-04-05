@@ -1039,23 +1039,53 @@ h1, .h1, .h1, h2, .h2, .h2, h3, .h3, .h3, h4, .h4, .h4, h5, .h5, .h5, h6, .h6, .
   display: block;
   max-width: 100%; }
 
-.mx-Separator {
+.mx-Separator, .mx-SeparatorBefore::before, .mx-SeparatorAfter::after {
+  content: "";
   z-index: 1;
   display: block;
   clear: both;
   border: 0;
-  height: 4px;
-  height: 0.4rem;
+  height: 5px;
   margin: 0;
   background: #46c340;
   background: -webkit-gradient(linear, left top, right top, from(#46c340), to(#5295F0));
   background: -webkit-linear-gradient(left, #46c340, #5295F0);
   background: linear-gradient(to right, #46c340, #5295F0); }
 
-.mx-Separator--thin {
+.mx-Separator--animated, .mx-SeparatorBefore--animated::before, .mx-SeparatorAfter--animated::after {
+  background: #5295F0;
+  background: -webkit-gradient(linear, left top, right top, from(#46c340), color-stop(#5295F0), to(#46c340));
+  background: -webkit-linear-gradient(left, #46c340, #5295F0, #46c340);
+  background: linear-gradient(to right, #46c340, #5295F0, #46c340);
+  -webkit-background-size: 200% 100%;
+  background-size: 200% 100%;
+  -webkit-animation: 2s linear 0s normal none infinite mx-Separator--animation;
+  animation: 2s linear 0s normal none infinite mx-Separator--animation; }
+
+@-webkit-keyframes mx-Separator--animation {
+  0% {
+    background-position: 100% 100%; }
+
+  50% {
+    background-position: 0% 100%; }
+
+  100% {
+    background-position: -100% 100%; } }
+
+@keyframes mx-Separator--animation {
+  0% {
+    background-position: 100% 100%; }
+
+  50% {
+    background-position: 0% 100%; }
+
+  100% {
+    background-position: -100% 100%; } }
+
+.mx-Separator--thin, .mx-SeparatorBefore--thin::before, .mx-SeparatorAfter--thin::after {
   height: 1px; }
 
-.mx-Separator--alt {
+.mx-Separator--alt, .mx-SeparatorBefore--alt::before, .mx-SeparatorAfter--alt::after {
   background: #5295F0;
   background: -webkit-gradient(linear, left top, right top, from(#5295F0), to(#46c340));
   background: -webkit-linear-gradient(left, #5295F0, #46c340);
@@ -1198,16 +1228,18 @@ h1, .h1, .h1, h2, .h2, .h2, h3, .h3, .h3, h4, .h4, .h4, h5, .h5, .h5, h6, .h6, .
     -webkit-box-shadow: 0 0 2rem rgba(0, 0, 0, 0.4);
     box-shadow: 0 0 2rem rgba(0, 0, 0, 0.4); } }
 
-@media (max-width: 50.0625em) {
+@media (max-width: 50em) {
   .js .js-Togglable-toggler {
     display: inline-block; }
-  .js .js-Togglable-item--hide {
+  .js .js-Togglable-item--hidden {
     display: none; } }
-@media (min-width: 50em) {
+@media (min-width: 50.0625em) {
   .js .js-Togglable-toggler {
     display: none; }
-  .js .js-Togglable-item--hide {
-    display: inline-block; } }
+  .js .js-Togglable-item--hidden {
+    display: inline-block; }
+  .js .js-Togglable-item--hidden.mx-SeparatorBefore::before {
+    display: none; } }
 
 .SiteLogo {
   line-height: 1;
