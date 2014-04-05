@@ -1680,10 +1680,10 @@ a.AvailabilityStatus:hover .AvailabilityStatus-txt {
     .mx-BackgroundImg {
       background-image: url("/assets/img/forest-ruins--landscape.jpg"); } }
 
-.mx-BackgroundImg.js-is-Loading {
+.js .mx-BackgroundImg.js-is-Loading {
   opacity: 0; }
 
-.mx-BackgroundImg.js-is-Loaded {
+.js .mx-BackgroundImg.js-is-Loaded {
   opacity: 1; }
 
 
