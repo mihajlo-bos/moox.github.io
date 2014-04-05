@@ -1039,70 +1039,6 @@ h1, .h1, .h1, h2, .h2, .h2, h3, .h3, .h3, h4, .h4, .h4, h5, .h5, .h5, h6, .h6, .
   display: block;
   max-width: 100%; }
 
-.mx-Separator, .mx-SeparatorBefore::before, .mx-SeparatorAfter::after {
-  content: "";
-  z-index: 1;
-  display: block;
-  clear: both;
-  border: 0;
-  height: 5px;
-  margin: 0;
-  background: #46c340;
-  background: -webkit-gradient(linear, left top, right top, from(#46c340), to(#5295F0));
-  background: -webkit-linear-gradient(left, #46c340, #5295F0);
-  background: linear-gradient(to right, #46c340, #5295F0); }
-
-.mx-Separator--animated, .mx-SeparatorBefore--animated::before, .mx-SeparatorAfter--animated::after {
-  background: #5295F0;
-  background: -webkit-gradient(linear, left top, right top, from(#46c340), color-stop(#5295F0), to(#46c340));
-  background: -webkit-linear-gradient(left, #46c340, #5295F0, #46c340);
-  background: linear-gradient(to right, #46c340, #5295F0, #46c340);
-  -webkit-background-size: 200% 100%;
-  background-size: 200% 100%;
-  -webkit-animation: 2s linear 0s normal none infinite mx-Separator--animation;
-  animation: 2s linear 0s normal none infinite mx-Separator--animation; }
-
-@-webkit-keyframes mx-Separator--animation {
-  0% {
-    background-position: 100% 100%; }
-
-  50% {
-    background-position: 0% 100%; }
-
-  100% {
-    background-position: -100% 100%; } }
-
-@keyframes mx-Separator--animation {
-  0% {
-    background-position: 100% 100%; }
-
-  50% {
-    background-position: 0% 100%; }
-
-  100% {
-    background-position: -100% 100%; } }
-
-.mx-Separator--thin, .mx-SeparatorBefore--thin::before, .mx-SeparatorAfter--thin::after {
-  height: 1px; }
-
-.mx-Separator--alt, .mx-SeparatorBefore--alt::before, .mx-SeparatorAfter--alt::after {
-  background: #5295F0;
-  background: -webkit-gradient(linear, left top, right top, from(#5295F0), to(#46c340));
-  background: -webkit-linear-gradient(left, #5295F0, #46c340);
-  background: linear-gradient(to right, #5295F0, #46c340); }
-
-.js-Pjax-child {
-  width: 100%;
-  -webkit-transition: 0.1s;
-  transition: 0.1s; }
-
-.js-Pjax-child--willChange {
-  opacity: 0.5; }
-
-.js-Pjax-remove {
-  position: absolute;
-  left: 50%; }
-
 .Box {
   background: rgba(0, 0, 0, 0.65);
   border-radius: 4px;
@@ -1721,20 +1657,34 @@ h1, .h1, .h1, h2, .h2, .h2, h3, .h3, .h3, h4, .h4, .h4, h5, .h5, .h5, h6, .h6, .
 a.AvailabilityStatus:hover .AvailabilityStatus-txt {
   border-bottom-color: rgba(255, 255, 255, 0.4); }
 
-.Posts {
-  margin: 0;
-  padding: 0;
-  list-style: inside; }
-  @media (min-width: 50em) {
-    .Posts {
-      padding-left: 2em; } }
+.mx-BackgroundImg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover; }
+  @media (max-width: 50rem) {
+    .mx-BackgroundImg {
+      background-image: url("/assets/img/forest-ruins--portrait.jpg"); } }
+  @media (min-width: 50.0625rem) {
+    .mx-BackgroundImg {
+      background-image: url("/assets/img/forest-ruins--landscape.jpg"); } }
 
+.mx-BackgroundImg.js-is-Loading {
+  opacity: 0; }
 
-
-.AboutAuthor-avatar {
-  float: left;
-  margin-right: 1em;
-  border-radius: 4px; }
+.mx-BackgroundImg.js-is-Loaded {
+  opacity: 1; }
 
 
 .mx--home .Browser {
@@ -1803,6 +1753,85 @@ a.AvailabilityStatus:hover .AvailabilityStatus-txt {
 
 .mx-Testimonial blockquote cite {
   font-style: normal; }
+
+.js-Pjax-child {
+  width: 100%;
+  -webkit-transition: 0.1s;
+  transition: 0.1s; }
+
+.js-Pjax-child--willChange {
+  opacity: 0.5; }
+
+.js-Pjax-remove {
+  position: absolute;
+  left: 50%; }
+
+.Posts {
+  margin: 0;
+  padding: 0;
+  list-style: inside; }
+  @media (min-width: 50em) {
+    .Posts {
+      padding-left: 2em; } }
+
+
+
+.AboutAuthor-avatar {
+  float: left;
+  margin-right: 1em;
+  border-radius: 4px; }
+
+.mx-Separator, .mx-SeparatorBefore::before, .mx-SeparatorAfter::after {
+  content: "";
+  z-index: 1;
+  display: block;
+  clear: both;
+  border: 0;
+  height: 5px;
+  margin: 0;
+  background: #46c340;
+  background: -webkit-gradient(linear, left top, right top, from(#46c340), to(#5295F0));
+  background: -webkit-linear-gradient(left, #46c340, #5295F0);
+  background: linear-gradient(to right, #46c340, #5295F0); }
+
+.mx-Separator--animated, .mx-SeparatorBefore--animated::before, .mx-SeparatorAfter--animated::after {
+  background: #5295F0;
+  background: -webkit-gradient(linear, left top, right top, from(#46c340), color-stop(#5295F0), to(#46c340));
+  background: -webkit-linear-gradient(left, #46c340, #5295F0, #46c340);
+  background: linear-gradient(to right, #46c340, #5295F0, #46c340);
+  -webkit-background-size: 200% 100%;
+  background-size: 200% 100%;
+  -webkit-animation: 2s linear 0s normal none infinite mx-Separator--animation;
+  animation: 2s linear 0s normal none infinite mx-Separator--animation; }
+
+@-webkit-keyframes mx-Separator--animation {
+  0% {
+    background-position: 100% 100%; }
+
+  50% {
+    background-position: 0% 100%; }
+
+  100% {
+    background-position: -100% 100%; } }
+
+@keyframes mx-Separator--animation {
+  0% {
+    background-position: 100% 100%; }
+
+  50% {
+    background-position: 0% 100%; }
+
+  100% {
+    background-position: -100% 100%; } }
+
+.mx-Separator--thin, .mx-SeparatorBefore--thin::before, .mx-SeparatorAfter--thin::after {
+  height: 1px; }
+
+.mx-Separator--alt, .mx-SeparatorBefore--alt::before, .mx-SeparatorAfter--alt::after {
+  background: #5295F0;
+  background: -webkit-gradient(linear, left top, right top, from(#5295F0), to(#46c340));
+  background: -webkit-linear-gradient(left, #5295F0, #46c340);
+  background: linear-gradient(to right, #5295F0, #46c340); }
 
 code {
   -moz-tab-size: 2;
@@ -1909,30 +1938,3 @@ html.error-404 {
     html.error-404 {
       background-image: url("/assets/img/lost-woods--landscape.jpg"); } }
 
-
-.mx-BackgroundImg {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 0;
-  opacity: 0;
-  -webkit-transition: opacity 1s;
-  transition: opacity 1s;
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0); }
-
-.loaded .mx-BackgroundImg {
-  opacity: 1;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  -webkit-background-size: cover;
-  background-size: cover; }
-  @media (max-width: 50rem) {
-    .loaded .mx-BackgroundImg {
-      background-image: url("/assets/img/forest-ruins--portrait.jpg"); } }
-  @media (min-width: 50.0625rem) {
-    .loaded .mx-BackgroundImg {
-      background-image: url("/assets/img/forest-ruins--landscape.jpg"); } }
