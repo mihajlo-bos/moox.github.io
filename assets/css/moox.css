@@ -1205,6 +1205,7 @@ h1, .h1, .h1, h2, .h2, .h2, h3, .h3, .h3, h4, .h4, .h4, h5, .h5, .h5, h6, .h6, .
   padding: 4rem 1em 0;
   -webkit-transition: height 0.5s;
   transition: height 0.5s;
+  background: #51794d;
   background: #51794d linear-gradient(#51794d, #4c662e); }
 
 .mx-Header + .mx-Separator {
