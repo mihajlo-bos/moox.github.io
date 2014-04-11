@@ -93,7 +93,7 @@ a:active, a:hover {
  * Address variable `h1` font-size and margin within `section` and `article`
  * contexts in Firefox 4+, Safari 5, and Chrome.
  */
-h1, .h1 {
+h1 {
   font-size: 2em;
   margin: 0.67em 0; }
 
@@ -815,11 +815,41 @@ table {
   -ms-transform: translateX(8px);
   transform: translateX(8px); }
 
+/**
+ * Vertical rhythm
+ *
+ * http://type-scale.com/?size=20&scale=1.200&text=A%20Visual%20Type%20Scale&webfont=&font-family=sans-serif&font-weight=400&font-family-headers=&font-weight-headers=inherit&background-color=white&font-color=#333
+ */
+body {
+  font-size: 0.833em;
+  line-height: 1.5625rem; }
+
+p {
+  margin: 1.5625rem 0; }
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+  margin: 0 0 1.5625rem;
+  line-height: 3.125rem; }
+
+h1, .h1 {
+  font-size: 2.074rem; }
+
+h2, .h2 {
+  font-size: 1.728rem; }
+
+h3, .h3 {
+  font-size: 1.44rem; }
+
+h4, .h4 {
+  font-size: 1.2rem; }
+
+small, .small {
+  font-size: 0.833em; }
+
+/* global styles */
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 0.9rem;
-  line-height: 1.8;
   color: #4c5245;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
   font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
@@ -837,21 +867,14 @@ a {
   a:active {
     color: #5296f0; }
 
-
-
-
-
-
-
-.h1, .h2, .h3, .h4, .h5, .h6 {
-  font-weight: bold; }
-
-h1, .h1, .h1, h2, .h2, .h2, h3, .h3, .h3, h4, .h4, .h4, h5, .h5, .h5, h6, .h6, .h6 {
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   font-weight: 400; }
 
+/* custom helpers */
 .mx-Heading--small {
   font-size: 1rem;
-  color: #c1c1c1; }
+  color: #c1c1c1;
+  line-height: inherit; }
 
 .mx-TextLeft {
   text-align: left; }
@@ -885,7 +908,7 @@ h1, .h1, .h1, h2, .h2, .h2, h3, .h3, .h3, h4, .h4, .h4, h5, .h5, .h5, h6, .h6, .
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8); }
 
 .mx-Text--lessVisible {
-  font-size: 0.8em;
+  font-size: 0.833em;
   opacity: 0.8; }
 
 .mx-Title--light {
@@ -1017,18 +1040,18 @@ h1, .h1, .h1, h2, .h2, .h2, h3, .h3, .h3, h4, .h4, .h4, h5, .h5, .h5, h6, .h6, .
 
 .mx-Content {
   position: relative;
-  padding: 1rem 1rem 2rem;
+  padding: 1.5625rem 1rem 3.125rem;
   -webkit-transition: 0.5s;
   transition: 0.5s; }
   @media (min-width: 50em) {
     .mx-Content {
-      padding: 2rem 1em 4rem; } }
+      padding: 3.125rem 1em 3.125rem; } }
 
 .mx--contact .mx-Content {
-  padding: 1rem 1rem 0; }
+  padding: 1.5625rem 1rem 0; }
   @media (min-width: 50em) {
     .mx--contact .mx-Content {
-      padding: 2rem 1em 0; } }
+      padding: 3.125rem 1em 0; } }
 
 .mx-Body {
   position: relative;
@@ -1076,7 +1099,7 @@ h1, .h1, .h1, h2, .h2, .h2, h3, .h3, .h3, h4, .h4, .h4, h5, .h5, .h5, h6, .h6, .
   position: relative;
   z-index: 1;
   width: 100%;
-  line-height: 4rem; }
+  line-height: 3.8rem; }
   .Navbar:before, .Navbar:after {
     content: "";
     display: block; }
@@ -1119,8 +1142,7 @@ h1, .h1, .h1, h2, .h2, .h2, h3, .h3, .h3, h4, .h4, .h4, h5, .h5, .h5, h6, .h6, .
     display: none; } }
 
 .Navbar {
-  position: absolute;
-  font-size: 1rem; }
+  position: absolute; }
   .Navbar [href="#not-ready"] {
     color: rgba(255, 255, 255, 0.3) !important; }
 
@@ -1129,9 +1151,6 @@ h1, .h1, .h1, h2, .h2, .h2, h3, .h3, .h3, h4, .h4, .h4, h5, .h5, .h5, h6, .h6, .
 
 .Navbar--top {
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6); }
-  @media (min-width: 65em) {
-    .Navbar--top {
-      font-size: 1.1em; } }
 
 .Navbar-section a {
   font-size: 0.9rem;
@@ -1196,13 +1215,14 @@ h1, .h1, .h1, h2, .h2, .h2, h3, .h3, .h3, h4, .h4, .h4, h5, .h5, .h5, h6, .h6, .
 .SiteLogo-description {
   font-weight: 400;
   margin-top: -1.2em; }
-  @media (max-width: 20rem) {
+  @media (max-width: 16rem) {
     .SiteLogo-description {
       visibility: hidden; } }
 
 .mx-Header {
   position: relative;
-  padding: 4rem 1em 0;
+  padding: 3.8rem 1em 0;
+  height: 23.125rem;
   -webkit-transition: height 0.5s;
   transition: height 0.5s;
   background: #51794d;
@@ -1271,6 +1291,7 @@ h1, .h1, .h1, h2, .h2, .h2, h3, .h3, .h3, h4, .h4, .h4, h5, .h5, .h5, h6, .h6, .
 @media (min-width: 50em) {
   .mx-Header-picture {
     position: absolute;
+    z-index: 2;
     left: 50%;
     bottom: -80px;
     bottom: -5rem;
@@ -1286,6 +1307,8 @@ h1, .h1, .h1, h2, .h2, .h2, h3, .h3, .h3, h4, .h4, .h4, h5, .h5, .h5, h6, .h6, .
       bottom: 0;
       left: 0;
       right: 0; } }
+  .mx-Footer:before {
+    position: absolute; }
 
 .error-404 .mx-Footer {
   background: transparent;
@@ -1300,19 +1323,21 @@ h1, .h1, .h1, h2, .h2, .h2, h3, .h3, .h3, h4, .h4, .h4, h5, .h5, .h5, h6, .h6, .
   position: relative; }
 
 .mx-Footer a {
-  color: #fff; }
+  color: #fff;
+  padding-bottom: 0;
+  vertical-align: bottom; }
 
 .mx-Footer a:hover, .mx-Footer a:focus {
   color: #46c340; }
 
 .mx-Footer-body {
-  padding: 2rem 0;
-  line-height: 2em;
+  padding: 1.5625rem 0;
+  line-height: 3.125rem;
   overflow-x: hidden; }
 
 .mx-IconLink {
   color: #fff;
-  font-size: 2em;
+  font-size: 2rem;
   border: 0; }
 
 .mx-IconLink + .mx-IconLink {
@@ -1628,19 +1653,17 @@ h1, .h1, .h1, h2, .h2, .h2, h3, .h3, .h3, h4, .h4, .h4, h5, .h5, .h5, h6, .h6, .
   position: relative;
   text-align: center;
   font-size: 1.1rem;
-  line-height: 1.8;
   display: table;
   width: 100%;
   max-width: 35rem;
-  margin: 1em auto;
-  padding: 1rem;
+  margin: 1.5625rem auto;
+  padding: 0.78125rem;
   color: #fff !important;
   background: #46c340;
   background: -webkit-gradient(linear, left top, left bottom, from(#46c340), to(#42a837));
   background: -webkit-linear-gradient(top, #46c340, #42a837);
   background: linear-gradient(to bottom, #46c340, #42a837);
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
-  border: 0.2rem solid #46c340;
   border-radius: 2px; }
 
 .AvailabilityStatus-icon, .AvailabilityStatus-txt {
@@ -1703,10 +1726,10 @@ a.AvailabilityStatus:hover .AvailabilityStatus-txt {
   font-size: 0.8em; }
 
 .mx-FeaturedLogos {
-  margin: 2rem -1rem 0;
-  padding: 1em 0 2rem;
-  border: solid #e6e6e6;
-  border-width: 1px 0;
+  margin: 1.5625rem -1rem 0;
+  padding: 1.5625rem 0 3.125rem;
+  -webkit-box-shadow: inset 0 0 0 1px #e6e6e6;
+  box-shadow: inset 0 0 0 1px #e6e6e6;
   background: #f9f9f9;
   overflow-x: hidden; }
 
@@ -1714,25 +1737,26 @@ a.AvailabilityStatus:hover .AvailabilityStatus-txt {
   vertical-align: middle; }
 
 .mx-FeaturedLogo {
-  font-size: 2rem;
-  text-align: center; }
-
-.mx-FeaturedLogo {
+  text-align: center;
   display: inline-block;
+  padding: 0;
   width: 100%;
   color: #c1c1c1;
-  border: 0; }
+  border: 0;
+  line-height: 4.6875rem; }
 
 .mx-FeaturedLogo img {
   display: inline-block;
+  vertical-align: middle;
   max-width: 80%;
+  max-height: 4.6875rem;
   opacity: 0.1; }
 
 .mx-FeaturedLogo:hover img {
   opacity: 0.25; }
 
 .mx-Testimonials {
-  padding: 2rem 0 3rem; }
+  padding: 1.5625rem 0; }
 
 
 .mx-Testimonial blockquote {
@@ -1784,6 +1808,7 @@ a.AvailabilityStatus:hover .AvailabilityStatus-txt {
 
 .mx-Separator, .mx-SeparatorBefore::before, .mx-SeparatorAfter::after {
   content: "";
+  position: relative;
   z-index: 1;
   display: block;
   clear: both;
@@ -1928,7 +1953,7 @@ body {
   overflow-x: hidden; }
   @media (min-width: 50em) {
     body {
-      padding-bottom: 6rem; } }
+      padding-bottom: 6.25rem; } }
 
 html.error-404 {
   background: url("/assets/img/lost-woods--portrait.jpg") no-repeat center 45%;
