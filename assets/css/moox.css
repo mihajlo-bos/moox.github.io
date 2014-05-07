@@ -890,9 +890,6 @@ body {
 
 a {
   text-decoration: none;
-  padding-bottom: 2px;
-  border-bottom: 1px solid #e8e8e8;
-  border-bottom: 1px solid rgba(200, 200, 200, 0.4);
   color: #3b88ee; }
   a:hover {
     color: #146de2; }
@@ -1080,6 +1077,16 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 
 .mx--contact .mx-Content {
   padding: 1.5625rem 1rem 0; }
+
+.mx-Content p a, .mx-Content ol a, .mx-Content ul a {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(rgba(200, 200, 200, 0.4)));
+  background-image: -webkit-linear-gradient(top, #fff 50%, rgba(200, 200, 200, 0.4) 50%);
+  background-image: linear-gradient(to bottom, #fff 50%, rgba(200, 200, 200, 0.4) 50%);
+  background-repeat: repeat-x;
+  -webkit-background-size: 2px 2px;
+  background-size: 2px 2px;
+  background-position: 0px 100%;
+  text-shadow: 1px 1px 0 #fff, -1px 1px 0 #fff, 0 1px 0 #fff; }
 
 .mx-Body {
   position: relative;
