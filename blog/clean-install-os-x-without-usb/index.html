@@ -16,7 +16,7 @@
 </script>
 
 <meta charset="utf-8">
-<title>How to save all your passwords without any software</title>
+<title>How to clean install OS X without a USB drive</title>
 
 <base href="http://moox.io/">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,7 +63,7 @@
     <div class="mx-Header-body mx-Body">
 
     <h1 class="mx-Header-body-title mx-Title--light grid__cell" lang="en">
-      <span class="mx-Text--lessVisible">[en]</span> How to save all your passwords without any software
+      <span class="mx-Text--lessVisible">[en]</span> How to clean install OS X without a USB drive
     </h1>
   
     </div>
@@ -76,7 +76,7 @@
       <div class="grid__cell">
         <article class="mx-Post" lang="en">
           <header class="mx-SeparatorAfter mx-SeparatorAfter--thin mx-SeparatorAfter--alt">
-            <time class="mx-Text--lessVisible" pubdate datetime="2014-10-23">06 December 2013</time>
+            <time class="mx-Text--lessVisible" pubdate datetime="2014-10-23">23 October 2014</time>
           </header>
           <!-- 
           <div class="category">
@@ -92,39 +92,38 @@
           <div class="content">
             
 
-<h2 id="what-wrong-with-password-softwares-">What wrong with password softwares ?</h2>
-<p>You have one password to unlock them all. That&#39;s it.</p>
-<h2 id="so-what-your-solution-a-piece-of-paper-">So what your solution ? A piece of paper ?</h2>
-<p>Naaa. My mind. I know what your are thinking right now: &quot;This guy is just stupid, it&#39;s impossible&quot;.
-Or maybe &quot;I don&#39;t have the required brain for that&quot;. Oh yes you do.</p>
-<p>First of all read this <a href="https://xkcd.com/936/">nice strip</a>.
-You are welcome. The main idea is in that strip.</p>
-<p>Now here is what I&#39;ve done: I&#39;ve choosed 4 &quot;base&quot; passwords.</p>
-<ul>
-<li>One long &amp; strong with multiples special chars, numbers &amp; letter;</li>
-<li>One shorter between 8 &amp; 20 chars, just letter &amp; numbers (for shitty website you know);</li>
-<li>Two really short &amp; shitty passwords (one with 6 letters, one with 4 numbers).</li>
-</ul>
-<h3 id="how-to-build-my-password-so-i-can-remember-them-easily-">How to build my password so I can remember them easily ?</h3>
-<h4 id="the-secure-one">The secure one</h4>
-<p>Super easy. Just choose a phrase, &amp; write it converting some phonetical things to number, &amp; adding some special chars.</p>
-<p>Just-Wr0te-Something-1337,mofo!</p>
-<p>I thing this is a fucking great example of a simple password. Don&#39;t make it over size too.</p>
-<h4 id="less-secure-password">Less secure password</h4>
-<p>For this one, you can just use a word you like a lot, &amp; apply the rules below.</p>
-<p>0h_Fuck_Y34h</p>
-<h4 id="shitty-password-with-letters">Shitty password with letters</h4>
-<p>Choose an custom word you invent when you where young with your friends like a funny barbarism.</p>
-<h4 id="shitty-password-with-numbers">Shitty password with numbers</h4>
-<p>Simple. Choose a date. But not a birthday or something public. Just choose a date that mean a lot to you, for example the date where you bought your first Apple II.</p>
-<p>Now you have 4 &quot;base&quot; passwords. Eventually you can choose less base. It&#39;s your call.</p>
-<h4 id="give-me-the-salt-please">Give me the salt please</h4>
-<p>To add some salt to your 2 first bases (the last ones are for really shitty website you are forced to use…), just choose a simple algorithm to create your own. For example, I just add a combination of 2 special chars &amp; some stuff depending on the website name (eg: 2nd &amp; last letter).</p>
-<h3 id="note">Note</h3>
-<p>I change this 4 bases every year or every 6 months, &amp; try to update asap on all website I go.</p>
-<h2 id="alternative-solution">Alternative solution</h2>
-<p>Use <code>Forgot your password</code> link all the time.
-Some people do that.</p>
+<p>This way to make a fresh install <strong>works for 10.9 (Mavericks) and 10.10 (Yosemite)</strong>.</p>
+<h2 id="create-a-bootable-partition-5-min-">Create a bootable partition (5 min)</h2>
+<p>Open <em>Disk Utility.app</em> and create a new 16GB partition (Mac OS Extended) at the end of your volume with the name <code>Untitled</code>.</p>
+<h2 id="copy-os-x-install-on-it-10-min-">Copy OS X install on it (10 min)</h2>
+<p>In <em>Terminal.app</em> (in <code>/Applications/Utilities</code>), run the commands below (one by one, adjusting path of the 2 first variables if needed).</p>
+<p><em>Tip: For the first line below, you can copy the app in the Finder and paste in Terminal, this will paste the path if you are getting the Install app somewhere else.</em></p>
+<pre><code class="language-bash"><span class="cm-def">$ OSX_INSTALL_APP</span><span class="cm-operator">=</span>/Application/Install OS X Yosemite.app
+<span class="cm-def">$ OSX_INSTALL_DISK</span><span class="cm-operator">=</span>/Volumes/Untitled
+<span class="cm-def">$ sudo</span> <span class="cm-def">$OSX_INSTALL_APP</span>/Contents/Resources/createinstallmedia <span class="cm-attribute">--volume</span> <span class="cm-def">$OSX_INSTALL_DISK</span> <span class="cm-attribute">--applicationpath</span> <span class="cm-def">$OSX_INSTALL_APP</span> <span class="cm-attribute">--nointeraction</span></code></pre>
+<p>The last step should take easily take less than 10 minutes (time to copy and adjust entire install app).</p>
+<p>You should get something like:</p>
+<pre><code>Erasing Disk: 0%... 10%... 20%... 100%...
+Copying installer files to disk...
+Copy complete.
+Making disk bootable...
+Copying boot files...
+Copy complete.
+Done.</code></pre>
+<h2 id="boot-from-the-partition">Boot from the partition</h2>
+<p>Just hold option key <kbd>⌥</kbd> (alt) when you start your computer, then choose the appropriate partition.</p>
+<h2 id="clean-install">Clean Install</h2>
+<h3 id="clean-you-previous-install-1-min-">Clean you previous install (1 min)</h3>
+<p>When you are on the OS X Utilities, choose <em>Disk Utility</em>.
+From here this time, just erase your partition where you will install OS X (probably <code>Machintosh HD</code>).</p>
+<p><strong>I know you know but just in case: you will lose everything on this partition and won&#39;t be able to get the content again. Make a backup before.</strong>
+<em>This should take a minute.</em></p>
+<h3 id="install-">Install !</h3>
+<p>When it&#39;s done, just continue the install on the cleaned partition &amp; you should be good.</p>
+<p><em>Not: this method should be able to install a recovery partition if possible.</em></p>
+<h2 id="bonus-setup-your-entire-machine-in-a-flash">Bonus: setup your entire machine in a flash</h2>
+<p>Now time to get Xcode &amp; run it one time (so it install dev &amp; cli tools).
+Then you can setup your machine using your <a href="https://github.com/MoOx/dotfiles">dotfiles</a> if you have some ;)</p>
 
 
           </div>
@@ -207,8 +206,8 @@ Some people do that.</p>
   
   
     
-    , disqus_identifier = 'http://moox.io/blog/how-save-all-your-passwords-without-software/'
-    , disqus_url = 'http://moox.io/blog/how-save-all-your-passwords-without-software/'
+    , disqus_identifier = 'http://moox.io/blog/clean-install-os-x-without-usb/'
+    , disqus_url = 'http://moox.io/blog/clean-install-os-x-without-usb/'
     , disqus_script = 'embed.js'
   
   if (!window.DISQUS) {
