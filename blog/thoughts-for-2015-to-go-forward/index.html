@@ -16,7 +16,7 @@
 </script>
 
 <meta charset="utf-8">
-<title>How to clean install OS X without a USB drive</title>
+<title>Thoughts for 2015 to go forward</title>
 
 <base href="http://moox.io/">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,7 +63,7 @@
     <div class="mx-Header-body mx-Body">
 
     <h1 class="mx-Header-body-title mx-Title--light grid__cell" lang="en">
-      <span class="mx-Text--lessVisible">[en]</span> How to clean install OS X without a USB drive
+      <span class="mx-Text--lessVisible">[en]</span> Thoughts for 2015 to go forward
     </h1>
   
     </div>
@@ -76,13 +76,11 @@
       <div class="grid__cell">
         <article class="mx-Post" lang="en">
           <header class="mx-SeparatorAfter mx-SeparatorAfter--thin mx-SeparatorAfter--alt">
-            <time class="mx-Text--lessVisible" pubdate datetime="2015-01-05">23 October 2014</time>
+            <time class="mx-Text--lessVisible" pubdate datetime="2015-01-05">05 January 2015</time>
           </header>
           <!-- 
           <div class="category">
             <ul>
-              
-                <li><a href="#"></a></li>
               
                 <li><a href="#"></a></li>
               
@@ -92,38 +90,35 @@
           <div class="content">
             
 
-<p>This way to make a fresh install <strong>works for 10.9 (Mavericks) and 10.10 (Yosemite)</strong>.</p>
-<h2 id="create-a-bootable-partition-5-min-">Create a bootable partition (5 min)</h2>
-<p>Open <em>Disk Utility.app</em> and create a new 16GB partition (Mac OS Extended) at the end of your volume with the name <code>Untitled</code>.</p>
-<h2 id="copy-os-x-install-on-it-10-min-">Copy OS X install on it (10 min)</h2>
-<p>In <em>Terminal.app</em> (in <code>/Applications/Utilities</code>), run the commands below (one by one, adjusting path of the 2 first variables if needed).</p>
-<p><em>Tip: For the first line below, you can copy the app in the Finder and paste in Terminal, this will paste the path if you are getting the Install app somewhere else.</em></p>
-<pre><code class="language-bash"><span class="cm-def">$ OSX_INSTALL_APP</span><span class="cm-operator">=</span><span class="cm-string">&quot;/Applications/Install OS X Yosemite.app&quot;</span>
-<span class="cm-def">$ OSX_INSTALL_DISK</span><span class="cm-operator">=</span><span class="cm-string">&quot;/Volumes/Untitled&quot;</span>
-<span class="cm-def">$ sudo</span> <span class="cm-def">$OSX_INSTALL_APP</span>/Contents/Resources/createinstallmedia <span class="cm-attribute">--volume</span> <span class="cm-def">$OSX_INSTALL_DISK</span> <span class="cm-attribute">--applicationpath</span> <span class="cm-def">$OSX_INSTALL_APP</span> <span class="cm-attribute">--nointeraction</span></code></pre>
-<p>The last step should take easily take less than 10 minutes (time to copy and adjust entire install app).</p>
-<p>You should get something like:</p>
-<pre><code>Erasing Disk: 0%... 10%... 20%... 100%...
-Copying installer files to disk...
-Copy complete.
-Making disk bootable...
-Copying boot files...
-Copy complete.
-Done.</code></pre>
-<h2 id="boot-from-the-partition">Boot from the partition</h2>
-<p>Just hold option key <kbd>⌥</kbd> (alt) when you start your computer, then choose the appropriate partition.</p>
-<h2 id="clean-install">Clean Install</h2>
-<h3 id="clean-you-previous-install-1-min-">Clean you previous install (1 min)</h3>
-<p>When you are on the OS X Utilities, choose <em>Disk Utility</em>.
-From here this time, just erase your partition where you will install OS X (probably <code>Machintosh HD</code>).</p>
-<p><strong>I know you know but just in case: you will lose everything on this partition and won&#39;t be able to get the content again. Make a backup before.</strong>
-<em>This should take a minute.</em></p>
-<h3 id="install-">Install !</h3>
-<p>When it&#39;s done, just continue the install on the cleaned partition &amp; you should be good.</p>
-<p><em>Not: this method should be able to install a recovery partition if possible.</em></p>
-<h2 id="bonus-setup-your-entire-machine-in-a-flash">Bonus: setup your entire machine in a flash</h2>
-<p>Now time to get Xcode &amp; run it one time (so it install dev &amp; cli tools).
-Then you can setup your machine using your <a href="https://github.com/MoOx/dotfiles">dotfiles</a> if you have some ;)</p>
+<p>Here is a quick post to start 2015.
+I will just drop some thoughts (as reminder for myself).</p>
+<p><strong>I want to be the change I want to see in others.</strong></p>
+<h2 id="what-i-want-to-do-in-a-near-future">What I want to do in a near future</h2>
+<ul>
+<li>share more by writting more (more shorter posts - like this one)</li>
+<li>read more books (my new iPad will probably help)</li>
+<li>start to draw again (not just technical drawing for DIY stuff)</li>
+<li>build durable stuff (I wate cheap stuff that break in a minute)</li>
+<li>respect more and more every life forms (avoid all toxic/chemical shits that are everywhere, hello nanoparticles)</li>
+<li>adapt myself to the environnement I live in (not the opposite)</li>
+<li>give life?</li>
+</ul>
+<h2 id="what-i-will-stop-to-do-or-apply-a-higher-rate-limit-">What I will stop to do (or apply a higher rate limit)</h2>
+<ul>
+<li>having my main activity on a chair (by building my own rebel desktop)</li>
+<li>feeding trolls (by focusing on going forward - others will probably look, wait and see what happens)</li>
+<li>having conflicts (by keeping peace inside of me)</li>
+<li>discuss form more than substance (no time to lose)</li>
+<li>use google (because it really scares me)</li>
+</ul>
+<h2 id="development-related-stuff-i-want-to-do">Development related stuff I want to do</h2>
+<ul>
+<li>continue to focus on open source projects (shared &quot;intelligence&quot;)</li>
+<li>use the terminal more (to end up like a hacker)</li>
+<li>automate more and more (all painful tasks)</li>
+<li>work on UI automated tests (because too few people do that)</li>
+</ul>
+<p>I probably forget some interesting stuff. But it&#39;s better to write this short post than forgetting everything (by not doing this post).</p>
 
 
           </div>
@@ -206,8 +201,8 @@ Then you can setup your machine using your <a href="https://github.com/MoOx/dotf
   
   
     
-    , disqus_identifier = 'http://moox.io/blog/clean-install-os-x-without-usb/'
-    , disqus_url = 'http://moox.io/blog/clean-install-os-x-without-usb/'
+    , disqus_identifier = 'http://moox.io/blog/thoughts-for-2015-to-go-forward/'
+    , disqus_url = 'http://moox.io/blog/thoughts-for-2015-to-go-forward/'
     , disqus_script = 'embed.js'
   
   if (!window.DISQUS) {
